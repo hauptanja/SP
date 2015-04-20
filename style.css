@@ -119,3 +119,67 @@
 #tabelaR{
     margin: 0 auto;
 }
+
+#log
+{
+	width:300px;
+	height:420px;
+	border-radius:10px;
+	font-family:raleway;
+	border:2px solid #2F4F4F;
+	padding:7px 40px 25px;
+	margin-top:50px;
+	margin-left:80px;
+	background: white;
+}
+
+#div1
+{
+	position: absolute;
+	top: 48%;
+	color:#2F4F4F;
+	font-size: 120%; 
+}
+
+#div2
+{
+	position: absolute;
+	top: 61%;
+	color:#2F4F4F;
+	font-size: 120%; 
+}
+
+#ime 
+{
+	width:98%;
+	padding:8px;
+	margin-top:33px;
+	border:1px solid #2F4F4F;
+	padding-left:5px;
+	font-size:16px;
+}
+
+#passwd
+{
+	width:98%;
+	padding:8px;
+	margin-top:43px;
+	border:1px solid #2F4F4F;
+	padding-left:5px;
+	font-size:16px;
+}
+
+#gumb
+{
+	width:30%;
+	background-color: #F5F5F5;
+	color: #2F4F4F;
+	border:2px solid #2F4F4F;
+	padding:10px;
+	font-size:20px;
+	border-radius:5px;
+	margin-top:25px;
+	margin-bottom:10px;
+	margin-left:95px;
+	margin-right:70px;
+}
