@@ -45,9 +45,7 @@
 .tab-content {
     padding:15px;
     border-radius:3px;
-    width: 500px;
-    margin-left: auto;
-    margin-right: auto;
+
     font-size: 20;
 }
 
@@ -56,6 +54,9 @@
     font-size: 70;
 }
 .tab {
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
     display:none;
 }
 
@@ -182,4 +183,58 @@
 	margin-bottom:10px;
 	margin-left:95px;
 	margin-right:70px;
+}
+
+#content
+{
+    position: absolute;
+    width: 75%;
+    right: 0;
+    top: 0;
+    border-style: solid;
+    border-radius: 5px;
+}
+
+#banner
+{
+    width: auto;
+    height: auto;
+    border-style: solid;
+    border-radius: 5px;
+}
+
+#navigation
+{
+    position: absolute;
+    width: 20%;
+    height: auto;
+    left: 0;
+    top: 0;
+    border-style: solid;
+    border-radius: 5px;
+    padding-left: 2%;
+    padding-bottom: 2%;
+    padding-top: 2%;
+}
+
+#nav
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#container
+{
+    margin-top: 2%;
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+#user_profile
+{
+    width:900px;
+    margin-left: auto;
+    margin-right: auto;
 }
