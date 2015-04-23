@@ -1,11 +1,11 @@
 body {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
 }
 
 /*----- Tabs -----*/
 .tabs {
     width:100%;
-    //display:inline-block;
+    display:inline-block;
 }
 
 /*----- Tab Links -----*/
@@ -28,11 +28,10 @@ body {
     border-radius:0px 0px 5px 5px;
     background: #3B2440;
     font-size:16px;
-    font-weight:600;
     color:white;
     transition:all linear 0.15s;
     text-decoration: none;
-    font-family: sans-serif;
+    font-family: 'Arimo', sans-serif;
 }
 
 .tab-links a:hover {
@@ -135,6 +134,7 @@ body {
     border-radius: 5px;
     width: 150;
     font-size: 20px;
+    font-family: 'Arimo', sans-serif;
 }
 
 #tabelaR{
