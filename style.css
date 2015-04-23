@@ -197,10 +197,11 @@
 
 #banner
 {
-    width: auto;
-    height: auto;
+    width: 990px;
+    height: 180px;
     border-style: solid;
     border-radius: 5px;
+    background-image: url("ferimdb_banner.png");
 }
 
 #navigation
@@ -234,7 +235,7 @@
 
 #user_profile
 {
-    width:900px;
+    width:990px;
     margin-left: auto;
     margin-right: auto;
 }
