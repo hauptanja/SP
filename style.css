@@ -126,7 +126,7 @@ body {
     font-style: italic;
 }
 
-#registriraj, #gumb{
+#registriraj, #loginButton{
     margin-top: 15px;
     height: 40px;
     border-style: solid;
@@ -142,7 +142,7 @@ body {
     font-size: 18px;
 }
 
-#log
+#userLogin
 {
 	padding-left: 50px;
     padding-right: 50px;
@@ -155,11 +155,11 @@ body {
     padding: 5px;
 }
 
-#ime, #passwd
+#userName, #userPass
 {
 	width:70%;
 	padding: 8px;
-    margin: 10px;
+    	margin: 10px;
 }
 
 #content
