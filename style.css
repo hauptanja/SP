@@ -1,7 +1,11 @@
+body {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
 /*----- Tabs -----*/
 .tabs {
     width:100%;
-    //display:inline-block;
+    display:inline-block;
 }
 
 /*----- Tab Links -----*/
@@ -24,11 +28,10 @@
     border-radius:0px 0px 5px 5px;
     background: #3B2440;
     font-size:16px;
-    font-weight:600;
     color:white;
     transition:all linear 0.15s;
     text-decoration: none;
-    font-family: sans-serif;
+    font-family: 'Arimo', sans-serif;
 }
 
 .tab-links a:hover {
@@ -50,14 +53,23 @@
 }
 
 .tab-content h1 {
+    font-family: 'Poiret One', cursive;
     text-align: center;
     font-size: 70;
 }
+
 .tab {
+    border-style: solid;
+    border-width: 2.5px;
+    border-radius: 5px;
     width: 500px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     margin-left: auto;
     margin-right: auto;
     display:none;
+    text-align: center;
+    font-size: 20;
 }
 
 .tab.active {
@@ -68,6 +80,7 @@
 
 .search-opt li {
     list-style: square;
+    padding-bottom: 20;
 }
 
 .search-opt a {
@@ -78,6 +91,7 @@
 .opt {
     text-align: center;
     display:none;
+    padding: 20;
 }
 
 .opt.active {
@@ -88,9 +102,9 @@
     background-color: #F2F2F2;
 }
 
-.opt {
-    margin-top: 10px;
-    padding-bottom: 10px;
+.search-opt {
+    margin: 10px;
+    text-align: left;
 }
 
 #browsecateg {
@@ -103,95 +117,59 @@
     height: 30;
 }
 
+#search {
+    width: 500px;
+}
+
 ::-webkit-input-placeholder {
     text-align: right;
     font-style: italic;
 }
 
-#Register2{
-    border: 3px solid gray;
-    padding: 20px;
-    text-align: center;
-}
-#registriraj{
+#registriraj, #loginButton{
     margin-top: 15px;
-    height: 30px;
+    height: 40px;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
+    width: 170;
+    font-size: 20px;
+    font-family: 'Arimo', sans-serif;
 }
+
 #tabelaR{
     margin: 0 auto;
+    font-size: 18px;
 }
 
-#log
+#userLogin
 {
-	width:300px;
-	height:420px;
-	border-radius:10px;
-	font-family:raleway;
-	border:2px solid #2F4F4F;
-	padding:7px 40px 25px;
-	margin-top:50px;
-	margin-left:80px;
-	background: white;
+	padding-left: 50px;
+    padding-right: 50px;
 }
 
-#div1
-{
-	position: absolute;
-	top: 48%;
-	color:#2F4F4F;
-	font-size: 120%; 
+.inputField {
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
+    padding: 5px;
 }
 
-#div2
+#userName, #userPass
 {
-	position: absolute;
-	top: 61%;
-	color:#2F4F4F;
-	font-size: 120%; 
-}
-
-#ime 
-{
-	width:98%;
-	padding:8px;
-	margin-top:33px;
-	border:1px solid #2F4F4F;
-	padding-left:5px;
-	font-size:16px;
-}
-
-#passwd
-{
-	width:98%;
-	padding:8px;
-	margin-top:43px;
-	border:1px solid #2F4F4F;
-	padding-left:5px;
-	font-size:16px;
-}
-
-#gumb
-{
-	width:30%;
-	background-color: #F5F5F5;
-	color: #2F4F4F;
-	border:2px solid #2F4F4F;
-	padding:10px;
-	font-size:20px;
-	border-radius:5px;
-	margin-top:25px;
-	margin-bottom:10px;
-	margin-left:95px;
-	margin-right:70px;
+	width:70%;
+	padding: 8px;
+    	margin: 10px;
 }
 
 #content
 {
     position: absolute;
     width: 75%;
-    right: -6;
+    right: 0;
     top: 0;
     border-style: solid;
+    border-width: 2.5px;
     border-radius: 5px;
 }
 
@@ -200,6 +178,7 @@
     width: 990px;
     height: 180px;
     border-style: solid;
+    border-width: 2.5px;
     border-radius: 5px;
     background-image: url("ferimdb_banner.png");
 }
@@ -212,6 +191,7 @@
     left: 0;
     top: 0;
     border-style: solid;
+    border-width: 2.5px;
     border-radius: 5px;
     padding-left: 2%;
     padding-bottom: 2%;
@@ -233,11 +213,12 @@
     width: 100%;
 }
 
-#user_profile
+#user_profile, #banner, #footer
 {
     width:990px;
     margin-left: auto;
     margin-right: auto;
+    text-align: left;
 }
 
 body
