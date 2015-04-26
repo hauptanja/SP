@@ -230,6 +230,12 @@ body
 {
     text-decoration: none;
     font-weight: bold;
+    color: #3B2440;
+}
+
+#nav a:hover 
+{
+    color: #633D6B;
 }
 
 #footer
@@ -239,4 +245,6 @@ body
     border-style: solid;
     border-radius: 5px;
     background-image: url("ferimdb_footer.png");
+    position: fixed;
+    bottom: 0;
 }
