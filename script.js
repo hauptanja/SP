@@ -29,7 +29,15 @@ $(document).ready(function () {
     
     $(document).delegate('input:text', 'keypress', function (e) {
         if (e.which === 13) { // if is enter
-            alert("Search trigger");
+            $.ajax({
+                url: "filmdetails.php",
+                data: "",
+                success: function (result) {
+                    alert("ok");
+                }
+            });
+            
+            $('.tabs #film_profile').show().siblings().hide();
         }
     });
     

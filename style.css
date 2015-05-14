@@ -212,7 +212,7 @@ body {
     height: 55%;
     width: 100%;
 }
-
+ 
 #user_profile, #banner, #footer
 {
     width:990px;
@@ -247,4 +247,11 @@ body
     background-image: url("ferimdb_footer.png");
     position: fixed;
     bottom: 0;
+}
+
+#film_details
+{
+    text-align: left;
+    margin-left: 20;
+    margin-right: 20;
 }
