@@ -30,10 +30,15 @@ $(document).ready(function () {
     $(document).delegate('input:text', 'keypress', function (e) {
         if (e.which === 13) { // if is enter
             $.ajax({
+                type: "POST",
                 url: "filmdetails.php",
-                data: "",
+                data: "rfsdfsdf",
+                cache: false,
                 success: function (result) {
-                    alert("ok");
+                    alert(result);
+                },
+                error: function (result) {
+                    alert(result);
                 }
             });
             
