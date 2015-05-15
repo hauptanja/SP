@@ -81,6 +81,7 @@
                     </div>
                 </div>
                 <div id="film_profile" class="tab">
+                    <input type="button" value="Nazaj" id="#back_to_list_button"/>
                     <div id="film_details">
                         <h2 id="slo_naslov">Naslov filma</h2>
                         <h3 id="ang_naslov">Title</h3>
@@ -88,9 +89,19 @@
                         <div id="duration"></div>
                         <div id="year"></div>
                         <div id="country"></div>
-			<br>
+                        <br>
                         <div id="summary"></div>
                     </div>
+                </div>
+                <!--- za prikaz seznama ---->
+                <div id="film_list" class="tab">
+                    <table id="film_list_table">
+                        <th>
+                            <td></td>
+                            <td>Naslov filma</td>
+                            <td>Ocena</td>
+                        </th>
+                    </table>
                 </div>
             </div>
 			<div id="footer"></div>

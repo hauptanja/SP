@@ -261,3 +261,16 @@ body
 {
 	font-size: 16;
 }
+
+#film_list_table
+{
+    border: solid, black, 2px;
+}
+
+#film_list_table th
+{
+    background-color: darkgray;
+    font-size: 22;
+    font-weight: bold;
+    text-align: center;
+}
