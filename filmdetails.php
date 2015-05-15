@@ -3,7 +3,6 @@
     if (!$mysqli) {
         die("Connection failed: " . mysqli_connect_error());
     }
-    echo "Connected successfully";
     
     $q = "SELECT * FROM Film";
     $result = mysqli_query($mysqli, $q);
