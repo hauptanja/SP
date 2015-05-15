@@ -99,7 +99,8 @@
                         <th>
                             <td></td>
                             <td>Naslov filma</td>
-                            <td>Ocena</td>
+                            <td>Ocena kritikov</td>
+                            <td>Ocena gledalcev</td>
                         </th>
                     </table>
                 </div>

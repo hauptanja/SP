@@ -33,10 +33,32 @@ $(document).ready(function () {
             $.ajax({
                 type: "POST",
                 url: "filmdetails.php",
-                data: text,
+                data: 
+                {
+                    movie_name: text,
+                    method: "getList"
+                },
                 cache: false,
                 success: function (result) {
-                    var data = eval(result);
+                    $("#film_list_table").append(result);
+                },
+                error: function (result) {
+                    alert(result);
+                }
+            });
+            
+            $('.tabs #film_list').show().siblings().hide();
+        }
+    });
+    
+    $("#back_to_list_button").click(function () {
+        window.location.href="http://164.8.252.141/SP/mainPage.php";
+    });
+    
+});
+
+/*
+            var data = eval(result);
                     $('#slo_naslov').text(data[0]);
                     $('#ang_naslov').text(data[1]);
                     $('#genre').text(data[2]);
@@ -50,19 +72,7 @@ $(document).ready(function () {
                         $('#country').text("Država: " + data[5]);
                     }
                     $('#summary').text(data[6]);
-                },
-                error: function (result) {
-                    alert(result);
-                }
-            });
-            
-            $('.tabs #film_profile').show().siblings().hide();
-        }
-    });
-    
-    $("#back_to_list_button").click(function () {
-        window.location.href="http://164.8.252.141/SP/mainPage.php";
-    });
-    
-});
-
+                    
+                    
+                    $('.tabs #film_profile').show().siblings().hide();
+*/
