@@ -62,7 +62,7 @@ $(document).ready(function () {
     
     $("#back_to_list_button").click(function () {
         alert("bclick");
-        window.location.href="http://164.8.252.141/SP/mainPage.php";
+        //window.location.href="http://164.8.252.141/SP/mainPage.php";
     });
     
 });
