@@ -40,7 +40,13 @@ $(document).ready(function () {
                 },
                 cache: false,
                 success: function (result) {
-                    alert(result);
+                    $("#film_list_table").empty();
+                    $("#film_list_table").append("<tr>
+                            <th></th>
+                            <th>Naslov filma</th>
+                            <th>Ocena kritikov</th>
+                            <th>Ocena gledalcev</th>
+                        </tr>");
                     $("#film_list_table").append(result);
                 },
                 error: function (result) {
@@ -53,13 +59,22 @@ $(document).ready(function () {
     });
     
     $("#back_to_list_button").click(function () {
-        window.location.href="http://164.8.252.141/SP/mainPage.php";
+        $('.tabs #film_list').show().siblings().hide();
     });
     
-});
-
-/*
-            var data = eval(result);
+    $(document).on("mousedown", "tr.filmi", function() {
+        var naslov = $(this).children('td.naslovFilma').text();
+        $.ajax({
+                type: "POST",
+                url: "filmdetails.php",
+                data: 
+                {
+                    movie_name: naslov,
+                    method: "getData"
+                },
+                cache: false,
+                success: function (result) {
+                    var data = eval(result);
                     $('#slo_naslov').text(data[0]);
                     $('#ang_naslov').text(data[1]);
                     $('#genre').text(data[2]);
@@ -73,7 +88,13 @@ $(document).ready(function () {
                         $('#country').text("Država: " + data[5]);
                     }
                     $('#summary').text(data[6]);
-                    
-                    
-                    $('.tabs #film_profile').show().siblings().hide();
-*/
+                },
+                error: function (result) {
+                    alert(result);
+                }
+            });
+            
+            $('.tabs #film_profile').show().siblings().hide();
+    });
+    
+});

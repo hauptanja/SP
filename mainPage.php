@@ -95,14 +95,7 @@
                 </div>
                 <!--- za prikaz seznama ---->
                 <div id="film_list" class="tab">
-                    <table id="film_list_table">
-                        <tr>
-                            <th></th>
-                            <th>Naslov filma</th>
-                            <th>Ocena kritikov</th>
-                            <th>Ocena gledalcev</th>
-                        </tr>
-                    </table>
+                    <table id="film_list_table"></table>
                 </div>
             </div>
             <!----

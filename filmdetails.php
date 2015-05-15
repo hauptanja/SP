@@ -39,7 +39,7 @@
             $val = 0;
             while(($row = mysqli_fetch_assoc($result)) && $val < 10) {
                 $val++;
-                echo "<tr><td>$val</td><td>" . $row["slo_naslov"] . "</td><td>" . $row["tomatometer"] . "/10</td><td>" . $row["audience"] . "/5</td></tr>";
+                echo "<tr class='filmi'><td>$val</td><td class='naslovFilma'>" . $row["slo_naslov"] . "</td><td>" . $row["tomatometer"] . "/10</td><td>" . $row["audience"] . "/5</td></tr>";
             }
         }
     }
