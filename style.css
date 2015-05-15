@@ -267,6 +267,7 @@ body
 #film_list_table
 {
     border: solid black 2px;
+    border-collapse: collapse;
     margin: 10px;
 }
 
@@ -290,7 +291,7 @@ body
 
 #film_list_table:nth-child(even)
 {
-    background-color: #D2D2D2;
+    background-color: #EFEFEF;
 }
 
 #user_profile
