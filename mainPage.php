@@ -81,7 +81,7 @@
                     </div>
                 </div>
                 <div id="film_profile" class="tab">
-                    <input type="button" value="Nazaj" id="#back_to_list_button"/>
+                    <input type="button" value="Nazaj" id="back_to_list_button"/>
                     <div id="film_details">
                         <h2 id="slo_naslov">Naslov filma</h2>
                         <h3 id="ang_naslov">Title</h3>
