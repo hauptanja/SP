@@ -282,6 +282,8 @@ body
 #film_list_table th, #film_list_table td
 {
     border: solid darkgray 2px;
+    padding: 5px;
+    text-align: center;
 }
 
 #film_list_table:nth-child(odd)
