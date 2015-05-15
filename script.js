@@ -41,12 +41,7 @@ $(document).ready(function () {
                 cache: false,
                 success: function (result) {
                     $("#film_list_table").empty();
-                    $("#film_list_table").append("<tr>
-                            <th></th>
-                            <th>Naslov filma</th>
-                            <th>Ocena kritikov</th>
-                            <th>Ocena gledalcev</th>
-                        </tr>");
+                    $("#film_list_table").append("<tr><th></th><th>Naslov filma</th><th>Ocena kritikov</th><th>Ocena gledalcev</th></tr>");
                     $("#film_list_table").append(result);
                 },
                 error: function (result) {
