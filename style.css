@@ -211,6 +211,7 @@ body {
     position: relative;
     height: 55%;
     width: 100%;
+    border-style: none;
 }
  
 #user_profile, #banner, #footer
@@ -275,7 +276,7 @@ body
     text-align: center;
 }
 
-.tab #user_profile
+#user_profile
 {
-    border: none;
+    border-style: none;
 }
