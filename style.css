@@ -266,13 +266,14 @@ body
 
 #film_list_table
 {
-    border: solid, black, 2px;
+    border-style: solid, black, 2px;
+    margin: 10px;
 }
 
 #film_list_table th
 {
     background-color: darkgray;
-    font-size: 22;
+    font-size: 18;
     font-weight: bold;
     text-align: center;
 }

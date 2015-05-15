@@ -97,7 +97,7 @@
                 <div id="film_list" class="tab">
                     <table id="film_list_table">
                         <tr>
-                            <th>-</th>
+                            <th></th>
                             <th>Naslov filma</th>
                             <th>Ocena kritikov</th>
                             <th>Ocena gledalcev</th>
