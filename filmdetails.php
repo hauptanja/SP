@@ -19,10 +19,16 @@
             $output[3] = $row["duration"];
             if ($row["year"] != null)
                 $output[4] = $row["year"];
+            else
+                $output[4] = "/";
             if ($row["country"] != null)
                 $output[5] = $row["country"];
+            else
+                $output[5] = "/";
             if ($row["summary"] != null)
                 $output[6] = $row["summary"];
+            else
+                $output[6] = "/";
 
             $o = json_encode($output);
             echo $o;
