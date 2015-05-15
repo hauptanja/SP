@@ -36,13 +36,11 @@
         $result = mysqli_query($mysqli, $q);
 
         if (mysqli_num_rows($result) > 0) {
-            $output = "";
             $val = 0;
             while($row = mysqli_fetch_assoc($result) && $val <= 10) {
                 $val++;
-                $output += "<tr><td>$val</td><td><a>" . $row['slo_naslov'] . "</a></td><td>" . $row['tomatometer'] . "/10</td><td>" . $row['audience'] . "/5</td></tr>";
+                echo "<tr><td>$val</td><td><a>" . $row['slo_naslov'] . "</a></td><td>" . $row['tomatometer'] . "/10</td><td>" . $row['audience'] . "/5</td></tr>";
             }
-            echo $output;
         }
     }
 ?>
