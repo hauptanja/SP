@@ -35,7 +35,16 @@ $(document).ready(function () {
                 data: "rfsdfsdf",
                 cache: false,
                 success: function (result) {
-                    alert(result);
+                   	alert(result);
+                    var data = eval(result);
+	                	$('#slo_naslov').val(data[0]);
+	                	$('#ang_naslov').val(data[1]);
+	                	$('#genre').val(data[2]);
+	                	$('#duration').val(data[3]);
+	                	$('#year').val(data[4]);
+	                	$('#country').val(data[5]);
+	                	$('#summary').val(data[6]);
+	               
                 },
                 error: function (result) {
                     alert(result);
