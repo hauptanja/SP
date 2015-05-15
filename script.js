@@ -34,17 +34,15 @@ $(document).ready(function () {
                 url: "filmdetails.php",
                 data: "rfsdfsdf",
                 cache: false,
-                success: function (result) {
-                   	alert(result);
+                success: function (result) {          
                     var data = eval(result);
-	                	$('#slo_naslov').val(data[0]);
-	                	$('#ang_naslov').val(data[1]);
-	                	$('#genre').val(data[2]);
-	                	$('#duration').val(data[3]);
-	                	$('#year').val(data[4]);
-	                	$('#country').val(data[5]);
-	                	$('#summary').val(data[6]);
-	               
+	                	$('#slo_naslov').text(data[0]);
+	                	$('#ang_naslov').text(data[1]);
+	                	$('#genre').text(data[2]);
+	                	$('#duration').text(data[3]);
+	                	$('#year').text(data[4]);
+	                	$('#country').text(data[5]);
+	                	$('#summary').text(data[6]);
                 },
                 error: function (result) {
                     alert(result);
