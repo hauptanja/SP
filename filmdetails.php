@@ -37,7 +37,7 @@
 
         if (mysqli_num_rows($result) > 0) {
             $val = 0;
-            while($row = mysqli_fetch_assoc($result) && $val < 10) {
+            while($row = mysqli_fetch_assoc($result)) {
                 echo $row["slo_naslov"];
                 $val++;
                 //echo "<td>" . $row["slo_naslov"] . "</td>";
