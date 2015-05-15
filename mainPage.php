@@ -96,12 +96,12 @@
                 <!--- za prikaz seznama ---->
                 <div id="film_list" class="tab">
                     <table id="film_list_table">
-                        <th>
-                            <td>-</td>
-                            <td>Naslov filma</td>
-                            <td>Ocena kritikov</td>
-                            <td>Ocena gledalcev</td>
-                        </th>
+                        <tr>
+                            <th>-</th>
+                            <th>Naslov filma</th>
+                            <th>Ocena kritikov</th>
+                            <th>Ocena gledalcev</th>
+                        </tr>
                     </table>
                 </div>
             </div>
