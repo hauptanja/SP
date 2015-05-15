@@ -37,10 +37,9 @@
 
         if (mysqli_num_rows($result) > 0) {
             $output = "";
-            for ($i = 0; i < 10; i++)
-            {
-                $row = mysqli_fetch_assoc($result);
-                $val = $i+1;
+            $val = 0;
+            while($row = mysqli_fetch_assoc($result) && $val <= 10) {
+                $val++;
                 $output += "<tr><td>$val</td><td><a>" . $row['slo_naslov'] . "</a></td><td>" . $row['tomatometer'] . "/10</td><td>" . $row['audience'] . "/5</td></tr>";
             }
             echo $output;
