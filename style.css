@@ -171,6 +171,7 @@ body {
     border-style: solid;
     border-width: 2.5px;
     border-radius: 5px;
+    padding: 10px;
 }
 
 #banner
@@ -203,6 +204,16 @@ body {
     list-style-type: none;
     margin: 0;
     padding: 0;
+}
+
+#nav:nth-child(odd) li 
+{
+    background-color: #E6E6E6;
+}
+
+#nav:nth-child(even) li 
+{
+    background-color: #F4F4F4;
 }
 
 #container
