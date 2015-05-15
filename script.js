@@ -59,6 +59,7 @@ $(document).ready(function () {
     
     $(document).on("mousedown", "tr.filmi", function() {
         var naslov = $(this).children('td.naslovFilma').text();
+        alert(naslov);
         $.ajax({
                 type: "POST",
                 url: "filmdetails.php",
