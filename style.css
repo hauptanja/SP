@@ -247,6 +247,7 @@ body
     background-image: url("ferimdb_footer.png");
     position: fixed;
     bottom: 0;
+    margin-top: 10;
 }
 
 #film_details
