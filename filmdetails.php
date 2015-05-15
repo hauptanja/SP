@@ -7,7 +7,7 @@
     if ($_POST['method'] == "getData")
     {
         $naslov = $_POST['movie_name'];
-        $q = "SELECT * FROM Film WHERE 'slo_naslov' = '$naslov'";
+        $q = "SELECT * FROM Film WHERE slo_naslov = '$naslov'";
         $result = mysqli_query($mysqli, $q);
 
         if (mysqli_num_rows($result) > 0) {
