@@ -73,13 +73,13 @@ $(document).ready(function () {
                     $('#slo_naslov').text(data[0]);
                     $('#ang_naslov').text(data[1]);
                     $('#genre').text(data[2]);
-                    if (data[3] !== null) {
+                    if (data[3] !== "") {
                         $('#duration').text("Dolžina: " + data[3]);
                     }
-                    if (data[4] !== null) {
+                    if (data[4] !== "") {
                         $('#year').text("Leto: " + data[4]);
                     }
-                    if (data[5] !== null) {
+                    if (data[5] !== "") {
                         $('#country').text("Država: " + data[5]);
                     }
                     $('#summary').text(data[6]);
