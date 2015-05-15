@@ -206,16 +206,6 @@ body {
     padding: 0;
 }
 
-#nav:nth-child(odd) li 
-{
-    background-color: #E6E6E6;
-}
-
-#nav:nth-child(even) li 
-{
-    background-color: #F4F4F4;
-}
-
 #container
 {
     margin-top: 2%;
