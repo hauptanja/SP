@@ -40,6 +40,7 @@ $(document).ready(function () {
                 },
                 cache: false,
                 success: function (result) {
+                    alert(result);
                     $("#film_list_table").append(result);
                 },
                 error: function (result) {
