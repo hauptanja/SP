@@ -266,7 +266,7 @@ body
 
 #film_list_table
 {
-    border-style: solid, black, 2px;
+    border: solid black 2px;
     margin: 10px;
 }
 
@@ -276,6 +276,21 @@ body
     font-size: 18;
     font-weight: bold;
     text-align: center;
+}
+
+#film_list_table th, #film_list_table td
+{
+    border: solid darkgray 2px;
+}
+
+#film_list_table:nth-child(odd)
+{
+    background-color: #DBDBDB;
+}
+
+#film_list_table:nth-child(even)
+{
+    background-color: #D2D2D2;
 }
 
 #user_profile
