@@ -88,6 +88,7 @@
                         <div id="duration"></div>
                         <div id="year"></div>
                         <div id="country"></div>
+			<br>
                         <div id="summary"></div>
                     </div>
                 </div>

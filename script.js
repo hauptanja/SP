@@ -39,9 +39,12 @@ $(document).ready(function () {
 	                	$('#slo_naslov').text(data[0]);
 	                	$('#ang_naslov').text(data[1]);
 	                	$('#genre').text(data[2]);
-	                	$('#duration').text(data[3]);
-	                	$('#year').text(data[4]);
-	                	$('#country').text(data[5]);
+			if(data[3] != null)
+	                	$('#duration').text("Dolžina: " + data[3]);
+			if(data[4] != null)
+	                	$('#year').text("Leto: " + data[4]);
+			if (data[5] != null)
+	                	$('#country').text("Država: " + data[5]);
 	                	$('#summary').text(data[6]);
                 },
                 error: function (result) {
