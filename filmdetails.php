@@ -38,8 +38,9 @@
         if (mysqli_num_rows($result) > 0) {
             $val = 0;
             while($row = mysqli_fetch_assoc($result) && $val < 10) {
+                echo $row["slo_naslov"];
                 $val++;
-                echo "<td>" . $row["slo_naslov"] . "</td>";
+                //echo "<td>" . $row["slo_naslov"] . "</td>";
                 //echo "<tr><td>$val</td><td>" . $row["slo_naslov"] . "</td><td>" . $row["tomatometer"] . "/10</td><td>" . $row["audience"] . "/5</td></tr>";
             }
         }
