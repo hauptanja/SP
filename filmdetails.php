@@ -16,7 +16,10 @@
             $output[0] = $row["slo_naslov"];
             $output[1] = $row["ang_naslov"];
             $output[2] = $row["genre"];
-            $output[3] = $row["duration"];
+            if ($row["year"] != "")
+                $output[3] = $row["duration"];
+            else 
+                $output[3] = "/";
             if ($row["year"] != 0)
                 $output[4] = $row["year"];
             else

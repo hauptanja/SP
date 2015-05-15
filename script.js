@@ -76,12 +76,18 @@ $(document).ready(function () {
                     if (data[3] !== "/") {
                         $('#duration').text("Dolžina: " + data[3]);
                     }
+                    else 
+                        $('#duration').text("");
                     if (data[4] !== "/") {
                         $('#year').text("Leto: " + data[4]);
                     }
+                    else 
+                        $('#year').text("");
                     if (data[5] !== "/") {
                         $('#country').text("Država: " + data[5]);
                     }
+                    else 
+                        $('#country').text("");
                     $('#summary').text(data[6]);
                 },
                 error: function (result) {
