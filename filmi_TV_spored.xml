@@ -1276,4 +1276,189 @@
         <cas>23.10</cas>
         <kanal>KINO</kanal>
     </film>
+    <film>
+        <ime>Izmena</ime>
+        <cas>00.10</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Tvegana poteza</ime>
+        <cas>01.25</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Igra prestolov</ime>
+        <cas>03.00</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Silicijeva dolina</ime>
+        <cas>04.00</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Podpredsednica</ime>
+        <cas>04.30</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Prekletnik: Življenje in zločini Roberta Dursta</ime>
+        <cas>05.05</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Modra laguna: Prebujenje</ime>
+        <cas>06.00</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Roka za milijon dolarjev</ime>
+        <cas>07.30</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Količinski popust</ime>
+        <cas>09.35</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Velika družina, veliko smeha</ime>
+        <cas>11.15</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Foo Fighters: Sonic Highways</ime>
+        <cas>12.50</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Kradljivka knjig</ime>
+        <cas>13.55</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>42</ime>
+        <cas>16.05</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Nova zemlja</ime>
+        <cas>18.15</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Igra prestolov</ime>
+        <cas>20.05</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Silicijeva dolina</ime>
+        <cas>21.05</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Podpredsednica</ime>
+        <cas>21.35</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Ukraden otrok</ime>
+        <cas>22.05</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Slepa ulica</ime>
+        <cas>23.35</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Nova v družini</ime>
+        <cas>01.15</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Prejšnji teden: Nocoj z Johnom Oliverjem</ime>
+        <cas>02.55</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Hiša laži</ime>
+        <cas>03.25</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Program ne oddaja</ime>
+        <cas>03.52</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Sodobna družina</ime>
+        <cas>10.00</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Dogodivščine Huckleberryja Finna</ime>
+        <cas>10.25</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Oblačno z mesnimi kroglicami 2</ime>
+        <cas>12.10</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Slaba vzgoja</ime>
+        <cas>13.45</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Slaba vzgoja</ime>
+        <cas>14.15</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Slaba vzgoja</ime>
+        <cas>14.45</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Dogodivščine Huckleberryja Finna</ime>
+        <cas>15.15</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Oblačno z mesnimi kroglicami 2</ime>
+        <cas>17.00</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Sodobna družina</ime>
+        <cas>18.35</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Iskanje</ime>
+        <cas>19.00</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Iskanje</ime>
+        <cas>19.30</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Ameriške prevare</ime>
+        <cas>20.00</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Nova v družini</ime>
+        <cas>22.15</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Iskanje</ime>
+        <cas>23.55</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
 </filmi>
