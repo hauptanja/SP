@@ -2,86 +2,6 @@
 
 <filmi>
     <film>
-        <ime>Prekrokana noč 3</ime>
-        <cas>01.00</cas>
-        <kanal>HBO</kanal>
-    </film>
-    <film>
-        <ime>Žena za Barryja</ime>
-        <cas>02.40</cas>
-        <kanal>HBO</kanal>
-    </film>
-    <film>
-        <ime>Planet teme</ime>
-        <cas>04.10</cas>
-        <kanal>HBO</kanal>
-    </film>
-    <film>
-        <ime>Pee Wee 3D: Zima, ki mi je spremenila življenje</ime>
-        <cas>06.00</cas>
-        <kanal>HBO</kanal>
-    </film>
-    <film>
-        <ime>Hollywood: Na snemanju</ime>
-        <cas>08.05</cas>
-        <kanal>HBO</kanal>
-    </film>
-    <film>
-        <ime>Na svidenje zjutraj</ime>
-        <cas>08.35</cas>
-        <kanal>HBO</kanal>
-    </film>
-    <film>
-        <ime>Krive so zvezde</ime>
-        <cas>10.35</cas>
-        <kanal>HBO</kanal>
-    </film>
-    <film>
-        <ime>Sodobna družina</ime>
-        <cas>12.40</cas>
-        <kanal>HBO</kanal>
-    </film>
-    <film>
-        <ime>Cukr in Popr</ime>
-        <cas>13.05</cas>
-        <kanal>HBO</kanal>
-    </film>
-    <film>
-        <ime>Brezuhec in Dolgouhec</ime>
-        <cas>14.30</cas>
-        <kanal>HBO</kanal>
-    </film>
-    <film>
-        <ime>Verjemi</ime>
-        <cas>15.45</cas>
-        <kanal>HBO</kanal>
-    </film>
-    <film>
-        <ime>Nadomestne volitve</ime>
-        <cas>17.25</cas>
-        <kanal>HBO</kanal>
-    </film>
-    <film>
-        <ime>Cirque du soleil: Fantastični svet</ime>
-        <cas>18.30</cas>
-        <kanal>HBO</kanal>
-    </film>
-    <film>
-        <ime>Seks na eks</ime>
-        <cas>20.05</cas>
-        <kanal>HBO</kanal>
-    </film>
-    <film>
-        <ime>Krive so zvezde</ime>
-        <cas>21.40</cas>
-        <kanal>HBO</kanal>
-    </film>
-    <film>
-        <ime>Davi me</ime>
-        <cas>23.45</cas>
-        <kanal>HBO</kanal>
-    </film>
-    <film>
         <ime>Razkritje</ime>
         <cas>01.15</cas>
         <kanal>HBO</kanal>
@@ -162,84 +82,99 @@
         <kanal>HBO</kanal>
     </film>
     <film>
-        <ime>Paradiž</ime>
-        <cas>00.45</cas>
-        <kanal>HBO Comedy</kanal>
+        <ime>Izmena</ime>
+        <cas>00.10</cas>
+        <kanal>HBO</kanal>
     </film>
     <film>
-        <ime>Moj velikan</ime>
-        <cas>02.10</cas>
-        <kanal>HBO Comedy</kanal>
+        <ime>Tvegana poteza</ime>
+        <cas>01.25</cas>
+        <kanal>HBO</kanal>
     </film>
     <film>
-        <ime>Program ne oddaja</ime>
-        <cas>03.49</cas>
-        <kanal>HBO Comedy</kanal>
+        <ime>Igra prestolov</ime>
+        <cas>03.00</cas>
+        <kanal>HBO</kanal>
     </film>
     <film>
-        <ime>Slaba vzgoja</ime>
-        <cas>09.00</cas>
-        <kanal>HBO Comedy</kanal>
+        <ime>Silicijeva dolina</ime>
+        <cas>04.00</cas>
+        <kanal>HBO</kanal>
     </film>
     <film>
-        <ime>Slaba vzgoja</ime>
-        <cas>09.30</cas>
-        <kanal>HBO Comedy</kanal>
+        <ime>Podpredsednica</ime>
+        <cas>04.30</cas>
+        <kanal>HBO</kanal>
     </film>
     <film>
-        <ime>Slaba vzgoja</ime>
-        <cas>10.00</cas>
-        <kanal>HBO Comedy</kanal>
+        <ime>Prekletnik: Življenje in zločini Roberta Dursta</ime>
+        <cas>05.05</cas>
+        <kanal>HBO</kanal>
     </film>
     <film>
-        <ime>Corrina, Corrina</ime>
-        <cas>10.35</cas>
-        <kanal>HBO Comedy</kanal>
+        <ime>Modra laguna: Prebujenje</ime>
+        <cas>06.00</cas>
+        <kanal>HBO</kanal>
     </film>
     <film>
-        <ime>Muppetki na begu</ime>
-        <cas>12.30</cas>
-        <kanal>HBO Comedy</kanal>
+        <ime>Roka za milijon dolarjev</ime>
+        <cas>07.30</cas>
+        <kanal>HBO</kanal>
     </film>
     <film>
-        <ime>Billy Crystal: 700 nedelj</ime>
-        <cas>14.20</cas>
-        <kanal>HBO Comedy</kanal>
+        <ime>Količinski popust</ime>
+        <cas>09.35</cas>
+        <kanal>HBO</kanal>
     </film>
     <film>
-        <ime>Zvončica in piratska vila</ime>
-        <cas>16.25</cas>
-        <kanal>HBO Comedy</kanal>
+        <ime>Velika družina, veliko smeha</ime>
+        <cas>11.15</cas>
+        <kanal>HBO</kanal>
     </film>
     <film>
-        <ime>Corrina, Corrina</ime>
-        <cas>17.45</cas>
-        <kanal>HBO Comedy</kanal>
+        <ime>Foo Fighters: Sonic Highways</ime>
+        <cas>12.50</cas>
+        <kanal>HBO</kanal>
     </film>
     <film>
-        <ime>Muppetki na begu</ime>
-        <cas>19.40</cas>
-        <kanal>HBO Comedy</kanal>
+        <ime>Kradljivka knjig</ime>
+        <cas>13.55</cas>
+        <kanal>HBO</kanal>
     </film>
     <film>
-        <ime>Prejšnji teden: Nocoj z Johnom Oliverjem</ime>
-        <cas>21.30</cas>
-        <kanal>HBO Comedy</kanal>
+        <ime>42</ime>
+        <cas>16.05</cas>
+        <kanal>HBO</kanal>
     </film>
     <film>
-        <ime>Hiša laži</ime>
-        <cas>22.00</cas>
-        <kanal>HBO Comedy</kanal>
+        <ime>Nova zemlja</ime>
+        <cas>18.15</cas>
+        <kanal>HBO</kanal>
     </film>
     <film>
-        <ime>Sodobna družina</ime>
-        <cas>22.30</cas>
-        <kanal>HBO Comedy</kanal>
+        <ime>Igra prestolov</ime>
+        <cas>20.05</cas>
+        <kanal>HBO</kanal>
     </film>
     <film>
-        <ime>Paradiž</ime>
-        <cas>22.55</cas>
-        <kanal>HBO Comedy</kanal>
+        <ime>Silicijeva dolina</ime>
+        <cas>21.05</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Podpredsednica</ime>
+        <cas>21.35</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Ukraden otrok</ime>
+        <cas>22.05</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Slepa ulica</ime>
+        <cas>23.35</cas>
+        <kanal>HBO</kanal>
     </film>
     <film>
         <ime>Vijay in jaz</ime>
@@ -367,74 +302,94 @@
         <kanal>HBO Comedy</kanal>
     </film>
     <film>
-        <ime>Razsodnik</ime>
-        <cas>02.20</cas>
-        <kanal>Cinemax</kanal>
+        <ime>Nova v družini</ime>
+        <cas>01.15</cas>
+        <kanal>HBO Comedy</kanal>
     </film>
     <film>
-        <ime>Brez motivacije</ime>
-        <cas>04.05</cas>
-        <kanal>Cinemax</kanal>
+        <ime>Prejšnji teden: Nocoj z Johnom Oliverjem</ime>
+        <cas>02.55</cas>
+        <kanal>HBO Comedy</kanal>
     </film>
     <film>
-        <ime>Kokpit</ime>
-        <cas>06.00</cas>
-        <kanal>Cinemax</kanal>
+        <ime>Hiša laži</ime>
+        <cas>03.25</cas>
+        <kanal>HBO Comedy</kanal>
     </film>
     <film>
-        <ime>Bogu za hrbtom</ime>
-        <cas>07.35</cas>
-        <kanal>Cinemax</kanal>
+        <ime>Program ne oddaja</ime>
+        <cas>03.52</cas>
+        <kanal>HBO Comedy</kanal>
     </film>
     <film>
-        <ime>Genom</ime>
-        <cas>09.15</cas>
-        <kanal>Cinemax</kanal>
+        <ime>Sodobna družina</ime>
+        <cas>10.00</cas>
+        <kanal>HBO Comedy</kanal>
     </film>
     <film>
-        <ime>Daleč od nebes</ime>
-        <cas>09.40</cas>
-        <kanal>Cinemax</kanal>
+        <ime>Dogodivščine Huckleberryja Finna</ime>
+        <cas>10.25</cas>
+        <kanal>HBO Comedy</kanal>
     </film>
     <film>
-        <ime>Withnail in jaz</ime>
-        <cas>11.30</cas>
-        <kanal>Cinemax</kanal>
+        <ime>Oblačno z mesnimi kroglicami 2</ime>
+        <cas>12.10</cas>
+        <kanal>HBO Comedy</kanal>
     </film>
     <film>
-        <ime>Kralj škorpijonov 3: Bitka odrešitve</ime>
-        <cas>13.15</cas>
-        <kanal>Cinemax</kanal>
+        <ime>Slaba vzgoja</ime>
+        <cas>13.45</cas>
+        <kanal>HBO Comedy</kanal>
     </film>
     <film>
-        <ime>Brez motivacije</ime>
-        <cas>15.00</cas>
-        <kanal>Cinemax</kanal>
+        <ime>Slaba vzgoja</ime>
+        <cas>14.15</cas>
+        <kanal>HBO Comedy</kanal>
     </film>
     <film>
-        <ime>Kokpit</ime>
-        <cas>16.40</cas>
-        <kanal>Cinemax</kanal>
+        <ime>Slaba vzgoja</ime>
+        <cas>14.45</cas>
+        <kanal>HBO Comedy</kanal>
     </film>
     <film>
-        <ime>Daleč od nebes</ime>
-        <cas>18.15</cas>
-        <kanal>Cinemax</kanal>
+        <ime>Dogodivščine Huckleberryja Finna</ime>
+        <cas>15.15</cas>
+        <kanal>HBO Comedy</kanal>
     </film>
     <film>
-        <ime>Zvezdne steze: V temo</ime>
+        <ime>Oblačno z mesnimi kroglicami 2</ime>
+        <cas>17.00</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Sodobna družina</ime>
+        <cas>18.35</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Iskanje</ime>
+        <cas>19.00</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Iskanje</ime>
+        <cas>19.30</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Ameriške prevare</ime>
         <cas>20.00</cas>
-        <kanal>Cinemax</kanal>
+        <kanal>HBO Comedy</kanal>
     </film>
     <film>
-        <ime>Begunci</ime>
-        <cas>22.10</cas>
-        <kanal>Cinemax</kanal>
+        <ime>Nova v družini</ime>
+        <cas>22.15</cas>
+        <kanal>HBO Comedy</kanal>
     </film>
     <film>
-        <ime>Dotik</ime>
-        <cas>23.05</cas>
-        <kanal>Cinemax</kanal>
+        <ime>Iskanje</ime>
+        <cas>23.55</cas>
+        <kanal>HBO Comedy</kanal>
     </film>
     <film>
         <ime>Harry, prijatelj, ki vam želi dobro</ime>
@@ -512,69 +467,89 @@
         <kanal>Cinemax</kanal>
     </film>
     <film>
-        <ime>Primerna nevesta</ime>
-        <cas>00.45</cas>
-        <kanal>Cinemax 2</kanal>
+        <ime>Eden</ime>
+        <cas>00.55</cas>
+        <kanal>Cinemax</kanal>
     </film>
     <film>
-        <ime>Vlažne cone</ime>
-        <cas>02.25</cas>
-        <kanal>Cinemax 2</kanal>
+        <ime>Begunci</ime>
+        <cas>02.15</cas>
+        <kanal>Cinemax</kanal>
     </film>
     <film>
-        <ime>Vrtinec uspeha</ime>
+        <ime>Capadocia</ime>
+        <cas>03.10</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Buddyjeva taverna</ime>
         <cas>04.15</cas>
-        <kanal>Cinemax 2</kanal>
+        <kanal>Cinemax</kanal>
     </film>
     <film>
-        <ime>Edith in Marcel</ime>
+        <ime>Mož</ime>
         <cas>06.00</cas>
-        <kanal>Cinemax 2</kanal>
+        <kanal>Cinemax</kanal>
     </film>
     <film>
-        <ime>Angeli železnih čeljusti</ime>
-        <cas>08.40</cas>
-        <kanal>Cinemax 2</kanal>
+        <ime>Najboljši režiserji</ime>
+        <cas>07.20</cas>
+        <kanal>Cinemax</kanal>
     </film>
     <film>
-        <ime>Pekel je za junake</ime>
-        <cas>10.40</cas>
-        <kanal>Cinemax 2</kanal>
+        <ime>Koledar</ime>
+        <cas>07.50</cas>
+        <kanal>Cinemax</kanal>
     </film>
     <film>
-        <ime>Ljubezen je čudna reč</ime>
-        <cas>12.10</cas>
-        <kanal>Cinemax 2</kanal>
+        <ime>Hotel California</ime>
+        <cas>09.10</cas>
+        <kanal>Cinemax</kanal>
     </film>
     <film>
-        <ime>Potopljeni svet</ime>
-        <cas>13.55</cas>
-        <kanal>Cinemax 2</kanal>
+        <ime>Bafta: Filmsko življenje: Tim Burton</ime>
+        <cas>10.50</cas>
+        <kanal>Cinemax</kanal>
     </film>
     <film>
-        <ime>Angeli železnih čeljusti</ime>
-        <cas>16.10</cas>
-        <kanal>Cinemax 2</kanal>
+        <ime>Druga priložnost</ime>
+        <cas>11.20</cas>
+        <kanal>Cinemax</kanal>
     </film>
     <film>
-        <ime>Bogu za hrbtom</ime>
-        <cas>18.15</cas>
-        <kanal>Cinemax 2</kanal>
+        <ime>Sinovi akordi</ime>
+        <cas>12.45</cas>
+        <kanal>Cinemax</kanal>
     </film>
     <film>
-        <ime>Tommy</ime>
+        <ime>Redovnica</ime>
+        <cas>14.30</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Koledar</ime>
+        <cas>16.20</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Hulk</ime>
+        <cas>17.40</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Glasovi iz preteklosti</ime>
         <cas>20.00</cas>
-        <kanal>Cinemax 2</kanal>
+        <kanal>Cinemax</kanal>
     </film>
     <film>
-        <ime>Dolga roka mafije</ime>
-        <cas>21.50</cas>
-        <kanal>Cinemax 2</kanal>
+        <ime>Podnajemnik</ime>
+        <cas>21.35</cas>
+        <kanal>Cinemax</kanal>
     </film>
     <film>
-        <ime>Viri življenja</ime>
-        <cas>23.30</cas>
-        <kanal>Cinemax 2</kanal>
+        <ime>Capadocia</ime>
+        <cas>23.40</cas>
+        <kanal>Cinemax</kanal>
     </film>
     <film>
         <ime>Razsodnik</ime>
@@ -647,74 +622,79 @@
         <kanal>Cinemax 2</kanal>
     </film>
     <film>
-        <ime>Pariški forenziki</ime>
-        <cas>00.45</cas>
-        <kanal>FOX Movies</kanal>
+        <ime>Harry, prijatelj, ki vam želi dobro</ime>
+        <cas>00.40</cas>
+        <kanal>Cinemax 2</kanal>
     </film>
     <film>
-        <ime>Kaj dogaja?</ime>
-        <cas>01.47</cas>
-        <kanal>FOX Movies</kanal>
+        <ime>Torrente 3: Zaščitnik</ime>
+        <cas>02.35</cas>
+        <kanal>Cinemax 2</kanal>
     </film>
     <film>
-        <ime>Otok zakladov</ime>
-        <cas>03.30</cas>
-        <kanal>FOX Movies</kanal>
+        <ime>Mladi Winslow</ime>
+        <cas>04.10</cas>
+        <kanal>Cinemax 2</kanal>
     </film>
     <film>
-        <ime>Ogenj v srcu</ime>
+        <ime>Sedem veličastnih</ime>
         <cas>06.00</cas>
-        <kanal>FOX Movies</kanal>
+        <kanal>Cinemax 2</kanal>
     </film>
     <film>
-        <ime>Wilfred</ime>
-        <cas>07.55</cas>
-        <kanal>FOX Movies</kanal>
+        <ime>Bafta: Filmsko življenje: Helen Mirren</ime>
+        <cas>08.05</cas>
+        <kanal>Cinemax 2</kanal>
     </film>
     <film>
-        <ime>Wilfred</ime>
-        <cas>08.25</cas>
-        <kanal>FOX Movies</kanal>
+        <ime>Zbogom, Maroko</ime>
+        <cas>08.35</cas>
+        <kanal>Cinemax 2</kanal>
     </film>
     <film>
-        <ime>Hiša lutk</ime>
-        <cas>08.55</cas>
-        <kanal>FOX Movies</kanal>
+        <ime>Buddyjeva taverna</ime>
+        <cas>10.15</cas>
+        <kanal>Cinemax 2</kanal>
     </film>
     <film>
-        <ime>Junij že januarja</ime>
-        <cas>09.45</cas>
-        <kanal>FOX Movies</kanal>
+        <ime>Najboljši režiserji: Luc Besson</ime>
+        <cas>12.05</cas>
+        <kanal>Cinemax 2</kanal>
     </film>
     <film>
-        <ime>Ameriška pita 2</ime>
-        <cas>11.35</cas>
-        <kanal>FOX Movies</kanal>
+        <ime>Mož</ime>
+        <cas>12.35</cas>
+        <kanal>Cinemax 2</kanal>
     </film>
     <film>
-        <ime>Gilmore igra golf</ime>
-        <cas>13.45</cas>
-        <kanal>FOX Movies</kanal>
+        <ime>Zvezdne steze: V temo</ime>
+        <cas>13.55</cas>
+        <kanal>Cinemax 2</kanal>
     </film>
     <film>
-        <ime>Eksplozija</ime>
-        <cas>15.45</cas>
-        <kanal>FOX Movies</kanal>
+        <ime>Sedem veličastnih</ime>
+        <cas>16.10</cas>
+        <kanal>Cinemax 2</kanal>
     </film>
     <film>
-        <ime>Zapleši z menoj</ime>
-        <cas>17.35</cas>
-        <kanal>FOX Movies</kanal>
+        <ime>Zbogom, Maroko</ime>
+        <cas>18.20</cas>
+        <kanal>Cinemax 2</kanal>
     </film>
     <film>
-        <ime>Vrnitev v prihodnost 3</ime>
+        <ime>Druga priložnost</ime>
         <cas>20.00</cas>
-        <kanal>FOX Movies</kanal>
+        <kanal>Cinemax 2</kanal>
     </film>
     <film>
-        <ime>Naključni vohun</ime>
-        <cas>22.15</cas>
-        <kanal>FOX Movies</kanal>
+        <ime>Sinovi akordi</ime>
+        <cas>21.25</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>V iskanju ognja</ime>
+        <cas>23.10</cas>
+        <kanal>Cinemax 2</kanal>
     </film>
     <film>
         <ime>Nadarjeni gospod Ripley</ime>
@@ -723,7 +703,7 @@
     </film>
     <film>
         <ime>Brucka</ime>
-        <cas>02.45</cas>
+        <cas>02.40</cas>
         <kanal>FOX Movies</kanal>
     </film>
     <film>
@@ -732,33 +712,38 @@
         <kanal>FOX Movies</kanal>
     </film>
     <film>
+        <ime>Wilfred</ime>
+        <cas>07.39</cas>
+        <kanal>FOX Movies</kanal>
+    </film>
+    <film>
         <ime>Spomini ob jezeru</ime>
-        <cas>07.45</cas>
+        <cas>08.00</cas>
         <kanal>FOX Movies</kanal>
     </film>
     <film>
         <ime>Ogenj v srcu</ime>
-        <cas>09.40</cas>
+        <cas>10.00</cas>
         <kanal>FOX Movies</kanal>
     </film>
     <film>
         <ime>Zapleši z menoj</ime>
-        <cas>11.20</cas>
+        <cas>11.41</cas>
         <kanal>FOX Movies</kanal>
     </film>
     <film>
         <ime>Vrnitev v prihodnost 3</ime>
-        <cas>13.50</cas>
+        <cas>14.13</cas>
         <kanal>FOX Movies</kanal>
     </film>
     <film>
         <ime>Naključni vohun</ime>
-        <cas>16.00</cas>
+        <cas>16.30</cas>
         <kanal>FOX Movies</kanal>
     </film>
     <film>
         <ime>Bi ali ne bi?</ime>
-        <cas>18.05</cas>
+        <cas>18.14</cas>
         <kanal>FOX Movies</kanal>
     </film>
     <film>
@@ -768,92 +753,107 @@
     </film>
     <film>
         <ime>Prehitri in predrzni</ime>
-        <cas>22.40</cas>
+        <cas>22.45</cas>
         <kanal>FOX Movies</kanal>
     </film>
     <film>
-        <ime>Umazani Harry: Smrtonosna igra</ime>
-        <cas>02.00</cas>
-        <kanal>KINO</kanal>
+        <ime>Pozejdonova pustolovščina</ime>
+        <cas>00.52</cas>
+        <kanal>FOX Movies</kanal>
     </film>
     <film>
-        <ime>Zlobna dekleta</ime>
-        <cas>03.30</cas>
-        <kanal>KINO</kanal>
+        <ime>Pozejdonova pustolovščina</ime>
+        <cas>02.33</cas>
+        <kanal>FOX Movies</kanal>
     </film>
     <film>
-        <ime>Nočni program Kino</ime>
-        <cas>05.05</cas>
-        <kanal>KINO</kanal>
+        <ime>Spomini ob jezeru</ime>
+        <cas>06.08</cas>
+        <kanal>FOX Movies</kanal>
     </film>
     <film>
-        <ime>Dežurni krivec</ime>
-        <cas>06.30</cas>
-        <kanal>KINO</kanal>
+        <ime>Wilfred</ime>
+        <cas>08.09</cas>
+        <kanal>FOX Movies</kanal>
     </film>
     <film>
-        <ime>Bruno</ime>
-        <cas>08.05</cas>
-        <kanal>KINO</kanal>
+        <ime>Pozejdonova pustolovščina</ime>
+        <cas>08.36</cas>
+        <kanal>FOX Movies</kanal>
     </film>
     <film>
-        <ime>Mlada letalca</ime>
-        <cas>09.55</cas>
-        <kanal>KINO</kanal>
+        <ime>Pozejdonova pustolovščina</ime>
+        <cas>10.19</cas>
+        <kanal>FOX Movies</kanal>
     </film>
     <film>
-        <ime>Medvedek</ime>
-        <cas>11.40</cas>
-        <kanal>KINO</kanal>
+        <ime>Pariški forenziki</ime>
+        <cas>11.59</cas>
+        <kanal>FOX Movies</kanal>
     </film>
     <film>
-        <ime>Bonneville</ime>
-        <cas>13.20</cas>
-        <kanal>KINO</kanal>
+        <ime>Pariški forenziki</ime>
+        <cas>12.57</cas>
+        <kanal>FOX Movies</kanal>
     </film>
     <film>
-        <ime>Popoln moški</ime>
-        <cas>15.00</cas>
-        <kanal>KINO</kanal>
+        <ime>Bi ali ne bi?</ime>
+        <cas>13.57</cas>
+        <kanal>FOX Movies</kanal>
     </film>
     <film>
-        <ime>Zlobna dekleta</ime>
-        <cas>16.40</cas>
-        <kanal>KINO</kanal>
+        <ime>Uročena Ella</ime>
+        <cas>15.43</cas>
+        <kanal>FOX Movies</kanal>
     </film>
     <film>
-        <ime>Sodni dan</ime>
-        <cas>18.20</cas>
-        <kanal>KINO</kanal>
+        <ime>Ekstremni Hollywood</ime>
+        <cas>17.31</cas>
+        <kanal>FOX Movies</kanal>
     </film>
     <film>
-        <ime>Batman za vse čase</ime>
-        <cas>20.00</cas>
-        <kanal>KINO</kanal>
+        <ime>Stevardese letijo v nebo</ime>
+        <cas>18.18</cas>
+        <kanal>FOX Movies</kanal>
     </film>
     <film>
-        <ime>Njegovi tastari</ime>
-        <cas>22.00</cas>
-        <kanal>KINO</kanal>
+        <ime>Pariški forenziki</ime>
+        <cas>20.01</cas>
+        <kanal>FOX Movies</kanal>
+    </film>
+    <film>
+        <ime>Pariški forenziki</ime>
+        <cas>20.59</cas>
+        <kanal>FOX Movies</kanal>
+    </film>
+    <film>
+        <ime>Ubežnik</ime>
+        <cas>22.01</cas>
+        <kanal>FOX Movies</kanal>
+    </film>
+    <film>
+        <ime>Pariški forenziki</ime>
+        <cas>23.50</cas>
+        <kanal>FOX Movies</kanal>
     </film>
     <film>
         <ime>Naslednjih 48 ur</ime>
-        <cas>00.00</cas>
+        <cas>00.05</cas>
         <kanal>KINO</kanal>
     </film>
     <film>
         <ime>Lovec in plen</ime>
-        <cas>01.35</cas>
+        <cas>01.50</cas>
         <kanal>KINO</kanal>
     </film>
     <film>
         <ime>Stranski učinki</ime>
-        <cas>03.10</cas>
+        <cas>03.20</cas>
         <kanal>KINO</kanal>
     </film>
     <film>
         <ime>Nočni program Kino</ime>
-        <cas>05.05</cas>
+        <cas>05.15</cas>
         <kanal>KINO</kanal>
     </film>
     <film>
@@ -907,168 +907,373 @@
         <kanal>KINO</kanal>
     </film>
     <film>
-        <ime>Oko</ime>
-        <cas>00.59</cas>
-        <kanal>Cinestar action&thriller</kanal>
+        <ime>Iron Man 2</ime>
+        <cas>00.50</cas>
+        <kanal>KINO</kanal>
     </film>
     <film>
-        <ime>V zakulisju: Danny Collins</ime>
-        <cas>02.38</cas>
-        <kanal>Cinestar action&thriller</kanal>
+        <ime>Eliminator</ime>
+        <cas>02.55</cas>
+        <kanal>KINO</kanal>
     </film>
     <film>
-        <ime>Revolver</ime>
-        <cas>03.00</cas>
-        <kanal>Cinestar action&thriller</kanal>
+        <ime>Umazani Harry: Smrtonosna igra</ime>
+        <cas>04.30</cas>
+        <kanal>KINO</kanal>
     </film>
     <film>
-        <ime>Filmske novosti</ime>
-        <cas>04.46</cas>
-        <kanal>Cinestar action&thriller</kanal>
+        <ime>Džentelmen Bronco</ime>
+        <cas>07.15</cas>
+        <kanal>KINO</kanal>
     </film>
     <film>
-        <ime>Oko</ime>
-        <cas>08.00</cas>
-        <kanal>Cinestar action&thriller</kanal>
+        <ime>Klub duhov</ime>
+        <cas>08.50</cas>
+        <kanal>KINO</kanal>
     </film>
     <film>
-        <ime>V zakulisju: Najdaljša pot</ime>
-        <cas>09.40</cas>
-        <kanal>Cinestar action&thriller</kanal>
+        <ime>Zadnja priložnost, Harvey</ime>
+        <cas>10.20</cas>
+        <kanal>KINO</kanal>
     </film>
     <film>
-        <ime>Revolver</ime>
-        <cas>10.00</cas>
-        <kanal>Cinestar action&thriller</kanal>
+        <ime>Opalne sanje</ime>
+        <cas>11.55</cas>
+        <kanal>KINO</kanal>
     </film>
     <film>
-        <ime>V zakulisju: Mali zmaj Kokos</ime>
-        <cas>11.52</cas>
-        <kanal>Cinestar action&thriller</kanal>
+        <ime>Popolna igra</ime>
+        <cas>13.25</cas>
+        <kanal>KINO</kanal>
     </film>
     <film>
-        <ime>Peklenske zadeve 3</ime>
-        <cas>12.16</cas>
-        <kanal>Cinestar action&thriller</kanal>
+        <ime>Tvegan posel</ime>
+        <cas>15.25</cas>
+        <kanal>KINO</kanal>
     </film>
     <film>
-        <ime>Apokalipto</ime>
+        <ime>Boter 3</ime>
+        <cas>17.05</cas>
+        <kanal>KINO</kanal>
+    </film>
+    <film>
+        <ime>Ledeni potres</ime>
+        <cas>20.00</cas>
+        <kanal>KINO</kanal>
+    </film>
+    <film>
+        <ime>Naslednjih 48 ur</ime>
+        <cas>21.30</cas>
+        <kanal>KINO</kanal>
+    </film>
+    <film>
+        <ime>Džanki</ime>
+        <cas>23.10</cas>
+        <kanal>KINO</kanal>
+    </film>
+    <film>
+        <ime>Pozejdonova pustolovščina</ime>
+        <cas>00.52</cas>
+        <kanal>FOX Movies</kanal>
+    </film>
+    <film>
+        <ime>Pozejdonova pustolovščina</ime>
+        <cas>02.33</cas>
+        <kanal>FOX Movies</kanal>
+    </film>
+    <film>
+        <ime>Spomini ob jezeru</ime>
+        <cas>06.08</cas>
+        <kanal>FOX Movies</kanal>
+    </film>
+    <film>
+        <ime>Wilfred</ime>
+        <cas>08.09</cas>
+        <kanal>FOX Movies</kanal>
+    </film>
+    <film>
+        <ime>Pozejdonova pustolovščina</ime>
+        <cas>08.36</cas>
+        <kanal>FOX Movies</kanal>
+    </film>
+    <film>
+        <ime>Pozejdonova pustolovščina</ime>
+        <cas>10.19</cas>
+        <kanal>FOX Movies</kanal>
+    </film>
+    <film>
+        <ime>Pariški forenziki</ime>
+        <cas>11.59</cas>
+        <kanal>FOX Movies</kanal>
+    </film>
+    <film>
+        <ime>Pariški forenziki</ime>
+        <cas>12.57</cas>
+        <kanal>FOX Movies</kanal>
+    </film>
+    <film>
+        <ime>Bi ali ne bi?</ime>
+        <cas>13.57</cas>
+        <kanal>FOX Movies</kanal>
+    </film>
+    <film>
+        <ime>Uročena Ella</ime>
+        <cas>15.43</cas>
+        <kanal>FOX Movies</kanal>
+    </film>
+    <film>
+        <ime>Ekstremni Hollywood</ime>
+        <cas>17.31</cas>
+        <kanal>FOX Movies</kanal>
+    </film>
+    <film>
+        <ime>Stevardese letijo v nebo</ime>
+        <cas>18.18</cas>
+        <kanal>FOX Movies</kanal>
+    </film>
+    <film>
+        <ime>Pariški forenziki</ime>
+        <cas>20.01</cas>
+        <kanal>FOX Movies</kanal>
+    </film>
+    <film>
+        <ime>Pariški forenziki</ime>
+        <cas>20.59</cas>
+        <kanal>FOX Movies</kanal>
+    </film>
+    <film>
+        <ime>Ubežnik</ime>
+        <cas>22.01</cas>
+        <kanal>FOX Movies</kanal>
+    </film>
+    <film>
+        <ime>Pariški forenziki</ime>
+        <cas>23.50</cas>
+        <kanal>FOX Movies</kanal>
+    </film>
+    <film>
+        <ime>Harry, prijatelj, ki vam želi dobro</ime>
+        <cas>00.40</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Torrente 3: Zaščitnik</ime>
+        <cas>02.35</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Mladi Winslow</ime>
+        <cas>04.10</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Sedem veličastnih</ime>
+        <cas>06.00</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Bafta: Filmsko življenje: Helen Mirren</ime>
+        <cas>08.05</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Zbogom, Maroko</ime>
+        <cas>08.35</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Buddyjeva taverna</ime>
+        <cas>10.15</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Najboljši režiserji: Luc Besson</ime>
+        <cas>12.05</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Mož</ime>
+        <cas>12.35</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Zvezdne steze: V temo</ime>
+        <cas>13.55</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Sedem veličastnih</ime>
+        <cas>16.10</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Zbogom, Maroko</ime>
+        <cas>18.20</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Druga priložnost</ime>
+        <cas>20.00</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Sinovi akordi</ime>
+        <cas>21.25</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>V iskanju ognja</ime>
+        <cas>23.10</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Eden</ime>
+        <cas>00.55</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Begunci</ime>
+        <cas>02.15</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Capadocia</ime>
+        <cas>03.10</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Buddyjeva taverna</ime>
+        <cas>04.15</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Mož</ime>
+        <cas>06.00</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Najboljši režiserji</ime>
+        <cas>07.20</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Koledar</ime>
+        <cas>07.50</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Hotel California</ime>
+        <cas>09.10</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Bafta: Filmsko življenje: Tim Burton</ime>
+        <cas>10.50</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Druga priložnost</ime>
+        <cas>11.20</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Sinovi akordi</ime>
+        <cas>12.45</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Redovnica</ime>
         <cas>14.30</cas>
-        <kanal>Cinestar action&thriller</kanal>
+        <kanal>Cinemax</kanal>
     </film>
     <film>
-        <ime>Neposredni ukrepi</ime>
-        <cas>17.01</cas>
-        <kanal>Cinestar action&thriller</kanal>
+        <ime>Koledar</ime>
+        <cas>16.20</cas>
+        <kanal>Cinemax</kanal>
     </film>
     <film>
-        <ime>V zakulisju: Nočni lov</ime>
-        <cas>18.41</cas>
-        <kanal>Cinestar action&thriller</kanal>
+        <ime>Hulk</ime>
+        <cas>17.40</cas>
+        <kanal>Cinemax</kanal>
     </film>
     <film>
-        <ime>Igra strasti</ime>
-        <cas>19.01</cas>
-        <kanal>Cinestar action&thriller</kanal>
+        <ime>Glasovi iz preteklosti</ime>
+        <cas>20.00</cas>
+        <kanal>Cinemax</kanal>
     </film>
     <film>
-        <ime>V zakulisju: Vroči pregon</ime>
-        <cas>20.36</cas>
-        <kanal>Cinestar action&thriller</kanal>
+        <ime>Podnajemnik</ime>
+        <cas>21.35</cas>
+        <kanal>Cinemax</kanal>
     </film>
     <film>
-        <ime>Ivana Orleanska</ime>
-        <cas>21.00</cas>
-        <kanal>Cinestar action&thriller</kanal>
+        <ime>Capadocia</ime>
+        <cas>23.40</cas>
+        <kanal>Cinemax</kanal>
     </film>
     <film>
-        <ime>V zakulisju: Najdaljša pot</ime>
-        <cas>23.39</cas>
-        <kanal>Cinestar action&thriller</kanal>
+        <ime>Iron Man 2</ime>
+        <cas>00.50</cas>
+        <kanal>KINO</kanal>
     </film>
     <film>
-        <ime>Ned Kelly</ime>
-        <cas>00.00</cas>
-        <kanal>Cinestar action&thriller</kanal>
+        <ime>Eliminator</ime>
+        <cas>02.55</cas>
+        <kanal>KINO</kanal>
     </film>
     <film>
-        <ime>Kitajsko dekle</ime>
-        <cas>02.01</cas>
-        <kanal>Cinestar action&thriller</kanal>
+        <ime>Umazani Harry: Smrtonosna igra</ime>
+        <cas>04.30</cas>
+        <kanal>KINO</kanal>
     </film>
     <film>
-        <ime>Patologija</ime>
-        <cas>03.46</cas>
-        <kanal>Cinestar action&thriller</kanal>
+        <ime>Džentelmen Bronco</ime>
+        <cas>07.15</cas>
+        <kanal>KINO</kanal>
     </film>
     <film>
-        <ime>Filmske novosti</ime>
-        <cas>05.16</cas>
-        <kanal>Cinestar action&thriller</kanal>
+        <ime>Klub duhov</ime>
+        <cas>08.50</cas>
+        <kanal>KINO</kanal>
     </film>
     <film>
-        <ime>Kitajsko dekle</ime>
-        <cas>08.00</cas>
-        <kanal>Cinestar action&thriller</kanal>
+        <ime>Zadnja priložnost, Harvey</ime>
+        <cas>10.20</cas>
+        <kanal>KINO</kanal>
     </film>
     <film>
-        <ime>V zakulisju: Najdaljša pot</ime>
-        <cas>09.34</cas>
-        <kanal>Cinestar action&thriller</kanal>
+        <ime>Opalne sanje</ime>
+        <cas>11.55</cas>
+        <kanal>KINO</kanal>
     </film>
     <film>
-        <ime>Reševanje ob zori</ime>
-        <cas>10.01</cas>
-        <kanal>Cinestar action&thriller</kanal>
+        <ime>Popolna igra</ime>
+        <cas>13.25</cas>
+        <kanal>KINO</kanal>
     </film>
     <film>
-        <ime>V zakulisju: Mali zmaj Kokos</ime>
-        <cas>12.06</cas>
-        <kanal>Cinestar action&thriller</kanal>
+        <ime>Tvegan posel</ime>
+        <cas>15.25</cas>
+        <kanal>KINO</kanal>
     </film>
     <film>
-        <ime>Igra strasti</ime>
-        <cas>12.30</cas>
-        <kanal>Cinestar action&thriller</kanal>
+        <ime>Boter 3</ime>
+        <cas>17.05</cas>
+        <kanal>KINO</kanal>
     </film>
     <film>
-        <ime>V zakulisju: Vroči pregon</ime>
-        <cas>14.07</cas>
-        <kanal>Cinestar action&thriller</kanal>
+        <ime>Ledeni potres</ime>
+        <cas>20.00</cas>
+        <kanal>KINO</kanal>
     </film>
     <film>
-        <ime>Ivana Orleanska</ime>
-        <cas>14.29</cas>
-        <kanal>Cinestar action&thriller</kanal>
+        <ime>Naslednjih 48 ur</ime>
+        <cas>21.30</cas>
+        <kanal>KINO</kanal>
     </film>
     <film>
-        <ime>V zakulisju: Nočni lov</ime>
-        <cas>17.06</cas>
-        <kanal>Cinestar action&thriller</kanal>
-    </film>
-    <film>
-        <ime>Ned Kelly</ime>
-        <cas>17.30</cas>
-        <kanal>Cinestar action&thriller</kanal>
-    </film>
-    <film>
-        <ime>V zakulisju: Najdaljša pot</ime>
-        <cas>19.23</cas>
-        <kanal>Cinestar action&thriller</kanal>
-    </film>
-    <film>
-        <ime>Lovci na diamante</ime>
-        <cas>19.45</cas>
-        <kanal>Cinestar action&thriller</kanal>
-    </film>
-    <film>
-        <ime>G.I. Jane</ime>
-        <cas>21.31</cas>
-        <kanal>Cinestar action&thriller</kanal>
-    </film>
-    <film>
-        <ime>V zakulisju: Najdaljša pot</ime>
-        <cas>23.39</cas>
-        <kanal>Cinestar action&thriller</kanal>
+        <ime>Džanki</ime>
+        <cas>23.10</cas>
+        <kanal>KINO</kanal>
     </film>
 </filmi>
