@@ -30,12 +30,13 @@
                 $output[5] = "/";
             if ($row["summary"] != null)
                 $output[6] = $row["summary"];
+            else 
+                $output[6] = "";
             $output[7] = $row["tomatometer"];
             $output[8] = $row["audience"];
 
             $o = json_encode($output);
             echo $o;
-
         } else {
             echo "0 results";
         }
