@@ -301,7 +301,7 @@ body
     border-style: none;
 }
 
-#back_to_list_button
+#back_to_list_button, #back_to_start_button
 {
     width: 100px;
     font-size: 16px;

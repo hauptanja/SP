@@ -41,12 +41,11 @@ $(document).ready(function () {
                 cache: false,
                 success: function (result) {
                     var data = eval(result);
-                    $("#vpisan_film").text(data[0]);
+                    $("#vpisan_film").html(data[0]);
                     
                     $("#film_list_table").empty();
                     
                     if(data[1] !== "Film ni v bazi.") {
-                        $("#film_list_table").append("<tr><th></th><th>Naslov filma</th><th>Ocena kritikov</th><th>Ocena gledalcev</th></tr>");
                         $("#film_list_table").append(data[1]);
                     }
                 },
@@ -67,8 +66,8 @@ $(document).ready(function () {
         $('.tabs #main').show().siblings().hide();
     });
     
-    $(document).on("mousedown", "tr.filmi", function() {
-        var naslov = $(this).children('td.naslovFilma').text();
+    $(document).on("mousedown", "td.filmi", function() {
+        var naslov = $(this).text();
         getDetails(naslov);
     });
     

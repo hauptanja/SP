@@ -65,11 +65,12 @@
         
         if (mysqli_num_rows($result) > 0) {
             $val = 0;
-            $output = "";
+            $output2 = "<tr>";
             while(($row = mysqli_fetch_assoc($result)) && $val < 10) {
                 $val++;
-                $output2 .= "<tr class='filmi'><td>$val</td><td class='naslovFilma'>" . $row["slo_naslov"] . "</td><td>" . $row["tomatometer"] . "/10</td><td>" . $row["audience"] . "/5</td></tr>";
+                $output2 .= "<td class='filmi'>" . $row["slo_naslov"] . "</td>";
             }
+            $output2 .= "</tr>";
             $o[1] = $output2;
         }
         else {
