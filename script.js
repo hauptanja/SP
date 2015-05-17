@@ -30,9 +30,6 @@ $(document).ready(function () {
     $(document).delegate('input:text', 'keypress', function (e) {
         if (e.which === 13) { // if is enter
             var text = $('#movieSearchBox').text();
-            
-            getDetails(text);
-            
             $.ajax({
                 type: "POST",
                 url: "filmdetails.php",
@@ -43,9 +40,15 @@ $(document).ready(function () {
                 },
                 cache: false,
                 success: function (result) {
+                    var data = eval(result);
+                    $("#vpisan_film").text(data[0]);
+                    
                     $("#film_list_table").empty();
-                    $("#film_list_table").append("<tr><th></th><th>Naslov filma</th><th>Ocena kritikov</th><th>Ocena gledalcev</th></tr>");
-                    $("#film_list_table").append(result);
+                    
+                    if(data[1] !== "Film ni v bazi.") {
+                        $("#film_list_table").append("<tr><th></th><th>Naslov filma</th><th>Ocena kritikov</th><th>Ocena gledalcev</th></tr>");
+                        $("#film_list_table").append(data[1]);
+                    }
                 },
                 error: function (result) {
                     alert(result);
@@ -58,7 +61,6 @@ $(document).ready(function () {
     
     $("#back_to_list_button").click(function () {
         $('.tabs #film_list').show().siblings().hide();
-        $('.tabs #film_profile').show();
     });
     
     $("#back_to_start_button").click(function () {

@@ -7,7 +7,7 @@
     if ($_POST['method'] == "getData")
     {
         $naslov = $_POST['movie_name'];
-        $q = "SELECT * FROM Film WHERE slo_naslov LIKE '$naslov'";
+        $q = "SELECT * FROM Film WHERE slo_naslov = '$naslov'";
         $result = mysqli_query($mysqli, $q);
 
         if (mysqli_num_rows($result) > 0) {
@@ -42,15 +42,41 @@
     }
     else if ($_POST['method'] == "getList")
     {
-        $q = "SELECT * FROM Film";
+        $naslov = $_POST['movie_name'];
+        
+        $q = "SELECT * FROM Film WHERE slo_naslov = '$naslov'";
         $result = mysqli_query($mysqli, $q);
 
         if (mysqli_num_rows($result) > 0) {
+        // output data of each row
+            $row = mysqli_fetch_assoc($result);
+            $o1[0] = $row["slo_naslov"];
+            $o1[1] = $row["ang_naslov"];
+            
+            $output1 = "Predlogi za film: <h2>$o1[0]</h2>";
+            $output1 .= "<h3>$o1[1]</h3>";
+            $o[0] = $output1;
+        } else {
+            $o[0] = "Film ni v bazi.";
+        }
+        
+        $q = "SELECT * FROM Film";
+        $result = mysqli_query($mysqli, $q);
+        
+        if (mysqli_num_rows($result) > 0) {
             $val = 0;
+            $output = "";
             while(($row = mysqli_fetch_assoc($result)) && $val < 10) {
                 $val++;
-                echo "<tr class='filmi'><td>$val</td><td class='naslovFilma'>" . $row["slo_naslov"] . "</td><td>" . $row["tomatometer"] . "/10</td><td>" . $row["audience"] . "/5</td></tr>";
+                $output2 .= "<tr class='filmi'><td>$val</td><td class='naslovFilma'>" . $row["slo_naslov"] . "</td><td>" . $row["tomatometer"] . "/10</td><td>" . $row["audience"] . "/5</td></tr>";
             }
+            $o[1] = $output2;
         }
+        else {
+            $o[1] = "Ni priporočil.";
+        }
+        
+        $o = json_encode($o);
+        echo $o;
     }
 ?>
