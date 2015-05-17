@@ -68,6 +68,7 @@ $(document).ready(function () {
     
     $(document).on("mousedown", "td.filmi", function() {
         var naslov = $(this).text();
+        alert(naslov);
         getDetails(naslov);
     });
     
