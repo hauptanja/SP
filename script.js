@@ -85,8 +85,9 @@ function getDetails (naslov){
         },
         cache: false,
         success: function (result) {
-            if (result !== "0 results") {
+            if (result != "0 results") {
                 var data = eval(result);
+                alert(data);
                 $('#slo_naslov').text(data[0]);
                 $('#ang_naslov').text(data[1]);
                 $('#genre').text(data[2]);
@@ -107,7 +108,7 @@ function getDetails (naslov){
                     $('#country').text("");
                 $('#summary').text(data[6]);
 
-                $('#ocena').text("Ocena kritikov: " + data[7] + "/10<br>Ocena gledalcev: " + data[8] + "/5");
+                $('#ocena').html("Ocena kritikov: " + data[7] + "/10<br>Ocena gledalcev: " + data[8] + "/5");
                 }
             else 
                 alert(result);
