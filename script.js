@@ -85,28 +85,32 @@ function getDetails (naslov){
         },
         cache: false,
         success: function (result) {
-            var data = eval(result);
-            $('#slo_naslov').text(data[0]);
-            $('#ang_naslov').text(data[1]);
-            $('#genre').text(data[2]);
-            if (data[3] !== "/") {
-                $('#duration').text("Dolžina: " + data[3]);
-            }
+            if (result !== "0 results") {
+                var data = eval(result);
+                $('#slo_naslov').text(data[0]);
+                $('#ang_naslov').text(data[1]);
+                $('#genre').text(data[2]);
+                if (data[3] !== "/") {
+                    $('#duration').text("Dolžina: " + data[3]);
+                }
+                else 
+                    $('#duration').text("");
+                if (data[4] !== "/") {
+                    $('#year').text("Leto: " + data[4]);
+                }
+                else 
+                    $('#year').text("");
+                if (data[5] !== "/") {
+                    $('#country').text("Država: " + data[5]);
+                }
+                else 
+                    $('#country').text("");
+                $('#summary').text(data[6]);
+
+                $('#ocena').text("Ocena kritikov: " + data[7] + "/10<br>Ocena gledalcev: " + data[8] + "/5");
+                }
             else 
-                $('#duration').text("");
-            if (data[4] !== "/") {
-                $('#year').text("Leto: " + data[4]);
-            }
-            else 
-                $('#year').text("");
-            if (data[5] !== "/") {
-                $('#country').text("Država: " + data[5]);
-            }
-            else 
-                $('#country').text("");
-            $('#summary').text(data[6]);
-            
-            $('#ocena').text("Ocena kritikov: " + data[7] + "/10<br>Ocena gledalcev: " + data[8] + "/5");
+                alert(result);
         },
         error: function (result) {
             alert(result);
