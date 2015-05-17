@@ -87,7 +87,7 @@ function getDetails (naslov){
         success: function (result) {
             if (result != "0 results") {
                 alert(result);
-                var data = eval(result);
+                var data = JSON.parse(result);
                 alert(data);
                 $('#slo_naslov').text(data[0]);
                 $('#ang_naslov').text(data[1]);
