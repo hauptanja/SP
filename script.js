@@ -29,8 +29,7 @@ $(document).ready(function () {
     
     $(document).delegate('input:text', 'keypress', function (e) {
         if (e.which === 13) { // if is enter
-            var text = $('#movieSearchBox').text();
-            alert("-" + text + "+");
+            var text = $('#movieSearchBox').val();
             $.ajax({
                 type: "POST",
                 url: "filmdetails.php",
