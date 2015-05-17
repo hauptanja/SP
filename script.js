@@ -103,6 +103,8 @@ function getDetails (naslov){
             else 
                 $('#country').text("");
             $('#summary').text(data[6]);
+            
+            $('#ocena').text("Ocena kritikov: " + data[7] + "/10<br>Ocena gledalcev: " + data[8] + "/5");
         },
         error: function (result) {
             alert(result);

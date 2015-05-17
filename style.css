@@ -126,7 +126,7 @@ body {
     font-style: italic;
 }
 
-#registriraj, #loginButton, #back_to_list_button{
+#registriraj, #loginButton, #back_to_list_button, #back_to_start_button{
     margin-top: 15px;
     height: 40px;
     border-style: solid;

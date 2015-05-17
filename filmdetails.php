@@ -7,7 +7,7 @@
     if ($_POST['method'] == "getData")
     {
         $naslov = $_POST['movie_name'];
-        $q = "SELECT * FROM Film WHERE slo_naslov = '$naslov'";
+        $q = "SELECT * FROM Film WHERE slo_naslov LIKE '$naslov'";
         $result = mysqli_query($mysqli, $q);
 
         if (mysqli_num_rows($result) > 0) {
@@ -30,6 +30,8 @@
                 $output[5] = "/";
             if ($row["summary"] != null)
                 $output[6] = $row["summary"];
+            $output[7] = $row["tomatometer"];
+            $output[8] = $row["audience"];
 
             $o = json_encode($output);
             echo $o;
