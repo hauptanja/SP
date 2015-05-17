@@ -40,7 +40,7 @@ $(document).ready(function () {
                 },
                 cache: false,
                 success: function (result) { 
-                    var data = eval(result);
+                    var data = JSON.parse(result);
                     $("#vpisan_film").html(data[0]);
                     
                     $("#film_list_table").empty();
@@ -86,9 +86,7 @@ function getDetails (naslov){
         cache: false,
         success: function (result) {
             if (result != "0 results") {
-                alert(result);
                 var data = JSON.parse(result);
-                alert(data);
                 $('#slo_naslov').text(data[0]);
                 $('#ang_naslov').text(data[1]);
                 $('#genre').text(data[2]);
@@ -113,7 +111,7 @@ function getDetails (naslov){
             }
         },
         error: function (result) {
-            alert("error" + result);
+            alert(result);
         }
     });
     
