@@ -30,6 +30,7 @@ $(document).ready(function () {
     $(document).delegate('input:text', 'keypress', function (e) {
         if (e.which === 13) { // if is enter
             var text = $('#movieSearchBox').text();
+            alert("-" + text + "+");
             $.ajax({
                 type: "POST",
                 url: "filmdetails.php",
@@ -55,7 +56,7 @@ $(document).ready(function () {
                 }
             });
             
-            $('.tabs #film_list').show();
+            $('.tabs #film_list').show().siblings().hide();
         }
     });
     
