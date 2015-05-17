@@ -269,31 +269,14 @@ body
     border: solid black 2px;
     border-collapse: collapse;
     margin: 10px;
+    width: auto;
 }
 
-#film_list_table th
-{
-    background-color: darkgray;
-    font-size: 18;
-    font-weight: bold;
-    text-align: center;
-}
-
-#film_list_table th, #film_list_table td
+#film_list_table td
 {
     border: solid darkgray 2px;
-    padding: 5px;
-    text-align: center;
-}
-
-#film_list_table:nth-child(odd)
-{
-    background-color: #DBDBDB;
-}
-
-#film_list_table:nth-child(even)
-{
-    background-color: #EFEFEF;
+    padding: 2px;
+    text-align: left;
 }
 
 #user_profile

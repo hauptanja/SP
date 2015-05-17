@@ -39,7 +39,7 @@ $(document).ready(function () {
                     method: "getList"
                 },
                 cache: false,
-                success: function (result) {
+                success: function (result) { 
                     var data = eval(result);
                     $("#vpisan_film").html(data[0]);
                     

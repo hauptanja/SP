@@ -66,7 +66,7 @@
         if (mysqli_num_rows($result) > 0) {
             $val = 0;
             $output2 = "<tr>";
-            while(($row = mysqli_fetch_assoc($result)) && $val < 10) {
+            while(($row = mysqli_fetch_assoc($result)) && $val < 5) {
                 $val++;
                 $output2 .= "<td class='filmi'>" . $row["slo_naslov"] . "</td>";
             }
