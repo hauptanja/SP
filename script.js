@@ -85,8 +85,8 @@ function getDetails (naslov){
         },
         cache: false,
         success: function (result) {
-            /*
             if (result != "0 results") {
+                alert(result);
                 var data = eval(result);
                 alert(data);
                 $('#slo_naslov').text(data[0]);
@@ -111,8 +111,6 @@ function getDetails (naslov){
 
                 $('#ocena').html("Ocena kritikov: " + data[7] + "/10<br>Ocena gledalcev: " + data[8] + "/5");
             }
-            */
-            alert("res" + result);
         },
         error: function (result) {
             alert("error" + result);
