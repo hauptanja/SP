@@ -72,6 +72,50 @@ $(document).ready(function () {
         getDetails(naslov);
     });
     
+    $( "#registriraj" ).click(function() {
+        if( $( "#username1" ).val().length==0 || $( "#username1" ).val()=="" || $( "#password" ).val().length==0 || $( "#password" ).val()=="" || $( "#email" ).val().length==0  || $( "#email" ).val()=="" || $( "#name" ).val().length==0  || $( "#name" ).val()=="" || $( "#lastname" ).val().length==0 || $( "#lastname" ).val().length==0 || $( "#gender" ).val().length==0 || $( "#gender" ).val().length==0 ){
+            alert("Izpolnite vsa polja!");
+        }
+        else{
+          $.ajax({
+            type: "POST",
+            url: "registration.php",
+            data: {
+                Username: $( "#username1" ).val(),
+                Password: $( "#password" ).val(),
+                Email: $( "#email" ).val(),
+                Name: $( "#name" ).val(),
+                Lastname: $( "#lastname" ).val(),
+                Sex: $( "#gender" ).val()
+            },
+              success: function(){
+                $('.tabs #login').show().siblings().hide();
+                $('a').parent('li').removeClass('active');
+                $('a[href$="#login"]').parent('li').addClass('active');
+              }
+          });
+        }
+    });
+
+    $( "#loginButton" ).click(function() {
+        $.ajax({
+            type: "POST",
+            url: "checkLogin.php",
+            data: {
+                U: $( "#userName" ).val(),
+                Geslo: $( "#userPass" ).val()
+            },
+            success:function(data) {
+                if(data==true){
+                     $('.tabs #user_profile').show().siblings().hide();
+                    $('a').parent('li').removeClass('active');
+                    $('a[href$="#user_profile"]').parent('li').addClass('active');
+                }
+                else
+                    alert("Napačno geslo ali uporabniško ime");
+          }
+        });
+    });
 });
 
 function getDetails (naslov){

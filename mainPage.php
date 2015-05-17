@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="style.css">
@@ -43,29 +44,26 @@
                 <div id="login" class="tab">
                     <div id="userLogin">
 				    <h1>Prijava</h1>
-				        <form action="" method="post">
 					    <div>Uporabniško ime :</div>
 					    <input id="userName" name="username" type="text" class="inputField">
 					    <div>Geslo :</div>
 					    <input id="userPass" name="password" type="password" class="inputField">
-					    <input id="loginButton" name="submit" type="submit" value="PRIJAVA">
-				        </form>
+					    <button id="loginButton" name="submit" type="button" value="PRIJAVA">PRIJAVA</button>
 				    </div>
                 </div>
                 <div id="register" class="tab">
                     <h1>Registracija</h1>
                         <table id="tabelaR">
-                            <tr><td>Uporabniško ime:</td><td><input type="text" name="username" class="inputField"/></td></tr>
-                            <tr><td>Geslo:</td><td><input type="password" name="password" class="inputField"/></td></tr>
-                            <tr><td>Email:</td><td><input type="text" name="email" class="inputField"/></td></tr>
-                            <tr><td>Ime:</td><td><input type="text" name="name" size="15" class="inputField"/></td></tr>
-                            <tr><td>Priimek:</td><td><input type="text" name="lastname" size="15" class="inputField"/></td></tr>
-                            <tr><td>Spol:</td><td><select name="gender">
+                            <tr><td>Uporabniško ime:</td><td><input type="text" name="username" id="username1" class="inputField"/></td></tr>
+                            <tr><td>Geslo:</td><td><input type="password" name="password" id="password" class="inputField"/></td></tr>
+                            <tr><td>Email:</td><td><input type="text" name="email" id="email" class="inputField"/></td></tr>
+                            <tr><td>Ime:</td><td><input type="text" name="name" size="15" id="name" class="inputField"/></td></tr>
+                            <tr><td>Priimek:</td><td><input type="text" name="lastname" id="lastname" size="15" class="inputField"/></td></tr>
+                            <tr><td>Spol:</td><td><select name="gender" id="gender">
                             <option value="male">Moški</option>
                             <option value="female">Ženski</option></select></td></tr>
                         </table>
-                        <input type="submit" name="submit" value="REGISTRACIJA" id="registriraj"/>      
-                    
+                    <button type="button" name="submit" value="REGISTRACIJA" id="registriraj">REGISTRACIJA</button>
                 </div>
                 <div id="user_profile" class="tab">
                     <div id="container">
