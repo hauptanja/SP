@@ -2,7 +2,7 @@
 $(document).ready(function () {
     "use strict";
     
-    $("#ocena_filma").hide();
+    //$("#ocena_filma").hide();
     
     $('.tabs .tab-links a').on('click', function (e) {
         var currentAttrValue = $(this).attr('href');
@@ -135,7 +135,7 @@ $(document).ready(function () {
           }
         });
     });
-    
+    /*
     $("#watched_button").click(function() {
         $("#ocena_filma").show();
     });
