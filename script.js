@@ -12,8 +12,8 @@ $(document).ready(function () {
                 data: {
                     operacija: "logout"
                 },
-                success:function(data) {
-                    alert("odjavljen");
+                success:function() {
+                    location.reload();
                 }
             });
         }
@@ -126,6 +126,7 @@ $(document).ready(function () {
                      $('.tabs #user_profile').show().siblings().hide();
                     $('a').parent('li').removeClass('active');
                     $('a[href$="#user_profile"]').parent('li').addClass('active');
+                    location.reload();
                 }
                 else
                     alert("Napačno geslo ali uporabniško ime");
