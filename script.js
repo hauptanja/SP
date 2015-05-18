@@ -171,7 +171,7 @@ function getDetails (naslov){
         success: function (result) {
             if (result != "0 results") {
                 var data = JSON.parse(result);
-                $('#id_filma').val(data[9]);
+                //$('#id_filma').val(data[9]);
                 $('#slo_naslov').text(data[0]);
                 $('#ang_naslov').text(data[1]);
                 $('#genre').text(data[2]);
