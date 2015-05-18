@@ -94,11 +94,11 @@ session_start();
                         <input type="button" value="Gledano" id="watched_button"/>
                         <table id="ocena_filma">
                             <tr id="ocena_f">
-                            <td id="1star"></td>
-                            <td id="2star"></td>
-                            <td id="3star"></td>
-                            <td id="4star"></td>
-                            <td id="5star"></td>
+                            <td id="1star"><img src="star.png"></td>
+                            <td id="2star"><img src="star.png"></td>
+                            <td id="3star"><img src="star.png"></td>
+                            <td id="4star"><img src="star.png"></td>
+                            <td id="5star"><img src="star.png"></td>
                             </tr>
                         </table>
                         <h2 id="slo_naslov"></h2>
