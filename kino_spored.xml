@@ -1,0 +1,1305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spored>
+<datum date="18.5.2015">
+<kraj ime="ljubljana">
+<movie>
+<naslov_slo>Beli bog</naslov_slo>
+<naslov_orig>Fehér isten</naslov_orig>
+<halls>
+<hall>11</hall>
+</halls>
+<times>
+<time>16:40</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Velika igra</naslov_slo>
+<naslov_orig>Big Game</naslov_orig>
+<halls>
+<hall>Dvorana Story (3)</hall>
+<hall>Dvorana Story (3)</hall>
+</halls>
+<times>
+<time>18:40</time>
+<time>20:30</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Selma</naslov_slo>
+<naslov_orig>Selma</naslov_orig>
+<halls>
+<hall>12</hall>
+</halls>
+<times>
+<time>18:20</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Gemma Bovery</naslov_slo>
+<naslov_orig>Gemma Bovery</naslov_orig>
+<halls>
+<hall>11</hall>
+</halls>
+<times>
+<time>20:40</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Spuži na suhem</naslov_slo>
+<naslov_orig>The SpongeBob Movie: Sponge Out of Water</naslov_orig>
+<halls>
+<hall>4</hall>
+<hall>7</hall>
+<hall>4</hall>
+<hall>7</hall>
+</halls>
+<times>
+<time>15:30</time>
+<time>16:30</time>
+<time>17:30</time>
+<time>18:30</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Gorčilo - Si me prišel pogledat</naslov_slo>
+<naslov_orig>Gorčilo - Jesi li to došao da me vidiš</naslov_orig>
+<halls>
+<hall>2</hall>
+</halls>
+<times>
+<time>20:00</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Odklikana</naslov_slo>
+<naslov_orig>Unfriended / Cybernatural</naslov_orig>
+<halls>
+<hall>12</hall>
+<hall>Rio (10)</hall>
+<hall>Rio (10)</hall>
+</halls>
+<times>
+<time>16:45</time>
+<time>19:20</time>
+<time>21:10</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Zakaj (ni)sem pohrustal svojega očeta</naslov_slo>
+<naslov_orig>Pourquoi j&#39;ai pas mangé mon pere / Evolution Man</naslov_orig>
+<halls>
+<hall>Rio (10)</hall>
+<hall>2</hall>
+<hall>Rio (10)</hall>
+</halls>
+<times>
+<time>15:20</time>
+<time>16:10</time>
+<time>17:20</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Let domov</naslov_slo>
+<naslov_orig>Flying Home</naslov_orig>
+<halls>
+<hall>2</hall>
+</halls>
+<times>
+<time>18:10</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Hitri in drzni 7</naslov_slo>
+<naslov_orig>Furious 7</naslov_orig>
+<halls>
+<hall>9</hall>
+<hall>9</hall>
+<hall>7</hall>
+<hall>9</hall>
+</halls>
+<times>
+<time>16:15</time>
+<time>19:00</time>
+<time>20:30</time>
+<time>21:40</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Postali bomo prvaki sveta</naslov_slo>
+<naslov_orig>Bićemo prvaci sveta</naslov_orig>
+<halls>
+<hall>1</hall>
+</halls>
+<times>
+<time>19:50</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Sosedov fant</naslov_slo>
+<naslov_orig>The Boy Next Door</naslov_orig>
+<halls>
+<hall>12</hall>
+</halls>
+<times>
+<time>20:45</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>DUFF - Dežurni bajs</naslov_slo>
+<naslov_orig>The DUFF</naslov_orig>
+<halls>
+<hall>1</hall>
+</halls>
+<times>
+<time>17:50</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Petdeset odtenkov sive</naslov_slo>
+<naslov_orig>Fifty Shades of Grey</naslov_orig>
+<halls>
+<hall>4</hall>
+</halls>
+<times>
+<time>20:15</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>7. palček</naslov_slo>
+<naslov_orig>Der 7bte Zwerg</naslov_orig>
+<halls>
+<hall>Dvorana Story (3)</hall>
+<hall>1</hall>
+<hall>Dvorana Story (3)</hall>
+</halls>
+<times>
+<time>15:20</time>
+<time>16:05</time>
+<time>17:00</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Še vedno Alice</naslov_slo>
+<naslov_orig>Still Alice</naslov_orig>
+<halls>
+<hall>11</hall>
+</halls>
+<times>
+<time>18:50</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Francozinje</naslov_slo>
+<naslov_orig>Sous les jupes des filles</naslov_orig>
+<halls>
+<hall>Komuna</hall>
+</halls>
+<times>
+<time>16:00</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Prava nota 2</naslov_slo>
+<naslov_orig>Pitch Perfect 2</naslov_orig>
+<halls>
+<hall>Komuna</hall>
+</halls>
+<times>
+<time>20:45</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Selma</naslov_slo>
+<naslov_orig>Selma</naslov_orig>
+<halls>
+<hall>Komuna</hall>
+</halls>
+<times>
+<time>18:15</time>
+</times>
+</movie>
+</kraj>
+<kraj ime="maribor">
+<movie>
+<naslov_slo>Beli bog</naslov_slo>
+<naslov_orig>Fehér isten</naslov_orig>
+<halls>
+<hall>8</hall>
+</halls>
+<times>
+<time>16:50</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>DUFF - Dežurni bajs</naslov_slo>
+<naslov_orig>The DUFF</naslov_orig>
+<halls>
+<hall>8</hall>
+</halls>
+<times>
+<time>19:05</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Gemma Bovery</naslov_slo>
+<naslov_orig>Gemma Bovery</naslov_orig>
+<halls>
+<hall>9</hall>
+</halls>
+<times>
+<time>19:50</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Gorčilo - Si me prišel pogledat</naslov_slo>
+<naslov_orig>Gorčilo - Jesi li to došao da me vidiš</naslov_orig>
+<halls>
+<hall>8</hall>
+</halls>
+<times>
+<time>21:10</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Hitri in drzni 7</naslov_slo>
+<naslov_orig>Furious 7</naslov_orig>
+<halls>
+<hall>6 </hall>
+<hall>6 </hall>
+<hall>5</hall>
+<hall>6 </hall>
+</halls>
+<times>
+<time>16:20</time>
+<time>19:00</time>
+<time>20:20</time>
+<time>21:40</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Let domov</naslov_slo>
+<naslov_orig>Flying Home</naslov_orig>
+<halls>
+<hall>3</hall>
+</halls>
+<times>
+<time>19:20</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Odklikana</naslov_slo>
+<naslov_orig>Unfriended / Cybernatural</naslov_orig>
+<halls>
+<hall>10</hall>
+<hall>10</hall>
+<hall>10</hall>
+</halls>
+<times>
+<time>17:30</time>
+<time>19:15</time>
+<time>21:00</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Petdeset odtenkov sive</naslov_slo>
+<naslov_orig>Fifty Shades of Grey</naslov_orig>
+<halls>
+<hall>2</hall>
+<hall>2</hall>
+<hall>7</hall>
+</halls>
+<times>
+<time>17:40</time>
+<time>20:00</time>
+<time>21:15</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Prava nota 2</naslov_slo>
+<naslov_orig>Pitch Perfect 2</naslov_orig>
+<halls>
+<hall>1</hall>
+<hall>1</hall>
+<hall>1</hall>
+</halls>
+<times>
+<time>15:50</time>
+<time>18:10</time>
+<time>20:30</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Selma</naslov_slo>
+<naslov_orig>Selma</naslov_orig>
+<halls>
+<hall>3</hall>
+</halls>
+<times>
+<time>21:20</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Sosedov fant</naslov_slo>
+<naslov_orig>The Boy Next Door</naslov_orig>
+<halls>
+<hall>4</hall>
+<hall>4</hall>
+<hall>4</hall>
+</halls>
+<times>
+<time>16:45</time>
+<time>18:50</time>
+<time>20:45</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Spuži na suhem</naslov_slo>
+<naslov_orig>The SpongeBob Movie: Sponge Out of Water</naslov_orig>
+<halls>
+<hall>5</hall>
+<hall>5</hall>
+</halls>
+<times>
+<time>16:40</time>
+<time>18:30</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Spuži na suhem 3D</naslov_slo>
+<naslov_orig>The SpongeBob Movie: Sponge Out of Water 3D</naslov_orig>
+<halls>
+<hall>9</hall>
+<hall>9</hall>
+</halls>
+<times>
+<time>16:10</time>
+<time>18:00</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Velika igra</naslov_slo>
+<naslov_orig>Big Game</naslov_orig>
+<halls>
+<hall>7</hall>
+</halls>
+<times>
+<time>19:25</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Zakaj (ni)sem pohrustal svojega očeta</naslov_slo>
+<naslov_orig>Pourquoi j&#39;ai pas mangé mon pere / Evolution Man</naslov_orig>
+<halls>
+<hall>7</hall>
+</halls>
+<times>
+<time>17:25</time>
+</times>
+</movie>
+</kraj>
+<kraj ime="kranj">
+<movie>
+<naslov_slo>Prava nota 2</naslov_slo>
+<naslov_orig>Pitch Perfect 2</naslov_orig>
+<halls>
+<hall>2</hall>
+<hall>2</hall>
+<hall>2</hall>
+</halls>
+<times>
+<time>16:00</time>
+<time>18:20</time>
+<time>20:40</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Spuži na suhem</naslov_slo>
+<naslov_orig>The SpongeBob Movie: Sponge Out of Water</naslov_orig>
+<halls>
+<hall>3</hall>
+</halls>
+<times>
+<time>16:50</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Zakaj (ni)sem pohrustal svojega očeta</naslov_slo>
+<naslov_orig>Pourquoi j&#39;ai pas mangé mon pere / Evolution Man</naslov_orig>
+<halls>
+<hall> 1</hall>
+</halls>
+<times>
+<time>15:40</time>
+</times>
+</movie>
+</kraj>
+</datum>
+<datum date="19.5.2015">
+<kraj ime="ljubljana">
+<movie>
+<naslov_slo>Beli bog</naslov_slo>
+<naslov_orig>Fehér isten</naslov_orig>
+<halls>
+<hall>11</hall>
+</halls>
+<times>
+<time>16:40</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Velika igra</naslov_slo>
+<naslov_orig>Big Game</naslov_orig>
+<halls>
+<hall>Dvorana Story (3)</hall>
+<hall>Dvorana Story (3)</hall>
+</halls>
+<times>
+<time>18:40</time>
+<time>20:30</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Selma</naslov_slo>
+<naslov_orig>Selma</naslov_orig>
+<halls>
+<hall>12</hall>
+</halls>
+<times>
+<time>18:20</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Gemma Bovery</naslov_slo>
+<naslov_orig>Gemma Bovery</naslov_orig>
+<halls>
+<hall>11</hall>
+</halls>
+<times>
+<time>20:40</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Spuži na suhem</naslov_slo>
+<naslov_orig>The SpongeBob Movie: Sponge Out of Water</naslov_orig>
+<halls>
+<hall>4</hall>
+<hall>7</hall>
+<hall>4</hall>
+<hall>7</hall>
+</halls>
+<times>
+<time>15:30</time>
+<time>16:30</time>
+<time>17:30</time>
+<time>18:30</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Gorčilo - Si me prišel pogledat</naslov_slo>
+<naslov_orig>Gorčilo - Jesi li to došao da me vidiš</naslov_orig>
+<halls>
+<hall>2</hall>
+</halls>
+<times>
+<time>20:00</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Odklikana</naslov_slo>
+<naslov_orig>Unfriended / Cybernatural</naslov_orig>
+<halls>
+<hall>12</hall>
+<hall>Rio (10)</hall>
+<hall>Rio (10)</hall>
+</halls>
+<times>
+<time>16:45</time>
+<time>19:20</time>
+<time>21:10</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Zakaj (ni)sem pohrustal svojega očeta</naslov_slo>
+<naslov_orig>Pourquoi j&#39;ai pas mangé mon pere / Evolution Man</naslov_orig>
+<halls>
+<hall>Rio (10)</hall>
+<hall>2</hall>
+<hall>Rio (10)</hall>
+</halls>
+<times>
+<time>15:20</time>
+<time>16:10</time>
+<time>17:20</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Let domov</naslov_slo>
+<naslov_orig>Flying Home</naslov_orig>
+<halls>
+<hall>2</hall>
+</halls>
+<times>
+<time>18:10</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Hitri in drzni 7</naslov_slo>
+<naslov_orig>Furious 7</naslov_orig>
+<halls>
+<hall>9</hall>
+<hall>9</hall>
+<hall>7</hall>
+<hall>9</hall>
+</halls>
+<times>
+<time>16:15</time>
+<time>19:00</time>
+<time>20:30</time>
+<time>21:40</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Postali bomo prvaki sveta</naslov_slo>
+<naslov_orig>Bićemo prvaci sveta</naslov_orig>
+<halls>
+<hall>1</hall>
+</halls>
+<times>
+<time>19:50</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Sosedov fant</naslov_slo>
+<naslov_orig>The Boy Next Door</naslov_orig>
+<halls>
+<hall>12</hall>
+</halls>
+<times>
+<time>20:45</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>DUFF - Dežurni bajs</naslov_slo>
+<naslov_orig>The DUFF</naslov_orig>
+<halls>
+<hall>1</hall>
+</halls>
+<times>
+<time>17:50</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Petdeset odtenkov sive</naslov_slo>
+<naslov_orig>Fifty Shades of Grey</naslov_orig>
+<halls>
+<hall>4</hall>
+</halls>
+<times>
+<time>20:15</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>7. palček</naslov_slo>
+<naslov_orig>Der 7bte Zwerg</naslov_orig>
+<halls>
+<hall>Dvorana Story (3)</hall>
+<hall>1</hall>
+<hall>Dvorana Story (3)</hall>
+</halls>
+<times>
+<time>15:20</time>
+<time>16:05</time>
+<time>17:00</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Še vedno Alice</naslov_slo>
+<naslov_orig>Still Alice</naslov_orig>
+<halls>
+<hall>11</hall>
+</halls>
+<times>
+<time>18:50</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Francozinje</naslov_slo>
+<naslov_orig>Sous les jupes des filles</naslov_orig>
+<halls>
+<hall>Komuna</hall>
+</halls>
+<times>
+<time>16:00</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Prava nota 2</naslov_slo>
+<naslov_orig>Pitch Perfect 2</naslov_orig>
+<halls>
+<hall>Komuna</hall>
+</halls>
+<times>
+<time>20:45</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Selma</naslov_slo>
+<naslov_orig>Selma</naslov_orig>
+<halls>
+<hall>Komuna</hall>
+</halls>
+<times>
+<time>18:15</time>
+</times>
+</movie>
+</kraj>
+<kraj ime="maribor">
+<movie>
+<naslov_slo>Beli bog</naslov_slo>
+<naslov_orig>Fehér isten</naslov_orig>
+<halls>
+<hall>8</hall>
+</halls>
+<times>
+<time>16:50</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>DUFF - Dežurni bajs</naslov_slo>
+<naslov_orig>The DUFF</naslov_orig>
+<halls>
+<hall>8</hall>
+</halls>
+<times>
+<time>19:05</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Gemma Bovery</naslov_slo>
+<naslov_orig>Gemma Bovery</naslov_orig>
+<halls>
+<hall>9</hall>
+</halls>
+<times>
+<time>19:50</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Gorčilo - Si me prišel pogledat</naslov_slo>
+<naslov_orig>Gorčilo - Jesi li to došao da me vidiš</naslov_orig>
+<halls>
+<hall>8</hall>
+</halls>
+<times>
+<time>21:10</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Hitri in drzni 7</naslov_slo>
+<naslov_orig>Furious 7</naslov_orig>
+<halls>
+<hall>6 </hall>
+<hall>6 </hall>
+<hall>5</hall>
+<hall>6 </hall>
+</halls>
+<times>
+<time>16:20</time>
+<time>19:00</time>
+<time>20:20</time>
+<time>21:40</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Let domov</naslov_slo>
+<naslov_orig>Flying Home</naslov_orig>
+<halls>
+<hall>3</hall>
+</halls>
+<times>
+<time>19:20</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Odklikana</naslov_slo>
+<naslov_orig>Unfriended / Cybernatural</naslov_orig>
+<halls>
+<hall>10</hall>
+<hall>10</hall>
+<hall>10</hall>
+</halls>
+<times>
+<time>17:30</time>
+<time>19:15</time>
+<time>21:00</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Petdeset odtenkov sive</naslov_slo>
+<naslov_orig>Fifty Shades of Grey</naslov_orig>
+<halls>
+<hall>2</hall>
+<hall>2</hall>
+<hall>7</hall>
+</halls>
+<times>
+<time>17:40</time>
+<time>20:00</time>
+<time>21:15</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Prava nota 2</naslov_slo>
+<naslov_orig>Pitch Perfect 2</naslov_orig>
+<halls>
+<hall>1</hall>
+<hall>1</hall>
+<hall>1</hall>
+</halls>
+<times>
+<time>15:50</time>
+<time>18:10</time>
+<time>20:30</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Selma</naslov_slo>
+<naslov_orig>Selma</naslov_orig>
+<halls>
+<hall>3</hall>
+</halls>
+<times>
+<time>21:20</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Sosedov fant</naslov_slo>
+<naslov_orig>The Boy Next Door</naslov_orig>
+<halls>
+<hall>4</hall>
+<hall>4</hall>
+<hall>4</hall>
+</halls>
+<times>
+<time>16:45</time>
+<time>18:50</time>
+<time>20:45</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Spuži na suhem</naslov_slo>
+<naslov_orig>The SpongeBob Movie: Sponge Out of Water</naslov_orig>
+<halls>
+<hall>5</hall>
+<hall>5</hall>
+</halls>
+<times>
+<time>16:40</time>
+<time>18:30</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Spuži na suhem 3D</naslov_slo>
+<naslov_orig>The SpongeBob Movie: Sponge Out of Water 3D</naslov_orig>
+<halls>
+<hall>9</hall>
+<hall>9</hall>
+</halls>
+<times>
+<time>16:10</time>
+<time>18:00</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Velika igra</naslov_slo>
+<naslov_orig>Big Game</naslov_orig>
+<halls>
+<hall>7</hall>
+</halls>
+<times>
+<time>19:25</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Zakaj (ni)sem pohrustal svojega očeta</naslov_slo>
+<naslov_orig>Pourquoi j&#39;ai pas mangé mon pere / Evolution Man</naslov_orig>
+<halls>
+<hall>7</hall>
+</halls>
+<times>
+<time>17:25</time>
+</times>
+</movie>
+</kraj>
+<kraj ime="kranj">
+<movie>
+<naslov_slo>Prava nota 2</naslov_slo>
+<naslov_orig>Pitch Perfect 2</naslov_orig>
+<halls>
+<hall>2</hall>
+<hall>2</hall>
+<hall>2</hall>
+</halls>
+<times>
+<time>16:00</time>
+<time>18:20</time>
+<time>20:40</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Spuži na suhem</naslov_slo>
+<naslov_orig>The SpongeBob Movie: Sponge Out of Water</naslov_orig>
+<halls>
+<hall>3</hall>
+</halls>
+<times>
+<time>16:50</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Zakaj (ni)sem pohrustal svojega očeta</naslov_slo>
+<naslov_orig>Pourquoi j&#39;ai pas mangé mon pere / Evolution Man</naslov_orig>
+<halls>
+<hall> 1</hall>
+</halls>
+<times>
+<time>15:40</time>
+</times>
+</movie>
+</kraj>
+</datum>
+<datum date="20.5.2015">
+<kraj ime="ljubljana">
+<movie>
+<naslov_slo>Beli bog</naslov_slo>
+<naslov_orig>Fehér isten</naslov_orig>
+<halls>
+<hall>11</hall>
+</halls>
+<times>
+<time>16:40</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Velika igra</naslov_slo>
+<naslov_orig>Big Game</naslov_orig>
+<halls>
+<hall>Dvorana Story (3)</hall>
+<hall>Dvorana Story (3)</hall>
+</halls>
+<times>
+<time>18:40</time>
+<time>20:30</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Selma</naslov_slo>
+<naslov_orig>Selma</naslov_orig>
+<halls>
+<hall>12</hall>
+</halls>
+<times>
+<time>18:20</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Gemma Bovery</naslov_slo>
+<naslov_orig>Gemma Bovery</naslov_orig>
+<halls>
+<hall>11</hall>
+</halls>
+<times>
+<time>20:40</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Spuži na suhem</naslov_slo>
+<naslov_orig>The SpongeBob Movie: Sponge Out of Water</naslov_orig>
+<halls>
+<hall>4</hall>
+<hall>7</hall>
+<hall>4</hall>
+<hall>7</hall>
+</halls>
+<times>
+<time>15:30</time>
+<time>16:30</time>
+<time>17:30</time>
+<time>18:30</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Gorčilo - Si me prišel pogledat</naslov_slo>
+<naslov_orig>Gorčilo - Jesi li to došao da me vidiš</naslov_orig>
+<halls>
+<hall>2</hall>
+</halls>
+<times>
+<time>20:00</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Odklikana</naslov_slo>
+<naslov_orig>Unfriended / Cybernatural</naslov_orig>
+<halls>
+<hall>12</hall>
+<hall>Rio (10)</hall>
+<hall>Rio (10)</hall>
+</halls>
+<times>
+<time>16:45</time>
+<time>19:20</time>
+<time>21:10</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Zakaj (ni)sem pohrustal svojega očeta</naslov_slo>
+<naslov_orig>Pourquoi j&#39;ai pas mangé mon pere / Evolution Man</naslov_orig>
+<halls>
+<hall>Rio (10)</hall>
+<hall>2</hall>
+<hall>Rio (10)</hall>
+</halls>
+<times>
+<time>15:20</time>
+<time>16:10</time>
+<time>17:20</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Let domov</naslov_slo>
+<naslov_orig>Flying Home</naslov_orig>
+<halls>
+<hall>2</hall>
+</halls>
+<times>
+<time>18:10</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Hitri in drzni 7</naslov_slo>
+<naslov_orig>Furious 7</naslov_orig>
+<halls>
+<hall>9</hall>
+<hall>9</hall>
+<hall>7</hall>
+<hall>9</hall>
+</halls>
+<times>
+<time>16:15</time>
+<time>19:00</time>
+<time>20:30</time>
+<time>21:40</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Postali bomo prvaki sveta</naslov_slo>
+<naslov_orig>Bićemo prvaci sveta</naslov_orig>
+<halls>
+<hall>1</hall>
+</halls>
+<times>
+<time>19:50</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Sosedov fant</naslov_slo>
+<naslov_orig>The Boy Next Door</naslov_orig>
+<halls>
+<hall>12</hall>
+</halls>
+<times>
+<time>20:45</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>DUFF - Dežurni bajs</naslov_slo>
+<naslov_orig>The DUFF</naslov_orig>
+<halls>
+<hall>1</hall>
+</halls>
+<times>
+<time>17:50</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Petdeset odtenkov sive</naslov_slo>
+<naslov_orig>Fifty Shades of Grey</naslov_orig>
+<halls>
+<hall>4</hall>
+</halls>
+<times>
+<time>20:15</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>7. palček</naslov_slo>
+<naslov_orig>Der 7bte Zwerg</naslov_orig>
+<halls>
+<hall>Dvorana Story (3)</hall>
+<hall>1</hall>
+<hall>Dvorana Story (3)</hall>
+</halls>
+<times>
+<time>15:20</time>
+<time>16:05</time>
+<time>17:00</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Še vedno Alice</naslov_slo>
+<naslov_orig>Still Alice</naslov_orig>
+<halls>
+<hall>11</hall>
+</halls>
+<times>
+<time>18:50</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Francozinje</naslov_slo>
+<naslov_orig>Sous les jupes des filles</naslov_orig>
+<halls>
+<hall>Komuna</hall>
+</halls>
+<times>
+<time>16:00</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Prava nota 2</naslov_slo>
+<naslov_orig>Pitch Perfect 2</naslov_orig>
+<halls>
+<hall>Komuna</hall>
+</halls>
+<times>
+<time>20:45</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Selma</naslov_slo>
+<naslov_orig>Selma</naslov_orig>
+<halls>
+<hall>Komuna</hall>
+</halls>
+<times>
+<time>18:15</time>
+</times>
+</movie>
+</kraj>
+<kraj ime="maribor">
+<movie>
+<naslov_slo>Beli bog</naslov_slo>
+<naslov_orig>Fehér isten</naslov_orig>
+<halls>
+<hall>8</hall>
+</halls>
+<times>
+<time>16:50</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>DUFF - Dežurni bajs</naslov_slo>
+<naslov_orig>The DUFF</naslov_orig>
+<halls>
+<hall>8</hall>
+</halls>
+<times>
+<time>19:05</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Gemma Bovery</naslov_slo>
+<naslov_orig>Gemma Bovery</naslov_orig>
+<halls>
+<hall>9</hall>
+</halls>
+<times>
+<time>19:50</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Gorčilo - Si me prišel pogledat</naslov_slo>
+<naslov_orig>Gorčilo - Jesi li to došao da me vidiš</naslov_orig>
+<halls>
+<hall>8</hall>
+</halls>
+<times>
+<time>21:10</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Hitri in drzni 7</naslov_slo>
+<naslov_orig>Furious 7</naslov_orig>
+<halls>
+<hall>6 </hall>
+<hall>6 </hall>
+<hall>5</hall>
+<hall>6 </hall>
+</halls>
+<times>
+<time>16:20</time>
+<time>19:00</time>
+<time>20:20</time>
+<time>21:40</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Let domov</naslov_slo>
+<naslov_orig>Flying Home</naslov_orig>
+<halls>
+<hall>3</hall>
+</halls>
+<times>
+<time>19:20</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Odklikana</naslov_slo>
+<naslov_orig>Unfriended / Cybernatural</naslov_orig>
+<halls>
+<hall>10</hall>
+<hall>10</hall>
+<hall>10</hall>
+</halls>
+<times>
+<time>17:30</time>
+<time>19:15</time>
+<time>21:00</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Petdeset odtenkov sive</naslov_slo>
+<naslov_orig>Fifty Shades of Grey</naslov_orig>
+<halls>
+<hall>2</hall>
+<hall>2</hall>
+<hall>7</hall>
+</halls>
+<times>
+<time>17:40</time>
+<time>20:00</time>
+<time>21:15</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Prava nota 2</naslov_slo>
+<naslov_orig>Pitch Perfect 2</naslov_orig>
+<halls>
+<hall>1</hall>
+<hall>1</hall>
+<hall>1</hall>
+</halls>
+<times>
+<time>15:50</time>
+<time>18:10</time>
+<time>20:30</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Selma</naslov_slo>
+<naslov_orig>Selma</naslov_orig>
+<halls>
+<hall>3</hall>
+</halls>
+<times>
+<time>21:20</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Sosedov fant</naslov_slo>
+<naslov_orig>The Boy Next Door</naslov_orig>
+<halls>
+<hall>4</hall>
+<hall>4</hall>
+<hall>4</hall>
+</halls>
+<times>
+<time>16:45</time>
+<time>18:50</time>
+<time>20:45</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Spuži na suhem</naslov_slo>
+<naslov_orig>The SpongeBob Movie: Sponge Out of Water</naslov_orig>
+<halls>
+<hall>5</hall>
+<hall>5</hall>
+</halls>
+<times>
+<time>16:40</time>
+<time>18:30</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Spuži na suhem 3D</naslov_slo>
+<naslov_orig>The SpongeBob Movie: Sponge Out of Water 3D</naslov_orig>
+<halls>
+<hall>9</hall>
+<hall>9</hall>
+</halls>
+<times>
+<time>16:10</time>
+<time>18:00</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Velika igra</naslov_slo>
+<naslov_orig>Big Game</naslov_orig>
+<halls>
+<hall>7</hall>
+</halls>
+<times>
+<time>19:25</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Zakaj (ni)sem pohrustal svojega očeta</naslov_slo>
+<naslov_orig>Pourquoi j&#39;ai pas mangé mon pere / Evolution Man</naslov_orig>
+<halls>
+<hall>7</hall>
+</halls>
+<times>
+<time>17:25</time>
+</times>
+</movie>
+</kraj>
+<kraj ime="kranj">
+<movie>
+<naslov_slo>Prava nota 2</naslov_slo>
+<naslov_orig>Pitch Perfect 2</naslov_orig>
+<halls>
+<hall>2</hall>
+<hall>2</hall>
+<hall>2</hall>
+</halls>
+<times>
+<time>16:00</time>
+<time>18:20</time>
+<time>20:40</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Spuži na suhem</naslov_slo>
+<naslov_orig>The SpongeBob Movie: Sponge Out of Water</naslov_orig>
+<halls>
+<hall>3</hall>
+</halls>
+<times>
+<time>16:50</time>
+</times>
+</movie>
+<movie>
+<naslov_slo>Zakaj (ni)sem pohrustal svojega očeta</naslov_slo>
+<naslov_orig>Pourquoi j&#39;ai pas mangé mon pere / Evolution Man</naslov_orig>
+<halls>
+<hall> 1</hall>
+</halls>
+<times>
+<time>15:40</time>
+</times>
+</movie>
+</kraj>
+</datum>
+</spored>
