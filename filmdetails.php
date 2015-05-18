@@ -34,7 +34,7 @@
                 $output[6] = "";
             $output[7] = $row["tomatometer"];
             $output[8] = $row["audience"];
-            $output[9] = $row["ID"];
+
             $o = json_encode($output);
             echo $o;
         } else {
@@ -80,30 +80,5 @@
         
         $o = json_encode($o);
         echo $o;
-    }/*
-    else if ($_POST['method'] == "oceni")
-    {
-        $id_filma = $_POST['id'];
-        $ocena = $_POST['ocena'];
-        $uporabnik = $_SESSION['username'];
-        
-        $q = "SELECT * FROM Uporabnik WHERE Username = '$uporabnik'";
-        $result = mysqli_query($mysqli, $q);
-
-        if (mysqli_num_rows($result) > 0) {
-        // output data of each row
-            $row = mysqli_fetch_assoc($result);
-            $id_uporabnika = $row["ID_uporabnika"]; 
-        }
-        
-        $q="INSERT INTO Gledani_Filmi (ID_Uporabnika, ID_Filma, Ocena) VALUES ('$id_uporabnika', '$id_filma', '$ocena') ";
-        
-        if (mysqli_query($mysqli, $q)) {
-            echo "OK";
-        } else {
-            echo "Error";
-        }
     }
-    
-    mysqli_close($mysqli);*/
 ?>
