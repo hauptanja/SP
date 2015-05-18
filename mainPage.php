@@ -101,7 +101,7 @@ session_start();
                             <td id="star5"><img src="star.png" class="starIMG"/></td>
                             </tr>
                         </table>
-                        <input type="hidden" id="id_filma"/>
+                        <!---<input type="hidden" id="id_filma"/>-->
                         <h2 id="slo_naslov"></h2>
                         <h3 id="ang_naslov"></h3>
                         <div id="genre"></div>
