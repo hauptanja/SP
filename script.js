@@ -1,6 +1,9 @@
 /*global $, jQuery, alert*/
 $(document).ready(function () {
     "use strict";
+    
+    $("#ocena_filma").hide();
+    
     $('.tabs .tab-links a').on('click', function (e) {
         var currentAttrValue = $(this).attr('href');
         
@@ -132,6 +135,26 @@ $(document).ready(function () {
           }
         });
     });
+    
+    $("#watched_button").click(function() {
+        $("#ocena_filma").show();
+    });
+    
+    $(document).on("mousedown", "td#1star", function() {
+        oceni(1);
+    });
+    $(document).on("mousedown", "td#2star", function() {
+        oceni(2);
+    });
+    $(document).on("mousedown", "td#3star", function() {
+        oceni(3);
+    });
+    $(document).on("mousedown", "td#4star", function() {
+        oceni(4);
+    });
+    $(document).on("mousedown", "td#5star", function() {
+        oceni(5);
+    });
 });
 
 function getDetails (naslov){
@@ -147,6 +170,7 @@ function getDetails (naslov){
         success: function (result) {
             if (result != "0 results") {
                 var data = JSON.parse(result);
+                $('#id_filma').val(data[9]);
                 $('#slo_naslov').text(data[0]);
                 $('#ang_naslov').text(data[1]);
                 $('#genre').text(data[2]);
@@ -176,4 +200,28 @@ function getDetails (naslov){
     });
     
     $('.tabs #film_profile').show().siblings().hide();
+}
+
+function oceni(ocena_f)
+{
+    var id_filma = $("#id_filma").val();
+    
+     $.ajax({
+        type: "POST",
+        url: "filmdetails.php",
+        data: 
+        {
+            id: id_filma,
+            ocena: ocena_f,
+            method: "oceni"
+        },
+        cache: false,
+        success: function (result) {
+            alert(result);
+            $("#ocena_filma").hide();
+        },
+        error: function (result) {
+            alert(result);
+        }
+    });
 }
