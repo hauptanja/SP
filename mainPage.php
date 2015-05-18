@@ -91,6 +91,16 @@ session_start();
                 <div id="film_profile" class="tab">
                     <div id="film_details">
                         <input type="button" value="Nazaj" id="back_to_list_button"/>
+                        <input type="button" value="Gledano" id="watched_button"/>
+                        <table id="ocena_filma">
+                            <tr id="ocena_f">
+                            <td id="1star"></td>
+                            <td id="2star"></td>
+                            <td id="3star"></td>
+                            <td id="4star"></td>
+                            <td id="5star"></td>
+                            </tr>
+                        </table>
                         <h2 id="slo_naslov"></h2>
                         <h3 id="ang_naslov"></h3>
                         <div id="genre"></div>

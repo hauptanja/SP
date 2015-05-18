@@ -126,7 +126,8 @@ body {
     font-style: italic;
 }
 
-#registriraj, #loginButton, #back_to_list_button, #back_to_start_button{
+#registriraj, #loginButton, #back_to_list_button, #back_to_start_button, #watched_button
+{
     margin-top: 15px;
     height: 40px;
     border-style: solid;
@@ -284,10 +285,17 @@ body
     border-style: none;
 }
 
-#back_to_list_button, #back_to_start_button
+#back_to_list_button, #back_to_start_button, #watched_button
 {
     width: 100px;
     font-size: 16px;
     height: 30px;
     margin: 0;
+}
+
+#ocena_f td
+{
+    height: 25px;
+    width: 25px;
+    background-image: url("star.png");
 }
