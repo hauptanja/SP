@@ -94,11 +94,11 @@ session_start();
                         <input type="button" value="Gledano" id="watched_button"/>
                         <table id="ocena_filma">
                             <tr id="ocena_f">
-                            <td id="star1"><img src="star.png" class="starIMG"></td>
-                            <td id="star2"><img src="star.png" class="starIMG"></td>
-                            <td id="star3"><img src="star.png" class="starIMG"></td>
-                            <td id="star4"><img src="star.png" class="starIMG"></td>
-                            <td id="star5"><img src="star.png" class="starIMG"></td>
+                            <td id="star1"><img src="star.png" class="starIMG"/></td>
+                            <td id="star2"><img src="star.png" class="starIMG"/></td>
+                            <td id="star3"><img src="star.png" class="starIMG"/></td>
+                            <td id="star4"><img src="star.png" class="starIMG"/></td>
+                            <td id="star5"><img src="star.png" class="starIMG"/></td>
                             </tr>
                         </table>
                         <input type="hidden" id="id_filma"/>
