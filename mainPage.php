@@ -14,11 +14,10 @@ session_start();
     <body>
         <div class="tabs">
             <ul class="tab-links">
-                <li class="active"><a href="#main">GLAVNA STRAN</a></li>
                 <?php 
                     if(isset($_SESSION["username"])):?>
-                        <li><a href="#user_profile">MOJ PROFIL</a></li>
                         <li><a href="#log_out">ODJAVA</a></li>
+                        <li><a href="#user_profile">MOJ PROFIL</a></li>
                 <?php
                     else:?>
                         <li><a href="#login">PRIJAVA</a></li>
@@ -26,6 +25,7 @@ session_start();
                 <?php
                     endif;
                 ?>
+                <li class="active"><a href="#main">GLAVNA STRAN</a></li>
             </ul>
             <div id="banner"></div>
             <div class="tab-content">

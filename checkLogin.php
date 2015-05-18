@@ -1,4 +1,7 @@
 <?php
+
+if ($_POST['operacija'] == "login")
+{
     $u=$_POST['U'];
     $g=$_POST['Geslo'];
     $hash=md5($g);
@@ -15,4 +18,10 @@
         echo false;
     }
     $conn->close();
+}
+else
+{
+    session_start();
+    session_destroy();
+}
 ?>

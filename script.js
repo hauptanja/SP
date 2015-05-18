@@ -3,13 +3,28 @@ $(document).ready(function () {
     "use strict";
     $('.tabs .tab-links a').on('click', function (e) {
         var currentAttrValue = $(this).attr('href');
- 
-        // Show/Hide Tabs
-        $('.tabs ' + currentAttrValue).show().siblings().hide();
- 
-        // Change/remove current tab to active
-        $(this).parent('li').addClass('active').siblings().removeClass('active');
- 
+        
+        if (currentAttrValue == "#log_out")
+        {
+            $.ajax({
+                type: "POST",
+                url: "checkLogin.php",
+                data: {
+                    operacija: "logout"
+                },
+                success:function(data) {
+                    alert("odjavljen");
+                }
+            });
+        }
+        else
+        {
+            // Show/Hide Tabs
+            $('.tabs ' + currentAttrValue).show().siblings().hide();
+
+            // Change/remove current tab to active
+            $(this).parent('li').addClass('active').siblings().removeClass('active');
+        }
         e.preventDefault();
     });
     
@@ -103,7 +118,8 @@ $(document).ready(function () {
             url: "checkLogin.php",
             data: {
                 U: $( "#userName" ).val(),
-                Geslo: $( "#userPass" ).val()
+                Geslo: $( "#userPass" ).val(),
+                operacija: "login"
             },
             success:function(data) {
                 if(data==true){
