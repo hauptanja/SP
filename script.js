@@ -55,7 +55,6 @@ $(document).ready(function () {
                 },
                 cache: false,
                 success: function (result) { 
-                    alert(result);
                     var data = JSON.parse(result);
                     $("#vpisan_film").html(data[0]);
                     
@@ -133,6 +132,29 @@ $(document).ready(function () {
           }
         });
     });
+    
+    $("#ocena_filma").hide();
+    
+    $("#watched_button").click(function() {
+        $("#ocena_filma").show();
+    });
+    
+    $(document).on("mousedown", "td#star1", function() {
+        oceni(1);
+    });
+    $(document).on("mousedown", "td#star2", function() {
+        oceni(2);
+    });
+    $(document).on("mousedown", "td#star3", function() {
+        oceni(3);
+    });
+    $(document).on("mousedown", "td#star4", function() {
+        oceni(4);
+    });
+    $(document).on("mousedown", "td#star5", function() {
+        oceni(5);
+    });
+    
 });
 
 function getDetails (naslov){
@@ -148,6 +170,7 @@ function getDetails (naslov){
         success: function (result) {
             if (result != "0 results") {
                 var data = JSON.parse(result);
+                $('#id_filma').val(data[9]);
                 $('#slo_naslov').text(data[0]);
                 $('#ang_naslov').text(data[1]);
                 $('#genre').text(data[2]);
@@ -169,7 +192,6 @@ function getDetails (naslov){
                 $('#summary').text(data[6]);
 
                 $('#ocena').html("Ocena kritikov: " + data[7] + "/10<br>Ocena gledalcev: " + data[8] + "/5");
-                alert(result);
             }
         },
         error: function (result) {
@@ -178,4 +200,26 @@ function getDetails (naslov){
     });
     
     $('.tabs #film_profile').show().siblings().hide();
+}
+
+function oceni(ocena_f){
+    var id_filma = $("#id_filma").val();
+    
+     $.ajax({
+        type: "POST",
+        url: "filmdetails.php",
+        data: 
+        {
+            id: id_filma,
+            ocena: ocena_f,
+            method: "oceni"
+        },
+        cache: false,
+        success: function (result) {
+            $("#ocena_filma").hide();
+        },
+        error: function (result) {
+            alert(result);
+        }
+    });
 }
