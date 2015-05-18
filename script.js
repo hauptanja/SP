@@ -139,22 +139,23 @@ $(document).ready(function () {
     $("#watched_button").click(function() {
         $("#ocena_filma").show();
     });
-    
-    $(document).on("mousedown", "td#1star", function() {
+    /*
+    $(document).on("mousedown", "td#star1", function() {
         oceni(1);
     });
-    $(document).on("mousedown", "td#2star", function() {
+    $(document).on("mousedown", "td#star2", function() {
         oceni(2);
     });
-    $(document).on("mousedown", "td#3star", function() {
+    $(document).on("mousedown", "td#star3", function() {
         oceni(3);
     });
-    $(document).on("mousedown", "td#4star", function() {
+    $(document).on("mousedown", "td#star4", function() {
         oceni(4);
     });
-    $(document).on("mousedown", "td#5star", function() {
+    $(document).on("mousedown", "td#star5", function() {
         oceni(5);
     });
+    */
 });
 
 function getDetails (naslov){
@@ -201,7 +202,7 @@ function getDetails (naslov){
     
     $('.tabs #film_profile').show().siblings().hide();
 }
-
+/*
 function oceni(ocena_f)
 {
     var id_filma = $("#id_filma").val();
@@ -224,4 +225,4 @@ function oceni(ocena_f)
             alert(result);
         }
     });
-}
+}*/
