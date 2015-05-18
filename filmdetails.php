@@ -99,8 +99,6 @@
             $id_uporabnika = $row["ID_uporabnika"]; 
         }
         
-        if (
-        
         $q = "IF EXISTS (SELECT * FROM Gledani_Filmi WHERE ID_Uporabnika = '$id_uporabnika' AND ID_Filma = '$id_filma') THEN BEGIN UPDATE Gledani_Filmi SET Ocena = '$ocena' WHERE ID_Uporabnika = '$id_uporabnika' AND ID_Filma = '$id_filma'; END ELSE BEGIN INSERT INTO Gledani_Filmi (ID_Uporabnika, ID_Filma, Ocena) VALUES ('$id_uporabnika', '$id_filma', '$ocena'); END";
         
         if (mysqli_query($mysqli, $q)) {
