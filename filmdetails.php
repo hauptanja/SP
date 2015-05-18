@@ -100,19 +100,27 @@
         }
         
         $q = "SELECT * FROM Gledani_Filmi WHERE ID_Uporabnika = '$id_uporabnika' AND ID_Filma = '$id_filma'";
+        $result = mysqli_query($mysqli, $q);
+        
         if (mysqli_num_rows($result) > 0) {
             $q1 = "UPDATE Gledani_Filmi SET Ocena = '$ocena' WHERE ID_Uporabnika = '$id_uporabnika' AND ID_Filma = '$id_filma'";
+            if (mysqli_query($mysqli, $q1)) {
+                echo "update OK";
+            } else {
+                echo "update Error";
+            }
         }
         else 
         {
             $q1 = "INSERT INTO Gledani_Filmi (ID_Uporabnika, ID_Filma, Ocena) VALUES ('$id_uporabnika', '$id_filma', '$ocena')";
+            $result = mysqli_query($mysqli, $q1);
+            if (mysqli_num_rows($result) > 0) 
+                echo "insert ok";
+            else 
+                echo "insert error";
         }
         
-        if (mysqli_query($mysqli, $q1)) {
-            echo "OK";
-        } else {
-            echo "Error";
-        }
+        
     }
     
     mysqli_close($mysqli);
