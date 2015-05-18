@@ -1,4 +1,6 @@
-<?php session_start(); ?>
+<?php 
+session_start(); 
+?>
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="style.css">
@@ -13,9 +15,17 @@
         <div class="tabs">
             <ul class="tab-links">
                 <li class="active"><a href="#main">GLAVNA STRAN</a></li>
-                <li><a href="#login">PRIJAVA</a></li>
-                <li><a href="#register">REGISTRACIJA</a></li>
-                <li><a href="#user_profile">MOJ PROFIL</a></li>
+                <?php 
+                    if(isset($_SESSION["username"])):?>
+                        <li><a href="#user_profile">MOJ PROFIL</a></li>
+                        <li><a href="#log_out">ODJAVA</a></li>
+                <?php
+                    else:?>
+                        <li><a href="#login">PRIJAVA</a></li>
+                        <li><a href="#register">REGISTRACIJA</a></li>
+                <?php
+                    endif;
+                ?>
             </ul>
             <div id="banner"></div>
             <div class="tab-content">
