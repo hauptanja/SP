@@ -293,8 +293,18 @@ body
     margin: 0;
 }
 
+#watched_button, #ocena_filma
+{
+    float: right;
+}
+
 .starIMG
 {
     height: 25px;
     width: 25px;
+}
+
+.pressedB
+{
+    background-color: #E8E8E8;
 }

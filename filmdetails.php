@@ -98,13 +98,18 @@
             $row = mysqli_fetch_assoc($result);
             $id_uporabnika = $row["ID_uporabnika"]; 
         }
-        
-        $q="INSERT INTO Gledani_Filmi (ID_Uporabnika, ID_Filma, Ocena) VALUES ('$id_uporabnika', '$id_filma', '$ocena') ";
+        $q = "UPDATE Gledani_Filmi SET Ocena = '$ocena' WHERE ID_Uporabnika = '$id_uporabnika' AND ID_Filma = '$id_filma'";
         
         if (mysqli_query($mysqli, $q)) {
             echo "OK";
         } else {
-            echo "Error";
+            $q="INSERT INTO Gledani_Filmi (ID_Uporabnika, ID_Filma, Ocena) VALUES ('$id_uporabnika', '$id_filma', '$ocena') ";
+        
+            if (mysqli_query($mysqli, $q)) {
+                echo "OK";
+            } else {
+                echo "Error";
+            }
         }
     }
     

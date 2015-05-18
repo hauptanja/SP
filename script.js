@@ -83,6 +83,7 @@ $(document).ready(function () {
     
     $(document).on("mousedown", "td.filmi", function() {
         var naslov = $(this).text();
+        $("#watched_button").removeClass("pressedB");
         getDetails(naslov);
     });
     
@@ -217,6 +218,7 @@ function oceni(ocena_f){
         cache: false,
         success: function (result) {
             $("#ocena_filma").hide();
+            $("#watched_button").addClass("pressedB");
         },
         error: function (result) {
             alert(result);
