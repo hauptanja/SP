@@ -4,6 +4,8 @@
         die("Connection failed: " . mysqli_connect_error());
     }
     
+    session_start();
+    
     if ($_POST['method'] == "getData")
     {
         $naslov = $_POST['movie_name'];
@@ -89,7 +91,8 @@
         
         $q = "SELECT * FROM Uporabnik WHERE Username = '$uporabnik'";
         $result = mysqli_query($mysqli, $q);
-
+        $id_uporabnika = -1;
+        
         if (mysqli_num_rows($result) > 0) {
         // output data of each row
             $row = mysqli_fetch_assoc($result);
