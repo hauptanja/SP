@@ -218,6 +218,7 @@ function oceni(ocena_f){
         cache: false,
         success: function (result) {
             $("#ocena_filma").hide();
+            alert(result);
             $("#watched_button").addClass("pressedB");
         },
         error: function (result) {
