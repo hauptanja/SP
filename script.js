@@ -55,6 +55,7 @@ $(document).ready(function () {
                 },
                 cache: false,
                 success: function (result) { 
+                    alert(result);
                     var data = JSON.parse(result);
                     $("#vpisan_film").html(data[0]);
                     
