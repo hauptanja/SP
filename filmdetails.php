@@ -80,7 +80,7 @@
         
         $o = json_encode($o);
         echo $o;
-    }
+    }/*
     else if ($_POST['method'] == "oceni")
     {
         $id_filma = $_POST['id'];
@@ -105,5 +105,5 @@
         }
     }
     
-    mysqli_close($mysqli);
+    mysqli_close($mysqli);*/
 ?>
