@@ -99,9 +99,9 @@
             $id_uporabnika = $row["ID_uporabnika"]; 
         }
         
-        $q = "SELECT * FROM Gledani_Filmi WHERE ID_Uporabnika = '$id_uporabnik' AND ID_Filma = '$id_film'";
+        $q = "SELECT * FROM Gledani_Filmi WHERE ID_Uporabnika = '$id_uporabnika' AND ID_Filma = '$id_filma'";
         if (mysqli_num_rows($result) > 0) {
-            $q1 = "UPDATE Gledani_Filmi SET Ocena = '$ocena' WHERE ID_Uporabnika = '$id_uporabnik' AND ID_Filma = '$id_film'";
+            $q1 = "UPDATE Gledani_Filmi SET Ocena = '$ocena' WHERE ID_Uporabnika = '$id_uporabnika' AND ID_Filma = '$id_filma'";
         }
         else 
         {
