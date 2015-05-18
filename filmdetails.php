@@ -114,13 +114,12 @@
         {
             $q1 = "INSERT INTO Gledani_Filmi (ID_Uporabnika, ID_Filma, Ocena) VALUES ('$id_uporabnika', '$id_filma', '$ocena')";
             $result = mysqli_query($mysqli, $q1);
-            if (mysqli_num_rows($result) > 0) 
-                echo "insert ok";
-            else 
-                echo "insert error";
+            if (mysqli_query($mysqli, $q1)) {
+                echo "insert OK";
+            } else {
+                echo "insert Error";
+            }
         }
-        
-        
     }
     
     mysqli_close($mysqli);
