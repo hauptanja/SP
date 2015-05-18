@@ -168,6 +168,7 @@ function getDetails (naslov){
                 $('#summary').text(data[6]);
 
                 $('#ocena').html("Ocena kritikov: " + data[7] + "/10<br>Ocena gledalcev: " + data[8] + "/5");
+                alert(result);
             }
         },
         error: function (result) {
