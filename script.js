@@ -169,7 +169,7 @@ $(document).ready(function () {
 
 	$(document).on("click", "input.categories", function() {
 		var kategorija = $(this).next('label').text().substring(0, 4);
-		//alert(kategorija);
+		alert(kategorija);
 		$.ajax({
                 type: "POST",
                 url: "connDatabase.php",
@@ -181,6 +181,7 @@ $(document).ready(function () {
                 cache: false,
                 success: function (result) 
 				{
+					alert(result);
                     $("#filmi").html(result);
                 },
                 error: function (result) 
