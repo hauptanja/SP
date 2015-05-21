@@ -1,6 +1,6 @@
 <?php
 
-$mysqli = mysqli_connect("127.0.0.1", "root", "dcba1023", "FERImdb");
+$mysqli = mysqli_connect("164.8.252.141", "root", "dcba1023", "FERImdb");
     
 if (!$mysqli) 
 {
@@ -9,7 +9,7 @@ if (!$mysqli)
 
 //echo "Connected successfully";
 
-//session_start();
+session_start();
 
 if ($_POST['method'] == "getMovies")
 {
