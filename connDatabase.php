@@ -9,7 +9,7 @@ if (!$mysqli)
 
 //echo "Connected successfully";
 
-session_start();
+//session_start();
 
 if ($_POST['method'] == "getMovies")
 {
