@@ -14,7 +14,7 @@ if (!$mysqli)
 if ($_POST['method'] == "getMovies")
 {
 		$kategorija = $_POST['genre_name'];
-		$q = "SELECT slo_naslov FROM film WHERE genre LIKE '%$kategorija%'";
+		$q = "SELECT slo_naslov FROM Film WHERE genre LIKE '%$kategorija%'";
         $result = mysqli_query($mysqli, $q);
 
 		if (mysqli_num_rows($result) > 0) 
@@ -35,7 +35,7 @@ if ($_POST['method'] == "getMovies")
 if ($_POST['method'] == "getFilm")
 {
 		$naslovFilma = $_POST['movie_name'];
-		$q = "SELECT * FROM film WHERE slo_naslov = '$naslovFilma'";
+		$q = "SELECT * FROM Film WHERE slo_naslov = '$naslovFilma'";
 		$result = mysqli_query($mysqli, $q);
 			
 		if (mysqli_num_rows($result) > 0) 
@@ -65,7 +65,7 @@ if ($_POST['method'] == "getFilm")
 if ($_POST['method'] == "getZanrFilm")
 {
         $zanrFilma = $_POST['genre_movie'];
-		$q = "SELECT slo_naslov FROM film WHERE genre LIKE '%$zanrFilma%'";
+		$q = "SELECT slo_naslov FROM Film WHERE genre LIKE '%$zanrFilma%'";
         $result = mysqli_query($mysqli, $q);
         
         if (mysqli_num_rows($result) > 0) 
@@ -95,7 +95,7 @@ if ($_POST['method'] == "getZanrFilm")
 if ($_POST['method'] == "getData")
 {
         $naslovFilma = $_POST['movie_name'];
-        $q = "SELECT * FROM film WHERE slo_naslov = '$naslovFilma'";
+        $q = "SELECT * FROM Film WHERE slo_naslov = '$naslovFilma'";
         $result = mysqli_query($mysqli, $q);
         
 		if (mysqli_num_rows($result) > 0) 
