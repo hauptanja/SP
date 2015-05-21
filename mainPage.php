@@ -137,6 +137,22 @@ session_start();
                 <div id="film_profile1" class="tab">
                     <div id="film_details1">
                         <input type="button" value="Nazaj" id="back_to_list_button1"/>
+                         <?php 
+                        if(isset($_SESSION["username"])):?>
+                        <input type="button" value="Gledano" id="watched_button"/>
+                        <table id="ocena_filma">
+                            <tr id="ocena_f">
+                            <td id="star1"><img src="star.png" class="starIMG"/></td>
+                            <td id="star2"><img src="star.png" class="starIMG"/></td>
+                            <td id="star3"><img src="star.png" class="starIMG"/></td>
+                            <td id="star4"><img src="star.png" class="starIMG"/></td>
+                            <td id="star5"><img src="star.png" class="starIMG"/></td>
+                            </tr>
+                        </table>
+                        <?php
+                        endif;
+                        ?>
+                        <input type="hidden" id="id_filma"/>
                         <h2 id="slo_naslov1"></h2>
                         <h3 id="ang_naslov1"></h3>
                         <div id="genre1"></div>
