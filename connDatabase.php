@@ -130,9 +130,9 @@ if ($_POST['method'] == "getData")
 			else 
                 $i[6] = "";
             
-			//$i[7] = $row["tomatometer"];
-            //$i[8] = $row["audience"];
-			//$i[9] = $row["ID"];
+		$i[7] = $row["tomatometer"];
+                $i[8] = $row["audience"];
+		$i[9] = $row["ID"];
             
 			$prikaz = json_encode($i);
             echo $prikaz;
