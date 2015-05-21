@@ -38,9 +38,25 @@ session_start();
                         </li>
                         <li><a href="#browsecateg">Brskaj po žanrih</a>
                             <div class="opt" id="browsecateg">
-                                <input type="checkbox" class="categories">Grozljivka <br>
-                                <input type="checkbox" class="categories">Akcija <br>
-                                <input type="checkbox" class="categories">Romantični film
+                        	<input type="checkbox" id="cat" class="categories"><label for="cat">drama</label> <br>
+                                <input type="checkbox" id="cat" class="categories"><label for="cat">akcija</label> <br>
+				<input type="checkbox" id="cat" class="categories"><label for="cat">komedija</label> <br>
+				<input type="checkbox" id="cat" class="categories"><label for="cat">romantika - ljubezenski</label> <br>
+				<input type="checkbox" id="cat" class="categories"><label for="cat">animirani</label> <br>
+				<input type="checkbox" id="cat" class="categories"><label for="cat">zgodovinski</label> <br>
+				<input type="checkbox" id="cat" class="categories"><label for="cat">grozljivka - shrljivka</label> <br>
+				<input type="checkbox" id="cat" class="categories"><label for="cat">kriminalka</label> <br>
+				<input type="checkbox" id="cat" class="categories"><label for="cat">znanstvena fantastika</label> <br>
+				<input type="checkbox" id="cat" class="categories"><label for="cat">dokumentarec</label> <br>
+				<input type="checkbox" id="cat" class="categories"><label for="cat">vestern - western</label> <br>
+				<input type="checkbox" id="cat" class="categories"><label for="cat">mjuzikl - mjuzikal - muzikal</label> <br>
+				<input type="checkbox" id="cat" class="categories"><label for="cat">glasbeni</label> <br>
+				<input type="checkbox" id="cat" class="categories"><label for="cat">triler</label> <br>
+				<input type="checkbox" id="cat" class="categories"><label for="cat">družinski</label> <br>
+				<input type="checkbox" id="cat" class="categories"><label for="cat">vojni</label> <br>
+				<input type="checkbox" id="cat" class="categories"><label for="cat">športni</label> <br>
+				<input type="checkbox" id="cat" class="categories"><label for="cat">parodija</label> <br>
+				<input type="checkbox" id="cat" class="categories"><label for="cat">pustolovšcina - pustolovski</label>
                             </div>
                         </li>
                         <li><a href="#advancedsearch">Napredno iskanje</a>
@@ -118,11 +134,34 @@ session_start();
                         <div id="summary"></div>
                     </div>
                 </div>
+                <div id="film_profile1" class="tab">
+                    <div id="film_details1">
+                        <input type="button" value="Nazaj" id="back_to_list_button1"/>
+                        <h2 id="slo_naslov1"></h2>
+                        <h3 id="ang_naslov1"></h3>
+                        <div id="genre1"></div>
+                        <div id="duration1"></div>
+                        <div id="year1"></div>
+                        <div id="country1"></div>
+                        <div id="ocena1"></div>
+                        <br>
+                        <div id="summary1"></div>
+                    </div>
+                </div>
                 <!--- za prikaz seznama ---->
                 <div id="film_list" class="tab">
                     <input type="button" value="Nazaj" id="back_to_start_button"/>
                     <div id="vpisan_film"></div>
                     <table id="film_list_table"></table>
+                </div>
+                <div id="filmi_list" class="tab">
+                    <input type="button" value="Nazaj" id="back_to_genre_button"/>
+                    <table id="filmi"></table>
+                </div>
+		<div id="film_prikaz" class="tab">
+                    <input type="button" value="Nazaj" id="back_to_genre"/>
+                    <div id="prikaz"></div>
+	            <table id="film_prikaz_table"></table>
                 </div>
             </div>
             <!----
