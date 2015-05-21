@@ -1,6 +1,6 @@
 <?php
 
-$mysqli = mysqli_connect("164.8.252.141", "root", "dcba1023", "FERImdb");
+$mysqli = mysqli_connect("164.8.252.141", "simona23", "dcba1023", "FERImdb");
     
 if (!$mysqli) 
 {
