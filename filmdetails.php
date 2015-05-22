@@ -123,10 +123,11 @@
     else if ($_POST['method'] == "getBest")
     {
         echo "1";
-        /*
+        
         $q = "SELECT ID_Filma, SUM(Ocena), COUNT(Ocena) FROM Gledani_Filmi GROUP BY ID_Filma";
         $result = mysqli_query($mysqli, $q);
-        echo "--";
+        echo "2";
+        /*
         if (mysqli_num_rows($result) > 0) {
         // output data of each row
             while ($row = mysqli_fetch_assoc($result))
