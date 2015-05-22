@@ -124,7 +124,7 @@
     {
         $q = "SELECT ID_Filma, SUM(Ocena), COUNT(Ocena) FROM Gledani_Filmi GROUP BY ID_Filma";
         $result = mysqli_query($mysqli, $q);
-
+        echo "--";
         if (mysqli_num_rows($result) > 0) {
         // output data of each row
             while ($row = mysqli_fetch_assoc($result))
@@ -132,6 +132,7 @@
                 $avg[$row['ID_Filma']] = $row['SUM(Ocena)'] / $row['COUNT(Ocena)'];
             }
             rsort($avg);
+            echo "ok";
             
             $count = 0;
             $output = "<tr>";
@@ -139,8 +140,8 @@
                 if (count == 5)
                     break;
                 
-                $q = "SELECT slo_naslov, poster_src FROM Film WHERE ID = '$id'";
-                $result2 = mysqli_query($mysqli, $q);
+                $q2 = "SELECT slo_naslov, poster_src FROM Film WHERE ID = '$id'";
+                $result2 = mysqli_query($mysqli, $q2);
                 $row2 = mysqli_fetch_assoc($result2);
                 
                 $output .= "<td class='filmi'><img src='". $row2['poster_src'] . "' class='poster_thumbnail'/><br>" . $row2["slo_naslov"] . "<br>$val</td>"  
