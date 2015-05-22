@@ -130,7 +130,9 @@
         // output data of each row
             while ($row = mysqli_fetch_assoc($result))
             {
-                $avg[$row['ID_Filma']] = $row['sum'] / $row['vsota'];
+                $id = $row['ID_Filma'];
+                $avg[$id] = $row['sum'] / $row['vsota'];
+                echo $id;
             }
             rsort($avg);
             
@@ -143,7 +145,7 @@
                 
                 $q2 = "SELECT slo_naslov, poster_src FROM Film WHERE ID = '$id'";
                 $result2 = mysqli_query($mysqli, $q2);
-                echo $id;
+                //echo $id;
                 if (mysqli_num_rows($result2) > 0) {
                     $row2 = mysqli_fetch_assoc($result2);
                 
