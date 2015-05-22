@@ -122,14 +122,10 @@
     }
     else if ($_POST['method'] == "getBest")
     {
-        echo "1";
-        
         $q = "SELECT ID_Filma, SUM(Ocena) AS sum, COUNT(Ocena) AS vsota FROM Gledani_Filmi GROUP BY ID_Filma";
         $result = mysqli_query($mysqli, $q);
-        echo "2";
         
         if (mysqli_num_rows($result) > 0) {
-            echo "3";
             
         // output data of each row
             while ($row = mysqli_fetch_assoc($result))
@@ -137,8 +133,7 @@
                 $avg[$row['ID_Filma']] = $row['sum'] / $row['vsota'];
             }
             rsort($avg);
-            echo "ok";
-            /*
+            
             $count = 0;
             $output = "<tr>";
             foreach($avg as $id => $val) {
@@ -153,7 +148,7 @@
                 $count++;
             }
             $output .= "</tr>";
-            echo $output;*/
+            echo $output;
         } else {
             echo "Ni podatka";
         }
