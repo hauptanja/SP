@@ -132,7 +132,7 @@
             {
                 $id = $row['ID_Filma'];
                 $avg[$id] = $row['sum'] / $row['vsota'];
-                echo $id;
+                echo $avg[$id];
             }
             rsort($avg);
             
