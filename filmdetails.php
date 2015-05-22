@@ -113,12 +113,43 @@
         else 
         {
             $q1 = "INSERT INTO Gledani_Filmi (ID_Uporabnika, ID_Filma, Ocena) VALUES ('$id_uporabnika', '$id_filma', '$ocena')";
-            $result = mysqli_query($mysqli, $q1);
             if (mysqli_query($mysqli, $q1)) {
                 echo "insert OK";
             } else {
                 echo "insert Error";
             }
+        }
+    }
+    else if ($_POST['method'] == "getBest")
+    {
+        $q = "SELECT ID_Filma, SUM(Ocena), COUNT(Ocena) FROM Gledani_Filmi GROUP BY ID_Filma";
+        $result = mysqli_query($mysqli, $q);
+
+        if (mysqli_num_rows($result) > 0) {
+        // output data of each row
+            while ($row = mysqli_fetch_assoc($result))
+            {
+                $avg[$row['ID_Filma']] = $row['SUM(Ocena)'] / $row['COUNT(Ocena)'];
+            }
+            rsort($avg);
+            
+            $count = 0;
+            $output = "<tr>";
+            foreach($avg as $id => $val) {
+                if (count == 5)
+                    break;
+                
+                $q = "SELECT slo_naslov, poster_src FROM Film WHERE ID = '$id'";
+                $result2 = mysqli_query($mysqli, $q);
+                $row2 = mysqli_fetch_assoc($result2);
+                
+                $output .= "<td class='filmi'><img src='". $row2['poster_src'] . "' class='poster_thumbnail'/><br>" . $row2["slo_naslov"] . "<br>$val</td>"  
+                $count++;
+            }
+            $output .= "</tr>";
+            echo $output;
+        } else {
+            echo "Ni podatka";
         }
     }
     

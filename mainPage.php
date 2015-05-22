@@ -164,6 +164,9 @@ session_start();
 	            <table id="film_prikaz_table"></table>
                 </div>
             </div>
+            <div id="najboljse_ocenjeni_filmi">
+                <table id="best_film_table"></table>
+            </div>
             <!----
 			<div id="footer"></div>
             ----> 

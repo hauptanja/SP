@@ -1,6 +1,27 @@
 /*global $, jQuery, alert*/
 $(document).ready(function () {
     "use strict";
+    
+    $.ajax({
+        type: "POST",
+        url: "filmdetails.php",
+        data: 
+        {
+            method: "getBest"
+        },
+        cache: false,
+        success: function (result) { 
+            $("#best_film_table").empty();
+
+            if(result !== "Ni podatka") {
+                $("#best_film_table").append(result);
+            }
+        },
+        error: function (result) {
+            alert(result);
+        }
+    });
+    
     $('.tabs .tab-links a').on('click', function (e) {
         var currentAttrValue = $(this).attr('href');
         
