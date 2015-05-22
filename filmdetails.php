@@ -143,10 +143,15 @@
                 
                 $q2 = "SELECT slo_naslov, poster_src FROM Film WHERE ID = '$id'";
                 $result2 = mysqli_query($mysqli, $q2);
-                $row2 = mysqli_fetch_assoc($result2);
                 
-                $output .= "<td class='filmi'><img src='". $row2['poster_src'] . "' class='poster_thumbnail'/><br>" . $row2["slo_naslov"] . "<br>$val</td>"  
-                $count++;
+                if (mysqli_num_rows($result2) > 0) {
+                    $row2 = mysqli_fetch_assoc($result2);
+                
+                    $output .= "<td class='filmi'><img src='". $row2['poster_src'] . "' class='poster_thumbnail'/><br>" . $row2["slo_naslov"] . "<br>$val</td>";
+                    $count++;
+                }
+                else 
+                    echo "shiz";
                 
             }
             $output .= "</tr>";
