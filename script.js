@@ -104,9 +104,9 @@ $(document).ready(function () {
     });
     
     $(document).on("mousedown", "td.filmi", function() {
-        var naslov = $(this).text();
+        var id = $(this).attr("data-movie-ID");
         $("#watched_button").removeClass("pressedB");
-        getDetails(naslov);
+        getDetails(id);
     });
     
     $("#back_to_genre_button").click(function () {

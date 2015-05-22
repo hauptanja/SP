@@ -47,7 +47,7 @@
     {
         $naslov = $_POST['movie_name'];
         
-        $q = "SELECT * FROM Film WHERE slo_naslov = '$naslov'";
+        $q = "SELECT * FROM Film WHERE ID = '$naslov'";
         $result = mysqli_query($mysqli, $q);
 
         if (mysqli_num_rows($result) > 0) {
@@ -71,7 +71,7 @@
             $output2 = "<tr>";
             while(($row = mysqli_fetch_assoc($result)) && $val < 5) {
                 $val++;
-                $output2 .= "<td class='filmi'>" . $row["slo_naslov"] . "</td>";
+                $output2 .= "<td class='filmi' data-movie-ID ='" . $row["ID"] . "'>" . $row["slo_naslov"] . "</td>";
             }
             $output2 .= "</tr>";
             $o[1] = $output2;
@@ -142,13 +142,13 @@
                 if ($count == 5)
                     break;
                 
-                $q2 = "SELECT slo_naslov, poster_src FROM Film WHERE ID = '$id'";
+                $q2 = "SELECT ID, slo_naslov, poster_src FROM Film WHERE ID = '$id'";
                 $result2 = mysqli_query($mysqli, $q2);
                 //echo $id;
                 if (mysqli_num_rows($result2) > 0) {
                     $row2 = mysqli_fetch_assoc($result2);
                 
-                    $output .= "<td class='filmi'><img src='". $row2['poster_src'] . "' class='poster_thumbnail'/><br>" . $row2["slo_naslov"] . "<br>$val</td>";
+                    $output .= "<td class='filmi' data-movie-ID ='" . $row["ID"] . "'><img src='". $row2['poster_src'] . "' class='poster_thumbnail'/><br>" . $row2["slo_naslov"] . "<br>$val</td>";
                     $count++;
                 }
                 else 
