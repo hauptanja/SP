@@ -130,7 +130,7 @@
         
         if (mysqli_num_rows($result) > 0) {
             echo "3";
-            /*
+            
         // output data of each row
             while ($row = mysqli_fetch_assoc($result))
             {
@@ -138,7 +138,7 @@
             }
             rsort($avg);
             echo "ok";
-            
+            /*
             $count = 0;
             $output = "<tr>";
             foreach($avg as $id => $val) {
