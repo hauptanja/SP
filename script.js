@@ -11,6 +11,7 @@ $(document).ready(function () {
         },
         cache: false,
         success: function (result) { 
+            alert(result);
             $("#best_film_table").empty();
 
             if(result !== "Ni podatka") {
