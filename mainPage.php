@@ -165,6 +165,7 @@ session_start();
                 </div>
             </div>
             <div id="najboljse_ocenjeni_filmi">
+                ------<br>
                 <table id="best_film_table"></table>
             </div>
             <!----

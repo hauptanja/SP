@@ -122,6 +122,8 @@
     }
     else if ($_POST['method'] == "getBest")
     {
+        echo "1";
+        /*
         $q = "SELECT ID_Filma, SUM(Ocena), COUNT(Ocena) FROM Gledani_Filmi GROUP BY ID_Filma";
         $result = mysqli_query($mysqli, $q);
         echo "--";
@@ -152,6 +154,7 @@
         } else {
             echo "Ni podatka";
         }
+        */
     }
     
     mysqli_close($mysqli);
