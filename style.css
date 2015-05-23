@@ -92,6 +92,7 @@ body {
     text-align: center;
     display:none;
     padding: 20;
+    border-radius: 20px;
 }
 
 .opt.active {
@@ -335,7 +336,9 @@ td#filmi
     margin-left: 20px;
 }
 
-#najboljse_ocenjeni_filmi
+#best_film_table, #footer
 {   
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
 }
