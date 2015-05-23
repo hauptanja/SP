@@ -104,7 +104,7 @@ $(document).ready(function () {
     });
     
     $(document).on("mousedown", "td.filmi", function() {
-        var id = $(this).attr("data-movie-ID");
+        var id = $(this).data("movie-ID");
         alert(id);
         $("#watched_button").removeClass("pressedB");
         getDetails(id);
