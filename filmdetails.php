@@ -71,7 +71,7 @@
             $output2 = "<tr>";
             while(($row = mysqli_fetch_assoc($result)) && $val < 5) {
                 $val++;
-                $output2 .= "<td class='filmi' data-movie-ID ='" . $row["ID"] . "'>" . $row["slo_naslov"] . "</td>";
+                $output2 .= "<td class='filmi' data-movie-ID='" . $row["ID"] . "'>" . $row["slo_naslov"] . "</td>";
             }
             $output2 .= "</tr>";
             $o[1] = $output2;
@@ -148,7 +148,7 @@
                 if (mysqli_num_rows($result2) > 0) {
                     $row2 = mysqli_fetch_assoc($result2);
                 
-                    $output .= "<td class='filmi' data-movie-ID ='" . $row["ID"] . "'><img src='". $row2['poster_src'] . "' class='poster_thumbnail'/><br>" . $row2["slo_naslov"] . "<br>$val</td>";
+                    $output .= "<td class='filmi' data-movie-ID='" . $row2["ID"] . "'><img src='". $row2['poster_src'] . "' class='poster_thumbnail'/><br>" . $row2["slo_naslov"] . "<br>$val</td>";
                     $count++;
                 }
                 else 
