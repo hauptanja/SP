@@ -46,8 +46,12 @@
     else if ($_POST['method'] == "getList")
     {
         $naslov = $_POST['movie_name'];
+        $id = $_POST['movie_id'];
         
-        $q = "SELECT * FROM Film WHERE ID = '$naslov'";
+        if ($id != "-")
+            $q = "SELECT * FROM Film WHERE ID = '$id'";
+        else 
+            $q = "SELECT * FROM Film WHERE slo_naslov = '$naslov'";
         $result = mysqli_query($mysqli, $q);
 
         if (mysqli_num_rows($result) > 0) {

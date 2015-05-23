@@ -73,6 +73,7 @@ $(document).ready(function () {
                 data: 
                 {
                     movie_name: text,
+                    movie_id: "-",
                     method: "getList"
                 },
                 cache: false,
@@ -105,9 +106,8 @@ $(document).ready(function () {
     
     $(document).on("mousedown", "td.filmi", function() {
         var id = $(this).attr("data-movie-ID");
-        alert(id);
         $("#watched_button").removeClass("pressedB");
-        getDetails(id);
+        getDetails(id, "");
     });
     
     $("#back_to_genre_button").click(function () {
@@ -287,13 +287,14 @@ $(document).ready(function () {
     
 });
 
-function getDetails (naslov){
+function getDetails (id, naslov){
     $.ajax({
         type: "POST",
         url: "filmdetails.php",
         data: 
         {
             movie_name: naslov,
+            movie_id: id,
             method: "getData"
         },
         cache: false,
