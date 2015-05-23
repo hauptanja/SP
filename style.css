@@ -294,9 +294,10 @@ body
     margin-left: 70px;
 }
 
-#filmi td
+td#filmi 
 {
 	padding: 6px;
+    text-align: center;
 }
 
 #user_profile
@@ -331,4 +332,10 @@ body
 #vpisan_film
 {
     text-align: left;
+    margin-left: 20px;
+}
+
+#najboljse_ocenjeni_filmi
+{   
+    text-align: center;
 }
