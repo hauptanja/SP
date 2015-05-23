@@ -37,9 +37,18 @@ $(document).ready(function () {
                     location.reload();
                 }
             });
+            $("#najboljse_ocenjeni_filmi").show();
         }
         else
         {
+	        if (currentAttrValue == "#user_profile")
+			{
+            	$("#najboljse_ocenjeni_filmi").hide();
+        	}
+        	else
+        	{
+	        	$("#najboljse_ocenjeni_filmi").show();
+        	}
             // Show/Hide Tabs
             $('.tabs ' + currentAttrValue).show().siblings().hide();
 
@@ -56,6 +65,7 @@ $(document).ready(function () {
         if ($('.search-opt ' + currentAttrValue).hasClass('active') === false) {
             $('.search-opt ' + currentAttrValue).addClass('active');
             $('.search-opt ' + currentAttrValue).parent('li').toggleClass('active');
+            $('body').scrollTo('.search-opt ' + currentAttrValue);
         } else {
             $('.search-opt ' + currentAttrValue).removeClass('active');
             $('.search-opt ' + currentAttrValue).parent('li').toggleClass('active');

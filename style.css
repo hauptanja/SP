@@ -325,11 +325,17 @@ td#filmi
     margin: 0;
 }
 
-#watched_button, #watched_button_p, #ocena_filma, #ocena_filma_p
+#watched_button, #watched_button_p
+{
+	float: right;
+}
+
+#ocena_filma, #ocena_filma_p
 {
     float: right;
     background-color: rgba(0, 0, 0, 0.05);
-    border-radius: 20px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
 }
 
 .starIMG
