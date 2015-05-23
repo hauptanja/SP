@@ -30,6 +30,7 @@ session_start();
             <div id="banner"></div>
             <div class="tab-content">
                 <div id="main" class="tab active">
+	                <h1>Oglejte si...</h1>
                     <ul class="search-opt">
                         <li><a href="#namesearch">Iskanje po naslovu filma</a>
                             <div class="opt" id="namesearch">
@@ -183,6 +184,7 @@ session_start();
                 </div>
             </div>
             <div id="najboljse_ocenjeni_filmi">
+	            <h2>Top ocenjeni filmi uporabnikov...</h2>
                 <table id="best_film_table"></table>
             </div>
             <!----
