@@ -79,8 +79,11 @@ body {
 /* --- search opcije --- */
 
 .search-opt li {
-    list-style: square;
+    /*list-style: square;*/
+    list-style-image: url('li_arrow.png');
     padding-bottom: 20;
+    border-radius: 20px;
+    margin-right: 40px;
 }
 
 .search-opt a {
@@ -92,7 +95,6 @@ body {
     text-align: center;
     display:none;
     padding: 20;
-    border-radius: 20px;
 }
 
 .opt.active {
@@ -106,6 +108,7 @@ body {
 .search-opt {
     margin: 10px;
     text-align: left;
+    text-indent: 10px;
 }
 
 #browsecateg {
@@ -113,7 +116,8 @@ body {
     text-align: left;
 }
 
-#namesearch input {
+#namesearch input, #advancedsearch input
+{
     width: 70%;
     height: 30;
 }
@@ -127,7 +131,7 @@ body {
     font-style: italic;
 }
 
-#registriraj, #loginButton, #back_to_list_button, #back_to_start_button, #watched_button, #back_to_genre_button, #back_to_genre, #back_to_list_button1
+#registriraj, #loginButton, #back_to_list_button, #back_to_start_button, #watched_button, #watched_button_p, #back_to_genre_button, #back_to_genre, #back_to_list_button1
 {
     margin-top: 15px;
     height: 40px;
@@ -161,7 +165,7 @@ body {
 {
 	width:70%;
 	padding: 8px;
-    	margin: 10px;
+    margin: 10px;
 }
 
 #content
@@ -227,7 +231,8 @@ body {
 
 body
 {
-    background-image: url("background.png");
+    /*background-image: url("background.png");*/
+    background-color:rgba(0, 0, 0, 0.13);
 }
 
 #nav a
@@ -279,14 +284,13 @@ body
     border-collapse: collapse;
     margin: 10px;
     width: auto;
-    align-self: center;
 }
 
 #film_list_table td, #best_film_table td, #film_prikaz_table td
 {
     border: solid darkgray 2px;
     padding: 2px;
-    text-align: left;
+    text-align: center;
 }
 
 #filmi
@@ -306,7 +310,7 @@ td#filmi
     border-style: none;
 }
 
-#back_to_list_button, #back_to_start_button, #watched_button, #back_to_genre_button, #back_to_genre, #back_to_list_button1
+#back_to_list_button, #back_to_start_button, #watched_button, #watched_button_p, #back_to_genre_button, #back_to_genre, #back_to_list_button1
 {
     width: 100px;
     font-size: 16px;
@@ -314,9 +318,11 @@ td#filmi
     margin: 0;
 }
 
-#watched_button, #ocena_filma
+#watched_button, #watched_button_p, #ocena_filma, #ocena_filma_p
 {
     float: right;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 20px;
 }
 
 .starIMG
@@ -340,5 +346,14 @@ td#filmi
 {   
     margin-left: auto;
     margin-right: auto;
-    text-align: center;
+}
+
+#best_film_table td
+{
+	text-align: center;
+}
+
+#watched_button_p
+{
+	margin-right: 10px;	
 }

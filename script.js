@@ -10,8 +10,7 @@ $(document).ready(function () {
             method: "getBest"
         },
         cache: false,
-        success: function (result) { 
-            alert(result);
+        success: function (result) {
             $("#best_film_table").empty();
 
             if(result !== "Ni podatka") {
@@ -64,9 +63,9 @@ $(document).ready(function () {
         e.preventDefault();
     });
     
-    $(document).delegate('input:text', 'keypress', function (e) {
+    $("#movieSearchBox").keypress(function (e) {
         if (e.which === 13) { // if is enter
-            var text = $('#movieSearchBox').val();
+            var text = $(this).val();
             $.ajax({
                 type: "POST",
                 url: "filmdetails.php",
@@ -80,7 +79,7 @@ $(document).ready(function () {
                 success: function (result) { 
                     var data = JSON.parse(result);
                     $("#vpisan_film").html(data[0]);
-                    
+                    $('#id_filma').val(data[2]);
                     $("#film_list_table").empty();
                     
                     if(data[1] !== "Film ni v bazi.") {
@@ -96,17 +95,57 @@ $(document).ready(function () {
         }
     });
     
+    $("#wordSearchBox").keypress(function (e) {
+        if (e.which === 13) { // if is enter
+            var text = $(this).val();
+            /*
+            $.ajax({
+                type: "POST",
+                url: "filmdetails.php",
+                data: 
+                {
+                    movie_name: text,
+                    movie_id: "-",
+                    method: "getList"
+                },
+                cache: false,
+                success: function (result) { 
+                    var data = JSON.parse(result);
+                    $("#vpisan_film").html(data[0]);
+                    $('#id_filma').val(data[2]);
+                    $("#film_list_table").empty();
+                    
+                    if(data[1] !== "Film ni v bazi.") {
+                        $("#film_list_table").append(data[1]);
+                    }
+                },
+                error: function (result) {
+                    alert(result);
+                }
+            });
+            
+            $('.tabs #film_list').show().siblings().hide();
+            */
+        }
+    });
+    
     $("#back_to_list_button").click(function () {
         $('.tabs #film_list').show().siblings().hide();
+        $("#ocena_filma").hide();
+        $("#ocena_filma_p").hide();
     });
     
     $("#back_to_start_button").click(function () {
         $('.tabs #main').show().siblings().hide();
+        $("#ocena_filma").hide();
+        $("#ocena_filma_p").hide();
     });
     
     $(document).on("mousedown", "td.filmi", function() {
         var id = $(this).attr("data-movie-ID");
         $("#watched_button").removeClass("pressedB");
+        $("#ocena_filma").hide();
+        $("#ocena_filma_p").hide();
         getDetails(id, "");
     });
     
@@ -264,9 +303,14 @@ $(document).ready(function () {
     });
     
     $("#ocena_filma").hide();
+    $("#ocena_filma_p").hide();
     
     $("#watched_button").click(function() {
         $("#ocena_filma").show();
+    });
+    
+    $("#watched_button_p").click(function() {
+    	$("#ocena_filma_p").show();
     });
     
     $(document).on("mousedown", "td#star1", function() {
@@ -393,7 +437,7 @@ function getDetails1(naslov1){
 function oceni(ocena_f){
     var id_filma = $("#id_filma").val();
     
-     $.ajax({
+    $.ajax({
         type: "POST",
         url: "filmdetails.php",
         data: 
@@ -406,6 +450,8 @@ function oceni(ocena_f){
         success: function (result) {
             $("#ocena_filma").hide();
             $("#watched_button").addClass("pressedB");
+            $("#ocena_filma_p").hide();
+            $("#watched_button_p").addClass("pressedB");
         },
         error: function (result) {
             alert(result);

@@ -56,7 +56,7 @@
         if ($id != "-")
             $q = "SELECT * FROM Film WHERE ID = '$id'";
         else 
-            $q = "SELECT * FROM Film WHERE slo_naslov = '$naslov'";
+            $q = "SELECT * FROM Film WHERE slo_naslov LIKE '%$naslov%'";
         $result = mysqli_query($mysqli, $q);
 
         if (mysqli_num_rows($result) > 0) {
@@ -68,6 +68,7 @@
             $output1 = "Predlogi za film: <h2>$o1[0]</h2>";
             $output1 .= "<h3>$o1[1]</h3>";
             $o[0] = $output1;
+            $o[2] = $row["ID"];
         } else {
             $o[0] = "Film ni v bazi.";
         }

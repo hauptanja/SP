@@ -5,7 +5,7 @@ session_start();
     <head>
         <link rel="stylesheet" type="text/css" href="style.css">
         <link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Arimo:700' rel='stylesheet' type='text/css'>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script src="script.js"></script>
@@ -38,31 +38,31 @@ session_start();
                         </li>
                         <li><a href="#browsecateg">Brskaj po žanrih</a>
                             <div class="opt" id="browsecateg">
-                        	<input type="checkbox" id="cat" class="categories"><label for="cat">drama</label> <br>
+                        		<input type="checkbox" id="cat" class="categories"><label for="cat">drama</label> <br>
                                 <input type="checkbox" id="cat" class="categories"><label for="cat">akcija</label> <br>
-				<input type="checkbox" id="cat" class="categories"><label for="cat">komedija</label> <br>
-				<input type="checkbox" id="cat" class="categories"><label for="cat">romantika - ljubezenski</label> <br>
-				<input type="checkbox" id="cat" class="categories"><label for="cat">animirani</label> <br>
-				<input type="checkbox" id="cat" class="categories"><label for="cat">zgodovinski</label> <br>
-				<input type="checkbox" id="cat" class="categories"><label for="cat">grozljivka - shrljivka</label> <br>
-				<input type="checkbox" id="cat" class="categories"><label for="cat">kriminalka</label> <br>
-				<input type="checkbox" id="cat" class="categories"><label for="cat">znanstvena fantastika</label> <br>
-				<input type="checkbox" id="cat" class="categories"><label for="cat">dokumentarec</label> <br>
-				<input type="checkbox" id="cat" class="categories"><label for="cat">vestern - western</label> <br>
-				<input type="checkbox" id="cat" class="categories"><label for="cat">mjuzikl - mjuzikal - muzikal</label> <br>
-				<input type="checkbox" id="cat" class="categories"><label for="cat">glasbeni</label> <br>
-				<input type="checkbox" id="cat" class="categories"><label for="cat">triler</label> <br>
-				<input type="checkbox" id="cat" class="categories"><label for="cat">družinski</label> <br>
-				<input type="checkbox" id="cat" class="categories"><label for="cat">vojni</label> <br>
-				<input type="checkbox" id="cat" class="categories"><label for="cat">športni</label> <br>
-				<input type="checkbox" id="cat" class="categories"><label for="cat">parodija</label> <br>
-				<input type="checkbox" id="cat" class="categories"><label for="cat">pustolovšcina - pustolovski</label>
+								<input type="checkbox" id="cat" class="categories"><label for="cat">komedija</label> <br>
+								<input type="checkbox" id="cat" class="categories"><label for="cat">romantika - ljubezenski</label> <br>
+								<input type="checkbox" id="cat" class="categories"><label for="cat">animirani</label> <br>
+								<input type="checkbox" id="cat" class="categories"><label for="cat">zgodovinski</label> <br>
+								<input type="checkbox" id="cat" class="categories"><label for="cat">grozljivka - shrljivka</label> <br>
+								<input type="checkbox" id="cat" class="categories"><label for="cat">kriminalka</label> <br>
+								<input type="checkbox" id="cat" class="categories"><label for="cat">znanstvena fantastika</label> <br>
+								<input type="checkbox" id="cat" class="categories"><label for="cat">dokumentarec</label> <br>
+								<input type="checkbox" id="cat" class="categories"><label for="cat">vestern - western</label> <br>
+								<input type="checkbox" id="cat" class="categories"><label for="cat">mjuzikl - mjuzikal - muzikal</label> <br>
+								<input type="checkbox" id="cat" class="categories"><label for="cat">glasbeni</label> <br>
+								<input type="checkbox" id="cat" class="categories"><label for="cat">triler</label> <br>
+								<input type="checkbox" id="cat" class="categories"><label for="cat">družinski</label> <br>
+								<input type="checkbox" id="cat" class="categories"><label for="cat">vojni</label> <br>
+								<input type="checkbox" id="cat" class="categories"><label for="cat">športni</label> <br>
+								<input type="checkbox" id="cat" class="categories"><label for="cat">parodija</label> <br>
+								<input type="checkbox" id="cat" class="categories"><label for="cat">pustolovšcina - pustolovski</label>
                             </div>
                         </li>
-                        <li><a href="#advancedsearch">Napredno iskanje</a>
+                        <li><a href="#advancedsearch">Iskanje po ključnih besedah</a>
                             <div class="opt" id="advancedsearch">
-                                advancedsearch
-                            </div>
+                                <input type="text" id="wordSearchBox" placeholder="Vpišite ključne besede ločene z vejico" class="inputField"/>
+                            </div> 
                         </li>
                     </ul>
                     
@@ -110,6 +110,7 @@ session_start();
                         <?php 
                         if(isset($_SESSION["username"])):?>
                         <input type="button" value="Gledano" id="watched_button"/>
+                        <br>
                         <table id="ocena_filma">
                             <tr id="ocena_f">
                             <td id="star1"><img src="star.png" class="starIMG"/></td>
@@ -150,9 +151,26 @@ session_start();
                 </div>
                 <!--- za prikaz seznama ---->
                 <div id="film_list" class="tab">
-                    <input type="button" value="Nazaj" id="back_to_start_button"/>
+					<?php 
+                        if(isset($_SESSION["username"])):?>
+                        <input type="button" value="Gledano" id="watched_button_p"/>
+                        <table id="ocena_filma_p">
+                            <tr id="ocena_f_p">
+	                            <td id="star1"><img src="star.png" class="starIMG"/></td>
+	                            <td id="star2"><img src="star.png" class="starIMG"/></td>
+	                            <td id="star3"><img src="star.png" class="starIMG"/></td>
+	                            <td id="star4"><img src="star.png" class="starIMG"/></td>
+	                            <td id="star5"><img src="star.png" class="starIMG"/></td>
+                            </tr>
+                        </table>
+                        
+                        <?php
+                        endif;
+                        ?>
+                    <br>
                     <div id="vpisan_film"></div>
                     <table id="film_list_table"></table>
+                    <input type="button" value="Nazaj" id="back_to_start_button"/>
                 </div>
                 <div id="filmi_list" class="tab">
                     <input type="button" value="Nazaj" id="back_to_genre_button"/>
