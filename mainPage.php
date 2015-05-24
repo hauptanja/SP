@@ -136,6 +136,7 @@ session_start();
                         <div id="ocena"></div>
                         <br>
                         <div id="summary"></div>
+                        <table id="film_list_table"></table>
                     </div>
                 </div>
                 <div id="film_profile1" class="tab">
@@ -179,7 +180,7 @@ session_start();
                     <input type="button" value="Nazaj" id="back_to_genre_button"/>
                     <table id="filmi"></table>
                 </div>
-		<div id="film_prikaz" class="tab">
+				<div id="film_prikaz" class="tab">
                     <input type="button" value="Nazaj" id="back_to_genre"/>
                     <div id="prikaz"></div>
 	            <table id="film_prikaz_table"></table>
