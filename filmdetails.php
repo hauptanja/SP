@@ -48,6 +48,26 @@
             echo "0 results";
         }
     }
+    else if ($_POST['method'] == "getSearchResults")
+    {
+	    $naslov = $_POST['movie_name'];
+	    $q = "SELECT * FROM Film WHERE slo_naslov LIKE '%$naslov%'";
+	    
+	    $result = mysqli_query($mysqli, $q);
+
+        if (mysqli_num_rows($result) > 0) {
+        // output data of each row
+        	while ($row = mysqli_fetch_assoc($result))
+			{
+				$output[] = "<li id='". $row["ID"] ."'>" . $row["slo_naslov"] . "</li>";
+			}
+			$output = json_encode($output);
+			echo $output;
+        } else {
+            echo "Film ni v bazi.";
+        }
+
+    }
     else if ($_POST['method'] == "getList")
     {
         $naslov = $_POST['movie_name'];
@@ -56,7 +76,7 @@
         if ($id != "-")
             $q = "SELECT * FROM Film WHERE ID = '$id'";
         else 
-            $q = "SELECT * FROM Film WHERE slo_naslov LIKE '%$naslov%'";
+            $q = "SELECT * FROM Film WHERE slo_naslov LIKE '$naslov%'";
         $result = mysqli_query($mysqli, $q);
 
         if (mysqli_num_rows($result) > 0) {

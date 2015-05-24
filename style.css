@@ -88,7 +88,7 @@ body {
 .search-opt li {
     /*list-style: square;*/
     list-style-image: url('li_arrow.png');
-    padding-bottom: 20;
+    padding-top: 20px;
     border-radius: 20px;
     margin-right: 40px;
 }
@@ -127,6 +127,7 @@ body {
 {
     width: 70%;
     height: 30;
+    margin-bottom: 20px;
 }
 
 #search {
@@ -369,4 +370,12 @@ td#filmi
 #watched_button_p
 {
 	margin-right: 10px;	
+}
+
+.search-result-opt li
+{
+	text-align: left;
+	list-style-image: url("li-arrow2.png");
+	text-indent: 0;
+	padding: 10px;
 }

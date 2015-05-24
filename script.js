@@ -84,26 +84,93 @@ $(document).ready(function () {
                 {
                     movie_name: text,
                     movie_id: "-",
-                    method: "getList"
+                    method: "getSearchResults"
                 },
                 cache: false,
-                success: function (result) { 
-                    var data = JSON.parse(result);
-                    $("#vpisan_film").html(data[0]);
-                    $('#id_filma').val(data[2]);
-                    $("#film_list_table").empty();
-                    
-                    if(data[1] !== "Film ni v bazi.") {
-                        $("#film_list_table").append(data[1]);
+                success: function (result) {
+	                if(data !== "Film ni v bazi.") 
+	                {
+                    	var data = JSON.parse(result);
+						if (data.length != 1)
+						{
+							$(".search-result-opt").empty();
+                    	
+	                    	for (var i in data)
+	                    	{
+		                    	$(".search-result-opt").append(data[i]);
+	                    	}
+						}
+						else 
+						{
+					        $.ajax({
+					            type: "POST",
+					            url: "filmdetails.php",
+					            data: 
+					            {
+					                movie_name: text,
+					                movie_id: "-",
+					                method: "getList"
+					            },
+					            cache: false,
+					            success: function (result) { 
+					                var data = JSON.parse(result);
+					                $("#vpisan_film").html(data[0]);
+					                $('#id_filma').val(data[2]);
+					                $("#film_list_table").empty();
+					                
+					                if(data[1] !== "Film ni v bazi.") {
+					                    $("#film_list_table").append(data[1]);
+					                }
+					            },
+					            error: function (result) {
+					                alert(result);
+					            }
+					        });
+							$('.tabs #film_list').show().siblings().hide();
+						}
+                    	
+                    }
+                    else 
+                    {
+	                    alert("Filma s podobnim naslovom ni v bazi!");
                     }
                 },
                 error: function (result) {
                     alert(result);
                 }
             });
+                        
             
-            $('.tabs #film_list').show().siblings().hide();
         }
+    });
+    
+    $(document).on("click", ".search-result-opt li", function() {
+	    var id = $(this).attr("id"); 
+        $.ajax({
+            type: "POST",
+            url: "filmdetails.php",
+            data: 
+            {
+                movie_name: "",
+                movie_id: id,
+                method: "getList"
+            },
+            cache: false,
+            success: function (result) { 
+                var data = JSON.parse(result);
+                $("#vpisan_film").html(data[0]);
+                $('#id_filma').val(data[2]);
+                $("#film_list_table").empty();
+                
+                if(data[1] !== "Film ni v bazi.") {
+                    $("#film_list_table").append(data[1]);
+                }
+            },
+            error: function (result) {
+                alert(result);
+            }
+        });
+		$('.tabs #film_list').show().siblings().hide();
     });
     
     $("#wordSearchBox").keypress(function (e) {

@@ -35,6 +35,8 @@ session_start();
                         <li><a href="#namesearch">Iskanje po naslovu filma</a>
                             <div class="opt" id="namesearch">
                                 <input type="text" id="movieSearchBox" placeholder="Vpišite film, ki Vam je všeč" class="inputField"/>
+                                <ul class="search-result-opt">
+                                </ul>
                             </div> 
                         </li>
                         <li><a href="#browsecateg">Brskaj po žanrih</a>
