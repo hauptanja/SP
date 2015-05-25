@@ -19,7 +19,7 @@ echo "Connected successfully";
 
 foreach ($file->children() as $xml)
 {
-$q = "INSERT INTO TF-IDF (ID_filma, beseda, tf) VALUES ('$xml->id_filma', '$xml->beseda', '$xml->tf')";
+$q = "INSERT INTO 'TF-IDF' (ID_filma, beseda, tf) VALUES ('$xml->id_filma', '$xml->beseda', '$xml->tf')";
 
         if (mysqli_query($mysqli, $q)) {
             //echo "New record created successfully";
