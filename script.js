@@ -215,6 +215,7 @@ $(document).ready(function () {
         $('.tabs #main').show().siblings().hide();
         $("#ocena_filma").hide();
         $("#ocena_filma_p").hide();
+        $('input').prop('checked', false);
     });
     
     $(document).on("mousedown", "td.filmi", function() {
@@ -234,8 +235,8 @@ $(document).ready(function () {
         $('.tabs #filmi_list').show().siblings().hide();
     });
 	
-	$("#back_to_list_button1").click(function () {
-        $('.tabs #film_prikaz').show().siblings().hide();
+	$("#back_to_list_button").click(function () {
+        $('.tabs #filmi_prikaz').show().siblings().hide();
     });
 	
 	$(document).on("click", "td.film", function() {
@@ -253,47 +254,13 @@ $(document).ready(function () {
                 success: function (result) 
 				{
 					//alert(result);
-                    var data = JSON.parse(result);
-                    $("#prikaz").html(data[0]);
-                },
-                error: function (result) 
-				{
-                    alert(result);
-                }
-            });
-			
-		$('.tabs #film_prikaz').show().siblings().hide();
-    });
-	
-	$(document).on("click", "td.f", function() {
-        var naslovFilm = $(this).text();
-        //alert(naslovFilm);
-        getDetails1(naslovFilm);
-    });
-	
-	$(document).on("click", "h4.z", function() {
-        var zanr = $(this).text().substring(0, 4);
-        //alert(zanr);
-		$.ajax({
-                type: "POST",
-                url: "connDatabase.php",
-                data: 
-                {
-                    genre_movie: zanr,
-                    method: "getZanrFilm"
-                },
-                cache: false,
-                success: function (result) 
-				{
-					//alert(result);
-                    var data = JSON.parse(result);
-                    //$("#prikaz").html(data[0]);
-                    
+					var data = JSON.parse(result);
+                    $("#film_prikaz").html(data[0]);
+					
                     $("#film_prikaz_table").empty();
                     
-                    if(data[0] !== "Ni podatkov!") 
-					{
-                        $("#film_prikaz_table").append(data[0]);
+                    if(data[1] !== "Film ni v bazi.") {
+                        $("#film_prikaz_table").append(data[1]);
                     }
                 },
                 error: function (result) 
@@ -302,7 +269,15 @@ $(document).ready(function () {
                 }
             });
 			
-		$('.tabs #film_prikaz').show().siblings().hide();
+		$('.tabs #filmi_prikaz').show().siblings().hide();
+    });
+	
+	$(document).on("click", "td.f", function() {
+        //var naslovFilm = $(this).text();
+        var id = $(this).attr("data-movie-ID");
+        //alert(naslovFilm);
+        //getDetails(naslovFilm);
+        getDetails(id, "");
     });
 
 	$(document).on("click", "input.categories", function() {
@@ -319,7 +294,6 @@ $(document).ready(function () {
                 cache: false,
                 success: function (result) 
 				{
-					//alert(result);
                     $("#filmi").html(result);
                 },
                 error: function (result) 
@@ -451,63 +425,6 @@ function getDetails (id, naslov){
     });
     
     $('.tabs #film_profile').show().siblings().hide();
-}
-
-function getDetails1(naslov1){
-    $.ajax({
-        type: "POST",
-        url: "connDatabase.php",
-        data: 
-        {
-            movie_name: naslov1,
-            method: "getData"
-        },
-        cache: false,
-        success: function (result) 
-		{
-            if (result != "Ni podatkov!") 
-			{
-                var data = JSON.parse(result);
-				
-                $('#slo_naslov1').text(data[0]);
-                $('#ang_naslov1').text(data[1]);
-                $('#genre1').text(data[2]);
-                
-				if (data[3] !== "/") 
-				{
-                    $('#duration1').text("Dolžina: " + data[3]);
-                }
-                
-				else 
-                    $('#duration1').text("");
-                
-				if (data[4] !== "/") 
-				{
-                    $('#year1').text("Leto: " + data[4]);
-                }
-                
-				else 
-                    $('#year1').text("");
-                
-				if (data[5] !== "/") 
-				{
-                    $('#country1').text("Država: " + data[5]);
-                }
-                
-				else 
-                    $('#country1').text("");
-                
-				$('#summary1').text(data[6]);
-				$('#ocena1').html("Ocena kritikov: " + data[7] + "/10<br>Ocena gledalcev: " + data[8] + "/5");
-            }
-        },
-        error: function (result) 
-		{
-            alert(result);
-        }
-    });
-    
-    $('.tabs #film_profile1').show().siblings().hide();
 }
 
 function oceni(ocena_f){
