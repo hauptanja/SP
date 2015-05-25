@@ -273,9 +273,11 @@ $(document).ready(function () {
     });
 	
 	$(document).on("click", "td.f", function() {
-        var naslovFilm = $(this).text();
+        //var naslovFilm = $(this).text();
+        var id = $(this).attr("data-movie-ID");
         //alert(naslovFilm);
-        getDetails(naslovFilm);
+        //getDetails(naslovFilm);
+        getDetails(id, "");
     });
 
 	$(document).on("click", "input.categories", function() {
