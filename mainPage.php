@@ -169,23 +169,6 @@ session_start();
                 </div>
                 <div id="filmi_prikaz" class="tab">
                     <input type="button" value="Nazaj" id="back_to_genre"/>
-                    <?php 
-                        if(isset($_SESSION["username"])):?>
-                        <input type="button" value="Gledano" id="watched_button_p"/>
-                        <table id="ocena_filma_p">
-                            <tr id="ocena_f_p">
-	                            <td id="star1"><img src="star.png" class="starIMG"/></td>
-	                            <td id="star2"><img src="star.png" class="starIMG"/></td>
-	                            <td id="star3"><img src="star.png" class="starIMG"/></td>
-	                            <td id="star4"><img src="star.png" class="starIMG"/></td>
-	                            <td id="star5"><img src="star.png" class="starIMG"/></td>
-                            </tr>
-                        </table>
-                        
-                        <?php
-                        endif;
-                        ?>
-                    <br>
                     <div id="film_prikaz"></div>
 					<table id ="film_prikaz_table"></table>
                 </div>
