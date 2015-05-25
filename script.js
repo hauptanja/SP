@@ -215,6 +215,7 @@ $(document).ready(function () {
         $('.tabs #main').show().siblings().hide();
         $("#ocena_filma").hide();
         $("#ocena_filma_p").hide();
+        $('input').prop('checked', false);
     });
     
     $(document).on("mousedown", "td.filmi", function() {
@@ -230,23 +231,37 @@ $(document).ready(function () {
 		$('input').prop('checked', false);
     });
 	
+	$("#back_to_genre").click(function () {
+        $('.tabs #filmi_list').show().siblings().hide();
+    });
+	
+	$("#back_to_list_button").click(function () {
+        $('.tabs #filmi_prikaz').show().siblings().hide();
+    });
+	
 	$(document).on("click", "td.film", function() {
         var naslov_filma = $(this).text();
         //alert(naslov_filma);
 		$.ajax({
                 type: "POST",
-                url: "filmdetails.php",
+                url: "connDatabase.php",
                 data: 
                 {
                     movie_name: naslov_filma,
-                    method: "getList"
+                    method: "getFilm"
                 },
                 cache: false,
                 success: function (result) 
 				{
 					//alert(result);
-                    var data = JSON.parse(result);
-                    $("#vpisan_film").html(data[0]);
+					var data = JSON.parse(result);
+                    $("#film_prikaz").html(data[0]);
+					
+                    $("#film_prikaz_table").empty();
+                    
+                    if(data[1] !== "Film ni v bazi.") {
+                        $("#film_prikaz_table").append(data[1]);
+                    }
                 },
                 error: function (result) 
 				{
@@ -254,7 +269,7 @@ $(document).ready(function () {
                 }
             });
 			
-		$('.tabs #film_list').show().siblings().hide();
+		$('.tabs #filmi_prikaz').show().siblings().hide();
     });
 	
 	$(document).on("click", "td.f", function() {
@@ -262,7 +277,7 @@ $(document).ready(function () {
         //alert(naslovFilm);
         getDetails(naslovFilm);
     });
-	
+
 	$(document).on("click", "input.categories", function() {
 		var kategorija = $(this).next('label').text().substring(0, 4);
 		//alert(kategorija);
@@ -277,7 +292,6 @@ $(document).ready(function () {
                 cache: false,
                 success: function (result) 
 				{
-					//alert(result);
                     $("#filmi").html(result);
                 },
                 error: function (result) 
