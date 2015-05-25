@@ -139,20 +139,7 @@ session_start();
                         <table id="film_list_table"></table>
                     </div>
                 </div>
-                <div id="film_profile1" class="tab">
-                    <div id="film_details1">
-                        <input type="button" value="Nazaj" id="back_to_list_button1"/>
-                        <h2 id="slo_naslov1"></h2>
-                        <h3 id="ang_naslov1"></h3>
-                        <div id="genre1"></div>
-                        <div id="duration1"></div>
-                        <div id="year1"></div>
-                        <div id="country1"></div>
-                        <div id="ocena1"></div>
-                        <br>
-                        <div id="summary1"></div>
-                    </div>
-                </div>
+                
                 <!--- za prikaz seznama ---->
                 <div id="film_list" class="tab">
 					<?php 
@@ -179,11 +166,6 @@ session_start();
                 <div id="filmi_list" class="tab">
                     <input type="button" value="Nazaj" id="back_to_genre_button"/>
                     <table id="filmi"></table>
-                </div>
-				<div id="film_prikaz" class="tab">
-                    <input type="button" value="Nazaj" id="back_to_genre"/>
-                    <div id="prikaz"></div>
-	            <table id="film_prikaz_table"></table>
                 </div>
             </div>
             <div id="najboljse_ocenjeni_filmi">
