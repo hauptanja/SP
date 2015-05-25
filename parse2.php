@@ -2,8 +2,8 @@
 // The file test.xml contains an XML document with a root element
 // and at least an element /[root]/title.
 
-if (file_exists('tf-idf.xml')) {
-    $file = simplexml_load_file('tf-idf.xml');
+if (file_exists('tfidftabela.xml')) {
+    $file = simplexml_load_file('tfidftabela.xml');
 
     //print_r($xml);
 } else {
@@ -19,7 +19,7 @@ echo "Connected successfully";
 
 foreach ($file->children() as $xml)
 {
-$q = "INSERT INTO 'TF-IDF' (ID_filma, beseda, tf) VALUES ('$xml->id_filma', '$xml->beseda', '$xml->tf')";
+$q = "INSERT INTO TFIDF (ID_filma, beseda, tf) VALUES ('$xml->id_filma', '$xml->beseda', '$xml->tf')";
 
         if (mysqli_query($mysqli, $q)) {
             //echo "New record created successfully";
