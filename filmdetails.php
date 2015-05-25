@@ -101,7 +101,7 @@
             $output2 = "<tr>";
             while(($row = mysqli_fetch_assoc($result)) && $val < 5) {
                 $val++;
-                $output2 .= "<td class='filmi' data-movie-ID='" . $row["ID"] . "'>" . $row["slo_naslov"] . "</td>";
+                $output2 .= "<td class='filmi' data-movie-ID='" . $row["ID"] . "'><img src='". $row2['poster_src'] . "' class='poster_thumbnail'/><br>" . $row2["slo_naslov"] . "</td>";
             }
             $output2 .= "</tr>";
             $o[1] = $output2;
