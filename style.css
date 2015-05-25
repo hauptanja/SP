@@ -372,3 +372,16 @@ td#filmi
 	text-indent: 0;
 	padding: 10px;
 }
+
+.poster_thumbnail
+{
+	width: 140px;
+	height: 200px;
+}
+
+#poster 
+{
+	float: right;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}

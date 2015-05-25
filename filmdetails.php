@@ -42,6 +42,7 @@
             $output[7] = $row["tomatometer"];
             $output[8] = $row["audience"];
             $output[9] = $row["ID"];
+            $output[10] = $row["poster_src"];
             $o = json_encode($output);
             echo $o;
         } else {
@@ -93,7 +94,7 @@
             $o[0] = "Film ni v bazi.";
         }
         
-        $q = "SELECT * FROM Film";
+        $q = "SELECT ID, slo_naslov, poster_src FROM Film";
         $result = mysqli_query($mysqli, $q);
         
         if (mysqli_num_rows($result) > 0) {
@@ -101,8 +102,9 @@
             $output2 = "<tr>";
             while(($row = mysqli_fetch_assoc($result)) && $val < 5) {
                 $val++;
-                $output2 .= "<td class='filmi' data-movie-ID='" . $row["ID"] . "'><img src='". $row2['poster_src'] . "' class='poster_thumbnail'/><br>" . $row2["slo_naslov"] . "</td>";
+                $output2 .= "<td class='filmi' data-movie-ID='" . $row["ID"] . "'><img src='". $row['poster_src'] . "' class='poster_thumbnail'/><br>" . $row["slo_naslov"] . "</td>";
             }
+            
             $output2 .= "</tr>";
             $o[1] = $output2;
         }

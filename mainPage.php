@@ -127,6 +127,7 @@ session_start();
                         endif;
                         ?>
                         <input type="hidden" id="id_filma"/>
+                        <img id="poster"/>
                         <h2 id="slo_naslov"></h2>
                         <h3 id="ang_naslov"></h3>
                         <div id="genre"></div>
@@ -136,7 +137,7 @@ session_start();
                         <div id="ocena"></div>
                         <br>
                         <div id="summary"></div>
-                        <table class="film_list_table"></table>
+                        <!--<table class="film_list_table"></table>-->
                     </div>
                 </div>
                 

@@ -417,6 +417,7 @@ function getDetails (id, naslov){
                 $('#summary').text(data[6]);
 
                 $('#ocena').html("Ocena kritikov: " + data[7] + "<br>Ocena gledalcev: " + data[8]);
+                $('#poster').attr("src", data[10]);
             }
         },
         error: function (result) {
