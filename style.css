@@ -139,7 +139,7 @@ body {
     font-style: italic;
 }
 
-#registriraj, #loginButton, #back_to_list_button, #back_to_start_button, #watched_button, #watched_button_p, #back_to_genre_button
+#registriraj, #loginButton, #back_to_list_button, #back_to_start_button, #watched_button, #watched_button_p, #back_to_genre_button, #back_to_genre
 {
     margin-top: 15px;
     height: 40px;
@@ -279,7 +279,7 @@ body
 	font-size: 16;
 }
 
-#film_list_table, #best_film_table
+#film_list_table, #best_film_table, #film_prikaz_table
 {
     border: solid black 2px;
     border-collapse: collapse;
@@ -287,7 +287,7 @@ body
     width: auto;
 }
 
-#film_list_table td, #best_film_table td
+#film_list_table td, #best_film_table td, #film_prikaz_table td
 {
     border: solid darkgray 2px;
     padding: 2px;
@@ -311,7 +311,7 @@ td#filmi
     border-style: none;
 }
 
-#back_to_list_button, #back_to_start_button, #watched_button, #watched_button_p, #back_to_genre_button
+#back_to_list_button, #back_to_start_button, #watched_button, #watched_button_p, #back_to_genre_button, #back_to_genre
 {
     width: 100px;
     font-size: 16px;
@@ -343,7 +343,7 @@ td#filmi
     background-color: #E8E8E8;
 }
 
-#vpisan_film
+#vpisan_film, #film_prikaz
 {
     text-align: left;
     margin-left: 20px;
