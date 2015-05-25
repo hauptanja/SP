@@ -67,7 +67,7 @@ if ($_POST['method'] == "getFilm")
 			while(($row = mysqli_fetch_assoc($result)) && $x < 5) 
 			{
                 $x++;
-                $j1 .= "<td class='f'>" . $row["slo_naslov"] . "</td>";
+                $j1 .= "<td class='f' data-movie-ID='" . $row["ID"] . "'>" . $row["slo_naslov"] . "</td>";
             }
             
 			$j1 .= "</tr>";
