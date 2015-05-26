@@ -418,6 +418,16 @@ function getDetails (id, naslov){
 
                 $('#ocena').html("Ocena kritikov: " + data[7] + "<br>Ocena gledalcev: " + data[8]);
                 $('#poster').attr("src", data[10]);
+                $('#sporedKino').html("<h4>Predvajano v kinu</h4>");
+                $('#sporedKino').append("<table id='kinoSpored'>");
+                $('#sporedKino').append("<tr><th>Datum</th><th>Kraj</th><th>Čas</th><th>Dvorana</th></tr>");
+                var velikost=data[11];
+                var s=12;
+                while (s <= velikost){
+                    $('#sporedKino').append("<tr><td>" + data[s+2] + "</td><td>" + data[s+3] + "</td><td>" + data[s] + "</td><td>" + data[s+1] + "</td></tr>")
+                    s=s+4;
+                }
+                $('#sporedKino').append("</table>")
             }
         },
         error: function (result) {

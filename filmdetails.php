@@ -43,11 +43,35 @@
             $output[8] = $row["audience"];
             $output[9] = $row["ID"];
             $output[10] = $row["poster_src"];
-            $o = json_encode($output);
-            echo $o;
+            $i=11;
+            $q2 = "SELECT * FROM Spored_kino WHERE Naslov_slo='".$row['slo_naslov']."'";
+            $result2 = mysqli_query($mysqli, $q2);
+            while($row2 = mysqli_fetch_assoc($result2)){
+                $i++;
+                $output[$i]=$row2['Cas'];
+                $i++;
+                $output[$i]=$row2['Dvorana'];
+                $qDatum = "SELECT * FROM Datum_TV WHERE ID_Datum='".$row2['DatumID']."'";
+                $resultDatum = mysqli_query($mysqli, $qDatum);
+                while($rowD = mysqli_fetch_assoc($resultDatum)){
+                    $i++;
+                    $output[$i] = $rowD['Datum'];
+                }
+                $qL = "SELECT * FROM Lokacija WHERE ID_lokacije='".$row2['LokacijaID']."'";
+                $resultL = mysqli_query($mysqli, $qL);
+                while($rowL = mysqli_fetch_assoc($resultL)){
+                    $i++;
+                    $output[$i] = $rowL['Kraj'];
+                }
+            }
+            $output[11]=$i;
+
         } else {
             echo "0 results";
         }
+
+        $o = json_encode($output);
+        echo $o;
     }
     else if ($_POST['method'] == "getSearchResults")
     {
@@ -101,11 +125,18 @@
             $val = 0;
             $output2 = "<tr>";
             while(($row = mysqli_fetch_assoc($result)) && $val < 5) {
+                $output2 .= "<td class='filmi' data-movie-ID='" . $row["ID"] . "'><img src='". $row['poster_src'] . "' class='poster_thumbnail'/><br>" . $row["slo_naslov"] . "<br>";
+                $q2 = "SELECT * FROM Spored_kino WHERE Naslov_slo='".$row['slo_naslov']."'";
+                $result2=mysqli_query($mysqli, $q2);
+                if (mysqli_num_rows($result2) > 0) {
+                    $output2 .= "Film je na sporedu</td>";
+                }else {
+                    $output2 .= "Filma ni na sporedu</td>";
+                }
                 $val++;
-                $output2 .= "<td class='filmi' data-movie-ID='" . $row["ID"] . "'><img src='". $row['poster_src'] . "' class='poster_thumbnail'/><br>" . $row["slo_naslov"] . "</td>";
             }
-            
             $output2 .= "</tr>";
+
             $o[1] = $output2;
         }
         else {

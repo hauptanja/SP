@@ -138,6 +138,7 @@ session_start();
                         <br>
                         <div id="summary"></div>
                         <!--<table class="film_list_table"></table>-->
+                        <div id="sporedKino"></div>
                     </div>
                 </div>
                 
