@@ -116,10 +116,10 @@ $(document).ready(function () {
 						                var data = JSON.parse(result);
 						                $("#vpisan_film").html(data[0]);
 						                $('#id_filma').val(data[2]);
-						                $(".film_list_table").empty();
+						                $("#film_list_table").empty();
 						                
 						                if(data[1] !== "Film ni v bazi.") {
-						                    $(".film_list_table").append(data[1]);
+						                    $("#film_list_table").append(data[1]);
 						                }
 						            },
 						            error: function (result) {

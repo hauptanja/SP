@@ -161,7 +161,7 @@ session_start();
                         ?>
                     <br>
                     <div id="vpisan_film"></div>
-                    <table class="film_list_table"></table>
+                    <table id="film_list_table"></table>
                     <input type="button" value="Nazaj" id="back_to_start_button"/>
                 </div>
                 <div id="filmi_list" class="tab">
