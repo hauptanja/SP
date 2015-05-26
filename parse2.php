@@ -17,7 +17,7 @@ if (!$mysqli) {
 echo "Connected successfully";
 
 
-foreach ($file->children() as $xml)
+foreach ($file -> item as $xml)
 {
     $q = "INSERT INTO TFIDF (ID_filma, beseda, tf, idf) VALUES ('$xml->id_filma', '$xml->beseda', '$xml->tf', '$xml->idf')";
 
