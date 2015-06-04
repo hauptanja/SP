@@ -386,3 +386,59 @@ td#filmi
 	margin-top: 20px;
 	margin-bottom: 20px;
 }
+
+#kanal th, #spored_prikaz th
+{
+	background-color: #F5F5F5;
+	border-radius: 5px;
+	font-size: 18px;
+}
+
+#kanal td, #spored_prikaz td
+{
+	font-size: 17px;
+	text-align:center;
+}
+
+#kanal, #spored_prikaz
+{
+	width:100%;
+	text-align:center; 
+	border-spacing:10;
+}
+
+.sporedTV
+{
+	font-size:20px;
+	text-align:center;
+}
+
+.btn 
+{
+	background: #c6cbd1;
+	background-image: -webkit-linear-gradient(top, #c6cbd1, #e7edf0);
+	background-image: -moz-linear-gradient(top, #c6cbd1, #e7edf0);
+	background-image: -ms-linear-gradient(top, #c6cbd1, #e7edf0);
+	background-image: -o-linear-gradient(top, #c6cbd1, #e7edf0);
+	background-image: linear-gradient(to bottom, #c6cbd1, #e7edf0);
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	font-family: Arial;
+	color: black;
+	font-size: 18px;
+	padding: 5px 10px 5px 10px;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.btn:hover 
+{
+	background: #eff0f2;
+	background-image: -webkit-linear-gradient(top, #eff0f2, #c6cbd1);
+	background-image: -moz-linear-gradient(top, #eff0f2, #c6cbd1);
+	background-image: -ms-linear-gradient(top, #eff0f2, #c6cbd1);
+	background-image: -o-linear-gradient(top, #eff0f2, #c6cbd1);
+	background-image: linear-gradient(to bottom, #eff0f2, #c6cbd1);
+	text-decoration: none;
+}
