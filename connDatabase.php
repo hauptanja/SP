@@ -9,30 +9,132 @@ if (!$mysqli)
 
 //echo "Connected successfully";
 
-//session_start();
-
-if ($_POST['method'] == "getMovies")
+if ($_POST['method'] == "getKanal")
 {
-		$kategorija = $_POST['genre_name'];
-		$q = "SELECT slo_naslov FROM Film WHERE genre LIKE '%$kategorija%'";
-        $result = mysqli_query($mysqli, $q);
+		$film = $_POST['film'];
+		
+		$q = "SELECT DISTINCT Ime_kanala
+			  FROM Spored_TV
+			  INNER JOIN Kanal_TV
+			  ON kanal_ID=ID_Kanal
+			  WHERE Naslov_slo = '$film'";
+        
+		$result = mysqli_query($mysqli, $q);
+		
+		if (mysqli_num_rows($result) == 1) 
+		{
+			$q1 = "SELECT Naslov_slo, Cas, Ime_kanala, Datum
+				   FROM Spored_TV
+				   INNER JOIN Kanal_TV
+				   ON kanal_ID=ID_Kanal
+				   INNER JOIN Datum_TV
+				   ON datum_ID=ID_Datum
+				   WHERE Naslov_slo = '$film'";
+        
+			$result1 = mysqli_query($mysqli, $q1);
+			
+			echo "<tr>";
+			echo "<th><strong>Naslov</strong></th><th><strong>Cas</strong></th><th><strong>Kanal</strong></th><th><strong>Datum</strong></th>";
+			echo "</tr>";
+			
+			while ($row = mysqli_fetch_assoc($result1))
+			{
+				echo "<tr>";
+				
+				foreach ($row as $film)
+				{
+					echo "<td class='film'>" .$film. "</td>";
+					$i = json_encode($film);
+					//echo $i;
+				}
+				
+				echo "</tr>";
+            }
+		}
 
-		if (mysqli_num_rows($result) > 0) 
+		else if (mysqli_num_rows($result) > 0) 
 		{
 			while ($row = mysqli_fetch_assoc($result))
 			{
 				foreach ($row as $film)
 				{
-					echo "<tr><td class='film' align='justify' style='font-size: 20px;'>" .$film. "</td></tr>";
+					echo "<button class='btn'>" .$film. "</button>";
+					$i = json_encode($film);
+					//echo $i;
+				}
+            }
+        }
+		
+		else
+		{
+			echo "<div style='font-size:18px;'><strong>Film se ne predvaja na televiziji!</strong></div>";
+		}
+}
+
+if ($_POST['method'] == "getSpored")
+{
+		$film = $_POST['film'];
+		$kanal = $_POST['spored'];
+		
+		$q = "	SELECT Naslov_slo, Cas, Ime_kanala, Datum
+				FROM Spored_TV
+				INNER JOIN Kanal_TV
+				ON kanal_ID=ID_Kanal
+				INNER JOIN Datum_TV
+				ON datum_ID=ID_Datum
+				WHERE Ime_kanala = '$kanal' AND Naslov_slo = '$film'";
+        
+		$result = mysqli_query($mysqli, $q);
+		
+		if (mysqli_num_rows($result) > 0) 
+		{
+			echo "<tr></tr>";
+			echo "<tr>";
+			echo "<th><strong>Naslov</strong></th><th><strong>Cas</strong></th><th><strong>Kanal</strong></th><th><strong>Datum</strong></th>";
+			echo "</tr>";
+			
+			while ($row = mysqli_fetch_assoc($result))
+			{
+				echo "<tr>";
+				
+				foreach ($row as $film)
+				{
+					echo "<td class='film'>" .$film. "</td>";
+					$i = json_encode($film);
+					//echo $i;
 				}
 				
-				$i = json_encode($film);
-				echo $i;
+				echo "</tr>";
             }
         }
 }
 
-if ($_POST['method'] == "getFilm")
+if ($_POST['method'] == "getMovies")
+{
+		$kategorija = $_POST['genre_name'];
+		
+		$q = "SELECT ID, slo_naslov FROM Film WHERE genre LIKE '%$kategorija%'";
+        
+		$result = mysqli_query($mysqli, $q);
+		
+		if (mysqli_num_rows($result) > 0) 
+		{
+			$prikaz = "<tr>";
+			
+			while ($row = mysqli_fetch_assoc($result))
+			{
+				$prikaz .= "<tr><td class='filmi' data-movie-ID='" . $row["ID"] . "' style='font-size: 20px;'>" . $row["slo_naslov"] . "</td></tr>";
+            }
+			
+			$prikaz .= "</tr>";
+			$p[0] = $prikaz;
+        }
+		
+		$p = json_encode($p);
+        echo $p;
+}
+
+/*if ($_POST['method'] == "getFilm")
 {
         $naslov = $_POST['movie_name'];
         
@@ -48,7 +150,8 @@ if ($_POST['method'] == "getFilm")
             
             $j = "Predlogi za film: <h2>$i[0]</h2>";
             $j .= "<h3>$i[1]</h3>";
-            $prikaz[0] = $j;
+            
+			$prikaz[0] = $j;
         } 
 		
 		else 
@@ -62,16 +165,17 @@ if ($_POST['method'] == "getFilm")
         if (mysqli_num_rows($result) > 0) 
 		{    
 			$x = 0;
-            $j1 = "<tr>";
+            $j = "<tr>";
             
 			while(($row = mysqli_fetch_assoc($result)) && $x < 5) 
 			{
                 $x++;
-                $j1 .= "<td class='f' data-movie-ID='" . $row["ID"] . "'>" . $row["slo_naslov"] . "</td>";
+                $j .= "<td class='filmi' data-movie-ID='" . $row["ID"] . "'>" . $row["slo_naslov"] . "</td>";
             }
             
-			$j1 .= "</tr>";
-            $prikaz[1] = $j1;
+			$j .= "</tr>";
+            
+			$prikaz[1] = $j;
         }
         
 		else 
@@ -81,6 +185,8 @@ if ($_POST['method'] == "getFilm")
         
         $prikaz = json_encode($prikaz);
         echo $prikaz;
-}
+}*/
+
+mysqli_close($mysqli);
 
 ?>
