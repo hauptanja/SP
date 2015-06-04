@@ -139,6 +139,10 @@ session_start();
                         <div id="summary"></div>
                         <!--<table class="film_list_table"></table>-->
                         <div id="sporedKino"></div>
+                        <br>
+			<div class="sporedTV"><strong>TV SPORED</strong></div>
+			<table id="kanal"></table>
+			<table id="spored_prikaz"></table>
                     </div>
                 </div>
                 
@@ -169,11 +173,11 @@ session_start();
                     <input type="button" value="Nazaj" id="back_to_genre_button"/>
                     <table id="filmi"></table>
                 </div>
-                <div id="filmi_prikaz" class="tab">
+                <!-- <div id="filmi_prikaz" class="tab">
                     <input type="button" value="Nazaj" id="back_to_genre"/>
                     <div id="film_prikaz"></div>
-					<table id ="film_prikaz_table"></table>
-                </div>
+	  	    <table id ="film_prikaz_table"></table>
+                </div> -->
             </div>
             <div id="najboljse_ocenjeni_filmi">
 	            <h2>Top ocenjeni filmi uporabnikov...</h2>
