@@ -220,48 +220,26 @@ $(document).ready(function () {
     
     $(document).on("mousedown", "td.filmi", function() {
         var id = $(this).attr("data-movie-ID");
+	var naslov = $(this).text().replace(/F.+|.\.\d+.[\d+]|..\d+[\d+]*$/g, '');
+	//alert(naslov);
         $("#watched_button").removeClass("pressedB");
         $("#ocena_filma").hide();
         $("#ocena_filma_p").hide();
-        getDetails(id, "");
-    });
-    
-    $("#back_to_genre_button").click(function () {
-        $('.tabs #main').show().siblings().hide();
-		$('input').prop('checked', false);
-    });
-	
-	$("#back_to_genre").click(function () {
-        $('.tabs #filmi_list').show().siblings().hide();
-    });
-	
-	$("#back_to_list_button").click(function () {
-        $('.tabs #filmi_prikaz').show().siblings().hide();
-    });
-	
-	$(document).on("click", "td.film", function() {
-        var naslov_filma = $(this).text();
-        //alert(naslov_filma);
-		$.ajax({
+        
+	getDetails(id, "");
+		
+	$.ajax({
                 type: "POST",
                 url: "connDatabase.php",
                 data: 
                 {
-                    movie_name: naslov_filma,
-                    method: "getFilm"
+                    film: naslov,
+                    method: "getKanal"
                 },
                 cache: false,
                 success: function (result) 
 				{
-					//alert(result);
-					var data = JSON.parse(result);
-                    $("#film_prikaz").html(data[0]);
-					
-                    $("#film_prikaz_table").empty();
-                    
-                    if(data[1] !== "Film ni v bazi.") {
-                        $("#film_prikaz_table").append(data[1]);
-                    }
+                    $("#kanal").html(result);
                 },
                 error: function (result) 
 				{
@@ -269,17 +247,45 @@ $(document).ready(function () {
                 }
             });
 			
-		$('.tabs #filmi_prikaz').show().siblings().hide();
+	$(document).on("click", "button.btn", function() {
+		var kanal = $(this).text();
+		//alert(kanal);
+			
+	    $.ajax({
+                type: "POST",
+                url: "connDatabase.php",
+                data: 
+                {
+		    spored: kanal,
+                    film: naslov,
+                    method: "getSpored"
+                },
+                cache: false,
+                success: function (result) 
+				{
+                    $("#spored_prikaz").html(result);
+                },
+                error: function (result) 
+				{
+                    alert(result);
+                }
+            });
+			
+		$('.tabs #spored_prikaz').show();
+        });
+		
+	$('.tabs #kanal').show();
+    });
+    
+    $("#back_to_genre_button").click(function () {
+        $('.tabs #main').show().siblings().hide();
+		$('input').prop('checked', false);
     });
 	
-	$(document).on("click", "td.f", function() {
-        //var naslovFilm = $(this).text();
-        var id = $(this).attr("data-movie-ID");
-        //alert(naslovFilm);
-        //getDetails(naslovFilm);
-        getDetails(id, "");
+	$("#back_to_list_button").click(function () {
+        $('.tabs #filmi_list').show().siblings().hide();
     });
-
+	
 	$(document).on("click", "input.categories", function() {
 		var kategorija = $(this).next('label').text().substring(0, 4);
 		//alert(kategorija);
@@ -294,7 +300,8 @@ $(document).ready(function () {
                 cache: false,
                 success: function (result) 
 				{
-                    $("#filmi").html(result);
+					var data = JSON.parse(result);
+                    $("#filmi").html(data[0]);
                 },
                 error: function (result) 
 				{
