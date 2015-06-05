@@ -96,7 +96,7 @@ body {
     list-style-image: url('li_arrow.png');
     padding-top: 20px;
     border-radius: 20px;
-    margin-left: 50px;
+    /*margin-left: 50px;*/
 }
 
 .search-opt a {
@@ -500,7 +500,8 @@ td#filmi
 #film_list {
 	margin-left: auto;
 	margin-right: auto;
-	width: 700px;
+	width: 750px;
+	border: solid;
 }
 
 .smallTxt {

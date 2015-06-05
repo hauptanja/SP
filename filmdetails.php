@@ -129,9 +129,9 @@
                 $q2 = "SELECT * FROM Spored_kino WHERE Naslov_slo='".$row['slo_naslov']."'";
                 $result2=mysqli_query($mysqli, $q2);
                 if (mysqli_num_rows($result2) > 0) {
-                    $output2 .= "<div class='smallTxt'><img class='thumbs' src='camera.png'/>Film je na sporedu</div></td>";
+                    $output2 .= "<div class='smallTxt'><img class='thumbs' src='camera.png'/> Film je na sporedu</div></td>";
                 }else {
-                    $output2 .= "<div class='smallTxt'><img class='thumbs' src='no-camera.png'/>Filma ni na sporedu</div></td>";
+                    $output2 .= "<div class='smallTxt'><img class='thumbs' src='no-camera.png'/> Filma ni na sporedu</div></td>";
                 }
                 $val++;
             }

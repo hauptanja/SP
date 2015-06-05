@@ -164,8 +164,8 @@ session_start();
                         
                         <?php
                         endif;
-                        ?>
-                    <br>
+                    ?>
+                   
                     <div id="vpisan_film"></div>
                     <table id="film_list_table"></table>
                     <input type="button" value="Nazaj" id="back_to_start_button"/>
