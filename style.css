@@ -1,5 +1,7 @@
 body {
     font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 /*----- Tabs -----*/
@@ -10,6 +12,7 @@ body {
 
 /*----- Tab Links -----*/
 /* Clearfix */
+
 .tab-links:after {
     display:block;
     clear:both;
@@ -48,14 +51,15 @@ body {
 .tab-content {
     padding:15px;
     border-radius:3px;
-
     font-size: 20;
+    height: auto;
 }
 
 .tab-content h1 {
     font-family: 'Poiret One', cursive;
     text-align: center;
     font-size: 70;
+    margin: 0;
 }
 
 #najboljse_ocenjeni_filmi h2 
@@ -66,10 +70,10 @@ body {
 }
 
 .tab {
-    border-style: solid;
+    border-style: hidden;
     border-width: 2.5px;
     border-radius: 5px;
-    width: 500px;
+    width: 50%;
     padding-top: 20px;
     padding-bottom: 20px;
     margin-left: auto;
@@ -77,6 +81,7 @@ body {
     display:none;
     text-align: center;
     font-size: 20;
+   
 }
 
 .tab.active {
@@ -90,7 +95,7 @@ body {
     list-style-image: url('li_arrow.png');
     padding-top: 20px;
     border-radius: 20px;
-    margin-right: 40px;
+    margin-left: 50px;
 }
 
 .search-opt a {
@@ -116,6 +121,7 @@ body {
     margin: 10px;
     text-align: left;
     text-indent: 10px;
+    
 }
 
 #browsecateg {
@@ -192,7 +198,7 @@ body {
 {
     width: 990px;
     height: 180px;
-    border-style: solid;
+    border-style: hidden;
     border-width: 2.5px;
     border-radius: 5px;
     background-image: url("ferimdb_banner.png");
@@ -240,7 +246,8 @@ body {
 body
 {
     /*background-image: url("background.png");*/
-    background-color:rgba(0, 0, 0, 0.13);
+    background-color: white;
+    
 }
 
 #nav a
@@ -277,6 +284,11 @@ body
 #summary
 {
 	font-size: 16;
+}
+
+#best_film_table
+{
+	float: left;	
 }
 
 #film_list_table, #best_film_table, #film_prikaz_table
@@ -355,9 +367,26 @@ td#filmi
     margin-right: auto;
 }
 
-#best_film_table td, #najboljse_ocenjeni_filmi
+#best_film_table td
 {
 	text-align: center;
+}
+
+#najboljse_ocenjeni_filmi {
+	
+	position: absolute;
+	left: 0;
+} 
+
+#najvec_gledani_filmi {
+	
+	position: absolute;
+	right: 0;
+	
+} 
+
+.tab-links {
+	background: linear-gradient( #e4e2e6, white);
 }
 
 #watched_button_p

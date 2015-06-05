@@ -16,6 +16,28 @@ $(document).ready(function () {
             if(result !== "Ni podatka") {
                 $("#best_film_table").append(result);
             }
+           
+        },
+        error: function (result) {
+            alert(result);
+        }
+    });
+    
+    $.ajax({
+        type: "POST",
+        url: "filmdetails.php",
+        data: 
+        {
+            method: "getMostWatched"
+        },
+        cache: false,
+        success: function (result) {
+            $("#most_watched_table").empty();
+
+            if(result !== "Ni podatka") {
+                $("#most_watched_table").append(result);
+            }
+           
         },
         error: function (result) {
             alert(result);
@@ -174,18 +196,18 @@ $(document).ready(function () {
     $("#wordSearchBox").keypress(function (e) {
         if (e.which === 13) { // if is enter
             var text = $(this).val();
-            /*
+            
             $.ajax({
                 type: "POST",
                 url: "filmdetails.php",
                 data: 
                 {
-                    movie_name: text,
-                    movie_id: "-",
-                    method: "getList"
+                    beseda: text,
+                    method: "beseda->naslov"
                 },
                 cache: false,
                 success: function (result) { 
+	                /*
                     var data = JSON.parse(result);
                     $("#vpisan_film").html(data[0]);
                     $('#id_filma').val(data[2]);
@@ -194,6 +216,7 @@ $(document).ready(function () {
                     if(data[1] !== "Film ni v bazi.") {
                         $("#film_list_table").append(data[1]);
                     }
+                    */
                 },
                 error: function (result) {
                     alert(result);
@@ -201,7 +224,7 @@ $(document).ready(function () {
             });
             
             $('.tabs #film_list').show().siblings().hide();
-            */
+            
         }
     });
     
@@ -431,10 +454,10 @@ function getDetails (id, naslov){
                 var velikost=data[11];
                 var s=12;
                 while (s <= velikost){
-                    $('#sporedKino').append("<tr><td>" + data[s+2] + "</td><td>" + data[s+3] + "</td><td>" + data[s] + "</td><td>" + data[s+1] + "</td></tr>")
+                    $('#sporedKino').append("<tr><td>" + data[s+2] + "</td><td>" + data[s+3] + "</td><td>" + data[s] + "</td><td>" + data[s+1] + "</td></tr>");
                     s=s+4;
                 }
-                $('#sporedKino').append("</table>")
+                $('#sporedKino').append("</table>");
             }
         },
         error: function (result) {

@@ -199,7 +199,6 @@
             arsort($avg);
             
             $count = 0;
-            $output = "<tr>";
             
             foreach($avg as $id => $val) {
                 if ($count == 5)
@@ -211,20 +210,65 @@
                 if (mysqli_num_rows($result2) > 0) {
                     $row2 = mysqli_fetch_assoc($result2);
                 
-                    $output .= "<td class='filmi' data-movie-ID='" . $row2["ID"] . "'><img src='". $row2['poster_src'] . "' class='poster_thumbnail'/><br>" . $row2["slo_naslov"] . "<br>$val/5</td>";
+                    $output .= "<tr><td class='filmi' data-movie-ID='" . $row2["ID"] . "'><img src='". $row2['poster_src'] . "' class='poster_thumbnail'/><br>" . $row2["slo_naslov"] . "<br>$val/5</td></tr>";
                     $count++;
                 }
                 else 
                     echo "shiz";
                 
             }
-            $output .= "</tr>";
             echo $output;
         } else {
             echo "Ni podatka";
         }
         
     }
+    else if ($_POST['method'] == "getMostWatched")
+    {
+        $q = "SELECT ID_Filma, COUNT(Ocena) AS vsota FROM Gledani_Filmi GROUP BY ID_Filma";
+        $result = mysqli_query($mysqli, $q);
+        
+        if (mysqli_num_rows($result) > 0) {
+            
+        // output data of each row
+            while ($row = mysqli_fetch_assoc($result))
+            {
+                $id = $row['ID_Filma'];
+                $avg[$id] = $row['vsota'];
+            }
+            arsort($avg);
+            
+            $count = 0;
+            
+            foreach($avg as $id => $val) {
+                if ($count == 5)
+                    break;
+                
+                $q2 = "SELECT ID, slo_naslov, poster_src FROM Film WHERE ID = '$id'";
+                $result2 = mysqli_query($mysqli, $q2);
+                //echo $id;
+                if (mysqli_num_rows($result2) > 0) {
+                    $row2 = mysqli_fetch_assoc($result2);
+                
+                    $output .= "<tr><td class='filmi' data-movie-ID='" . $row2["ID"] . "'><img src='". $row2['poster_src'] . "' class='poster_thumbnail'/><br>" . $row2["slo_naslov"] . "<br>$val/5</td></tr>";
+                    $count++;
+                }
+                else 
+                    echo "shiz";
+                
+            }
+            echo $output;
+        } else {
+            echo "Ni podatka";
+        }
+        
+    }
+    else if ($_POST['method'] == "beseda->naslov")
+    {
+		
+		$text = $_POST['beseda'];
+		$besede[] = explode(" ", $text);
+	}
     
     mysqli_close($mysqli);
 ?>

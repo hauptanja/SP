@@ -12,8 +12,7 @@ session_start();
         <meta charset="utf-8"/>
     </head>
     <body>
-        <div class="tabs">
-            <ul class="tab-links">
+	    <ul class="tab-links">
                 <?php 
                     if(isset($_SESSION["username"])):?>
                         <li><a href="#log_out">ODJAVA</a></li>
@@ -27,6 +26,8 @@ session_start();
                 ?>
                 <li class="active"><a href="#main">GLAVNA STRAN</a></li>
             </ul>
+        <div class="tabs">
+            
             <div id="banner"></div>
             <div class="tab-content">
                 <div id="main" class="tab active">
@@ -179,13 +180,19 @@ session_start();
 	  	    <table id ="film_prikaz_table"></table>
                 </div> -->
             </div>
+        </div>
             <div id="najboljse_ocenjeni_filmi">
-	            <h2>Top ocenjeni filmi uporabnikov...</h2>
+	            <h2>TOP 5</h2>
                 <table id="best_film_table"></table>
             </div>
+            <div id="najvec_gledani_filmi">
+	            <h2>TOP 5</h2>
+                <table id="most_watched_table"></table>
+            </div>
+
             <!----
 			<div id="footer"></div>
             ----> 
-        </div>
+        <!--</div>-->
     </body>
 </html>
