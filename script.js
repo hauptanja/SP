@@ -44,9 +44,8 @@ $(document).ready(function () {
         }
     });
     
-    $('.tabs .tab-links a').on('click', function (e) {
+    $('.tab-links a').on('click', function (e) {
         var currentAttrValue = $(this).attr('href');
-        
         if (currentAttrValue == "#log_out")
         {
             $.ajax({
@@ -60,19 +59,22 @@ $(document).ready(function () {
                 }
             });
             $("#najboljse_ocenjeni_filmi").show();
+            $("#najvec_gledani_filmi").show();
         }
         else
         {
 	        if (currentAttrValue == "#user_profile")
 			{
             	$("#najboljse_ocenjeni_filmi").hide();
+            	$("#najvec_gledani_filmi").hide();
         	}
         	else
         	{
 	        	$("#najboljse_ocenjeni_filmi").show();
+	        	$("#najvec_gledani_filmi").show();
         	}
             // Show/Hide Tabs
-            $('.tabs ' + currentAttrValue).show().siblings().hide();
+            $( currentAttrValue).show().siblings().hide();
 
             // Change/remove current tab to active
             $(this).parent('li').addClass('active').siblings().removeClass('active');
@@ -175,19 +177,19 @@ $(document).ready(function () {
                 }
             });
             
-            $('.tabs #film_list').show().siblings().hide();
+            $(' #film_list').show().siblings().hide();
             
         }
     });
     
     $("#back_to_list_button").click(function () {
-        $('.tabs #film_list').show().siblings().hide();
+        $(' #film_list').show().siblings().hide();
         $("#ocena_filma").hide();
         $("#ocena_filma_p").hide();
     });
     
     $("#back_to_start_button").click(function () {
-        $('.tabs #main').show().siblings().hide();
+        $(' #main').show().siblings().hide();
         $("#ocena_filma").hide();
         $("#ocena_filma_p").hide();
         $('input').prop('checked', false);
@@ -246,19 +248,19 @@ $(document).ready(function () {
                 }
             });
 			
-		$('.tabs #spored_prikaz').show();
+		$(' #spored_prikaz').show();
         });
 		
-	$('.tabs #kanal').show();
+	$(' #kanal').show();
     });
     
     $("#back_to_genre_button").click(function () {
-        $('.tabs #main').show().siblings().hide();
+        $(' #main').show().siblings().hide();
 		$('input').prop('checked', false);
     });
 	
 	$("#back_to_list_button").click(function () {
-        $('.tabs #filmi_list').show().siblings().hide();
+        $(' #filmi_list').show().siblings().hide();
     });
 	
 	$(document).on("click", "input.categories", function() {
@@ -284,7 +286,7 @@ $(document).ready(function () {
                 }
             });
         
-		$('.tabs #filmi_list').show().siblings().hide();
+		$(' #filmi_list').show().siblings().hide();
     });
     
     $( "#registriraj" ).click(function() {
@@ -304,7 +306,7 @@ $(document).ready(function () {
                 Sex: $( "#gender" ).val()
             },
               success: function(){
-                $('.tabs #login').show().siblings().hide();
+                $(' #login').show().siblings().hide();
                 $('a').parent('li').removeClass('active');
                 $('a[href$="#login"]').parent('li').addClass('active');
               }
@@ -323,7 +325,7 @@ $(document).ready(function () {
             },
             success:function(data) {
                 if(data==true){
-                     $('.tabs #user_profile').show().siblings().hide();
+                     $(' #user_profile').show().siblings().hide();
                     $('a').parent('li').removeClass('active');
                     $('a[href$="#user_profile"]').parent('li').addClass('active');
                     location.reload();
@@ -417,7 +419,7 @@ function getDetails (id, naslov){
         }
     });
     
-    $('.tabs #film_profile').show().siblings().hide();
+    $(' #film_profile').show().siblings().hide();
 }
 
 function oceni(ocena_f){
@@ -471,7 +473,7 @@ function pokaziFilm (id, ime) {
                 alert(result);
             }
         });
-		$('.tabs #film_list').show().siblings().hide();
+		$(' #film_list').show().siblings().hide();
 	
 }
 

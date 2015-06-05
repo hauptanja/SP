@@ -74,10 +74,10 @@ session_start();
                 <div id="login" class="tab">
                     <div id="userLogin">
 				    <h1>Prijava</h1>
-					    <div>Uporabniško ime :</div>
-					    <input id="userName" name="username" type="text" class="inputField">
-					    <div>Geslo :</div>
-					    <input id="userPass" name="password" type="password" class="inputField">
+					    
+					    <input id="userName" name="username" type="text" class="inputField" placeholder="Uporabniško ime">
+					   
+					    <input id="userPass" name="password" type="password" class="inputField" placeholder="Geslo">
 					    <button id="loginButton" name="submit" type="button" value="PRIJAVA">PRIJAVA</button>
 				    </div>
                 </div>

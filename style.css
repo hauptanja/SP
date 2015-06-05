@@ -60,6 +60,7 @@ body {
     text-align: center;
     font-size: 70;
     margin: 0;
+    padding-bottom: 20px;
 }
 
 #najboljse_ocenjeni_filmi h2, #najvec_gledani_filmi h2
@@ -143,6 +144,12 @@ body {
 ::-webkit-input-placeholder {
     text-align: right;
     font-style: italic;
+}
+#userName::-webkit-input-placeholder, #userPass::-webkit-input-placeholder {
+    text-align: left;
+    font-style: normal;
+    padding: 0;
+    margin: 0;
 }
 
 #registriraj, #loginButton, #back_to_list_button, #back_to_start_button, #watched_button, #watched_button_p, #back_to_genre_button, #back_to_genre
@@ -487,5 +494,15 @@ td#filmi
 
 .thumbs {
 	width: 18px;
-	height: 18px;
+	/*height: 18px;*/
+}
+
+#film_list {
+	margin-left: auto;
+	margin-right: auto;
+	width: 700px;
+}
+
+.smallTxt {
+	font-size: 10px;
 }
