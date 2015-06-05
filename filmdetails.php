@@ -210,7 +210,14 @@
                 if (mysqli_num_rows($result2) > 0) {
                     $row2 = mysqli_fetch_assoc($result2);
                 
-                    $output .= "<tr><td class='filmi' data-movie-ID='" . $row2["ID"] . "'><img src='". $row2['poster_src'] . "' class='poster_thumbnail'/><br>" . $row2["slo_naslov"] . "<br>$val/5</td></tr>";
+					if ($val > 3)
+						$txt = "<img class='thumbs' src='thumbs-up.png'/>";
+					else if ($val <= 3)
+						$txt = "<img class='thumbs' src='thumbs-down.png'/>";
+					else 
+						$txt = "<img class='thumbs' src='thumbs-neutral.png'/>";
+						
+                    $output .= "<tr><td class='filmi' data-movie-ID='" . $row2["ID"] . "'><img src='". $row2['poster_src'] . "' class='poster_thumbnail'/><br>" . $row2["slo_naslov"] . "<br>$txt $val/5</td></tr>";
                     $count++;
                 }
                 else 
@@ -249,8 +256,15 @@
                 //echo $id;
                 if (mysqli_num_rows($result2) > 0) {
                     $row2 = mysqli_fetch_assoc($result2);
-                
-                    $output .= "<tr><td class='filmi' data-movie-ID='" . $row2["ID"] . "'><img src='". $row2['poster_src'] . "' class='poster_thumbnail'/><br>" . $row2["slo_naslov"] . "<br>$val/5</td></tr>";
+                    
+					if ($val > 3)
+						$txt = "<img class='thumbs' src='thumbs-up.png'/>";
+					else if ($val < 3)
+						$txt = "<img class='thumbs' src='thumbs-down.png'/>";
+					else 
+						$txt = "<img class='thumbs' src='thumbs-neutral.png'/>";
+						
+                    $output .= "<tr><td class='filmi' data-movie-ID='" . $row2["ID"] . "'><img src='". $row2['poster_src'] . "' class='poster_thumbnail'/><br>" . $row2["slo_naslov"] . "<br>$txt $val/5</td></tr>";
                     $count++;
                 }
                 else 

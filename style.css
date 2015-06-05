@@ -6,7 +6,7 @@ body {
 
 /*----- Tabs -----*/
 .tabs {
-    width:100%;
+    width: 100%;
     display:inline-block;
 }
 
@@ -62,7 +62,7 @@ body {
     margin: 0;
 }
 
-#najboljse_ocenjeni_filmi h2 
+#najboljse_ocenjeni_filmi h2, #najvec_gledani_filmi h2
 {
 	font-family: 'Poiret One', cursive;
     text-align: center;
@@ -291,7 +291,7 @@ body
 	float: left;	
 }
 
-#film_list_table, #best_film_table, #film_prikaz_table
+#film_list_table, #best_film_table, #film_prikaz_table, #most_watched_table
 {
     border: solid black 2px;
     border-collapse: collapse;
@@ -299,11 +299,12 @@ body
     width: auto;
 }
 
-#film_list_table td, #best_film_table td, #film_prikaz_table td
+#film_list_table td, #best_film_table td, #film_prikaz_table td, #most_watched_table td
 {
     border: solid darkgray 2px;
     padding: 2px;
     text-align: center;
+    width: 140px;
 }
 
 #filmi
@@ -361,13 +362,13 @@ td#filmi
     margin-left: 20px;
 }
 
-#best_film_table, #footer
+#footer
 {   
     margin-left: auto;
     margin-right: auto;
 }
 
-#best_film_table td
+#best_film_table td, #most_watched_table td
 {
 	text-align: center;
 }
@@ -375,13 +376,15 @@ td#filmi
 #najboljse_ocenjeni_filmi {
 	
 	position: absolute;
-	left: 0;
+	left: 20px;
+	top: 250px;
 } 
 
 #najvec_gledani_filmi {
 	
 	position: absolute;
-	right: 0;
+	right: 20px;
+	top: 250px;
 	
 } 
 
@@ -406,7 +409,10 @@ td#filmi
 {
 	width: 140px;
 	height: 200px;
+	position: relative;
+	top: 0;
 	margin-top: 0;
+	padding-top: 0;
 }
 
 #poster 
@@ -470,4 +476,16 @@ td#filmi
 	background-image: -o-linear-gradient(top, #eff0f2, #c6cbd1);
 	background-image: linear-gradient(to bottom, #eff0f2, #c6cbd1);
 	text-decoration: none;
+}
+
+#film_profile
+{
+	border-color: gray;
+	border-radius: 30px;
+	border-style: solid;
+}
+
+.thumbs {
+	width: 18px;
+	height: 18px;
 }

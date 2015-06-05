@@ -124,31 +124,7 @@ $(document).ready(function () {
 							}
 							else 
 							{
-						        $.ajax({
-						            type: "POST",
-						            url: "filmdetails.php",
-						            data: 
-						            {
-						                movie_name: text,
-						                movie_id: "-",
-						                method: "getList"
-						            },
-						            cache: false,
-						            success: function (result) { 
-						                var data = JSON.parse(result);
-						                $("#vpisan_film").html(data[0]);
-						                $('#id_filma').val(data[2]);
-						                $("#film_list_table").empty();
-						                
-						                if(data[1] !== "Film ni v bazi.") {
-						                    $("#film_list_table").append(data[1]);
-						                }
-						            },
-						            error: function (result) {
-						                alert(result);
-						            }
-						        });
-								$('.tabs #film_list').show().siblings().hide();
+						        pokaziFilm ("-", text);
 							}
 	                    	
 	                    }
@@ -166,31 +142,7 @@ $(document).ready(function () {
     
     $(document).on("click", ".search-result-opt li", function() {
 	    var id = $(this).attr("id"); 
-        $.ajax({
-            type: "POST",
-            url: "filmdetails.php",
-            data: 
-            {
-                movie_name: "",
-                movie_id: id,
-                method: "getList"
-            },
-            cache: false,
-            success: function (result) { 
-                var data = JSON.parse(result);
-                $("#vpisan_film").html(data[0]);
-                $('#id_filma').val(data[2]);
-                $("#film_list_table").empty();
-                
-                if(data[1] !== "Film ni v bazi.") {
-                    $("#film_list_table").append(data[1]);
-                }
-            },
-            error: function (result) {
-                alert(result);
-            }
-        });
-		$('.tabs #film_list').show().siblings().hide();
+        pokaziFilm (id, "");
     });
     
     $("#wordSearchBox").keypress(function (e) {
@@ -491,6 +443,36 @@ function oceni(ocena_f){
             alert(result);
         }
     });
+}
+
+function pokaziFilm (id, ime) {
+	
+        $.ajax({
+            type: "POST",
+            url: "filmdetails.php",
+            data: 
+            {
+                movie_name: ime,
+                movie_id: id,
+                method: "getList"
+            },
+            cache: false,
+            success: function (result) { 
+                var data = JSON.parse(result);
+                $("#vpisan_film").html(data[0]);
+                $('#id_filma').val(data[2]);
+                $("#film_list_table").empty();
+                
+                if(data[1] !== "Film ni v bazi.") {
+                    $("#film_list_table").append(data[1]);
+                }
+            },
+            error: function (result) {
+                alert(result);
+            }
+        });
+		$('.tabs #film_list').show().siblings().hide();
+	
 }
 
 /* source: http://lions-mark.com/jquery/scrollTo/ */
