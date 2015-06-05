@@ -39,10 +39,13 @@
                 $output[6] = $row["summary"];
             else 
                 $output[6] = "";
-            $output[7] = $row["tomatometer"];
-            $output[8] = $row["audience"];
+            $output[7] = round( $row["tomatometer"], 1, PHP_ROUND_HALF_UP);
+            $output[8] = round( $row["audience"], 1, PHP_ROUND_HALF_UP);
             $output[9] = $row["ID"];
-            $output[10] = $row["poster_src"];
+            if ($row["poster_src"] != "")
+            	$output[10] = $row["poster_src"];
+            else 
+            	$output[10] = "-";
             $i=11;
             $q2 = "SELECT * FROM Spored_kino WHERE Naslov_slo='".$row['slo_naslov']."'";
             $result2 = mysqli_query($mysqli, $q2);
@@ -217,7 +220,8 @@
 					else 
 						$txt = "<img class='thumbs' src='thumbs-neutral.png'/>";
 						
-                    $output .= "<tr><td class='filmi' data-movie-ID='" . $row2["ID"] . "'><img src='". $row2['poster_src'] . "' class='poster_thumbnail'/><br>" . $row2["slo_naslov"] . "<br>$txt $val/5</td></tr>";
+					$oc = round( $val, 1, PHP_ROUND_HALF_UP);
+                    $output .= "<tr><td class='filmi' data-movie-ID='" . $row2["ID"] . "'><img src='". $row2['poster_src'] . "' class='poster_thumbnail'/><br>" . $row2["slo_naslov"] . "<br>$txt $oc/5</td></tr>";
                     $count++;
                 }
                 else 
@@ -232,7 +236,7 @@
     }
     else if ($_POST['method'] == "getMostWatched")
     {
-        $q = "SELECT ID_Filma, COUNT(Ocena) AS vsota FROM Gledani_Filmi GROUP BY ID_Filma";
+        $q = "SELECT ID_Filma, SUM(Ocena) AS sum, COUNT(Ocena) AS vsota FROM Gledani_Filmi GROUP BY ID_Filma";
         $result = mysqli_query($mysqli, $q);
         
         if (mysqli_num_rows($result) > 0) {
@@ -242,6 +246,7 @@
             {
                 $id = $row['ID_Filma'];
                 $avg[$id] = $row['vsota'];
+                $ocena[$id] = $row['sum'] / $row['vsota'];
             }
             arsort($avg);
             
@@ -263,8 +268,9 @@
 						$txt = "<img class='thumbs' src='thumbs-down.png'/>";
 					else 
 						$txt = "<img class='thumbs' src='thumbs-neutral.png'/>";
-						
-                    $output .= "<tr><td class='filmi' data-movie-ID='" . $row2["ID"] . "'><img src='". $row2['poster_src'] . "' class='poster_thumbnail'/><br>" . $row2["slo_naslov"] . "<br>$txt $val/5</td></tr>";
+					
+					$oc = round( $ocena[$id], 1, PHP_ROUND_HALF_UP);
+                    $output .= "<tr><td class='filmi' data-movie-ID='" . $row2["ID"] . "'><img src='". $row2['poster_src'] . "' class='poster_thumbnail'/><br>" . $row2["slo_naslov"] . "<br>$txt $oc/5</td></tr>";
                     $count++;
                 }
                 else 

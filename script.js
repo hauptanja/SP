@@ -89,7 +89,7 @@ $(document).ready(function () {
         if ($('.search-opt ' + currentAttrValue).hasClass('active') === false) {
             $('.search-opt ' + currentAttrValue).addClass('active');
             $('.search-opt ' + currentAttrValue).parent('li').toggleClass('active');
-            $('body').scrollTo('.search-opt ' + currentAttrValue);
+            //$('body').scrollTo('.search-opt ' + currentAttrValue);
         } else {
             $('.search-opt ' + currentAttrValue).removeClass('active');
             $('.search-opt ' + currentAttrValue).parent('li').toggleClass('active');
@@ -183,13 +183,17 @@ $(document).ready(function () {
     });
     
     $("#back_to_list_button").click(function () {
-        $(' #film_list').show().siblings().hide();
+        
+        if ($("#film_list_table tbody").children().length == 0)
+        	$('#main').show().siblings().hide();
+        else 
+        	$('#film_list').show().siblings().hide();
         $("#ocena_filma").hide();
         $("#ocena_filma_p").hide();
     });
     
     $("#back_to_start_button").click(function () {
-        $(' #main').show().siblings().hide();
+        $('#main').show().siblings().hide();
         $("#ocena_filma").hide();
         $("#ocena_filma_p").hide();
         $('input').prop('checked', false);
@@ -257,10 +261,6 @@ $(document).ready(function () {
     $("#back_to_genre_button").click(function () {
         $(' #main').show().siblings().hide();
 		$('input').prop('checked', false);
-    });
-	
-	$("#back_to_list_button").click(function () {
-        $(' #filmi_list').show().siblings().hide();
     });
 	
 	$(document).on("click", "input.categories", function() {
@@ -399,9 +399,27 @@ function getDetails (id, naslov){
                 else 
                     $('#country').text("");
                 $('#summary').text(data[6]);
-
-                $('#ocena').html("Ocena kritikov: " + data[7] + "<br>Ocena gledalcev: " + data[8]);
-                $('#poster').attr("src", data[10]);
+                
+				if (data[7] < "5")
+					var txt1 = "<img class='thumbs' src='thumbs-down.png'/>";
+				else if (data[7] < "7")
+					var txt1 = "<img class='thumbs' src='thumbs-neutral.png'/>";
+				else 
+					var txt1 = "<img class='thumbs' src='thumbs-up.png'/>";
+					
+				if (data[7] < "3")
+					var txt2 = "<img class='thumbs' src='thumbs-down.png'/>";
+				else if (data[7] == "3")
+					var txt2 = "<img class='thumbs' src='thumbs-neutral.png'/>";
+				else 
+					var txt2 = "<img class='thumbs' src='thumbs-up.png'/>";
+                $('#ocena').html("Ocena kritikov: " + data[7]+ " " + txt1 + "<br>Ocena gledalcev: " + data[8] +" "+ txt2);
+                if (data[10] != "-"){
+                	$('#poster').attr("src", data[10]);
+                	$('#poster').show();
+                }
+                else 
+                	$('#poster').hide();
                 $('#sporedKino').html("<h4>Predvajano v kinu</h4>");
                 $('#sporedKino').append("<table id='kinoSpored'>");
                 $('#sporedKino').append("<tr><th>Datum</th><th>Kraj</th><th>Čas</th><th>Dvorana</th></tr>");

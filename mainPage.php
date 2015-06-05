@@ -182,11 +182,11 @@ session_start();
             </div>
         </div>
             <div id="najboljse_ocenjeni_filmi">
-	            <h2>TOP 5</h2>
+	            <h2><img src="star.png" class="starIMG"/>TOP 5<img src="star.png" class="starIMG"/></h2>
                 <table id="best_film_table"></table>
             </div>
             <div id="najvec_gledani_filmi">
-	            <h2>TOP 5</h2>
+	            <h2><img src="camera.png" class="starIMG"/>TOP 5<img src="camera.png" class="starIMG"/></h2>
                 <table id="most_watched_table"></table>
             </div>
 
