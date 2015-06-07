@@ -78,6 +78,7 @@ session_start();
 					    <input id="userName" name="username" type="text" class="inputField" placeholder="Uporabniško ime">
 					   
 					    <input id="userPass" name="password" type="password" class="inputField" placeholder="Geslo">
+					    <br>
 					    <button id="loginButton" name="submit" type="button" value="PRIJAVA">PRIJAVA</button>
 				    </div>
                 </div>
@@ -167,7 +168,17 @@ session_start();
                     ?>
 					Vpisali ste film...
                     <div id="vpisan_film"></div>
+                    <div id = "film_list_data">
                     <table id="film_list_table"></table>
+                    <div id="okvir_list">
+	                    <div id = "slo_naslov_d"></div>
+	                    <div id = "ang_naslov_d"></div>
+	                    <div id = "genre_d"></div>
+	                    <div id = "tomatoscore_d"></div>
+	                    <div id = "audience_d"></div>
+	                    <div id = "spored_d"></div>
+                    </div>
+                    </div>
                     <input type="button" value="Nazaj" id="back_to_start_button"/>
                 </div>
                 <div id="filmi_list" class="tab">

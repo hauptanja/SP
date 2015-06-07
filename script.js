@@ -360,6 +360,52 @@ $(document).ready(function () {
         oceni(5);
     });
     
+    $(document).on("mouseover", "#film_list_table td", function() {
+        var id = $(this).attr("data-movie-ID");
+        
+        $.ajax({
+        type: "POST",
+        url: "filmdetails.php",
+        data: 
+        {
+            movie_id: id,
+            method: "getMiniData"
+        },
+        cache: false,
+        success: function (result) {
+            
+            var data = JSON.parse(result);
+            if (data != "no") {
+                $('#slo_naslov_d').text(data[0]);
+                $('#ang_naslov_d').text(data[1]);
+                $('#genre_d').text(data[2]);
+                
+				if (data[3] < 7)
+					var txt1 = "<img class='thumbs' src='thumbs-down.png'/>";
+				else if (data[3] > 8)
+					var txt1 = "<img class='thumbs' src='thumbs-up.png'/>";
+				else 
+					var txt1 = "<img class='thumbs' src='thumbs-neutral.png'/>";
+				$("#tomatoscore_d").html(data[3] + txt1);
+				
+				if (data[4] < 3)
+					var txt2 = "<img class='thumbs' src='thumbs-down.png'/>";
+				else if (data[4] >= 4)
+					var txt2 = "<img class='thumbs' src='thumbs-up.png'/>";
+				else 
+					var txt2 = "<img class='thumbs' src='thumbs-neutral.png'/>";
+				$("#audience_d").html(data[4] + txt2);
+				
+				$("#spored_d").html(data[5]);
+            }
+        },
+        error: function (result) {
+            alert(result);
+        }
+    	});
+    
+    });
+    
 });
 
 function getDetails (id, naslov){
@@ -397,20 +443,20 @@ function getDetails (id, naslov){
                     $('#country').text("");
                 $('#summary').text(data[6]);
                 
-				if (data[7] < "5")
+				if (data[7] < 7)
 					var txt1 = "<img class='thumbs' src='thumbs-down.png'/>";
-				else if (data[7] < "7")
-					var txt1 = "<img class='thumbs' src='thumbs-neutral.png'/>";
-				else 
+				else if (data[7] > 8)
 					var txt1 = "<img class='thumbs' src='thumbs-up.png'/>";
-					
-				if (data[7] < "3")
-					var txt2 = "<img class='thumbs' src='thumbs-down.png'/>";
-				else if (data[7] == "3")
-					var txt2 = "<img class='thumbs' src='thumbs-neutral.png'/>";
 				else 
+					var txt1 = "<img class='thumbs' src='thumbs-neutral.png'/>";
+					
+				if (data[8] < 3)
+					var txt2 = "<img class='thumbs' src='thumbs-down.png'/>";
+				else if (data[8] >= 4)
 					var txt2 = "<img class='thumbs' src='thumbs-up.png'/>";
-                $('#ocena').html("Ocena kritikov: " + data[7]+ " " + txt1 + "<br>Ocena gledalcev: " + data[8] +" "+ txt2);
+				else 
+					var txt2 = "<img class='thumbs' src='thumbs-neutral.png'/>";
+                $('#ocena').html("Ocena kritikov: " + data[7] + "/10 " + txt1 + "<br>Ocena gledalcev: " + data[8] +"/5 "+ txt2);
                 if (data[10] != "-"){
                 	$('#poster').attr("src", data[10]);
                 	$('#poster').show();

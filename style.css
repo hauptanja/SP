@@ -320,7 +320,7 @@ body
 #film_list_table
 {
 	margin-left: 20px;
-	
+	width: 370px;
 }
 
 #best_film_table td, #most_watched_table td
@@ -334,11 +334,11 @@ body
 
 #film_list_table td, #film_prikaz_table td
 {
-    border: solid darkgray 1.5px;
-    padding: 2px;
+
     text-align: center;
-    width: 140px;
-    vertical-align: top;
+    width: 116px;
+    height: 165px;
+    vertical-align: middle;
     
 }
 
@@ -435,6 +435,19 @@ body
 {
 	width: 140px;
 	height: 200px;
+
+}
+
+.poster_thumbnail_small
+{
+	width: 105px;
+	height: 150px;
+
+}
+
+.poster_thumbnail_small:hover
+{
+	border: 2px solid #715587;
 
 }
 
@@ -546,4 +559,17 @@ margin-right: auto;
 padding-top: 20px;
 padding-bottom: 20px;
 border-radius: 30px;
+}
+
+div#film_list_data{
+	width: 700px;
+	display: inline-block;
+	height: auto;
+	float: right;
+}
+
+div#okvir_list
+{
+	width: 200px;
+	text-align: left;
 }
