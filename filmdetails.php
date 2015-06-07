@@ -23,7 +23,7 @@
             $output[0] = $row["slo_naslov"];
             $output[1] = $row["ang_naslov"];
             $output[2] = $row["genre"];
-            if ($row["year"] != "")
+            if ($row["duration"] != "")
                 $output[3] = $row["duration"];
             else 
                 $output[3] = "/";
@@ -113,14 +113,27 @@
             $o1[0] = $row["slo_naslov"];
             $o1[1] = $row["ang_naslov"];
             
-            $output1 = "Predlogi za film: <h2>$o1[0]</h2>";
-            $output1 .= "<h3>$o1[1]</h3>";
+            $output1 = "<div id='inner_data'><h2>$o1[0]</h2>";
+            $output1 .= "<h3>$o1[1]</h3> <h4><img class='predlog_arrow' src='arrow-right.png'/> PREDLAGAMO <img class='predlog_arrow' src='arrow-left.png'/></h4></div>";
             $o[0] = $output1;
+            $id = $row["ID"];
             $o[2] = $row["ID"];
         } else {
             $o[0] = "Film ni v bazi.";
         }
         
+        /* TF-IDF */
+		
+		$q = "SELECT beseda, tf * idf AS tfidf FROM TFIDF WHERE ID_filma = '$id' AND tfidf > 1 ORDER BY tfidf DESC";
+		$result = mysqli_query($mysqli, $q);
+		
+        if (mysqli_num_rows($result) > 0) {
+	        $o[3] = "ok";
+            while($row = mysqli_fetch_assoc($result)) {
+	            $pomembne_besede[] = $row["beseda"];
+			}
+		}
+      
         $q = "SELECT ID, slo_naslov, poster_src FROM Film";
         $result = mysqli_query($mysqli, $q);
         
@@ -215,7 +228,7 @@
                 
 					if ($val > 3)
 						$txt = "<img class='thumbs' src='thumbs-up.png'/>";
-					else if ($val <= 3)
+					else if ($val < 3)
 						$txt = "<img class='thumbs' src='thumbs-down.png'/>";
 					else 
 						$txt = "<img class='thumbs' src='thumbs-neutral.png'/>";
@@ -285,9 +298,53 @@
     }
     else if ($_POST['method'] == "beseda->naslov")
     {
-		
 		$text = $_POST['beseda'];
-		$besede[] = explode(" ", $text);
+		$besede = explode(" ", $text);
+		$w = $besede[0];
+		$q = "SELECT ID_filma, tf * idf AS tfidf FROM TFIDF WHERE ";
+		
+		foreach($besede as $val) {
+			if (strlen($val) > 5){
+				$beseda = substr($val, 0, strlen($val) - 3);
+				//$beseda .= "%";
+			}else if (strlen($val) > 2){
+				$beseda = substr($val, 0, strlen($val) - 1);
+				//$beseda .= "%";
+			}else 
+				$beseda = $val;
+				
+			$q .= "beseda LIKE '$beseda%' ";
+			
+		}
+		//$q = substr($q, 0, strlen($q) - 3);
+		$q .= "ORDER BY tfidf";
+		
+		$result = mysqli_query($mysqli, $q);
+			
+        if (mysqli_num_rows($result) > 0) {
+            while($row = mysqli_fetch_assoc($result)) {
+	            $filmi[] = $row["ID_filma"];
+			}
+		}
+		foreach($filmi as $id) {
+			$q = "SELECT * FROM Film WHERE ID = '$id'";
+			$result = mysqli_query($mysqli, $q);
+			
+	        if (mysqli_num_rows($result) > 0) {
+	            while($row = mysqli_fetch_assoc($result)) {
+		            if (substr($row["tomatometer"], 0, 3) > 8)
+						$txt = "<img class='thumbs' src='thumbs-up.png'/>";
+					else if (substr($row["tomatometer"], 0, 3) < 7)
+						$txt = "<img class='thumbs' src='thumbs-down.png'/>";
+					else 
+						$txt = "<img class='thumbs' src='thumbs-neutral.png'/>";
+		            $naslovi[] = "<li id='". $row["ID"] ."'>" . $row["slo_naslov"] . "" ."</li>";
+				}
+			}
+		}
+		$output = json_encode($naslovi);
+		echo($output);
+		
 	}
     
     mysqli_close($mysqli);

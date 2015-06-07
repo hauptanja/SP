@@ -299,12 +299,28 @@ body
 	float: left;	
 }
 
+#vpisan_film h4
+{
+	font-family: 'Poiret One', cursive;
+	text-align: center;
+	font-size: 30px;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+
 #film_list_table, #best_film_table, #film_prikaz_table, #most_watched_table
 {
     /*border: solid black 2px*/
     border-collapse: collapse;
     margin: 10px;
     width: auto;
+    vertical-align: top;
+}
+
+#film_list_table
+{
+	margin-left: 20px;
+	
 }
 
 #best_film_table td, #most_watched_table td
@@ -313,6 +329,7 @@ body
     padding: 2px;
     text-align: center;
     width: 140px;
+    vertical-align: top;
 }
 
 #film_list_table td, #film_prikaz_table td
@@ -321,18 +338,8 @@ body
     padding: 2px;
     text-align: center;
     width: 140px;
-}
-
-#filmi
-{
-	margin-top: 30px;
-    margin-left: 70px;
-}
-
-td#filmi 
-{
-	padding: 6px;
-    text-align: center;
+    vertical-align: top;
+    
 }
 
 #user_profile
@@ -374,8 +381,9 @@ td#filmi
 
 #vpisan_film, #film_prikaz
 {
-    text-align: left;
-    margin-left: 20px;
+    text-align: center;
+    margin-left: 0px;
+    width: auto;
 }
 
 #footer
@@ -427,10 +435,7 @@ td#filmi
 {
 	width: 140px;
 	height: 200px;
-	position: relative;
-	top: 0;
-	margin-top: 0;
-	padding-top: 0;
+
 }
 
 #poster 
@@ -477,7 +482,7 @@ td#filmi
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
-	font-family: Arial;
+	font-family: "Arimo", sans-serif;
 	color: black;
 	font-size: 18px;
 	padding: 5px 10px 5px 10px;
@@ -501,6 +506,7 @@ td#filmi
 	border-color: #F2F2F2;
 	border-radius: 30px;
 	border-style: solid;
+	width: 600px;
 }
 
 .thumbs {
@@ -517,5 +523,27 @@ td#filmi
 
 .smallTxt{
 	font-size: 10px;
+	margin-top: auto;
 }
 
+#summary
+{
+	text-align: center;	
+}
+
+.predlog_arrow
+{
+	width: 50px;
+	height: 50px;
+}
+
+#inner_data
+{
+width: 500px;
+background-color: #F2F2F2;
+margin-left: auto;
+margin-right: auto;
+padding-top: 20px;
+padding-bottom: 20px;
+border-radius: 30px;
+}

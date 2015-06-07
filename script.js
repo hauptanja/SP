@@ -161,23 +161,20 @@ $(document).ready(function () {
                 },
                 cache: false,
                 success: function (result) { 
-	                /*
-                    var data = JSON.parse(result);
-                    $("#vpisan_film").html(data[0]);
-                    $('#id_filma').val(data[2]);
-                    $("#film_list_table").empty();
-                    
-                    if(data[1] !== "Film ni v bazi.") {
-                        $("#film_list_table").append(data[1]);
-                    }
-                    */
+	                var data = JSON.parse(result);
+	                $(".opcije_ul").empty();
+	                    	
+                	for (var i in data)
+                	{
+                    	$(".opcije_ul").append(data[i]);
+                	}
                 },
                 error: function (result) {
                     alert(result);
                 }
             });
             
-            $(' #film_list').show().siblings().hide();
+            $('#opcije_list').show().siblings().hide();
             
         }
     });

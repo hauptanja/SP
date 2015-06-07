@@ -65,7 +65,7 @@ session_start();
                         </li>
                         <li><a href="#advancedsearch">Iskanje po ključnih besedah</a>
                             <div class="opt" id="advancedsearch">
-                                <input type="text" id="wordSearchBox" placeholder="Vpišite ključne besede ločene z vejico" class="inputField"/>
+                                <input type="text" id="wordSearchBox" placeholder="Vpišite ključne besede ločene s presledki" class="inputField"/>
                             </div> 
                         </li>
                     </ul>
@@ -165,7 +165,7 @@ session_start();
                         <?php
                         endif;
                     ?>
-                   
+					Vpisali ste film...
                     <div id="vpisan_film"></div>
                     <table id="film_list_table"></table>
                     <input type="button" value="Nazaj" id="back_to_start_button"/>
@@ -173,6 +173,13 @@ session_start();
                 <div id="filmi_list" class="tab">
                     <input type="button" value="Nazaj" id="back_to_genre_button"/>
                     <table id="filmi"></table>
+                </div>
+                
+                <div id="opcije_list" class="tab">
+                    <!<input type="button" value="Nazaj" id="back_to_genre_button"/>
+                    <div id="opcije_div">
+	                    <ul class="opcije_ul"></ul>
+                    </div>
                 </div>
                 <!-- <div id="filmi_prikaz" class="tab">
                     <input type="button" value="Nazaj" id="back_to_genre"/>
