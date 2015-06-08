@@ -2,12 +2,17 @@ body {
     font-family: 'Open Sans', sans-serif;
     margin: 0;
     padding: 0;
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /*----- Tabs -----*/
 .tabs {
-    width: 100%;
+	width: 640px;
     display:inline-block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /*----- Tab Links -----*/
@@ -72,10 +77,7 @@ body {
 }
 
 .tab {
-    border-style: hidden;
-    border-width: 2.5px;
-    border-radius: 5px;
-    width: 50%;
+
     padding-top: 20px;
     padding-bottom: 20px;
     margin-left: auto;
@@ -206,9 +208,7 @@ body {
 {
     width: 990px;
     height: 180px;
-    border-style: hidden;
-    border-width: 2.5px;
-    border-radius: 5px;
+    float: left;
     background-image: url("ferimdb_banner.png");
 }
 
@@ -308,7 +308,7 @@ body
 	margin-bottom: 20px;
 }
 
-#film_list_table, #best_film_table, #film_prikaz_table, #most_watched_table
+#best_film_table, #film_prikaz_table, #most_watched_table
 {
     /*border: solid black 2px*/
     border-collapse: collapse;
@@ -319,8 +319,11 @@ body
 
 #film_list_table
 {
-	margin-left: 20px;
-	
+	border-collapse: collapse;
+	margin: 20px;
+	margin-right: 0;
+	width: 370px;
+	float: left;
 }
 
 #best_film_table td, #most_watched_table td
@@ -334,11 +337,11 @@ body
 
 #film_list_table td, #film_prikaz_table td
 {
-    border: solid darkgray 1.5px;
-    padding: 2px;
+
     text-align: center;
-    width: 140px;
-    vertical-align: top;
+    width: 116px;
+    height: 165px;
+    vertical-align: middle;
     
 }
 
@@ -405,18 +408,15 @@ body
 }
 
 #najboljse_ocenjeni_filmi {
-	
-	position: absolute;
-	left: 20px;
-	top: 250px;
+	width: 160px;
+	float: left;
 	background-color: rgba(0, 0, 0, 0.14);
 } 
 
 #najvec_gledani_filmi {
 	
-	position: absolute;
-	right: 20px;
-	top: 250px;
+	width: 160px;
+	float: right;
 	background-color: rgba(0, 0, 0, 0.14);
 } 
 
@@ -441,6 +441,19 @@ body
 {
 	width: 140px;
 	height: 200px;
+
+}
+
+.poster_thumbnail_small
+{
+	width: 105px;
+	height: 150px;
+	box-shadow: 5px 5px 5px #888888;
+}
+
+.poster_thumbnail_small:hover
+{
+	border: 2px solid #715587;
 
 }
 
@@ -546,10 +559,71 @@ body
 #inner_data
 {
 width: 500px;
-background-color: #F2F2F2;
 margin-left: auto;
 margin-right: auto;
 padding-top: 20px;
 padding-bottom: 20px;
 border-radius: 30px;
+text-align: left;
+}
+
+div#film_list_data{
+	width: 700px;
+	display: inline-block;
+	height: auto;
+	float: right;
+	/*background-color: #daffc2;*/
+	border-radius: 30px;
+	border: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+div#okvir_list
+{
+	width: 250px;
+	text-align: left;
+	float: right;
+	margin: 20px;
+	margin-right: 28px;
+	margin-top: 40px;
+	font-size: 16px;
+	height: 300px;
+	padding-left: 10px;
+}
+
+
+#slo_naslov_d
+{
+	font-size: 20px;
+	padding: 10px;
+	padding-left: 0;
+	text-align: center;
+
+}
+
+#ang_naslov_d
+{
+	font-style: italic;
+	text-align: center;
+	padding-bottom: 3px;
+}
+
+#pod_div
+{
+	padding: 20px;
+	text-align: left;
+}
+
+#tomatoscore_d, #audience_d{
+	padding: 5px;
+	padding-bottom: 0;
+}
+
+#spored_d{
+	text-align: center;
+	padding: 10px;
+}
+
+#inline_elements
+{
+	display: inline;
 }

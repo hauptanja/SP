@@ -132,7 +132,7 @@
             $o1[0] = $row["slo_naslov"];
             $o1[1] = $row["ang_naslov"];
             
-            $output1 = "<div id='inner_data'><h2>$o1[0]</h2>";
+            $output1 = "<div id='inner_data'>Predlogi za film: <br>$o1[0]";
             $output1 .= "<h3>$o1[1]</h3> <h4><img class='predlog_arrow' src='arrow-right.png'/> PREDLAGAMO <img class='predlog_arrow' src='arrow-left.png'/></h4></div>";
             $o[0] = $output1;
             $id = $row["ID"];
@@ -159,15 +159,18 @@
         if (mysqli_num_rows($result) > 0) {
             $val = 0;
             $output2 = "<tr>";
-            while(($row = mysqli_fetch_assoc($result)) && $val < 5) {
-                $output2 .= "<td class='filmi' data-movie-ID='" . $row["ID"] . "'><img src='". $row['poster_src'] . "' class='poster_thumbnail'/><br>" . $row["slo_naslov"] . "<br>";
+            while(($row = mysqli_fetch_assoc($result)) && $val < 6) {
+	            if ($val == 3)
+	            	$output2 .= "</tr><tr>";
+                $output2 .= "<td class='filmi' data-movie-ID='" . $row["ID"] . "'><img src='". $row['poster_src'] . "' class='poster_thumbnail_small'/>";
+                /*
                 $q2 = "SELECT * FROM Spored_kino WHERE Naslov_slo='".$row['slo_naslov']."'";
                 $result2=mysqli_query($mysqli, $q2);
                 if (mysqli_num_rows($result2) > 0) {
                     $output2 .= "<div class='smallTxt'><img class='thumbs' src='camera.png'/> Film je na sporedu</div></td>";
                 }else {
                     $output2 .= "<div class='smallTxt'><img class='thumbs' src='no-camera.png'/> Filma ni na sporedu</div></td>";
-                }
+                }*/
                 $val++;
             }
             $output2 .= "</tr>";
@@ -181,6 +184,39 @@
         $o = json_encode($o);
         echo $o;
     }
+    else if ($_POST['method'] == "getMiniData")
+    {
+	    $id = $_POST['movie_id'];
+
+        $q = "SELECT * FROM Film WHERE ID = '$id'";
+
+        $result = mysqli_query($mysqli, $q);
+
+        if (mysqli_num_rows($result) > 0) {
+        // output data of each row
+            $row = mysqli_fetch_assoc($result);
+            $o1[0] = $row["slo_naslov"];
+            $o1[1] = $row["ang_naslov"];
+	        $o1[2] = $row["genre"];
+	        $o1[3] = substr($row["tomatometer"], 0, strpos($row["tomatometer"], '/'));
+	        $o1[4] = substr($row["audience"], 0, strpos($row["audience"], '/'));
+
+	        $q2 = "SELECT * FROM Spored_kino WHERE Naslov_slo='".$row['slo_naslov']."'";
+            $result2=mysqli_query($mysqli, $q2);
+            if (mysqli_num_rows($result2) > 0) {
+                $o1[5] .= "<div class='smallTxt'><img class='thumbs' src='camera.png'/> Film je na sporedu</div></td>";
+            }else {
+                $o1[5] .= "<div class='smallTxt'><img class='thumbs' src='no-camera.png'/> Filma ni na sporedu</div></td>";
+            }
+
+
+        } else {
+            $o1[0] = "no";
+        }
+        $output = json_encode($o1);
+        echo $output;
+
+	}
     else if ($_POST['method'] == "oceni")
     {
         $id_filma = $_POST['id'];
@@ -294,14 +330,15 @@
                 if (mysqli_num_rows($result2) > 0) {
                     $row2 = mysqli_fetch_assoc($result2);
                     
-					if ($val > 3)
+                    $oc = round( $ocena[$id], 1, PHP_ROUND_HALF_UP);
+					if ($oc > 3)
 						$txt = "<img class='thumbs' src='thumbs-up.png'/>";
-					else if ($val < 3)
+					else if ($oc < 3)
 						$txt = "<img class='thumbs' src='thumbs-down.png'/>";
 					else 
 						$txt = "<img class='thumbs' src='thumbs-neutral.png'/>";
 					
-					$oc = round( $ocena[$id], 1, PHP_ROUND_HALF_UP);
+
                     $output .= "<tr><td class='filmi' data-movie-ID='" . $row2["ID"] . "'><img src='". $row2['poster_src'] . "' class='poster_thumbnail'/><br>" . $row2["slo_naslov"] . "<br>$txt $oc/5</td></tr>";
                     $count++;
                 }
@@ -345,19 +382,21 @@
 	            $filmi[] = $row["ID_filma"];
 			}
 		}
+		$count = 0;
 		foreach($filmi as $id) {
 			$q = "SELECT * FROM Film WHERE ID = '$id'";
 			$result = mysqli_query($mysqli, $q);
 			
 	        if (mysqli_num_rows($result) > 0) {
-	            while($row = mysqli_fetch_assoc($result)) {
-		            if (substr($row["tomatometer"], 0, 3) > 8)
-						$txt = "<img class='thumbs' src='thumbs-up.png'/>";
-					else if (substr($row["tomatometer"], 0, 3) < 7)
-						$txt = "<img class='thumbs' src='thumbs-down.png'/>";
+	            while(($row = mysqli_fetch_assoc($result)) && ($count < 10)) {
+		            $count++;
+		            if (substr($row["tomatometer"], 0, 4) > 8)
+						$txt = " <img class='thumbs' src='thumbs-up.png'/>";
+					else if (substr($row["tomatometer"], 0, 4) < 7)
+						$txt = " <img class='thumbs' src='thumbs-down.png'/>";
 					else 
-						$txt = "<img class='thumbs' src='thumbs-neutral.png'/>";
-		            $naslovi[] = "<li id='". $row["ID"] ."'>" . $row["slo_naslov"] . "" ."</li>";
+						$txt = " <img class='thumbs' src='thumbs-neutral.png'/>";
+		            $naslovi[] = "<li id='". $row["ID"] ."'>" . $row["slo_naslov"] . $txt . $row["tomatometer"] ."</li>";
 				}
 			}
 		}
