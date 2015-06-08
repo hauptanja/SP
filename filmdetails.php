@@ -269,7 +269,7 @@
             arsort($avg);
             
             $count = 0;
-            
+            $output = "";
             foreach($avg as $id => $val) {
                 if ($count == 5)
                     break;
@@ -277,7 +277,6 @@
                 $q2 = "SELECT ID, slo_naslov, poster_src FROM Film WHERE ID = '$id'";
                 $result2 = mysqli_query($mysqli, $q2);
                 //echo $id;
-                $output = "";
                 if (mysqli_num_rows($result2) > 0) {
                     $row2 = mysqli_fetch_assoc($result2);
                 
@@ -322,7 +321,7 @@
             arsort($avg);
             
             $count = 0;
-            
+            $output = "";
             foreach($avg as $id => $val) {
                 if ($count == 5)
                     break;
@@ -330,7 +329,6 @@
                 $q2 = "SELECT ID, slo_naslov, poster_src FROM Film WHERE ID = '$id'";
                 $result2 = mysqli_query($mysqli, $q2);
                 //echo $id;
-                $output = "";
                 if (mysqli_num_rows($result2) > 0) {
                     $row2 = mysqli_fetch_assoc($result2);
                     
