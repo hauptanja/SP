@@ -486,7 +486,7 @@ function getDetails (id, naslov){
                 });
                 var velikost=data[13];
                 if(velikost > 13){
-                    $('#sporedKino').html("<h3>Predvajano v kinu</h3>");
+                    $('#sporedKino').html("<h2>Predvajano v kinu</h2>");
                     $('#sporedKino').append("<table id='kinoSpored'>");
                     $('#sporedKino').append("<tr><th class='centerK'>Čas</th><th class='centerK'>Dvorana</th><th class='centerK'>Datum</th><th class='centerK'>Kraj</th></tr>");
                     var s=14;

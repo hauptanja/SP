@@ -407,6 +407,15 @@ body
     border-bottom-left-radius: 20px;
 }
 
+#sporedKino{
+    text-align: center;
+    marin: 0 auto;
+}
+
+#kinoSpored{
+    margin: 0 auto;
+}
+
 .starIMG
 {
     height: 25px;
@@ -416,6 +425,11 @@ body
 .pressedB
 {
     background-color: #E8E8E8;
+}
+
+.centerK{
+    text-align: center;
+    padding: 10px;
 }
 
 #vpisan_film, #film_prikaz
