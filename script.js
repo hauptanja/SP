@@ -506,7 +506,6 @@ function pokaziFilm (id, ime) {
             }
         });
 		$(' #film_list').show().siblings().hide();
-	
 }
 
 /* source: http://lions-mark.com/jquery/scrollTo/ */
