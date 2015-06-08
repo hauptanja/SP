@@ -120,9 +120,7 @@ session_start();
                 </div>
                 <div id="film_profile" class="tab">
                     <div id="film_details">
-                        <div id="button_gledano">
-
-                        </div>
+                        <div id="button_gledano"></div>
                         <input type="hidden" id="id_filma"/>
                         <img id="poster"/>
                         <h2 id="slo_naslov"></h2>
