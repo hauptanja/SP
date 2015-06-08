@@ -422,28 +422,8 @@ function getDetails (id, naslov){
         success: function (result) {
             if (result != "0 results") {
                 var data = JSON.parse(result);
-                $('#id_filma').val(data[9]);
-                $('#slo_naslov').text(data[0]);
-                $('#ang_naslov').text(data[1]);
-                $('#genre').text(data[2]);
-                if (data[3] !== "/") {
-                    $('#duration').text("Dolžina: " + data[3]);
-                }
-                else 
-                    $('#duration').text("");
-                if (data[4] !== "/") {
-                    $('#year').text("Leto: " + data[4]);
-                }
-                else 
-                    $('#year').text("");
-                if (data[5] !== "/") {
-                    $('#country').text("Država: " + data[5]);
-                }
-                else 
-                    $('#country').text("");
-                $('#summary').text(data[6]);
                 
-				if (data[7] < 7)
+                if (data[7] < 7)
 					var txt1 = "<img class='thumbs' src='thumbs-down.png'/>";
 				else if (data[7] > 8)
 					var txt1 = "<img class='thumbs' src='thumbs-up.png'/>";
@@ -456,7 +436,22 @@ function getDetails (id, naslov){
 					var txt2 = "<img class='thumbs' src='thumbs-up.png'/>";
 				else 
 					var txt2 = "<img class='thumbs' src='thumbs-neutral.png'/>";
-                $('#ocena').html("Ocena kritikov: " + data[7] + "/10 " + txt1 + "<br>Ocena gledalcev: " + data[8] +"/5 "+ txt2);
+					
+                $('#id_filma').val(data[9]);
+                $('#slo_naslov').html(data[0] + " (" + txt1 + " / " + txt2+ ")");
+                $('#ang_naslov').text(data[1]);
+                $('#genre').text(data[2]);
+                if (data[3] !== "/") {
+                    $('#duration').text(data[3]);
+                }
+                else 
+                    $('#duration').text("");
+                
+                $('#summary').text(data[6]);
+                
+				
+                $('#ocenaRT').html("<span class = 'oc_span1'>" + data[7] + "</span>");
+                $('#ocenaAU').html("<span class = 'oc_span2'>" + data[8] + "</span>");
                 if (data[10] != "-"){
                 	$('#poster').attr("src", data[10]);
                 	$('#poster').show();

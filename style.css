@@ -1,11 +1,22 @@
 body {
+	width: 100%;
+	height: 100%;
+	background-color: black;
+}
+
+#website {
     font-family: 'Open Sans', sans-serif;
     margin: 0;
     padding: 0;
-    width: 960px;
+    width: 990px;
+    height: 100%;
     margin-left: auto;
     margin-right: auto;
+    background-color: white;
+    /*box-shadow: 8px 8px 8px -8px black, -8px 8px 8px -8px black;*/
+    box-shadow: -5px 0 5px -5px #333, 5px 0 5px -5px #333;
 }
+
 
 /*----- Tabs -----*/
 .tabs {
@@ -210,6 +221,7 @@ body {
     height: 180px;
     float: left;
     background-image: url("ferimdb_banner.png");
+    margin-top: 0;
 }
 
 #navigation
@@ -289,9 +301,16 @@ body
     margin-right: 20;
 }
 
+#film_details h3
+{
+	
+	font-style: italic;
+	font-size: 20px;
+}
 #summary
 {
 	font-size: 16;
+	margin-top: 50px;
 }
 
 #best_film_table
@@ -308,11 +327,23 @@ body
 	margin-bottom: 20px;
 }
 
-#best_film_table, #film_prikaz_table, #most_watched_table
+#best_film_table
 {
     /*border: solid black 2px*/
     border-collapse: collapse;
-    margin: 10px;
+    margin-top: 10px;
+    margin-left: 5px;
+    width: auto;
+    vertical-align: top;
+}
+
+#most_watched_table
+{
+    /*border: solid black 2px*/
+    border-collapse: collapse;
+    margin-top: 10px;
+    margin-right: 5px;
+    float: right;
     width: auto;
     vertical-align: top;
 }
@@ -328,8 +359,7 @@ body
 
 #best_film_table td, #most_watched_table td
 {
-    border: solid darkgray 1.5px;
-    padding: 2px;
+    padding: 4px;
     text-align: center;
     width: 140px;
     vertical-align: top;
@@ -395,28 +425,24 @@ body
     margin-right: auto;
 }
 
-#best_film_table td, #most_watched_table td
-{
-	text-align: center;
-	background-color: white;
-}
+
 
 #najboljse_ocenjeni_filmi {
 	width: 160px;
 	float: left;
-	background-color: rgba(0, 0, 0, 0.14);
+	background-color: #cfe2cc;
+	border-radius:0px 20px 20px 0px;
+	padding-bottom: 10px;
 } 
 
 #najvec_gledani_filmi {
 	
 	width: 160px;
 	float: right;
-	background-color: rgba(0, 0, 0, 0.14);
+	background-color: #cfe2cc;
+	border-radius:20px 0px 0px 20px;
+	padding-bottom: 10px;
 } 
-
-.tab-links {
-	background: linear-gradient( #e4e2e6, white);
-}
 
 #watched_button_p
 {
@@ -435,7 +461,7 @@ body
 {
 	width: 140px;
 	height: 200px;
-
+	box-shadow: 0px 0px 5px black;
 }
 
 .poster_thumbnail_small
@@ -519,7 +545,7 @@ body
 	border-color: #F2F2F2;
 	border-radius: 30px;
 	border-style: solid;
-	width: 600px;
+	width: 500px;
 }
 
 .thumbs {
@@ -621,3 +647,51 @@ div#okvir_list
 {
 	display: inline;
 }
+
+#details_div
+{
+	background-color: #efefef;
+	border-radius: 10px;
+	width: 220px;
+	padding: 5px;
+	
+}
+
+#naslov_div {
+	font-weight: bold;
+	margin-left: 0;
+	
+}
+
+#ocenaRT{
+	background-image: url('tomato.png');
+	background-repeat: no-repeat;
+	width: 60px;
+	height: 62px;
+	text-align: center;
+	font-weight: bold;
+	float: left;
+}
+
+#ocenaAU{
+	background-image: url('audience.png');
+	background-repeat: no-repeat;
+	width: 100px;
+	height: 60px;
+	text-align: center;
+	font-weight: bold;
+	color: white;
+	font-size: 25px;
+	float: right;
+	margin-right: 10px;
+}
+
+.oc_span1{
+	position: relative;
+	top: 22;
+}
+.oc_span2{
+	position: relative;
+	top: 14;
+}
+

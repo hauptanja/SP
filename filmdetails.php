@@ -27,14 +27,13 @@
                 $output[3] = $row["duration"];
             else 
                 $output[3] = "/";
-            if ($row["year"] != 0)
-                $output[4] = $row["year"];
-            else
-                $output[4] = "/";
             if ($row["country"] != "")
-                $output[5] = $row["country"];
-            else
-                $output[5] = "/";
+                $output[1] .= " - " . $row["country"] . " ";
+            
+            if ($row["year"] != 0)
+                $output[1] .= "(" . $row["year"] . ")";
+            
+            
             if ($row["summary"] != null)
                 $output[6] = $row["summary"];
             else 
@@ -270,7 +269,10 @@
 						$txt = "<img class='thumbs' src='thumbs-neutral.png'/>";
 						
 					$oc = round( $val, 1, PHP_ROUND_HALF_UP);
+					/*
                     $output .= "<tr><td class='filmi' data-movie-ID='" . $row2["ID"] . "'><img src='". $row2['poster_src'] . "' class='poster_thumbnail'/><br>" . $row2["slo_naslov"] . "<br>$txt $oc/5</td></tr>";
+                    */
+                    $output .= "<tr><td class='filmi' data-movie-ID='" . $row2["ID"] . "'><img src='". $row2['poster_src'] . "' class='poster_thumbnail'/></td></tr>";
                     $count++;
                 }
                 else 
@@ -319,8 +321,11 @@
 					else 
 						$txt = "<img class='thumbs' src='thumbs-neutral.png'/>";
 					
-					
+					/*
                     $output .= "<tr><td class='filmi' data-movie-ID='" . $row2["ID"] . "'><img src='". $row2['poster_src'] . "' class='poster_thumbnail'/><br>" . $row2["slo_naslov"] . "<br>$txt $oc/5</td></tr>";
+                    */
+                    $output .= "<tr><td class='filmi' data-movie-ID='" . $row2["ID"] . "'><img src='". $row2['poster_src'] . "' class='poster_thumbnail'/></td></tr>";
+                    
                     $count++;
                 }
                 else 
