@@ -469,12 +469,30 @@ body
 	margin-right: 10px;	
 }
 
+.search-result-opt
+{
+	margin-left: 0px;
+	width: 440px;
+}
+
 .search-result-opt li
 {
 	text-align: left;
 	list-style-image: url("li-arrow2.png");
 	text-indent: 0;
-	padding: 10px;
+	padding: 5px;
+	font-size: 16px;
+	border-radius: 0;
+	margin-bottom: 5px;
+}
+
+.search-result-opt li:nth-child(even) 
+{
+	background-color: white;
+}
+.search-result-opt li:nth-child(odd) 
+{
+	background-color: rgba(255, 255, 255, 0.24);
 }
 
 .poster_thumbnail
