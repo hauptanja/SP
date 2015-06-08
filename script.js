@@ -179,15 +179,7 @@ $(document).ready(function () {
         }
     });
     
-    $("#back_to_list_button").click(function () {
-        
-        if ($("#film_list_table tbody").children().length == 0)
-        	$('#main').show().siblings().hide();
-        else 
-        	$('#film_list').show().siblings().hide();
-        $("#ocena_filma").hide();
-        $("#ocena_filma_p").hide();
-    });
+
     
     $("#back_to_start_button").click(function () {
         $('#main').show().siblings().hide();
@@ -333,12 +325,10 @@ $(document).ready(function () {
         });
     });
     
-    $("#ocena_filma").hide();
+    //$("#ocena_filma").hide();
     $("#ocena_filma_p").hide();
     
-    $("#watched_button").click(function() {
-        $("#ocena_filma").show();
-    });
+
     
     $("#watched_button_p").click(function() {
     	$("#ocena_filma_p").show();
@@ -359,7 +349,6 @@ $(document).ready(function () {
     $(document).on("mousedown", "td#star5", function() {
         oceni(5);
     });
-    
 });
 
 function getDetails (id, naslov){
@@ -417,16 +406,44 @@ function getDetails (id, naslov){
                 }
                 else 
                 	$('#poster').hide();
-                $('#sporedKino').html("<h4>Predvajano v kinu</h4>");
-                $('#sporedKino').append("<table id='kinoSpored'>");
-                $('#sporedKino').append("<tr><th>Datum</th><th>Kraj</th><th>Čas</th><th>Dvorana</th></tr>");
-                var velikost=data[11];
-                var s=12;
-                while (s <= velikost){
-                    $('#sporedKino').append("<tr><td>" + data[s+2] + "</td><td>" + data[s+3] + "</td><td>" + data[s] + "</td><td>" + data[s+1] + "</td></tr>");
-                    s=s+4;
+                if(data[12] == 1){
+                    if(data[11] < 0){
+                        $('#button_gledano').empty();
+                        $('#button_gledano').append("<input type='button' value='Nazaj' id='back_to_list_button'/><input type='button' value='Gledano' id='watched_button'/>");
+                    }
+                    else{
+                        $('#button_gledano').empty();
+                        $('#button_gledano').append("<input type='button' value='Nazaj' id='back_to_list_button'/>");
+                        $('#button_gledano').append("<table id='ocenjeno'><tr id='ocena_f'>");
+                        for($ii = 0;$ii < data[11]; $ii++)
+                            $('#button_gledano').append("<td id='star1'><img src='color-star.png' class='starIMG'/></td>");
+                        $('#button_gledano').append("</tr></table>");
+                    }
                 }
-                $('#sporedKino').append("</table>");
+                $("#watched_button").click(function() {
+                    $('#ocena_filma').remove();
+                    $('#button_gledano').append("<table id='ocena_filma'><tr id='ocena_f'><td id='star1'><img src='star.png' class='starIMG'/></td><td id='star2'><img src='star.png' class='starIMG'/></td><td id='star3'><img src='star.png' class='starIMG'/></td><td id='star4'><img src='star.png' class='starIMG'/></td><td id='star5'><img src='star.png' class='starIMG'/></td></tr></table>");
+                });
+                $("#back_to_list_button").click(function () {
+                    if ($("#film_list_table tbody").children().length == 0)
+                        $('#main').show().siblings().hide();
+                    else
+                        $('#film_list').show().siblings().hide();
+                    $("#ocena_filma").hide();
+                    $("#ocena_filma_p").hide();
+                });
+                var velikost=data[13];
+                if(velikost > 13){
+                    $('#sporedKino').html("<h3>Predvajano v kinu</h3>");
+                    $('#sporedKino').append("<table id='kinoSpored'>");
+                    $('#sporedKino').append("<tr><th class='centerK'>Čas</th><th class='centerK'>Dvorana</th><th class='centerK'>Datum</th><th class='centerK'>Kraj</th></tr>");
+                    var s=14;
+                    while (s <= velikost){
+                        $('#sporedKino').append("<tr><td class='centerK'>" + data[s] + "</td><td class='centerK'>" + data[s+1] + "</td><td class='centerK'>" + data[s+2] + "</td><td class='centerK'>" + data[s+3] + "</td></tr>");
+                        s=s+4;
+                    }
+                    $('#sporedKino').append("</table>");
+                }
             }
         },
         error: function (result) {

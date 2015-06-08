@@ -46,7 +46,26 @@
             	$output[10] = $row["poster_src"];
             else 
             	$output[10] = "-";
-            $i=11;
+
+            //$output[11]=-1; //uporabnik še ni gledal filma...
+            if(isset($_SESSION["username"])){
+                $output[12]=1;
+                $qU = "SELECT * FROM Uporabnik WHERE Username='".$_SESSION['username']."'";
+                $resultU = mysqli_query($mysqli, $qU);
+                while($rowU = mysqli_fetch_assoc($resultU)){
+                    $sql2 = "SELECT * FROM Gledani_Filmi WHERE ID_Uporabnika='".$rowU['ID_uporabnika']."' AND ID_Filma='".$id."'";
+                    $resultO = mysqli_query($mysqli, $sql2);
+                    if(mysqli_num_rows($resultO) > 0) {
+                        $rowO = mysqli_fetch_assoc($resultO);
+                        $output[11] = $rowO['Ocena'];
+                    }
+                    else
+                      $output[11] = -1;
+                }
+            }
+            else
+                $output[12]=0;
+            $i=13;
             $q2 = "SELECT * FROM Spored_kino WHERE Naslov_slo='".$row['slo_naslov']."'";
             $result2 = mysqli_query($mysqli, $q2);
             while($row2 = mysqli_fetch_assoc($result2)){
@@ -67,7 +86,7 @@
                     $output[$i] = $rowL['Kraj'];
                 }
             }
-            $output[11]=$i;
+            $output[13]=$i;
 
         } else {
             echo "0 results";

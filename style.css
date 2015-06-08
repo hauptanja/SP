@@ -355,9 +355,15 @@ body
     margin: 0;
 }
 
-#watched_button, #watched_button_p
+#watched_button, #watched_button_p, #FB-share-button, #ocenjeno
 {
 	float: right;
+}
+
+#FB-share-button{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 15px;
 }
 
 #ocena_filma, #ocena_filma_p
