@@ -376,8 +376,10 @@ function getDetails (id, naslov){
 					var txt2 = "<img class='thumbs' src='thumbs-down.png'/>";
 				else if (data[7] == "3")
 					var txt2 = "<img class='thumbs' src='thumbs-neutral.png'/>";
-
-					
+				else 
+					var txt2 = "<img class='thumbs' src='thumbs-up.png'/>";
+                $('#ocena').html("Ocena kritikov: " + data[7]+ " " + txt1 + "<br>Ocena gledalcev: " + data[8] +" "+ txt2);
+	
                 $('#id_filma').val(data[9]);
                 $('#slo_naslov').html(data[0] + " (" + txt1 + " / " + txt2+ ")");
                 $('#ang_naslov').text(data[1]);
@@ -390,7 +392,6 @@ function getDetails (id, naslov){
                 
                 $('#summary').text(data[6]);
                 
-				
                 $('#ocenaRT').html("<span class = 'oc_span1'>" + data[7] + "</span>");
                 $('#ocenaAU').html("<span class = 'oc_span2'>" + data[8] + "</span>");
 
