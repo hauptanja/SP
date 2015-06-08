@@ -179,8 +179,8 @@
             $o1[0] = $row["slo_naslov"];
             $o1[1] = $row["ang_naslov"];
 	        $o1[2] = $row["genre"]; 
-	        $o1[3] = $row["tomatometer"];
-	        $o1[4] = $row["audience"];
+	        $o1[3] = substr($row["tomatometer"], 0, strpos($row["tomatometer"], '/'));
+	        $o1[4] = substr($row["audience"], 0, strpos($row["audience"], '/'));
 	        
 	        $q2 = "SELECT * FROM Spored_kino WHERE Naslov_slo='".$row['slo_naslov']."'";
             $result2=mysqli_query($mysqli, $q2);
@@ -311,14 +311,15 @@
                 if (mysqli_num_rows($result2) > 0) {
                     $row2 = mysqli_fetch_assoc($result2);
                     
-					if ($val > 3)
+                    $oc = round( $ocena[$id], 1, PHP_ROUND_HALF_UP);
+					if ($oc > 3)
 						$txt = "<img class='thumbs' src='thumbs-up.png'/>";
-					else if ($val < 3)
+					else if ($oc < 3)
 						$txt = "<img class='thumbs' src='thumbs-down.png'/>";
 					else 
 						$txt = "<img class='thumbs' src='thumbs-neutral.png'/>";
 					
-					$oc = round( $ocena[$id], 1, PHP_ROUND_HALF_UP);
+					
                     $output .= "<tr><td class='filmi' data-movie-ID='" . $row2["ID"] . "'><img src='". $row2['poster_src'] . "' class='poster_thumbnail'/><br>" . $row2["slo_naslov"] . "<br>$txt $oc/5</td></tr>";
                     $count++;
                 }

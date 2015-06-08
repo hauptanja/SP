@@ -381,19 +381,19 @@ $(document).ready(function () {
                 $('#genre_d').text(data[2]);
                 
 				if (data[3] < 7)
-					var txt1 = "<img class='thumbs' src='thumbs-down.png'/>";
+					var txt1 = "/10 <img class='thumbs' src='thumbs-down.png'/>";
 				else if (data[3] > 8)
-					var txt1 = "<img class='thumbs' src='thumbs-up.png'/>";
+					var txt1 = "/10 <img class='thumbs' src='thumbs-up.png'/>";
 				else 
-					var txt1 = "<img class='thumbs' src='thumbs-neutral.png'/>";
+					var txt1 = "/10 <img class='thumbs' src='thumbs-neutral.png'/>";
 				$("#tomatoscore_d").html(data[3] + txt1);
 				
 				if (data[4] < 3)
-					var txt2 = "<img class='thumbs' src='thumbs-down.png'/>";
+					var txt2 = "/5 <img class='thumbs' src='thumbs-down.png'/>";
 				else if (data[4] >= 4)
-					var txt2 = "<img class='thumbs' src='thumbs-up.png'/>";
+					var txt2 = "/5 <img class='thumbs' src='thumbs-up.png'/>";
 				else 
-					var txt2 = "<img class='thumbs' src='thumbs-neutral.png'/>";
+					var txt2 = "/5 <img class='thumbs' src='thumbs-neutral.png'/>";
 				$("#audience_d").html(data[4] + txt2);
 				
 				$("#spored_d").html(data[5]);
