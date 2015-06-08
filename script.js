@@ -89,7 +89,7 @@ $(document).ready(function () {
         if ($('.search-opt ' + currentAttrValue).hasClass('active') === false) {
             $('.search-opt ' + currentAttrValue).addClass('active');
             $('.search-opt ' + currentAttrValue).parent('li').toggleClass('active');
-            $('body').scrollTo('.search-opt ' + currentAttrValue);
+            //$('body').scrollTo('.search-opt ' + currentAttrValue);
         } else {
             $('.search-opt ' + currentAttrValue).removeClass('active');
             $('.search-opt ' + currentAttrValue).parent('li').toggleClass('active');
@@ -161,35 +161,36 @@ $(document).ready(function () {
                 },
                 cache: false,
                 success: function (result) { 
-	                /*
-                    var data = JSON.parse(result);
-                    $("#vpisan_film").html(data[0]);
-                    $('#id_filma').val(data[2]);
-                    $("#film_list_table").empty();
-                    
-                    if(data[1] !== "Film ni v bazi.") {
-                        $("#film_list_table").append(data[1]);
-                    }
-                    */
+	                var data = JSON.parse(result);
+	                $(".opcije_ul").empty();
+	                    	
+                	for (var i in data)
+                	{
+                    	$(".opcije_ul").append(data[i]);
+                	}
                 },
                 error: function (result) {
                     alert(result);
                 }
             });
             
-            $(' #film_list').show().siblings().hide();
+            $('#opcije_list').show().siblings().hide();
             
         }
     });
     
     $("#back_to_list_button").click(function () {
-        $(' #film_list').show().siblings().hide();
+        
+        if ($("#film_list_table tbody").children().length == 0)
+        	$('#main').show().siblings().hide();
+        else 
+        	$('#film_list').show().siblings().hide();
         $("#ocena_filma").hide();
         $("#ocena_filma_p").hide();
     });
     
     $("#back_to_start_button").click(function () {
-        $(' #main').show().siblings().hide();
+        $('#main').show().siblings().hide();
         $("#ocena_filma").hide();
         $("#ocena_filma_p").hide();
         $('input').prop('checked', false);
@@ -257,10 +258,6 @@ $(document).ready(function () {
     $("#back_to_genre_button").click(function () {
         $(' #main').show().siblings().hide();
 		$('input').prop('checked', false);
-    });
-	
-	$("#back_to_list_button").click(function () {
-        $(' #filmi_list').show().siblings().hide();
     });
 	
 	$(document).on("click", "input.categories", function() {
@@ -363,6 +360,52 @@ $(document).ready(function () {
         oceni(5);
     });
     
+    $(document).on("mouseover", "#film_list_table td", function() {
+        var id = $(this).attr("data-movie-ID");
+        
+        $.ajax({
+        type: "POST",
+        url: "filmdetails.php",
+        data: 
+        {
+            movie_id: id,
+            method: "getMiniData"
+        },
+        cache: false,
+        success: function (result) {
+            
+            var data = JSON.parse(result);
+            if (data != "no") {
+                $('#slo_naslov_d').text(data[0]);
+                $('#ang_naslov_d').text(data[1]);
+                $('#genre_d').text(data[2]);
+                
+				if (data[3] < 7)
+					var txt1 = "<img class='thumbs' src='thumbs-down.png'/>";
+				else if (data[3] > 8)
+					var txt1 = "<img class='thumbs' src='thumbs-up.png'/>";
+				else 
+					var txt1 = "<img class='thumbs' src='thumbs-neutral.png'/>";
+				$("#tomatoscore_d").html(data[3] + txt1);
+				
+				if (data[4] < 3)
+					var txt2 = "<img class='thumbs' src='thumbs-down.png'/>";
+				else if (data[4] >= 4)
+					var txt2 = "<img class='thumbs' src='thumbs-up.png'/>";
+				else 
+					var txt2 = "<img class='thumbs' src='thumbs-neutral.png'/>";
+				$("#audience_d").html(data[4] + txt2);
+				
+				$("#spored_d").html(data[5]);
+            }
+        },
+        error: function (result) {
+            alert(result);
+        }
+    	});
+    
+    });
+    
 });
 
 function getDetails (id, naslov){
@@ -399,9 +442,27 @@ function getDetails (id, naslov){
                 else 
                     $('#country').text("");
                 $('#summary').text(data[6]);
-
-                $('#ocena').html("Ocena kritikov: " + data[7] + "<br>Ocena gledalcev: " + data[8]);
-                $('#poster').attr("src", data[10]);
+                
+				if (data[7] < 7)
+					var txt1 = "<img class='thumbs' src='thumbs-down.png'/>";
+				else if (data[7] > 8)
+					var txt1 = "<img class='thumbs' src='thumbs-up.png'/>";
+				else 
+					var txt1 = "<img class='thumbs' src='thumbs-neutral.png'/>";
+					
+				if (data[8] < 3)
+					var txt2 = "<img class='thumbs' src='thumbs-down.png'/>";
+				else if (data[8] >= 4)
+					var txt2 = "<img class='thumbs' src='thumbs-up.png'/>";
+				else 
+					var txt2 = "<img class='thumbs' src='thumbs-neutral.png'/>";
+                $('#ocena').html("Ocena kritikov: " + data[7] + "/10 " + txt1 + "<br>Ocena gledalcev: " + data[8] +"/5 "+ txt2);
+                if (data[10] != "-"){
+                	$('#poster').attr("src", data[10]);
+                	$('#poster').show();
+                }
+                else 
+                	$('#poster').hide();
                 $('#sporedKino').html("<h4>Predvajano v kinu</h4>");
                 $('#sporedKino').append("<table id='kinoSpored'>");
                 $('#sporedKino').append("<tr><th>Datum</th><th>Kraj</th><th>Čas</th><th>Dvorana</th></tr>");

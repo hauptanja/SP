@@ -68,6 +68,7 @@ body {
 	font-family: 'Poiret One', cursive;
     text-align: center;
     font-size: 35;
+    background-color: rgba(0, 0, 0, 0.14);
 }
 
 .tab {
@@ -298,32 +299,47 @@ body
 	float: left;	
 }
 
+#vpisan_film h4
+{
+	font-family: 'Poiret One', cursive;
+	text-align: center;
+	font-size: 30px;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+
 #film_list_table, #best_film_table, #film_prikaz_table, #most_watched_table
 {
-    border: solid black 2px;
+    /*border: solid black 2px*/
     border-collapse: collapse;
     margin: 10px;
     width: auto;
+    vertical-align: top;
 }
 
-#film_list_table td, #best_film_table td, #film_prikaz_table td, #most_watched_table td
+#film_list_table
 {
-    border: solid darkgray 2px;
+	margin-left: 20px;
+	width: 370px;
+}
+
+#best_film_table td, #most_watched_table td
+{
+    border: solid darkgray 1.5px;
     padding: 2px;
     text-align: center;
     width: 140px;
+    vertical-align: top;
 }
 
-#filmi
+#film_list_table td, #film_prikaz_table td
 {
-	margin-top: 30px;
-    margin-left: 70px;
-}
 
-td#filmi 
-{
-	padding: 6px;
     text-align: center;
+    width: 116px;
+    height: 165px;
+    vertical-align: middle;
+    
 }
 
 #user_profile
@@ -365,8 +381,9 @@ td#filmi
 
 #vpisan_film, #film_prikaz
 {
-    text-align: left;
-    margin-left: 20px;
+    text-align: center;
+    margin-left: 0px;
+    width: auto;
 }
 
 #footer
@@ -378,6 +395,7 @@ td#filmi
 #best_film_table td, #most_watched_table td
 {
 	text-align: center;
+	background-color: white;
 }
 
 #najboljse_ocenjeni_filmi {
@@ -385,6 +403,7 @@ td#filmi
 	position: absolute;
 	left: 20px;
 	top: 250px;
+	background-color: rgba(0, 0, 0, 0.14);
 } 
 
 #najvec_gledani_filmi {
@@ -392,7 +411,7 @@ td#filmi
 	position: absolute;
 	right: 20px;
 	top: 250px;
-	
+	background-color: rgba(0, 0, 0, 0.14);
 } 
 
 .tab-links {
@@ -416,10 +435,20 @@ td#filmi
 {
 	width: 140px;
 	height: 200px;
-	position: relative;
-	top: 0;
-	margin-top: 0;
-	padding-top: 0;
+
+}
+
+.poster_thumbnail_small
+{
+	width: 105px;
+	height: 150px;
+
+}
+
+.poster_thumbnail_small:hover
+{
+	border: 2px solid #715587;
+
 }
 
 #poster 
@@ -466,7 +495,7 @@ td#filmi
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
-	font-family: Arial;
+	font-family: "Arimo", sans-serif;
 	color: black;
 	font-size: 18px;
 	padding: 5px 10px 5px 10px;
@@ -487,9 +516,10 @@ td#filmi
 
 #film_profile
 {
-	border-color: gray;
+	border-color: #F2F2F2;
 	border-radius: 30px;
 	border-style: solid;
+	width: 600px;
 }
 
 .thumbs {
@@ -501,9 +531,45 @@ td#filmi
 	margin-left: auto;
 	margin-right: auto;
 	width: 750px;
-	border: solid;
+	/*background-color: rgba(0, 0, 0, 0.14);*/
 }
 
-.smallTxt {
+.smallTxt{
 	font-size: 10px;
+	margin-top: auto;
+}
+
+#summary
+{
+	text-align: center;	
+}
+
+.predlog_arrow
+{
+	width: 50px;
+	height: 50px;
+}
+
+#inner_data
+{
+width: 500px;
+background-color: #F2F2F2;
+margin-left: auto;
+margin-right: auto;
+padding-top: 20px;
+padding-bottom: 20px;
+border-radius: 30px;
+}
+
+div#film_list_data{
+	width: 700px;
+	display: inline-block;
+	height: auto;
+	float: right;
+}
+
+div#okvir_list
+{
+	width: 200px;
+	text-align: left;
 }

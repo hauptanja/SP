@@ -65,7 +65,7 @@ session_start();
                         </li>
                         <li><a href="#advancedsearch">Iskanje po ključnih besedah</a>
                             <div class="opt" id="advancedsearch">
-                                <input type="text" id="wordSearchBox" placeholder="Vpišite ključne besede ločene z vejico" class="inputField"/>
+                                <input type="text" id="wordSearchBox" placeholder="Vpišite ključne besede ločene s presledki" class="inputField"/>
                             </div> 
                         </li>
                     </ul>
@@ -78,6 +78,7 @@ session_start();
 					    <input id="userName" name="username" type="text" class="inputField" placeholder="Uporabniško ime">
 					   
 					    <input id="userPass" name="password" type="password" class="inputField" placeholder="Geslo">
+					    <br>
 					    <button id="loginButton" name="submit" type="button" value="PRIJAVA">PRIJAVA</button>
 				    </div>
                 </div>
@@ -165,14 +166,31 @@ session_start();
                         <?php
                         endif;
                     ?>
-                   
+					Vpisali ste film...
                     <div id="vpisan_film"></div>
+                    <div id = "film_list_data">
                     <table id="film_list_table"></table>
+                    <div id="okvir_list">
+	                    <div id = "slo_naslov_d"></div>
+	                    <div id = "ang_naslov_d"></div>
+	                    <div id = "genre_d"></div>
+	                    <div id = "tomatoscore_d"></div>
+	                    <div id = "audience_d"></div>
+	                    <div id = "spored_d"></div>
+                    </div>
+                    </div>
                     <input type="button" value="Nazaj" id="back_to_start_button"/>
                 </div>
                 <div id="filmi_list" class="tab">
                     <input type="button" value="Nazaj" id="back_to_genre_button"/>
                     <table id="filmi"></table>
+                </div>
+                
+                <div id="opcije_list" class="tab">
+                    <!<input type="button" value="Nazaj" id="back_to_genre_button"/>
+                    <div id="opcije_div">
+	                    <ul class="opcije_ul"></ul>
+                    </div>
                 </div>
                 <!-- <div id="filmi_prikaz" class="tab">
                     <input type="button" value="Nazaj" id="back_to_genre"/>
@@ -182,11 +200,11 @@ session_start();
             </div>
         </div>
             <div id="najboljse_ocenjeni_filmi">
-	            <h2>TOP 5</h2>
+	            <h2><img src="star.png" class="starIMG"/>TOP 5<img src="star.png" class="starIMG"/></h2>
                 <table id="best_film_table"></table>
             </div>
             <div id="najvec_gledani_filmi">
-	            <h2>TOP 5</h2>
+	            <h2><img src="camera.png" class="starIMG"/>TOP 5<img src="camera.png" class="starIMG"/></h2>
                 <table id="most_watched_table"></table>
             </div>
 
