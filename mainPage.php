@@ -123,24 +123,7 @@ session_start();
 		                </div>
 		                <div id="film_profile" class="tab">
 		                    <div id="film_details">
-		                        <input type="button" value="Nazaj" id="back_to_list_button"/>
-		                        <?php 
-		                        if(isset($_SESSION["username"])):?>
-		                        <input type="button" value="Gledano" id="watched_button"/>
-		                        
-		                        <table id="ocena_filma">
-		                            <tr id="ocena_f">
-		                            <td id="star1"><img src="star.png" class="starIMG"/></td>
-		                            <td id="star2"><img src="star.png" class="starIMG"/></td>
-		                            <td id="star3"><img src="star.png" class="starIMG"/></td>
-		                            <td id="star4"><img src="star.png" class="starIMG"/></td>
-		                            <td id="star5"><img src="star.png" class="starIMG"/></td>
-		                            </tr>
-		                        </table>
-		                        <?php
-		                        endif;
-		                        ?>
-		                        <br>
+		                        <div id="button_gledano"></div>
 		                        <input type="hidden" id="id_filma"/>
 		                        <img id="poster"/>
 		                        <div id="naslov_div">
