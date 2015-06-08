@@ -113,7 +113,7 @@
             $o1[0] = $row["slo_naslov"];
             $o1[1] = $row["ang_naslov"];
             
-            $output1 = "<div id='inner_data'><h2>$o1[0]</h2>";
+            $output1 = "<div id='inner_data'>Predlogi za film: <br>$o1[0]";
             $output1 .= "<h3>$o1[1]</h3> <h4><img class='predlog_arrow' src='arrow-right.png'/> PREDLAGAMO <img class='predlog_arrow' src='arrow-left.png'/></h4></div>";
             $o[0] = $output1;
             $id = $row["ID"];
