@@ -129,10 +129,8 @@
         // output data of each row
             $row = mysqli_fetch_assoc($result);
             $id = $row["ID"];
-            $opis_filma = $row["summary"];
             $output1 = "<div id='inner_data'>Predlogi za film ... " . $row["slo_naslov"] . " (" . $row["ang_naslov"] . ")</div>";
             $o[0] = $output1;
-            $id = $row["ID"];
             $o[2] = $row["ID"];
         } else {
             $o[0] = "Film ni v bazi.";
@@ -140,7 +138,7 @@
         
         /* TF-IDF */
 		
-		$q = "call isci2('$opis_filma')";
+		$q = "call isci2('$id')";
 		$result = mysqli_query($mysqli, $q);
 		
         if (mysqli_num_rows($result) > 0) {
