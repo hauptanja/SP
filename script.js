@@ -476,6 +476,21 @@ function getDetails (id, naslov){
                         $('#button_gledano').append("</tr></table>");
                     }
                 });
+                $(document).on("mousedown", "td#star1", function() {
+                    oceni(1);
+                });
+                 $(document).on("mousedown", "td#star2", function() {
+                    oceni(2);
+                });
+                $(document).on("mousedown", "td#star3", function() {
+                    oceni(3);
+                });
+                $(document).on("mousedown", "td#star4", function() {
+                    oceni(4);
+                });
+                $(document).on("mousedown", "td#star5", function() {
+                    oceni(5);
+                });
                 $("#back_to_list_button").click(function () {
                     if ($("#film_list_table tbody").children().length == 0)
                         $('#main').show().siblings().hide();
