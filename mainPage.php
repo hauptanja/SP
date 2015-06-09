@@ -123,7 +123,6 @@ session_start();
 		                </div>
 		                <div id="film_profile" class="tab">
 		                    <div id="film_details">
-			                    <input type="button" value="Nazaj" id="back_to_list_button"/>
 		                        <div id="button_gledano"></div>
 		                        <input type="hidden" id="id_filma"/>
 		                        <img id="poster"/>
