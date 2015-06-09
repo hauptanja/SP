@@ -138,7 +138,7 @@
         
         /* TF-IDF */
 		
-		$q = "call isci2('$id')";
+		$q = "call isci($id)";
 		$result = mysqli_query($mysqli, $q);
 		
         if (mysqli_num_rows($result) > 0) {
