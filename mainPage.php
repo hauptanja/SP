@@ -149,6 +149,7 @@ session_start();
 		                
 		                <!--- za prikaz seznama ---->
 		                <div id="film_list" class="tab">
+			                <input type="button" value="Nazaj" id="back_to_start_button"/>
 							<?php 
 		                        if(isset($_SESSION["username"])):?>
 		                        <input type="button" value="Gledano" id="watched_button_p"/>
@@ -167,9 +168,11 @@ session_start();
 		                    ?>
 		                    <div id="vpisan_film"></div>
 		                    <div id = "film_list_data">
-			                   
-								<table id="film_list_table"></table>
-		                    	
+			                   	<div id = 'blockDiv'>
+									<table id="film_list_table"></table>
+									<br>
+									<a href="#next6" style="float: left;"><img src='li_arrow.png'/> Naslednjih 6</a>
+			                   	</div>
 			                    <div id="okvir_list">
 				                    <div id = "slo_naslov_d"></div>
 				                    <div id = "ang_naslov_d"></div>
@@ -180,8 +183,11 @@ session_start();
 				                    <div id = "spored_d"></div>
 				                    </div>
 			                    </div>
+			                   
+			                    
 		                    </div>
-		                    <input type="button" value="Nazaj" id="back_to_start_button"/>
+		                    
+		                    
 		                </div>
 		                <div id="filmi_list" class="tab">
 		                    <input type="button" value="Nazaj" id="back_to_genre_button"/>
