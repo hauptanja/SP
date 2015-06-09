@@ -457,7 +457,8 @@ function getDetails (id, naslov){
                 }
                 else 
                 	$('#poster').hide();
-
+                $('#button_gledano').empty();
+                $('#button_gledano').append("<input type='button' value='Nazaj' id='back_to_list_button'/>");
                  if(data[12] == 1){
                     $('#button_gledano').empty();
                     $('#button_gledano').append("<input type='button' value='Nazaj' id='back_to_list_button'/><input type='button' value='Gledano' id='watched_button'/>");
