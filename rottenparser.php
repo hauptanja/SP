@@ -1,6 +1,6 @@
 <?php
-$servername = "localhost";
-$username = "root";
+$servername = "164.8.252.141";
+$username = "ursy";
 $password = "dcba1023";
 $dbname = "FERImdb";
 $xml = simplexml_load_file("rotteninfo.xml") or die('Cannot load xml file!');
