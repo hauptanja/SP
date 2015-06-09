@@ -128,11 +128,9 @@
         if (mysqli_num_rows($result) > 0) {
         // output data of each row
             $row = mysqli_fetch_assoc($result);
-            $o1[0] = $row["slo_naslov"];
-            $o1[1] = $row["ang_naslov"];
-            
-            $output1 = "<div id='inner_data'>Predlogi za film: <br>$o1[0]";
-            $output1 .= "<h3>$o1[1]</h3> <h4><img class='predlog_arrow' src='arrow-right.png'/> PREDLAGAMO <img class='predlog_arrow' src='arrow-left.png'/></h4></div>";
+            $id = $row["ID"];
+            $opis_filma = $row["summary"];
+            $output1 = "<div id='inner_data'>Predlogi za film ... " . $row["slo_naslov"] . " (" . $row["ang_naslov"] . ")</div>";
             $o[0] = $output1;
             $id = $row["ID"];
             $o[2] = $row["ID"];
@@ -142,44 +140,33 @@
         
         /* TF-IDF */
 		
-		$q = "SELECT beseda, tf * idf AS tfidf FROM TFIDF WHERE ID_filma = '$id' AND tfidf > 1 ORDER BY tfidf DESC";
+		$q = "call isci2('$opis_filma')";
 		$result = mysqli_query($mysqli, $q);
 		
         if (mysqli_num_rows($result) > 0) {
-	        $o[3] = "ok";
-            while($row = mysqli_fetch_assoc($result)) {
-	            $pomembne_besede[] = $row["beseda"];
-			}
-		}
-      
-        $q = "SELECT ID, slo_naslov, poster_src FROM Film";
-        $result = mysqli_query($mysqli, $q);
-        
-        if (mysqli_num_rows($result) > 0) {
             $val = 0;
-            $output2 = "<tr>";
-            while(($row = mysqli_fetch_assoc($result)) && $val < 6) {
-	            if ($val == 3)
-	            	$output2 .= "</tr><tr>";
-                $output2 .= "<td class='filmi' data-movie-ID='" . $row["ID"] . "'><img src='". $row['poster_src'] . "' class='poster_thumbnail_small'/>";
-                /*
-                $q2 = "SELECT * FROM Spored_kino WHERE Naslov_slo='".$row['slo_naslov']."'";
-                $result2=mysqli_query($mysqli, $q2);
-                if (mysqli_num_rows($result2) > 0) {
-                    $output2 .= "<div class='smallTxt'><img class='thumbs' src='camera.png'/> Film je na sporedu</div></td>";
-                }else {
-                    $output2 .= "<div class='smallTxt'><img class='thumbs' src='no-camera.png'/> Filma ni na sporedu</div></td>";
-                }*/
-                $val++;
+            $output2 = "<tr class = 'stran1'>";
+            while(($row = mysqli_fetch_assoc($result)) && $val < 12) {
+	            if ($val < 6)
+	            	$st = "stran1";
+	            else
+	            	$st = "stran2";
+	            if ($val % 3 == 0 && $val > 1)
+	            	$output2 .= "</tr><tr class='$st'>";
+	            
+	            if ($row["ID"] != $id){
+                	$output2 .= "<td class='filmi' data-movie-ID='" . $row["ID"] . "'><img src='". $row['poster_src'] . "' class='poster_thumbnail_small'/>";
+                
+					$val++;
+                }
             }
             $output2 .= "</tr>";
 
             $o[1] = $output2;
-        }
-        else {
+		}
+		else {
             $o[1] = "Ni priporočil.";
         }
-        
         $o = json_encode($o);
         echo $o;
     }

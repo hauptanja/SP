@@ -198,61 +198,61 @@ $(document).ready(function () {
     
     $(document).on("mousedown", "td.filmi", function() {
         var id = $(this).attr("data-movie-ID");
-	var naslov = $(this).text().replace(/F.+|.\.\d+.[\d+]|..\d+[\d+]*$/g, '');
-	//alert(naslov);
+		var naslov = $(this).text().replace(/F.+|.\.\d+.[\d+]|..\d+[\d+]*$/g, '');
+		//alert(naslov);
         $("#watched_button").removeClass("pressedB");
         $("#ocena_filma").hide();
         $("#ocena_filma_p").hide();
         
-	getDetails(id, "");
-		
-	$.ajax({
-                type: "POST",
-                url: "connDatabase.php",
-                data: 
-                {
-                    film: naslov,
-                    method: "getKanal"
-                },
-                cache: false,
-                success: function (result) 
-				{
-                    $("#kanal").html(result);
-                },
-                error: function (result) 
-				{
-                    alert(result);
-                }
-            });
+		getDetails(id, "");
 			
-	$(document).on("click", "button.btn", function() {
-		var kanal = $(this).text();
-		//alert(kanal);
+		$.ajax({
+	                type: "POST",
+	                url: "connDatabase.php",
+	                data: 
+	                {
+	                    film: naslov,
+	                    method: "getKanal"
+	                },
+	                cache: false,
+	                success: function (result) 
+					{
+	                    $("#kanal").html(result);
+	                },
+	                error: function (result) 
+					{
+	                    alert(result);
+	                }
+	            });
+				
+		$(document).on("click", "button.btn", function() {
+			var kanal = $(this).text();
+			//alert(kanal);
+				
+		    $.ajax({
+	                type: "POST",
+	                url: "connDatabase.php",
+	                data: 
+	                {
+			    spored: kanal,
+	                    film: naslov,
+	                    method: "getSpored"
+	                },
+	                cache: false,
+	                success: function (result) 
+					{
+	                    $("#spored_prikaz").html(result);
+	                },
+	                error: function (result) 
+					{
+	                    alert(result);
+	                }
+	            });
+				
+			$(' #spored_prikaz').show();
+	        });
 			
-	    $.ajax({
-                type: "POST",
-                url: "connDatabase.php",
-                data: 
-                {
-		    spored: kanal,
-                    film: naslov,
-                    method: "getSpored"
-                },
-                cache: false,
-                success: function (result) 
-				{
-                    $("#spored_prikaz").html(result);
-                },
-                error: function (result) 
-				{
-                    alert(result);
-                }
-            });
-			
-		$(' #spored_prikaz').show();
-        });
-		
-	$(' #kanal').show();
+		$(' #kanal').show();
     });
     
     $("#back_to_genre_button").click(function () {
@@ -551,7 +551,53 @@ function pokaziFilm (id, ime) {
                 
                 if(data[1] !== "Film ni v bazi.") {
                     $("#film_list_table").append(data[1]);
+                    $("#film_list_table tr.stran2").hide();
                 }
+                
+                id = data[2];
+                //alert(data[3]);
+        
+		        $.ajax({
+		        type: "POST",
+		        url: "filmdetails.php",
+		        data: 
+		        {
+		            movie_id: id,
+		            method: "getMiniData"
+		        },
+		        cache: false,
+		        success: function (result) {
+		            
+		            var data = JSON.parse(result);
+		            if (data != "no") {
+		                $('#slo_naslov_d').text(data[0]);
+		                $('#ang_naslov_d').text(data[1]);
+		                $('#genre_d').text(data[2]);
+		                
+						if (data[3] < 7)
+							var txt1 = "/10 <img class='thumbs' src='thumbs-down.png'/>";
+						else if (data[3] > 8)
+							var txt1 = "/10 <img class='thumbs' src='thumbs-up.png'/>";
+						else 
+							var txt1 = "/10 <img class='thumbs' src='thumbs-neutral.png'/>";
+						$("#tomatoscore_d").html(data[3] + txt1);
+						
+						if (data[4] < 3)
+							var txt2 = "/5 <img class='thumbs' src='thumbs-down.png'/>";
+						else if (data[4] >= 4)
+							var txt2 = "/5 <img class='thumbs' src='thumbs-up.png'/>";
+						else 
+							var txt2 = "/5 <img class='thumbs' src='thumbs-neutral.png'/>";
+						$("#audience_d").html(data[4] + txt2);
+						
+						$("#spored_d").html(data[5]);
+		            }
+		        },
+		        error: function (result) {
+		            alert(result);
+		        }
+		    	});
+
             },
             error: function (result) {
                 alert(result);

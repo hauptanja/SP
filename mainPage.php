@@ -123,6 +123,7 @@ session_start();
 		                </div>
 		                <div id="film_profile" class="tab">
 		                    <div id="film_details">
+			                    <input type="button" value="Nazaj" id="back_to_list_button"/>
 		                        <div id="button_gledano"></div>
 		                        <input type="hidden" id="id_filma"/>
 		                        <img id="poster"/>
@@ -149,6 +150,7 @@ session_start();
 		                
 		                <!--- za prikaz seznama ---->
 		                <div id="film_list" class="tab">
+			                <input type="button" value="Nazaj" id="back_to_start_button"/>
 							<?php 
 		                        if(isset($_SESSION["username"])):?>
 		                        <input type="button" value="Gledano" id="watched_button_p"/>
@@ -181,7 +183,8 @@ session_start();
 				                    </div>
 			                    </div>
 		                    </div>
-		                    <input type="button" value="Nazaj" id="back_to_start_button"/>
+		                    <a href="#next6" style="float: left;"><img src='li_arrow.png'/> Naslednjih 6</a>
+		                    
 		                </div>
 		                <div id="filmi_list" class="tab">
 		                    <input type="button" value="Nazaj" id="back_to_genre_button"/>
