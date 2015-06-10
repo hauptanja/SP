@@ -127,9 +127,27 @@
 
         if (mysqli_num_rows($result) > 0) {
         // output data of each row
+            $output1 = "<input type='button' value='Nazaj' id='back_to_start_button'/>";
             $row = mysqli_fetch_assoc($result);
             $id = $row["ID"];
-            $output1 = "<div id='inner_data'>Predlogi za film ... " . $row["slo_naslov"] . " (" . $row["ang_naslov"] . ")</div>";
+            if(isset($_SESSION["username"])){
+                $o[3]=1;
+                $qU = "SELECT * FROM Uporabnik WHERE Username='".$_SESSION['username']."'";
+                $resultU = mysqli_query($mysqli, $qU);
+                while($rowU = mysqli_fetch_assoc($resultU)){
+                    $sql2 = "SELECT * FROM Gledani_Filmi WHERE ID_Uporabnika='".$rowU['ID_uporabnika']."' AND ID_Filma='".$id."'";
+                    $resultO = mysqli_query($mysqli, $sql2);
+                    if(mysqli_num_rows($resultO) > 0) {
+                        $rowO = mysqli_fetch_assoc($resultO);
+                        $o[4] = $rowO['Ocena'];
+                    }
+                    else
+                      $o[4] = -1;
+                }
+            }
+            else
+                $o[3]=0;
+            $output1 .= "<div id='inner_data'>Predlogi za film ... " . $row["slo_naslov"] . " (" . $row["ang_naslov"] . ")</div>";
             $o[0] = $output1;
             $o[2] = $row["ID"];
         } else {

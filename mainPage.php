@@ -149,23 +149,7 @@ session_start();
 		                
 		                <!--- za prikaz seznama ---->
 		                <div id="film_list" class="tab">
-			                <input type="button" value="Nazaj" id="back_to_start_button"/>
-							<?php 
-		                        if(isset($_SESSION["username"])):?>
-		                        <input type="button" value="Gledano" id="watched_button_p"/>
-		                        <table id="ocena_filma_p">
-		                            <tr id="ocena_f_p">
-			                            <td id="star1"><img src="star.png" class="starIMG"/></td>
-			                            <td id="star2"><img src="star.png" class="starIMG"/></td>
-			                            <td id="star3"><img src="star.png" class="starIMG"/></td>
-			                            <td id="star4"><img src="star.png" class="starIMG"/></td>
-			                            <td id="star5"><img src="star.png" class="starIMG"/></td>
-		                            </tr>
-		                        </table>
-		                        
-		                        <?php
-		                        endif;
-		                    ?>
+                            <div id="button_gledano_n"></div>
 		                    <div id="vpisan_film"></div>
 		                    <div id = "film_list_data">
 			                   	<div id = 'blockDiv'>
