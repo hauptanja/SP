@@ -458,14 +458,14 @@ function getDetails (id, naslov){
                 else 
                 	$('#poster').hide();
                 $('#button_gledano').empty();
-                $('#button_gledano').append("<input type='button' value='Nazaj' id='back_to_start_button'>");
+                $('#button_gledano').append("<input type='button' value='Nazaj' id='back_to_start_button'/>");
                  if(data[12] == 1){
                     $('#button_gledano').empty();
-                    $('#button_gledano').append("<input type='button' value='Nazaj' id='back_to_start_button'><input type='button' value='Gledano' id='watched_button'>");
+                    $('#button_gledano').append("<input type='button' value='Nazaj' id='back_to_start_button'><input type='button' value='Gledano' id='watched_button'/>");
                 }
                 $("#watched_button").click(function() {
                     $('#button_gledano').empty();
-                    $('#button_gledano').append("<input type='button' value='Nazaj' id='back_to_start_button'><input type='button' value='Gledano' id='watched_button'>");
+                    $('#button_gledano').append("<input type='button' value='Nazaj' id='back_to_start_button'><input type='button' value='Gledano' id='watched_button'/>");
                     $('#button_gledano').append("<table id='ocenjeno'><tr id='ocena_f'>");
                     if(data[11] < 0){
                         $('#button_gledano').append("<table id='ocena_filma'><tr id='ocena_f'><td id='star1'><img src='star.png' class='starIMG'/></td><td id='star2'><img src='star.png' class='starIMG'/></td><td id='star3'><img src='star.png' class='starIMG'/></td><td id='star4'><img src='star.png' class='starIMG'/></td><td id='star5'><img src='star.png' class='starIMG'/></td></tr></table>");
@@ -582,7 +582,7 @@ function pokaziFilm (id, ime) {
                 });
                  if(data[3] == 1){
                     $('#button_gledano_n').empty();
-                    $('#button_gledano_n').append("<input type='button' value='Gledano' id='watched_button'>");
+                    $('#button_gledano_n').append("<input type='button' value='Gledano' id='watched_button'/>");
                 }
                 $("#watched_button").click(function() {
                     $('#button_gledano_n').empty();
@@ -597,6 +597,12 @@ function pokaziFilm (id, ime) {
                              $('#button_gledano_n').append("<td id='star"+(ii+1)+"'><img src='star.png' class='starIMG'/></td>");
                         $('#button_gledano_n').append("</tr></table>");
                     }
+                    $("#back_to_start_button").click(function () {
+                        $('#main').show().siblings().hide();
+                        $("#ocena_filma").hide();
+                        $("#ocena_filma_p").hide();
+                        $('input').prop('checked', false);
+                    });
                 });
                 
                 id = data[2];
