@@ -394,15 +394,9 @@ body
     margin: 0;
 }
 
-#watched_button, #watched_button_p, #FB-share-button, #ocenjeno
+#watched_button, #watched_button_p, #ocenjeno
 {
 	float: right;
-}
-
-#FB-share-button{
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 15px;
 }
 
 #ocena_filma, #ocena_filma_p
@@ -411,6 +405,10 @@ body
     background-color: rgba(0, 0, 0, 0.05);
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
+}
+
+.fb-share-button{
+    margin-top: 20px;
 }
 
 #sporedKino{
