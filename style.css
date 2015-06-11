@@ -861,7 +861,8 @@ div#okvir_list
 
 #profil_menu_select
 {
-	margin: 20px;
+	margin-top: 20px;
+	margin-bottom: 20px;
 	font-size: 20px;
 	padding: 5px;
 	height: 40px;
