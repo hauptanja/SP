@@ -100,17 +100,22 @@ session_start();
 		                    <button type="button" name="submit" value="REGISTRACIJA" id="registriraj">REGISTRACIJA</button>
 		                </div>
 		                <div id="user_profile" class="tab">
-		                    <div id="container">
-		                        <div id="content"><a>Lorem ipsum</a></div>
-		                        <div id="navigation">
-		                            <ul id="nav">
-		                                <li><a href="#user_profile">Moj profil</a></li>
-		                                <li><a href="#favs">Priljubljeni filmi</a></li>
-		                                <li><a href="#watched">Ogledani filmi</a></li>
-		                                <li><a href="#prefs">Nastavitve računa</a></li>
-		                            </ul>
-		                        </div>
-		                    </div>
+			                <div id="profil_menu">
+			                    <select id="profil_menu_select">
+								  <option value="moj_profil">Moj profil</option>
+								  <option value="ogledani_filmi">Ogledani filmi</option>
+								  <option value="nastavitve_racuna">Nastavitve računa</option>
+								</select>
+			                </div>
+			                <div id="profil_opt">
+				                <div id="moj_profil">
+									<div id="p_name"></div>
+					                <div id="p_u_name"></div>
+					                <div id="p_nakljucni_filmi"></div>
+				                </div>
+				                <div id="ogledani_filmi"></div>
+				                <div id="nastavitve_racuna"></div>
+			                </div>
 		                </div>
 		                <div id="film_profile" class="tab">
 		                    <div id="film_details">
@@ -174,12 +179,12 @@ session_start();
 		            </div>
 		        </div>
 		        <div id="najboljse_ocenjeni_filmi">
-			        <div id="best_control">TOP 5</div>
+			        <div id="best_control">TOP 6</div>
 		            
 		            <table id="best_film_table"></table>
 		        </div>
 		        <div id="najvec_gledani_filmi">
-			        <div id="second_c">TOP 5</div>
+			        <div id="second_c">TOP 6</div>
 		            <table id="most_watched_table"></table>
 		        </div>
 	        </div>

@@ -18,6 +18,8 @@ $(document).ready(function () {
 	$("#second_c").hide();
     $("#most_watched_table").hide();
 
+	getUserData ();
+
     $.ajax({
         type: "POST",
         url: "filmdetails.php",
@@ -307,7 +309,7 @@ $(document).ready(function () {
     });
 
     $( "#loginButton" ).click(function() {
-        logIN ();
+        log_in ();
     });
     
     $("#ocena_filma").hide();
@@ -431,8 +433,36 @@ $(document).ready(function () {
 	        log_in ();
 		}		
 	});
+	
+	$("#profil_menu_select").change(function() {
+		var izbrano = "#" + $("#profil_menu_select").val();
+		alert(izbrano);
+		
+		$(izbrano).show().siblings().hide();
+	});
+    
     
 });
+
+function getUserData (){
+	$.ajax({
+        type: "POST",
+        url: "filmdetails.php",
+        data: 
+        {
+            method: "getUser"
+        },
+        cache: false,
+        success: function (result) {
+            var data = JSON.parse(result);
+            $("#p_name").text(data[1]);
+            $("#p_u_name").text(data[2]);
+        },
+        error: function (result) {
+	        alert(result );
+        }
+    });
+}
 
 function getDetails (id, naslov){
     $.ajax({
