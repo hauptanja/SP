@@ -175,8 +175,7 @@ $(document).ready(function () {
         }
     });
     
-    $("#back_to_list_button").click(function () {
-        
+	$(document).on("click", "#back_to_list_button", function() {
         if ($("#film_list_table tbody").children().length == 0)
         	$('#main').show().siblings().hide();
         else 
@@ -185,16 +184,13 @@ $(document).ready(function () {
         $("#ocena_filma_p").hide();
     });
     
-    $("#back_to_start_button").click(function () {
+    $(document).on("click", "#back_to_start_button", function() {
         $('#main').show().siblings().hide();
         $("#ocena_filma").hide();
         $("#ocena_filma_p").hide();
         $('input').prop('checked', false);
     });
     
-
-
-
     $(document).on("mousedown", "td.filmi", function() {
         var id = $(this).attr("data-movie-ID");
 		var naslov = $(this).text().replace(/F.+|.\.\d+.[\d+]|..\d+[\d+]*$/g, '');
@@ -508,34 +504,9 @@ function getDetails (id, naslov){
                              $('#button_gledano').append("<td id='star"+(ii+1)+"'><img src='star.png' class='starIMG'/></td>");
                         $('#button_gledano').append("</tr></table>");
                     }
-                    $("#back_to_start_button").click(function () {
-                        $('#main').show().siblings().hide();
-                        $("#ocena_filma").hide();
-                        $("#ocena_filma_p").hide();
-                        $('input').prop('checked', false);
-                    });
+                    
                 });
-                $(document).on("mousedown", "td#star1", function() {
-                    oceni(1);
-                });
-                 $(document).on("mousedown", "td#star2", function() {
-                    oceni(2);
-                });
-                $(document).on("mousedown", "td#star3", function() {
-                    oceni(3);
-                });
-                $(document).on("mousedown", "td#star4", function() {
-                    oceni(4);
-                });
-                $(document).on("mousedown", "td#star5", function() {
-                    oceni(5);
-                });
-                $("#back_to_start_button").click(function () {
-                    $('#main').show().siblings().hide();
-                    $("#ocena_filma").hide();
-                    $("#ocena_filma_p").hide();
-                    $('input').prop('checked', false);
-                });
+                
                 $('#sporedKino').html("<h4>PREDVAJANO V KINU</h4>");
                 var velikost=data[13];
                 if(velikost > 13){
@@ -610,13 +581,7 @@ function pokaziFilm (id, ime) {
                     $("#film_list_table").append(data[1]);
                     $("#film_list_table tr.stran2").hide();
                 }
-                $("#back_to_start_button").click(function () {
-                    $('#main').show().siblings().hide();
-                    $("#ocena_filma").hide();
-                    $("#ocena_filma_p").hide();
-                    $('input').prop('checked', false);
-                });
-                 if(data[3] == 1){
+                if(data[3] == 1){
                     $('#button_gledano_n').empty();
                     $('#button_gledano_n').append("<input type='button' value='Gledano' id='watched_button'/>");
                 }
@@ -633,12 +598,7 @@ function pokaziFilm (id, ime) {
                              $('#button_gledano_n').append("<td id='star"+(ii+1)+"'><img src='star.png' class='starIMG'/></td>");
                         $('#button_gledano_n').append("</tr></table>");
                     }
-                    $("#back_to_start_button").click(function () {
-                        $('#main').show().siblings().hide();
-                        $("#ocena_filma").hide();
-                        $("#ocena_filma_p").hide();
-                        $('input').prop('checked', false);
-                    });
+                   
                 });
                 
                 id = data[2];

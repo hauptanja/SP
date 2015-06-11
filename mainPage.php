@@ -156,8 +156,8 @@ session_start();
 				                    </div>
 			                    </div>
 		                    </div>
-		                    <input type="button" value="Naslednjih 6" id="next6_button" class="naprej_nazaj_b"/>
-							<input type="button" value="Prejšnjih 6" id="prev6_button" class="naprej_nazaj_b" />
+		                    <button type = "submit" id="next6_button" class="naprej_nazaj_b">Naslednjih 6  <img src='li_arrow.png'/> </button>
+							<button type = "submit" id="prev6_button" class="naprej_nazaj_b"> <img src='li_arrow_left.png'/>  Prejšnjih 6 </button>
 		                </div>
 		                <div id="filmi_list" class="tab">
 		                    <input type="button" value="Nazaj" id="back_to_genre_button"/>

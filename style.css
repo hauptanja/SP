@@ -738,6 +738,10 @@ div#okvir_list
 	float: left;
 	font-size: 15px;
 	background-color: rgba(0, 0, 0, 0.05);
+	border-radius: 5px;
+	padding: 5px;
+	font-family: 'Open Sans', sans-serif;
+	vertical-align: middle;
 }
 
 #best_control, #second_c{
