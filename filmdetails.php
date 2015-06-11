@@ -126,8 +126,6 @@
         $result = mysqli_query($mysqli, $q);
 
         if (mysqli_num_rows($result) > 0) {
-        // output data of each row
-            $output1 = "<input type='button' value='Nazaj' id='back_to_start_button'/>";
             $row = mysqli_fetch_assoc($result);
             $id = $row["ID"];
             if(isset($_SESSION["username"])){
@@ -147,7 +145,7 @@
             }
             else
                 $o[3]=0;
-            $output1 .= "<div id='inner_data'>Predlogi za film ... " . $row["slo_naslov"] . " (" . $row["ang_naslov"] . ")</div>";
+            $output1 = "<div id='inner_data'>Predlogi za film ... " . $row["slo_naslov"] . " (" . $row["ang_naslov"] . ")</div>";
             $o[0] = $output1;
             $o[2] = $row["ID"];
         } else {

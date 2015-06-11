@@ -1,4 +1,5 @@
 /*global $, jQuery, alert*/
+var ocenaFilma = 0 ;
 $(document).ready(function () {
     "use strict";
     
@@ -193,6 +194,11 @@ $(document).ready(function () {
         $('input').prop('checked', false);
     });
     
+     $(document).on("click", ".starIMG", function(e) {
+         ocenaFilma=$(this).parent().attr("id").slice(-1);
+         $("#zvezdice").empty();
+    });
+
     $(document).on("mousedown", "td.filmi", function() {
         var id = $(this).attr("data-movie-ID");
 		var naslov = $(this).text().replace(/F.+|.\.\d+.[\d+]|..\d+[\d+]*$/g, '');
@@ -315,9 +321,9 @@ $(document).ready(function () {
     $("#ocena_filma").hide();
     $("#ocena_filma_p").hide();
     
-    $("#watched_button").click(function() {
-        $("#ocena_filma").show();
-    });
+    //$("#watched_button").click(function() {
+       // $("#ocena_filma").show();
+   // });
     
     $("#watched_button_p").click(function() {
     	$("#ocena_filma_p").show();
@@ -515,26 +521,26 @@ function getDetails (id, naslov){
                 else 
                 	$('#poster').hide();
                 $('#button_gledano').empty();
-                $('#button_gledano').append("<input type='button' value='Nazaj' id='back_to_list_button'/>");
+                $('#button_gledano').append("<table><tr id='ocena_f'><tr><td><input type='button' value='Nazaj' id='back_to_list_button'/></td><td id='zvezdice' style='text-align: left;'></td><td id='watched'></td></tr></table>");
                  if(data[12] == 1){
-                    $('#button_gledano').empty();
-                    $('#button_gledano').append("<input type='button' value='Nazaj' id='back_to_list_button'><input type='button' value='Gledano' id='watched_button'/>");
+                    $('#watched').empty();
+                    $('#watched').append("<input type='button' value='Gledano' id='watched_button_z'/>");
                 }
-                $("#watched_button").click(function() {
-                    $('#button_gledano').empty();
-                    $('#button_gledano').append("<input type='button' value='Nazaj' id='back_to_list_button'><input type='button' value='Gledano' id='watched_button'/>");
-                    $('#button_gledano').append("<table id='ocenjeno'><tr id='ocena_f'>");
-                    if(data[11] < 0){
-                        $('#button_gledano').append("<table id='ocena_filma'><tr id='ocena_f'><td id='star1'><img src='star.png' class='starIMG'/></td><td id='star2'><img src='star.png' class='starIMG'/></td><td id='star3'><img src='star.png' class='starIMG'/></td><td id='star4'><img src='star.png' class='starIMG'/></td><td id='star5'><img src='star.png' class='starIMG'/></td></tr></table>");
+                ocenaFilma=data[11];
+                $("#watched_button_z").click(function() {
+
+                    $('#zvezdice').empty();
+                     var htmlZvezdice = "<table id='ocenjeno'><tr>";
+                    if(ocenaFilma < 0){
+                        htmlZvezdice += "<td id='star1'><img src='star.png' class='starIMG'/></td><td id='star2'><img src='star.png' class='starIMG'/></td><td id='star3'><img src='star.png' class='starIMG'/></td><td id='star4'><img src='star.png' class='starIMG'/></td><td id='star5'><img src='star.png' class='starIMG'/></td>";
                     }else{
-                         $('#button_gledano').append("<table id='ocenjeno'><tr id='ocena_f'>");
-                        for(ii = 0;ii < data[11]; ii++)
-                            $('#button_gledano').append("<td id='star"+(ii+1)+"'><img src='color-star.png' class='starIMG'/></td>");
+                        for(ii = 0;ii < ocenaFilma; ii++)
+                            htmlZvezdice += "<td id='star"+(ii+1)+"'><img src='color-star.png' class='starIMG'/></td>";
                         for(ii;ii < 5; ii++)
-                             $('#button_gledano').append("<td id='star"+(ii+1)+"'><img src='star.png' class='starIMG'/></td>");
-                        $('#button_gledano').append("</tr></table>");
+                             htmlZvezdice += "<td id='star"+(ii+1)+"'><img src='star.png' class='starIMG'/></td>";
                     }
-                    
+                    htmlZvezdice += "</tr></table>";
+                    $('#zvezdice').append(htmlZvezdice);
                 });
                 
                 $('#sporedKino').html("<h4>PREDVAJANO V KINU</h4>");
@@ -611,24 +617,27 @@ function pokaziFilm (id, ime) {
                     $("#film_list_table").append(data[1]);
                     $("#film_list_table tr.stran2").hide();
                 }
+                $('#button_gledano_n').empty();
+                $('#button_gledano_n').append("<table><tr id='ocena_f'><tr><td><input type='button' value='Nazaj' id='back_to_start_button'/></td><td id='zvezdice' style='text-align: left;'></td><td id='watched'></td></tr></table>");
                 if(data[3] == 1){
-                    $('#button_gledano_n').empty();
-                    $('#button_gledano_n').append("<input type='button' value='Gledano' id='watched_button'/>");
+                    $('#watched').empty();
+                    $('#watched').append("<input type='button' value='Gledano' id='watched_button_z'/>");
                 }
-                $("#watched_button").click(function() {
-                    $('#button_gledano_n').empty();
-                    $('#button_gledano_n').append("<input type='button' value='Gledano' id='watched_button'/><table id='ocenjeno'><tr id='ocena_f'>");
-                    if(data[4] < 0){
-                        $('#button_gledano_n').append("<table id='ocena_filma'><tr id='ocena_f'><td id='star1'><img src='star.png' class='starIMG'/></td><td id='star2'><img src='star.png' class='starIMG'/></td><td id='star3'><img src='star.png' class='starIMG'/></td><td id='star4'><img src='star.png' class='starIMG'/></td><td id='star5'><img src='star.png' class='starIMG'/></td></tr></table>");
+                ocenaFilma=data[4];
+                $("#watched_button_z").click(function() {
+
+                    $('#zvezdice').empty();
+                     var htmlZvezdice = "<table id='ocenjeno'><tr>";
+                    if(ocenaFilma < 0){
+                        htmlZvezdice += "<td id='star1'><img src='star.png' class='starIMG'/></td><td id='star2'><img src='star.png' class='starIMG'/></td><td id='star3'><img src='star.png' class='starIMG'/></td><td id='star4'><img src='star.png' class='starIMG'/></td><td id='star5'><img src='star.png' class='starIMG'/></td>";
                     }else{
-                         $('#button_gledano_n').append("<table id='ocenjeno'><tr id='ocena_f'>");
-                        for(ii = 0;ii < data[4]; ii++)
-                            $('#button_gledano_n').append("<td id='star"+(ii+1)+"'><img src='color-star.png' class='starIMG'/></td>");
+                        for(ii = 0;ii < ocenaFilma; ii++)
+                            htmlZvezdice += "<td id='star"+(ii+1)+"'><img src='color-star.png' class='starIMG'/></td>";
                         for(ii;ii < 5; ii++)
-                             $('#button_gledano_n').append("<td id='star"+(ii+1)+"'><img src='star.png' class='starIMG'/></td>");
-                        $('#button_gledano_n').append("</tr></table>");
+                             htmlZvezdice += "<td id='star"+(ii+1)+"'><img src='star.png' class='starIMG'/></td>";
                     }
-                   
+                    htmlZvezdice += "</tr></table>";
+                    $('#zvezdice').append(htmlZvezdice);
                 });
                 
                 id = data[2];
