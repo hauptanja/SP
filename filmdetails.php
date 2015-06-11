@@ -278,9 +278,10 @@
             arsort($avg);
             
             $count = 0;
-            $output = "";
+            $output1 = "";
+            $output2 = "";
             foreach($avg as $id => $val) {
-                if ($count == 5)
+                if ($count == 6)
                     break;
                 
                 $q2 = "SELECT ID, slo_naslov, poster_src FROM Film WHERE ID = '$id'";
@@ -297,16 +298,18 @@
 						$txt = "<img class='thumbs' src='thumbs-neutral.png'/>";
 						
 					$oc = round( $val, 1, PHP_ROUND_HALF_UP);
-					/*
-                    $output .= "<tr><td class='filmi' data-movie-ID='" . $row2["ID"] . "'><img src='". $row2['poster_src'] . "' class='poster_thumbnail'/><br>" . $row2["slo_naslov"] . "<br>$txt $oc/5</td></tr>";
-                    */
-                    $output .= "<tr><td class='filmi' data-movie-ID='" . $row2["ID"] . "'><img src='". $row2['poster_src'] . "' class='poster_thumbnail'/></td></tr>";
+					
+					if ($count < 3)
+                    	$o[1] .= "<tr><td class='filmi' data-movie-ID='" . $row2["ID"] . "'><img src='". $row2['poster_src'] . "' class='poster_thumbnail'/></td></tr>";
+                    else
+                    	$o[2] .= "<tr><td class='filmi' data-movie-ID='" . $row2["ID"] . "'><img src='". $row2['poster_src'] . "' class='poster_thumbnail'/></td></tr>";
                     $count++;
                 }
                 else 
                     echo "shiz";
                 
             }
+            $output = json_encode($o);
             echo $output;
         } else {
             echo "Ni podatka";

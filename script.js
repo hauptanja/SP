@@ -13,6 +13,10 @@ $(document).ready(function () {
     if ($.urlParam('id_film') != '') {  // variable_name would be the name of your variable within your url following the ? symbol
         getDetails($.urlParam('id_film'),"");
     }
+	$("#najvec_gledani_filmi").css("background-color", "white");
+	$("#best_film_table").hide();
+	$("#second_c").hide();
+    $("#most_watched_table").hide();
 
     $.ajax({
         type: "POST",
@@ -24,38 +28,18 @@ $(document).ready(function () {
         cache: false,
         success: function (result) {
             $("#best_film_table").empty();
-
-            if(result !== "Ni podatka") {
-                $("#best_film_table").append(result);
-            }
-           
+			var data = JSON.parse(result);
+            $("#best_film_table").append(data[1]);
+            $("#most_watched_table").append(data[2]);
+			$("#best_film_table").hide();
+            $("#most_watched_table").hide();
+            
         },
         error: function (result) {
             alert(result);
         }
     });
-    
-    $.ajax({
-        type: "POST",
-        url: "filmdetails.php",
-        data: 
-        {
-            method: "getMostWatched"
-        },
-        cache: false,
-        success: function (result) {
-            $("#most_watched_table").empty();
 
-            if(result !== "Ni podatka") {
-                $("#most_watched_table").append(result);
-            }
-           
-        },
-        error: function (result) {
-            alert(result);
-        }
-    });
-    
     $("#prev6_button").hide();
     $("#next6_button").hide();
     
@@ -222,23 +206,23 @@ $(document).ready(function () {
 		getDetails(id, "");
 			
 		$.ajax({
-	                type: "POST",
-	                url: "connDatabase.php",
-	                data: 
-	                {
-	                    film: naslov,
-	                    method: "getKanal"
-	                },
-	                cache: false,
-	                success: function (result) 
-					{
-	                    $("#kanal").html(result);
-	                },
-	                error: function (result) 
-					{
-	                    alert(result);
-	                }
-	            });
+	        type: "POST",
+	        url: "connDatabase.php",
+	        data: 
+	        {
+	            film: naslov,
+	            method: "getKanal"
+	        },
+	        cache: false,
+	        success: function (result) 
+			{
+	            $("#kanal").html(result);
+	        },
+	        error: function (result) 
+			{
+	            alert(result);
+	        }
+	    });
 				
 		$(document).on("click", "button.btn", function() {
 			var kanal = $(this).text();
@@ -249,7 +233,7 @@ $(document).ready(function () {
 	                url: "connDatabase.php",
 	                data: 
 	                {
-			    spored: kanal,
+						spored: kanal,
 	                    film: naslov,
 	                    method: "getSpored"
 	                },
@@ -443,6 +427,25 @@ $(document).ready(function () {
 	    $("#film_list_table tr.stran1").show();
 	    $("#prev6_button").hide();
 	    $("#next6_button").show();
+    });
+    
+    $("#best_control").on("mousedown", function(){
+	    if ($("#best_film_table").is(":visible")){
+		    $("#best_film_table").hide();
+			$("#most_watched_table").hide();
+			$("#best_control").css("background-image", "url('arrow_left.png')");
+			$("#second_c").hide();
+			$("#najvec_gledani_filmi").css("background-color", "white");
+	    }
+	    else {
+		    $("#best_film_table").show();
+			$("#most_watched_table").show();
+			
+			$("#best_control").css("background-image", "url('arrow_down.png')");
+			$("#second_c").css("background-image", "url('arrow_down.png')");
+			$("#second_c").show();
+			$("#najvec_gledani_filmi").css("background-color", $("#najboljse_ocenjeni_filmi").css("background-color"));
+	    }
     });
     
 });

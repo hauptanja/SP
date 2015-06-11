@@ -170,21 +170,16 @@ session_start();
 			                    <ul class="opcije_ul"></ul>
 		                    </div>
 		                </div>
-		                <!-- <div id="filmi_prikaz" class="tab">
-		                    <input type="button" value="Nazaj" id="back_to_genre"/>
-		                    <div id="film_prikaz"></div>
-			  	    <table id ="film_prikaz_table"></table>
-		                </div> -->
+		                
 		            </div>
 		        </div>
 		        <div id="najboljse_ocenjeni_filmi">
-			        <div id="best_control"></div>
-		            <!--<h2><img src="star.png" class="starIMG"/>TOP 5<img src="star.png" class="starIMG"/></h2>-->
+			        <div id="best_control">TOP 5</div>
+		            
 		            <table id="best_film_table"></table>
 		        </div>
 		        <div id="najvec_gledani_filmi">
-			        <div id="most_watched_control"></div>
-		            <!--<h2><img src="camera.png" class="starIMG"/>TOP 5<img src="camera.png" class="starIMG"/></h2>-->
+			        <div id="second_c">TOP 5</div>
 		            <table id="most_watched_table"></table>
 		        </div>
 	        </div>
