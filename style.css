@@ -446,7 +446,7 @@ body
 #najboljse_ocenjeni_filmi {
 	width: 160px;
 	float: left;
-	background-color: #60a1bf;
+	background-color: #3B2440;
 	border-radius:0px 20px 20px 0px;
 	padding-bottom: 10px;
 } 
@@ -621,7 +621,6 @@ body
 	margin-top: 20px;
 	font-size: 25px;
 	font-weight: bold;
-	background-color: gray;
 }
 
 div#film_list_data{
@@ -644,7 +643,7 @@ div#okvir_list
 	font-size: 16px;
 	height: auto;
 	padding-left: 10px;
-	background-color: #e9e9e9;
+	
 }
 
 
@@ -737,7 +736,8 @@ div#okvir_list
 
 .naprej_nazaj_b{
 	float: left;
-	
+	font-size: 15px;
+	background-color: rgba(0, 0, 0, 0.05);
 }
 
 #best_control, #second_c{
@@ -748,7 +748,7 @@ div#okvir_list
 	margin-top: 10px;
 	color: #5b5b5b;
 	margin-right: 20px;
-	font-weight: bold;
+	font-weight: bolder;
 	background-image: url("arrow_left.png");
 	background-repeat: no-repeat;
 	background-position: right center;

@@ -79,7 +79,7 @@ $(document).ready(function () {
             $(this).parent('li').addClass('active').siblings().removeClass('active');
         }
         e.preventDefault();
-        $('body').scrollTo(currentAttrValue);
+        //$('body').scrollTo(currentAttrValue);
     });
     
     $('.search-opt a').on('click', function (e) {
@@ -311,25 +311,7 @@ $(document).ready(function () {
     });
 
     $( "#loginButton" ).click(function() {
-        $.ajax({
-            type: "POST",
-            url: "checkLogin.php",
-            data: {
-                U: $( "#userName" ).val(),
-                Geslo: $( "#userPass" ).val(),
-                operacija: "login"
-            },
-            success:function(data) {
-                if(data==true){
-                     $(' #user_profile').show().siblings().hide();
-                    $('a').parent('li').removeClass('active');
-                    $('a[href$="#user_profile"]').parent('li').addClass('active');
-                    location.reload();
-                }
-                else
-                    alert("Napačno geslo ali uporabniško ime");
-          }
-        });
+        logIN ();
     });
     
     $("#ocena_filma").hide();
@@ -447,6 +429,12 @@ $(document).ready(function () {
 			$("#najvec_gledani_filmi").css("background-color", $("#najboljse_ocenjeni_filmi").css("background-color"));
 	    }
     });
+    
+    $("#userPass").keypress(function (e) {
+        if (e.which === 13) { // if is enter
+	        log_in ();
+		}		
+	});
     
 });
 
@@ -599,7 +587,7 @@ function oceni(ocena_f){
 }
 
 function pokaziFilm (id, ime) {
-	
+		
         $.ajax({
             type: "POST",
             url: "filmdetails.php",
@@ -615,6 +603,8 @@ function pokaziFilm (id, ime) {
                 $("#vpisan_film").html(data[0]);
                 $('#id_filma').val(data[2]);
                 $("#film_list_table").empty();
+                
+                $("#okvir_list").css("background-color", "#e9e9e9");
                 
                 if(data[1] !== "Film ni v bazi.") {
                     $("#film_list_table").append(data[1]);
@@ -714,6 +704,29 @@ function pokaziFilm (id, ime) {
 	
 }
 
+function log_in (){
+	
+	$.ajax({
+        type: "POST",
+        url: "checkLogin.php",
+        data: {
+            U: $( "#userName" ).val(),
+            Geslo: $( "#userPass" ).val(),
+            operacija: "login"
+        },
+        success:function(data) {
+            if(data==true){
+                 $(' #user_profile').show().siblings().hide();
+                $('a').parent('li').removeClass('active');
+                $('a[href$="#user_profile"]').parent('li').addClass('active');
+                location.reload();
+            }
+            else
+                alert("Napačno geslo ali uporabniško ime");
+      }
+    });
+}
+
 /* source: http://lions-mark.com/jquery/scrollTo/ */
 
 $.fn.scrollTo = function( target, options, callback ){
@@ -732,4 +745,5 @@ $.fn.scrollTo = function( target, options, callback ){
       if (typeof callback == 'function') { callback.call(this); }
     });
   });
-}
+};
+
