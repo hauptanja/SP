@@ -172,14 +172,11 @@ $(document).ready(function () {
                     method: "beseda->naslov"
                 },
                 cache: false,
-                success: function (result) { 
-	                var data = JSON.parse(result);
+                success: function (result) {
 	                $(".opcije_ul").empty();
 	                    	
-                	for (var i in data)
-                	{
-                    	$(".opcije_ul").append(data[i]);
-                	}
+					$(".opcije_ul").append(result);
+                	
                 },
                 error: function (result) {
                     alert(result);

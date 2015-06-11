@@ -171,7 +171,7 @@
 	            	$output2 .= "</tr><tr class='$st'>";
 	            
 	            if ($row["ID"] != $id){
-                	$output2 .= "<td class='filmi' data-movie-ID='" . $row["ID"] . "'><img src='". $row['poster_src'] . "' class='poster_thumbnail_small'/>";
+                	$output2 .= "<td class='filmi' data-movie-ID='" . $row["ID"] . "'><img src='". $row['poster_src'] . "' class='poster_thumbnail_small'/></td>";
                 
 					$val++;
                 }
@@ -363,54 +363,28 @@
     else if ($_POST['method'] == "beseda->naslov")
     {
 		$text = $_POST['beseda'];
-		$besede = explode(" ", $text);
-		$w = $besede[0];
-		$q = "SELECT ID_filma, tf * idf AS tfidf FROM TFIDF WHERE ";
-		
-		foreach($besede as $val) {
-			if (strlen($val) > 5){
-				$beseda = substr($val, 0, strlen($val) - 3);
-				//$beseda .= "%";
-			}else if (strlen($val) > 2){
-				$beseda = substr($val, 0, strlen($val) - 1);
-				//$beseda .= "%";
-			}else 
-				$beseda = $val;
-				
-			$q .= "beseda LIKE '$beseda%' ";
-			
-		}
-		//$q = substr($q, 0, strlen($q) - 3);
-		$q .= "ORDER BY tfidf";
-		
+		$q = "call isci(4997)";
 		$result = mysqli_query($mysqli, $q);
-			
-        if (mysqli_num_rows($result) > 0) {
-            while($row = mysqli_fetch_assoc($result)) {
-	            $filmi[] = $row["ID_filma"];
-			}
-		}
-		$count = 0;
-		foreach($filmi as $id) {
-			$q = "SELECT * FROM Film WHERE ID = '$id'";
-			$result = mysqli_query($mysqli, $q);
-			
-	        if (mysqli_num_rows($result) > 0) {
-	            while(($row = mysqli_fetch_assoc($result)) && ($count < 10)) {
-		            $count++;
-		            if (substr($row["tomatometer"], 0, 4) > 8)
-						$txt = " <img class='thumbs' src='thumbs-up.png'/>";
-					else if (substr($row["tomatometer"], 0, 4) < 7)
-						$txt = " <img class='thumbs' src='thumbs-down.png'/>";
-					else 
-						$txt = " <img class='thumbs' src='thumbs-neutral.png'/>";
-		            $naslovi[] = "<li id='". $row["ID"] ."'>" . $row["slo_naslov"] . $txt . $row["tomatometer"] ."</li>";
-				}
-			}
-		}
-		$output = json_encode($naslovi);
-		echo($output);
 		
+        if (mysqli_num_rows($result) > 0) {
+            $val = 0;
+            while(($row = mysqli_fetch_assoc($result)) && $val < 12) {
+	            if ($val < 6)
+	            	$st = "stran1";
+	            else
+	            	$st = "stran2";
+	            
+                	$output2 .= "<li class='priporoceni_filmi' data-movie-ID='" . $row["ID"] . "'><img src='". $row['poster_src'] . "' class='poster_thumbnail_small'/>" . $row["slo_naslov"] . "</li>";
+                
+					$val++;
+                
+            }
+		}
+		else {
+            $output2 = "Ni priporočil.";
+        }
+        
+        echo $output2;		
 	}
     
     mysqli_close($mysqli);
