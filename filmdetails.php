@@ -414,6 +414,76 @@
         }
         echo $output2;		
 	}
+	else if ($_POST['method'] == "getUserDetails")
+    {
+		$username = $_SESSION["username"];
+		$q = "Select * from Uporabnik where Username = '$username'";
+		$result = mysqli_query($mysqli, $q);
+		
+        if (mysqli_num_rows($result) > 0) {
+           	$row = mysqli_fetch_assoc($result);
+           	$o[1] = $row["Ime"];
+           	$o[2] = $row["Priimek"];
+           	$o[3] = $row["Email"];
+           	$o[4] = $row["Spol"];
+           	$output2 = json_encode($o);
+		}
+		else {
+            $output2 = "Ni priporočil.";
+        }
+        echo $output2;		
+	}
+	else if ($_POST['method'] == "sprUser")
+    {
+		$username = $_SESSION["username"];
+		$ime = $_POST['ime'];
+		$priimek = $_POST['priimek'];
+		$email = $_POST['email'];
+		$spol = $_POST['spol'];
+		
+		$q = "Update Uporabnik set Ime = '$ime', Priimek = '$priimek', Email = '$email', Spol = '$spol' where Username = '$username'";
+	
+		if (mysqli_query($mysqli, $q)) {
+            echo "update OK";
+        } else {
+            echo "update Error";
+        }	
+	}
+	else if ($_POST['method'] == "getWatched")
+    {
+		$idUp = $_SESSION["id_u"];
+		$q = "call getGledani($idUp)";
+		$result = mysqli_query($mysqli, $q);
+		$output2 = "";
+		
+        if (mysqli_num_rows($result) > 0) {
+           	while ($row = mysqli_fetch_assoc($result)){
+	           	$output2 .= "<tr class='seznam_gledani' data-movie-id='".$row['ID']."'><td><img class = 'poster_thumbnail_mini' src='" . $row["poster_src"]."'/></td><td>" . $row["slo_naslov"] . " <span style='font-style:italic;'>(". $row["ang_naslov"].")</span></td><td>" . $row["Ocena"]."/5</td></tr>";
+           	}
+		}
+		else {
+            $output2 = "Ni gledanih";
+        }
+        echo $output2;		
+	}
+	else if ($_POST['method'] == "getRandom")
+    {
+	    $idUp = $_SESSION["id_u"];
+	    $q = "call getRandom($idUp)";
+	    $result = mysqli_query($mysqli, $q);
+		$output2 = "";
+		
+        if (mysqli_num_rows($result) > 0) {
+           	while ($row = mysqli_fetch_assoc($result)){
+	           	$output2 .= "<tr class='seznam_gledani' data-movie-id='".$row['ID']."'><td><img class = 'poster_thumbnail_mini' src='" . $row["poster_src"]."'/></td><td>" . $row["slo_naslov"] . " <span style='font-style:italic;'>(". $row["ang_naslov"].")</span></td><td>" . $row["Ocena"]."/5</td></tr>";
+           	}
+		}
+		else {
+            $output2 = "Ni gledanih";
+        }
+        echo $output2;
+	}
+	
     
     mysqli_close($mysqli);
 ?>

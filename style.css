@@ -206,6 +206,8 @@ body {
     border-width: 1px;
     border-radius: 5px;
     padding: 5px;
+    margin-left: 10px;
+    width: 100%;
 }
 
 #userName, #userPass
@@ -501,6 +503,7 @@ body
 }
 
 #poster{
+	
 	width: 175px;
 	height: 250px;
 	box-shadow: 0px 0px 5px black;
@@ -518,6 +521,13 @@ body
 {
 	width: 105px;
 	height: 150px;
+	box-shadow: 5px 5px 5px #888888;
+}
+
+.poster_thumbnail_mini
+{
+	width: 49px;
+	height: 70px;
 	box-shadow: 5px 5px 5px #888888;
 }
 
@@ -754,7 +764,7 @@ div#okvir_list
 	top: 14;
 }
 
-.naprej_nazaj_b{
+.naprej_nazaj_b, #spr_shrani{
 	float: left;
 	font-size: 15px;
 	background-color: rgba(0, 0, 0, 0.05);
@@ -793,16 +803,67 @@ div#okvir_list
 #user_profile
 {
     border-style: none;
+    margin-left: auto;
     margin-right: auto;
+    text-align: left;
+}
+
+
+
+#p_u_name {
+	font-style: italic;
+}
+
+#seznam_gledanih {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#seznam_gledanih td{
+	
+	padding: 5px;
+}
+
+#spr_container{
+	margin-left: auto;
+	margin-right: auto;
+	width: 300px;
+	text-align: center;
+}
+
+#spr_shrani {
+	margin: 20px;
+	margin-left: 90px;
+}
+
+.spr_podatke {
+	width: 100%;
+	font-size: 14px;
+	text-indent: 20px;
+	border-radius: 5px;
+	border-color: gray;
+	height: 30px;
+	margin: 5px;
+}
+#gender {
+	margin-left: 10px;	
+}
+
+#spr_spol, #gender, #profil_menu_select {
+	text-indent: 15px;
+	margin-top: 5px;
+   width: 100%;
+   height: 30px;
+   overflow: hidden;
+   background: white;
+   border: 1px solid #ccc;
 }
 
 #profil_menu_select
 {
-	width: 500px;
-	text-align: center;
-	margin-left: auto;
-	margin-right: auto;
-	font-size: 24px;
-	padding: 10px;
+	margin: 20px;
+	font-size: 20px;
+	padding: 5px;
+	height: 40px;
 	font-family: 'Open Sans', sans-serif;
 }

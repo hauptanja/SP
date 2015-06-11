@@ -109,12 +109,38 @@ session_start();
 			                </div>
 			                <div id="profil_opt">
 				                <div id="moj_profil">
-									<div id="p_name"></div>
-					                <div id="p_u_name"></div>
-					                <div id="p_nakljucni_filmi"></div>
+					                
+									<h2 id="p_name"></h2>
+					                <div id="p_nakljucni_filmi">
+					                   	<table id="nakljucni_film_table"></table>
+					                    <div id="p_okvir_list">
+						                    <div id = "š_slo_naslov_d"></div>
+						                    <div id = "š_ang_naslov_d"></div>
+						                    <div id = "p_pod_div">
+							                    <div id = "p_genre_d"></div>
+							                    <div id = "p_tomatoscore_d"></div>
+							                    <div id = "p_audience_d"></div>
+							                    <div id = "p_spored_d"></div>
+						                    </div>
+					                    </div>
+		                    
+					                </div>
 				                </div>
-				                <div id="ogledani_filmi"></div>
-				                <div id="nastavitve_racuna"></div>
+				                <div id="ogledani_filmi">
+					                <table id="seznam_gledanih"></table>
+				                </div>
+				                <div id="nastavitve_racuna">
+					                <div id="spr_container">
+						                <input type="text" id="spr_ime" class = "spr_podatke inputField"/><br>
+						                <input type="text" id="spr_priimek" class = "spr_podatke inputField"/><br>
+						                <input type="text" id="spr_email" class = "spr_podatke inputField"/><br>
+						                <select name="gender" id="spr_spol" class = "spr_podatke inputField">
+			                            	<option value="male">Moški</option>
+											<option value="female">Ženski</option>
+										</select><br>
+						                <button type="submit" id="spr_shrani">Shrani spremembe</button>
+					                </div>
+				                </div>
 			                </div>
 		                </div>
 		                <div id="film_profile" class="tab">

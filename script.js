@@ -67,8 +67,11 @@ $(document).ready(function () {
         {
 	        if (currentAttrValue == "#user_profile")
 			{
-            	$("#najboljse_ocenjeni_filmi").hide();
-            	$("#najvec_gledani_filmi").hide();
+            	
+            	$("#profil_menu_select").val("moj_profil");
+            	$("#moj_profil").show();
+            	$("#nastavitve_racuna").hide();
+            	$("#ogledani_filmi").hide();
         	}
         	else
         	{
@@ -441,12 +444,97 @@ $(document).ready(function () {
 	});
 	
 	$("#profil_menu_select").change(function() {
-		var izbrano = "#" + $("#profil_menu_select").val();
-		alert(izbrano);
-		
-		$(izbrano).show().siblings().hide();
+		var izbrano =$("#profil_menu_select").val();
+		if (izbrano == "moj_profil"){
+			$.ajax({
+		        type: "POST",
+		        url: "filmdetails.php",
+		        data: 
+		        {
+		            method: "getRandom"
+		        },
+		        cache: false,
+		        success: function (result) {
+		            var data = JSON.parse(result);
+		            $("#spr_ime").val(data[1]);
+		            $("#spr_priimek").val(data[2]);
+		            $("#spr_email").val(data[3]);
+		            $("#spr_spol").val(data[4]);
+		        },
+		        error: function (result) {
+			        alert(result );
+		        }
+		    });
+		}
+		else if (izbrano == "nastavitve_racuna"){
+			$.ajax({
+		        type: "POST",
+		        url: "filmdetails.php",
+		        data: 
+		        {
+		            method: "getUserDetails"
+		        },
+		        cache: false,
+		        success: function (result) {
+		            var data = JSON.parse(result);
+		            $("#spr_ime").val(data[1]);
+		            $("#spr_priimek").val(data[2]);
+		            $("#spr_email").val(data[3]);
+		            $("#spr_spol").val(data[4]);
+		        },
+		        error: function (result) {
+			        alert(result );
+		        }
+		    });
+		}
+		else if (izbrano == "ogledani_filmi"){
+			$.ajax({
+		        type: "POST",
+		        url: "filmdetails.php",
+		        data: 
+		        {
+		            method: "getWatched"
+		        },
+		        cache: false,
+		        success: function (result) {
+			        $("#seznam_gledanih").empty();
+		            $("#seznam_gledanih").append(result);
+		        },
+		        error: function (result) {
+			        alert(result );
+		        }
+		    });
+		}
+		$( "#" + izbrano).show().siblings().hide();
 	});
     
+    $("#spr_shrani").click(function(){
+
+	    $.ajax({
+	        type: "POST",
+	        url: "filmdetails.php",
+	        data: 
+	        {
+	            method: "sprUser",
+	            ime: $("#spr_ime").val(),
+	            priimek: $("#spr_priimek").val(),
+	            email: $("#spr_email").val(),
+	            spol: $("#spr_spol").val()
+	        },
+	        cache: false,
+	        success: function (result) {
+	            
+	        },
+	        error: function (result) {
+		        alert(result );
+	        }
+	    });
+    });
+    
+    $(document).on("mousedown", ".seznam_gledani", function (){
+	    var id = $(this).attr("data-movie-ID");
+	    getDetails (id, "");
+    });
     
 });
 
@@ -461,8 +549,7 @@ function getUserData (){
         cache: false,
         success: function (result) {
             var data = JSON.parse(result);
-            $("#p_name").text(data[1]);
-            $("#p_u_name").text(data[2]);
+            $("#p_name").html(data[1] + " <span style='font-style: italic;'>(" + data[2] + ")</span>");
         },
         error: function (result) {
 	        alert(result );
