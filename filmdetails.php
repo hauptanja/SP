@@ -199,10 +199,16 @@
             $row = mysqli_fetch_assoc($result);
             $o1[0] = $row["slo_naslov"];
             $o1[1] = $row["ang_naslov"];
-	        $o1[2] = $row["genre"]; 
-	        $o1[3] = substr($row["tomatometer"], 0, strpos($row["tomatometer"], '/'));
-	        $o1[4] = substr($row["audience"], 0, strpos($row["audience"], '/'));
+	        $o1[2] = $row["genre"];
+	        if ($row["tomatometer"] != 0)
+	        	$o1[3] = substr($row["tomatometer"], 0, strpos($row["tomatometer"], '/'));
+	        else 
+	        	$o1[3] = "NULL";
 	        
+	        if ($row["audience"] != 0)
+	        	$o1[4] = substr($row["audience"], 0, strpos($row["audience"], '/'));
+	        else 
+	        	$o1[4] = "NULL";
 	        $q2 = "SELECT * FROM Spored_kino WHERE Naslov_slo='".$row['slo_naslov']."'";
             $result2=mysqli_query($mysqli, $q2);
             if (mysqli_num_rows($result2) > 0) {

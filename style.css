@@ -744,7 +744,7 @@ div#okvir_list
 	top: 14;
 }
 
-#blockDiv{
-	display: block;
+.naprej_nazaj_b{
+	float: left;
+	
 }
-

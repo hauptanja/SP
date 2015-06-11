@@ -144,24 +144,20 @@ session_start();
                             <div id="button_gledano_n"></div>
 		                    <div id="vpisan_film"></div>
 		                    <div id = "film_list_data">
-			                   	<div id = 'blockDiv'>
-									<table id="film_list_table"></table>
-									<br>
-									<a href="#next6" style="float: left;"><img src='li_arrow.png'/> Naslednjih 6</a>
-			                   	</div>
+			                   	<table id="film_list_table"></table>
 			                    <div id="okvir_list">
 				                    <div id = "slo_naslov_d"></div>
 				                    <div id = "ang_naslov_d"></div>
 				                    <div id = "pod_div">
-				                    <div id = "genre_d"></div>
-				                    <div id = "tomatoscore_d"></div>
-				                    <div id = "audience_d"></div>
-				                    <div id = "spored_d"></div>
+					                    <div id = "genre_d"></div>
+					                    <div id = "tomatoscore_d"></div>
+					                    <div id = "audience_d"></div>
+					                    <div id = "spored_d"></div>
 				                    </div>
 			                    </div>
 		                    </div>
-		                    
-		                    
+		                    <input type="button" value="Naslednjih 6" id="next6_button" class="naprej_nazaj_b"/>
+							<input type="button" value="Prejšnjih 6" id="prev6_button" class="naprej_nazaj_b" />
 		                </div>
 		                <div id="filmi_list" class="tab">
 		                    <input type="button" value="Nazaj" id="back_to_genre_button"/>

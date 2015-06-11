@@ -56,6 +56,9 @@ $(document).ready(function () {
         }
     });
     
+    $("#prev6_button").hide();
+    $("#next6_button").hide();
+    
     $('.tab-links a').on('click', function (e) {
         var currentAttrValue = $(this).attr('href');
         if (currentAttrValue == "#log_out")
@@ -392,21 +395,31 @@ $(document).ready(function () {
                 $('#ang_naslov_d').text(data[1]);
                 $('#genre_d').text(data[2]);
                 
-				if (data[3] < 7)
-					var txt1 = "/10 <img class='thumbs' src='thumbs-down.png'/>";
-				else if (data[3] > 8)
-					var txt1 = "/10 <img class='thumbs' src='thumbs-up.png'/>";
-				else 
-					var txt1 = "/10 <img class='thumbs' src='thumbs-neutral.png'/>";
-				$("#tomatoscore_d").html(data[3] + txt1);
-				
-				if (data[4] < 3)
-					var txt2 = "/5 <img class='thumbs' src='thumbs-down.png'/>";
-				else if (data[4] >= 4)
-					var txt2 = "/5 <img class='thumbs' src='thumbs-up.png'/>";
-				else 
-					var txt2 = "/5 <img class='thumbs' src='thumbs-neutral.png'/>";
-				$("#audience_d").html(data[4] + txt2);
+				if (data[3] === "NULL")
+                	$("#tomatoscore_d").html("");
+                else{
+					if (data[3] < 7)
+						var txt1 = "/10 <img class='thumbs' src='thumbs-down.png'/>";
+					else if (data[3] > 8)
+						var txt1 = "/10 <img class='thumbs' src='thumbs-up.png'/>";
+					else 
+						var txt1 = "/10 <img class='thumbs' src='thumbs-neutral.png'/>";
+					$("#tomatoscore_d").html(data[3] + txt1);
+				}
+					
+					
+				if (data[4] === "NULL")
+					$("#audience_d").html("");
+				else {
+					if (data[4] < 3)
+						var txt2 = "/5 <img class='thumbs' src='thumbs-down.png'/>";
+					else if (data[4] >= 4)
+						var txt2 = "/5 <img class='thumbs' src='thumbs-up.png'/>";
+					else 
+						var txt2 = "/5 <img class='thumbs' src='thumbs-neutral.png'/>";
+					$("#audience_d").html(data[4] + txt2);
+				}
+
 				
 				$("#spored_d").html(data[5]);
             }
@@ -416,6 +429,20 @@ $(document).ready(function () {
         }
     	});
     
+    });
+    
+    $("#next6_button").click(function(){
+	    $("#film_list_table tr.stran1").hide();
+	    $("#film_list_table tr.stran2").show();
+	    $("#next6_button").hide();
+	    $("#prev6_button").show();
+    });
+    
+    $("#prev6_button").click(function(){
+	    $("#film_list_table tr.stran2").hide();
+	    $("#film_list_table tr.stran1").show();
+	    $("#prev6_button").hide();
+	    $("#next6_button").show();
     });
     
 });
@@ -641,22 +668,31 @@ function pokaziFilm (id, ime) {
 		                $('#ang_naslov_d').text(data[1]);
 		                $('#genre_d').text(data[2]);
 		                
-						if (data[3] < 7)
-							var txt1 = "/10 <img class='thumbs' src='thumbs-down.png'/>";
-						else if (data[3] > 8)
-							var txt1 = "/10 <img class='thumbs' src='thumbs-up.png'/>";
-						else 
-							var txt1 = "/10 <img class='thumbs' src='thumbs-neutral.png'/>";
-						$("#tomatoscore_d").html(data[3] + txt1);
-						
-						if (data[4] < 3)
-							var txt2 = "/5 <img class='thumbs' src='thumbs-down.png'/>";
-						else if (data[4] >= 4)
-							var txt2 = "/5 <img class='thumbs' src='thumbs-up.png'/>";
-						else 
-							var txt2 = "/5 <img class='thumbs' src='thumbs-neutral.png'/>";
-						$("#audience_d").html(data[4] + txt2);
-						
+		                if (data[3] === "NULL")
+		                	$("#tomatoscore_d").html("-");
+		                else{
+							if (data[3] < 7)
+								var txt1 = "/10 <img class='thumbs' src='thumbs-down.png'/>";
+							else if (data[3] > 8)
+								var txt1 = "/10 <img class='thumbs' src='thumbs-up.png'/>";
+							else 
+								var txt1 = "/10 <img class='thumbs' src='thumbs-neutral.png'/>";
+							$("#tomatoscore_d").html(data[3] + txt1);
+						}
+							
+							
+						if (data[4] === "NULL")
+							$("#audience_d").html("");
+						else {
+							if (data[4] < 3)
+								var txt2 = "/5 <img class='thumbs' src='thumbs-down.png'/>";
+							else if (data[4] >= 4)
+								var txt2 = "/5 <img class='thumbs' src='thumbs-up.png'/>";
+							else 
+								var txt2 = "/5 <img class='thumbs' src='thumbs-neutral.png'/>";
+							$("#audience_d").html(data[4] + txt2);
+						}
+							
 						$("#spored_d").html(data[5]);
 		            }
 		        },
@@ -664,6 +700,7 @@ function pokaziFilm (id, ime) {
 		            alert(result);
 		        }
 		    	});
+		    	$("#next6_button").show();
 
             },
             error: function (result) {
