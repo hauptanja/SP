@@ -395,6 +395,27 @@
         
         echo $output2;		
 	}
+	else if ($_POST['method'] == "getUser")
+    {
+		$username = $_SESSION["username"];
+		$q = "Select * from Uporabnik where Username = '$username'";
+		$result = mysqli_query($mysqli, $q);
+		
+        if (mysqli_num_rows($result) > 0) {
+           	$row = mysqli_fetch_assoc($result);
+           	if($row["Spol"] == "male")
+           		$txt = "Pozdravljen, ";
+           	else 
+           		$txt = "Pozdravljena, ";
+           	$o[1] = $txt . $row["Ime"];
+           	$o[2] = $row["Username"];
+           	$output2 = json_encode($o);
+		}
+		else {
+            $output2 = "Ni priporočil.";
+        }
+        echo $output2;		
+	}
     
     mysqli_close($mysqli);
 ?>

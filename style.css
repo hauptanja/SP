@@ -253,7 +253,7 @@ body {
     border-style: none;
 }
  
-#user_profile, #banner, #footer
+#banner, #footer
 {
     width:990px;
     margin-left: auto;
@@ -373,10 +373,6 @@ body
     
 }
 
-#user_profile
-{
-    border-style: none;
-}
 
 #back_to_list_button, #back_to_start_button, #watched_button, #watched_button_p, #back_to_genre_button, #back_to_genre
 {
@@ -490,11 +486,18 @@ body
 	background-color: rgba(255, 255, 255, 0.24);
 }
 
+#poster{
+	width: 175px;
+	height: 250px;
+	box-shadow: 0px 0px 5px black;
+	
+}
+
 .poster_thumbnail
 {
 	width: 140px;
 	height: 200px;
-	box-shadow: 0px 0px 5px black;
+	box-shadow: 5px 5px 5px #888888;
 }
 
 .poster_thumbnail_small
@@ -686,6 +689,9 @@ div#okvir_list
 #inline_elements
 {
 	display: inline;
+	margin-left: auto;
+	margin-right: auto;
+	
 }
 
 #details_div
@@ -768,4 +774,21 @@ div#okvir_list
 .arrowIMG{
 	width: 25px;
 	height: 25px;
+}
+
+#user_profile
+{
+    border-style: none;
+    margin-right: auto;
+}
+
+#profil_menu_select
+{
+	width: 500px;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 24px;
+	padding: 10px;
+	font-family: 'Open Sans', sans-serif;
 }

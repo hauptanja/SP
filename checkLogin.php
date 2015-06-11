@@ -2,10 +2,10 @@
 
 if ($_POST['operacija'] == "login")
 {
+	include_once 'connectionDatabase.php';
     $u=$_POST['U'];
     $g=$_POST['Geslo'];
     $hash=md5($g);
-    include_once 'connectionDatabase.php';
     $sql="SELECT * FROM Uporabnik WHERE Username='".$u."' AND Password='".$hash."'";
     $result=$conn->query($sql);
     if ($result->num_rows > 0) {
