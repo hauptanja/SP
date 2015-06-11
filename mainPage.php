@@ -138,7 +138,7 @@ session_start();
 								<div id="ocenaAU"></div>
 		                        <br>
 		                        <div id="summary"></div>
-                                <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count"></div>
+                                <div id="facebookShare"></div>
 		                        <!--<table class="film_list_table"></table>-->
 		                        <div id="sporedKino"></div>
 		                        <br>
@@ -168,8 +168,6 @@ session_start();
 				                    <div id = "spored_d"></div>
 				                    </div>
 			                    </div>
-			                   
-			                    
 		                    </div>
 		                    
 		                    

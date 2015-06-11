@@ -2,6 +2,18 @@
 $(document).ready(function () {
     "use strict";
     
+    $.urlParam = function(name){
+    var results = new RegExp('[\\?&]' + name + '=([^&#]*)').exec(window.location.href);
+    if(results==null)
+        return '';
+    else
+        return results[1];
+    }
+
+    if ($.urlParam('id_film') != '') {  // variable_name would be the name of your variable within your url following the ? symbol
+        getDetails($.urlParam('id_film'),"");
+    }
+
     $.ajax({
         type: "POST",
         url: "filmdetails.php",
@@ -196,6 +208,9 @@ $(document).ready(function () {
         $('input').prop('checked', false);
     });
     
+
+
+
     $(document).on("mousedown", "td.filmi", function() {
         var id = $(this).attr("data-movie-ID");
 		var naslov = $(this).text().replace(/F.+|.\.\d+.[\d+]|..\d+[\d+]*$/g, '');
@@ -448,7 +463,8 @@ function getDetails (id, naslov){
                     $('#duration').text("");
                 
                 $('#summary').text(data[6]);
-                
+                $('#facebookShare').append("<script>(function(d, s, id){var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) return;js = d.createElement(s); js.id = id;js.src ='//connect.facebook.net/sl_SI/sdk.js#xfbml=1&version=v2.3';fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));</script><div class='fb-share-button' data-href='http://164.8.252.141/SP/mainPage.php?id_film="+data[9]+"' data-layout='button_count'></div>");
+
                 $('#ocenaRT').html("<span class = 'oc_span1'>" + data[7] + "</span>");
                 $('#ocenaAU').html("<span class = 'oc_span2'>" + data[8] + "</span>");
                 if (data[10] != "-"){
