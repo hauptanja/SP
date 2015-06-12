@@ -107,7 +107,7 @@ if ($_POST['method'] == "getMovies")
 {
 		$kategorija = $_POST['genre_name'];
 		
-		$q = "SELECT ID, slo_naslov, ang_naslov, summary, poster_src, duration, genre, tomatometer FROM Film WHERE genre LIKE '%$kategorija%'";
+		$q = "SELECT ID, slo_naslov, ang_naslov, summary, poster_src, duration, genre, tomatometer FROM Film WHERE genre='$kategorija'";
         
 		$result = mysqli_query($mysqli, $q);
 		
