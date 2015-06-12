@@ -105,7 +105,11 @@
         // output data of each row
         	while ($row = mysqli_fetch_assoc($result))
 			{
-				$output[] = "<li id='". $row["ID"] ."'>" . $row["slo_naslov"] . "</li>";
+				$output[] = "<tr class='vrsta1'><td><img width='90' height='130' src='". $row['poster_src'] . "'/></td><td id=". $row["ID"] ."><span class='ime_filma' style='font-size:20px;'>" . $row["slo_naslov"] ." (".$row["ang_naslov"].")</span><br>
+				<span class='ocena_zanr' style='font-size:14px;'>".$row["tomatometer"]."</span><br><br>
+				<span class='vsebina_zanr1'>".$row["summary"]."</span><br><br>
+				<span class='zanr' style='font-size:14px;'>".$row["genre"]."</span><span class='duration_zanr1' style='font-size:14px;'>".$row["duration"]."</span>
+				</td></tr>";
 			}
 			$output = json_encode($output);
 			echo $output;
