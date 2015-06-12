@@ -662,7 +662,7 @@ function getDetails (id, naslov){
                 }
 				
 				else{
-                     $('#kinoSpored').append("<div style='font-size:18px;'><strong>Film se ne predvaja v kinu!</strong></div>");
+                     $('#kinoSpored').html("<div style='font-size:18px;'><strong>Film se ne predvaja v kinu!</strong></div>");
                 }
             }
         },
