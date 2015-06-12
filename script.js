@@ -284,7 +284,7 @@ $(document).ready(function () {
     });
 	
 	$(document).on("click", "td.categories", function() {
-		var kategorija = $(this).text();
+		var kategorija = $(this).text().substring(0, 4);
 		$.ajax({
                 type: "POST",
                 url: "connDatabase.php",
