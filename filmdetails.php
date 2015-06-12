@@ -471,12 +471,13 @@
 	    $idUp = $_SESSION["id_u"];
 	    $q = "call getRandom($idUp)";
 	    $result = mysqli_query($mysqli, $q);
-		$output2 = "";
+		$output2 = "<tr>";
 		
         if (mysqli_num_rows($result) > 0) {
            	while ($row = mysqli_fetch_assoc($result)){
-	           	$output2 .= "<tr class='seznam_gledani' data-movie-id='".$row['ID']."'><td><img class = 'poster_thumbnail_mini' src='" . $row["poster_src"]."'/></td><td>" . $row["slo_naslov"] . " <span style='font-style:italic;'>(". $row["ang_naslov"].")</span></td><td>" . $row["Ocena"]."/5</td></tr>";
+	           	$output2 .= "<td class='random_filmi' data-movie-id='" . $row['ID'] . "'><img class = 'poster_thumbnail_smaller' src='" . $row["poster_src"]."'/></td>";
            	}
+           	$output2 .="</tr>";
 		}
 		else {
             $output2 = "Ni gledanih";

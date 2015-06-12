@@ -67,11 +67,13 @@ session_start();
 										<input type="checkbox" id="cat" class="categories"><label for="cat">pustolovšcina - pustolovski</label>
 		                            </div>
 		                        </li>
+		                        <!--
 		                        <li><a href="#advancedsearch">Iskanje po ključnih besedah</a>
 		                            <div class="opt" id="advancedsearch">
 		                                <input type="text" id="wordSearchBox" placeholder="Vpišite ključne besede ločene s presledki" class="inputField"/>
 		                            </div> 
 		                        </li>
+		                        -->
 		                    </ul>
 		                    
 		                </div>
@@ -112,20 +114,11 @@ session_start();
 				                <div id="moj_profil">
 					                
 									<h2 id="p_name"></h2>
+									Oglejte si...
 					                <div id="p_nakljucni_filmi">
 					                   	<table id="nakljucni_film_table"></table>
-					                    <div id="p_okvir_list">
-						                    <div id = "š_slo_naslov_d"></div>
-						                    <div id = "š_ang_naslov_d"></div>
-						                    <div id = "p_pod_div">
-							                    <div id = "p_genre_d"></div>
-							                    <div id = "p_tomatoscore_d"></div>
-							                    <div id = "p_audience_d"></div>
-							                    <div id = "p_spored_d"></div>
-						                    </div>
-					                    </div>
-		                    
 					                </div>
+		                    
 				                </div>
 				                <div id="ogledani_filmi">
 					                <table id="seznam_gledanih"></table>

@@ -456,11 +456,8 @@ $(document).ready(function () {
 		        },
 		        cache: false,
 		        success: function (result) {
-		            var data = JSON.parse(result);
-		            $("#spr_ime").val(data[1]);
-		            $("#spr_priimek").val(data[2]);
-		            $("#spr_email").val(data[3]);
-		            $("#spr_spol").val(data[4]);
+			        $("#nakljucni_film_table").empty();
+		            $("#nakljucni_film_table").append(result);
 		        },
 		        error: function (result) {
 			        alert(result );
@@ -524,7 +521,7 @@ $(document).ready(function () {
 	        },
 	        cache: false,
 	        success: function (result) {
-	            
+	            $( "#moj_profil").show().siblings().hide();
 	        },
 	        error: function (result) {
 		        alert(result );
@@ -696,6 +693,7 @@ function pokaziFilm (id, ime) {
             },
             cache: false,
             success: function (result) { 
+	            
                 var data = JSON.parse(result);
                 $("#vpisan_film").html(data[0]);
                 $('#id_filma').val(data[2]);

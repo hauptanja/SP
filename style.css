@@ -9,7 +9,7 @@ body {
     margin: 0;
     padding: 0;
     width: 990px;
-    height: 930px;
+    height: 100%;
     margin-left: auto;
     margin-right: auto;
     background-color: white;
@@ -503,7 +503,8 @@ body
 }
 
 #poster{
-	
+	margin-top: 0;
+	margin-bottom: 0;
 	width: 175px;
 	height: 250px;
 	box-shadow: 0px 0px 5px black;
@@ -521,6 +522,13 @@ body
 {
 	width: 105px;
 	height: 150px;
+	box-shadow: 5px 5px 5px #888888;
+}
+
+.poster_thumbnail_smaller
+{
+	width: 84px;
+	height: 120px;
 	box-shadow: 5px 5px 5px #888888;
 }
 
@@ -817,11 +825,18 @@ div#okvir_list
 #seznam_gledanih {
 	margin-left: auto;
 	margin-right: auto;
+	border-collapse: collapse;
+	
 }
 
 #seznam_gledanih td{
 	
 	padding: 5px;
+}
+
+#seznam_gledanih tr:nth-child(even) {
+	
+	background-color: rgba(0, 0, 0, 0.06);
 }
 
 #spr_container{
@@ -867,4 +882,9 @@ div#okvir_list
 	padding: 5px;
 	height: 40px;
 	font-family: 'Open Sans', sans-serif;
+}
+
+#nakljucni_film_table{
+	margin-left: auto;
+	margin-right: auto;
 }
