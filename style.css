@@ -457,6 +457,7 @@ body
 
 #najboljse_ocenjeni_filmi {
 	width: 160px;
+	height: auto;
 	float: left;
 	background-color: #3B2440;
 	border-radius:0px 20px 20px 0px;
@@ -466,6 +467,7 @@ body
 #najvec_gledani_filmi {
 	
 	width: 160px;
+	height: auto;
 	float: right;
 	border-radius:20px 0px 0px 20px;
 	padding-bottom: 10px;
