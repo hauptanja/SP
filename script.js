@@ -164,7 +164,7 @@ $(document).ready(function () {
         }
     });
     
-    $(document).on("click", ".search-result-opt li", function() {
+    $(document).on("click", ".search-result-opt td", function() {
 	    var id = $(this).attr("id"); 
         pokaziFilm (id, "");
     });
@@ -285,7 +285,6 @@ $(document).ready(function () {
 	
 	$(document).on("click", "td.categories", function() {
 		var kategorija = $(this).text().substring(0, 4);
-		alert(kategorija);
 		$.ajax({
                 type: "POST",
                 url: "connDatabase.php",
@@ -662,7 +661,7 @@ function getDetails (id, naslov){
                 }
 				
 				else{
-                     $('#kinoSpored').append("<div style='font-size:18px;'><strong>Film se ne predvaja v kinu!</strong></div>");
+                     $('#kinoSpored').html("<div style='font-size:18px;'><strong>Film se ne predvaja v kinu</strong></div>");
                 }
             }
         },

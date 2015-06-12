@@ -40,8 +40,8 @@ session_start();
 		                        <li><a href="#namesearch">Iskanje po naslovu filma</a>
 		                            <div class="opt" id="namesearch">
 		                                <input type="text" id="movieSearchBox" placeholder="Vpišite film, ki Vam je všeč" class="inputField"/>
-		                                <ul class="search-result-opt">
-		                                </ul>
+		                                <table class="search-result-opt" cellspacing="5">
+		                                </table>
 		                            </div> 
 		                        </li>
 		                        <li><a href="#browsecateg">Brskaj po žanrih</a>
@@ -165,6 +165,7 @@ session_start();
 		                        <div id="ocenaRT"></div>
 								<div id="ocenaAU"></div>
 		                        <br>
+		                        <br>
 		                        <div id="summary"></div>
                                 <div id="facebookShare"></div>
 		                        <!--<table class="film_list_table"></table>-->
@@ -200,7 +201,7 @@ session_start();
 		                </div>
 		                <div id="filmi_list" class="tab">
 		                    <input type="button" value="Nazaj" id="back_to_genre_button"/>
-		                    <table id="filmi" cellspacing="15"></table>
+		                    <table id="filmi" cellspacing="5"></table>
 		                </div>
 		                
 		                <div id="opcije_list" class="tab">
