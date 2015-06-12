@@ -46,25 +46,37 @@ session_start();
 		                        </li>
 		                        <li><a href="#browsecateg">Brskaj po žanrih</a>
 		                            <div class="opt" id="browsecateg">
-		                        		<input type="checkbox" id="cat" class="categories"><label for="cat">drama</label> <br>
-		                                <input type="checkbox" id="cat" class="categories"><label for="cat">akcija</label> <br>
-										<input type="checkbox" id="cat" class="categories"><label for="cat">komedija</label> <br>
-										<input type="checkbox" id="cat" class="categories"><label for="cat">romantika - ljubezenski</label> <br>
-										<input type="checkbox" id="cat" class="categories"><label for="cat">animirani</label> <br>
-										<input type="checkbox" id="cat" class="categories"><label for="cat">zgodovinski</label> <br>
-										<input type="checkbox" id="cat" class="categories"><label for="cat">grozljivka - shrljivka</label> <br>
-										<input type="checkbox" id="cat" class="categories"><label for="cat">kriminalka</label> <br>
-										<input type="checkbox" id="cat" class="categories"><label for="cat">znanstvena fantastika</label> <br>
-										<input type="checkbox" id="cat" class="categories"><label for="cat">dokumentarec</label> <br>
-										<input type="checkbox" id="cat" class="categories"><label for="cat">vestern - western</label> <br>
-										<input type="checkbox" id="cat" class="categories"><label for="cat">mjuzikl - mjuzikal - muzikal</label> <br>
-										<input type="checkbox" id="cat" class="categories"><label for="cat">glasbeni</label> <br>
-										<input type="checkbox" id="cat" class="categories"><label for="cat">triler</label> <br>
-										<input type="checkbox" id="cat" class="categories"><label for="cat">družinski</label> <br>
-										<input type="checkbox" id="cat" class="categories"><label for="cat">vojni</label> <br>
-										<input type="checkbox" id="cat" class="categories"><label for="cat">športni</label> <br>
-										<input type="checkbox" id="cat" class="categories"><label for="cat">parodija</label> <br>
-										<input type="checkbox" id="cat" class="categories"><label for="cat">pustolovšcina - pustolovski</label>
+		                        		<table id="zanri" style="color:#3B2440;">
+										<tr>
+											<td class="categories">drama</td>
+											<td class="categories">akcija</td>
+											<td class="categories">komedija</td>
+											<td class="categories">romantika</td>
+										</tr>
+										<tr>
+											<td class="categories">animirani</td>
+											<td class="categories">zgodovinski</td>
+											<td class="categories">grozljivka</td>
+											<td class="categories">kriminalka</td>
+										</tr>
+										<tr>
+											<td class="categories">znanstvena<br> fantastika</td>
+											<td class="categories">dokumentarec</td>
+											<td class="categories">vestern</td>
+											<td class="categories">mjuzikl</td>
+										</tr>
+										<tr>
+											<td class="categories">glasbeni</td>
+											<td class="categories">triler</td>
+											<td class="categories">družinski</td>
+											<td class="categories">vojni</td>
+										</tr>
+										<tr>
+											<td class="categories">športni</td>
+											<td class="categories">parodija</td>
+											<td class="categories">pustolovšcina</td>
+										</tr>
+									</table>
 		                            </div>
 		                        </li>
 		                        <!--
@@ -156,9 +168,11 @@ session_start();
 		                        <div id="summary"></div>
                                 <div id="facebookShare"></div>
 		                        <!--<table class="film_list_table"></table>-->
-		                        <div id="sporedKino"></div>
 		                        <br>
-								<div class="sporedTV"><strong>TV SPORED</strong></div>
+								<div class='sporedKino'><strong>KINO SPORED</strong><img width="35" height="27" src='cinema.jpg'/></div>
+		                        <table id="kinoSpored"></table>
+		                        <br>
+								<div class="sporedTV"><strong>TV SPORED</strong><img width="35" height="27" src='tv.png'/></div>
 								<table id="kanal"></table>
 								<table id="spored_prikaz"></table>
 		                    </div>
@@ -186,7 +200,7 @@ session_start();
 		                </div>
 		                <div id="filmi_list" class="tab">
 		                    <input type="button" value="Nazaj" id="back_to_genre_button"/>
-		                    <table id="filmi"></table>
+		                    <table id="filmi" cellspacing="15"></table>
 		                </div>
 		                
 		                <div id="opcije_list" class="tab">
