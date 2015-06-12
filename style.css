@@ -313,6 +313,7 @@ body
     text-align: left;
     margin-left: 20;
     margin-right: 20;
+    font-size: 16px;
 }
 
 #film_details h3
@@ -530,6 +531,11 @@ body
 	width: 84px;
 	height: 120px;
 	box-shadow: 5px 5px 5px #888888;
+}
+.poster_thumbnail_smaller:hover
+{
+	border: 2px solid #715587;
+
 }
 
 .poster_thumbnail_mini
@@ -956,4 +962,8 @@ div#okvir_list
 #nakljucni_film_table{
 	margin-left: auto;
 	margin-right: auto;
+}
+
+.random_filmi{
+	padding: 5px;
 }

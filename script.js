@@ -72,6 +72,23 @@ $(document).ready(function () {
             	$("#moj_profil").show();
             	$("#nastavitve_racuna").hide();
             	$("#ogledani_filmi").hide();
+            	$.ajax({
+			        type: "POST",
+			        url: "filmdetails.php",
+			        data: 
+			        {
+			            method: "getRandom"
+			        },
+			        cache: false,
+			        success: function (result) {
+				        $("#nakljucni_film_table").empty();
+			            $("#nakljucni_film_table").append(result);
+			        },
+			        error: function (result) {
+				        alert(result );
+			        }
+			    });
+
         	}
         	else
         	{
@@ -534,6 +551,11 @@ $(document).ready(function () {
 	    getDetails (id, "");
     });
     
+    $(document).on("mousedown", ".random_filmi", function (){
+	    var id = $(this).attr("data-movie-ID");
+	    getDetails (id, "");
+    });
+    
 });
 
 function getUserData (){
@@ -585,7 +607,7 @@ function getDetails (id, naslov){
 					var txt2 = "<img class='thumbs' src='thumbs-neutral.png'/>";
 					
                 $('#id_filma').val(data[9]);
-                $('#slo_naslov').html(data[0] + " (" + txt1 + " / " + txt2+ ")");
+                $('#slo_naslov').html(data[0]);
                 $('#ang_naslov').text(data[1]);
                 $('#genre').text(data[2]);
                 if (data[3] !== "/") {
