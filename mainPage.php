@@ -165,6 +165,7 @@ session_start();
 		                        <div id="ocenaRT"></div>
 								<div id="ocenaAU"></div>
 		                        <br>
+		                        <br>
 		                        <div id="summary"></div>
                                 <div id="facebookShare"></div>
 		                        <!--<table class="film_list_table"></table>-->
