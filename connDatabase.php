@@ -13,40 +13,37 @@ if ($_POST['method'] == "getKanal")
 {
 		$film = $_POST['film'];
 		
-		$q = "SELECT DISTINCT Ime_kanala
+		$q = "SELECT DISTINCT Ime_Kanala
 			  FROM Spored_TV
 			  INNER JOIN Kanal_TV
 			  ON kanal_ID=ID_Kanal
-			  WHERE Naslov_slo = '$film'";
+			  WHERE Naslov_slo = (SELECT slo_naslov FROM Film WHERE ID=$film)";
         
 		$result = mysqli_query($mysqli, $q);
 		
 		if (mysqli_num_rows($result) == 1) 
 		{
-			$q1 = "SELECT Naslov_slo, Cas, Ime_kanala, Datum
+			$q1 = "SELECT Naslov_slo, Cas, slika_kanal, Datum
 				   FROM Spored_TV
 				   INNER JOIN Kanal_TV
 				   ON kanal_ID=ID_Kanal
 				   INNER JOIN Datum_TV
 				   ON datum_ID=ID_Datum
-				   WHERE Naslov_slo = '$film'";
+				   WHERE Naslov_slo = (SELECT slo_naslov FROM Film WHERE ID=$film)";
         
 			$result1 = mysqli_query($mysqli, $q1);
 			
 			echo "<tr>";
-			echo "<th><strong>Naslov</strong></th><th><strong>Cas</strong></th><th><strong>Kanal</strong></th><th><strong>Datum</strong></th>";
+			echo "<th><strong>Naslov</strong></th><th><strong>Čas</strong></th><th><strong>Kanal</strong></th><th><strong>Datum</strong></th>";
 			echo "</tr>";
 			
 			while ($row = mysqli_fetch_assoc($result1))
 			{
 				echo "<tr>";
 				
-				foreach ($row as $film)
-				{
-					echo "<td class='film'>" .$film. "</td>";
-					$i = json_encode($film);
-					//echo $i;
-				}
+				echo "<td class='film'>" .$row['Naslov_slo']. "</td><td class='film'>" .$row['Cas']. "</td><td class='film'><img class='slika_kanal' src='". $row['slika_kanal'] . "'/></td><td class='film'>" .$row['Datum']. "</td>";
+				$i = json_encode($film);
+				//echo $i;
 				
 				echo "</tr>";
             }
@@ -67,7 +64,7 @@ if ($_POST['method'] == "getKanal")
 		
 		else
 		{
-			echo "<div style='font-size:18px;'><strong>Film se ne predvaja na televiziji!</strong></div>";
+			echo "<div style='font-size:18px;'><strong>Film se ne predvaja na televiziji</strong></div>";
 		}
 }
 
@@ -76,13 +73,13 @@ if ($_POST['method'] == "getSpored")
 		$film = $_POST['film'];
 		$kanal = $_POST['spored'];
 		
-		$q = "	SELECT Naslov_slo, Cas, Ime_kanala, Datum
+		$q = "	SELECT Naslov_slo, Cas, slika_kanal, Datum
 				FROM Spored_TV
 				INNER JOIN Kanal_TV
 				ON kanal_ID=ID_Kanal
 				INNER JOIN Datum_TV
 				ON datum_ID=ID_Datum
-				WHERE Ime_kanala = '$kanal' AND Naslov_slo = '$film'";
+				WHERE Ime_kanala = '$kanal' AND Naslov_slo = (SELECT slo_naslov FROM Film WHERE ID=$film)";
         
 		$result = mysqli_query($mysqli, $q);
 		
@@ -90,20 +87,17 @@ if ($_POST['method'] == "getSpored")
 		{
 			echo "<tr></tr>";
 			echo "<tr>";
-			echo "<th><strong>Naslov</strong></th><th><strong>Cas</strong></th><th><strong>Kanal</strong></th><th><strong>Datum</strong></th>";
+			echo "<th><strong>Naslov</strong></th><th><strong>Čas</strong></th><th><strong>Kanal</strong></th><th><strong>Datum</strong></th>";
 			echo "</tr>";
 			
 			while ($row = mysqli_fetch_assoc($result))
 			{
 				echo "<tr>";
-				
-				foreach ($row as $film)
-				{
-					echo "<td class='film'>" .$film. "</td>";
-					$i = json_encode($film);
-					//echo $i;
-				}
-				
+			
+				echo "<td class='film'>" .$row['Naslov_slo']. "</td><td class='film'>" .$row['Cas']. "</td><td class='film'><img class='slika_kanal' src='". $row['slika_kanal'] . "'/></td><td class='film'>" .$row['Datum']. "</td>";
+				$i = json_encode($film);
+				//echo $i;
+
 				echo "</tr>";
             }
         }
@@ -113,7 +107,7 @@ if ($_POST['method'] == "getMovies")
 {
 		$kategorija = $_POST['genre_name'];
 		
-		$q = "SELECT ID, slo_naslov FROM Film WHERE genre LIKE '%$kategorija%'";
+		$q = "SELECT ID, slo_naslov, ang_naslov, summary, poster_src, duration, genre, tomatometer FROM Film WHERE genre LIKE '%$kategorija%'";
         
 		$result = mysqli_query($mysqli, $q);
 		
@@ -123,7 +117,14 @@ if ($_POST['method'] == "getMovies")
 			
 			while ($row = mysqli_fetch_assoc($result))
 			{
-				$prikaz .= "<tr><td class='filmi' data-movie-ID='" . $row["ID"] . "' style='font-size: 20px;'>" . $row["slo_naslov"] . "</td></tr>";
+				$prikaz .= "<tr class='vrsta'>
+							<td class='poster_zanr'><img width='90' height='130' src='". $row['poster_src'] . "'/></td>
+							<td class='filmi' data-movie-ID='" . $row["ID"] . "'><span class='ime_filma' style='font-size:20px;'>" . $row["slo_naslov"] . "  (".$row["ang_naslov"].")</span><br>
+							<span class='ocena_zanr' style='font-size:14px;'>".$row["tomatometer"]."</span><br><br>
+							<span class='vsebina_zanr'>".$row["summary"]."</span><br><br>
+							<span class='zanr' style='font-size:14px;'>".$row["genre"]."</span><span class='duration_zanr' style='font-size:14px;'>".$row["duration"]."</span>
+							</td>
+							</tr>";
             }
 			
 			$prikaz .= "</tr>";
