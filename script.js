@@ -222,61 +222,60 @@ $(document).ready(function () {
 
     $(document).on("mousedown", "td.filmi", function() {
         var id = $(this).attr("data-movie-ID");
-		var naslov = $(this).text().replace(/F.+|.\.\d+.[\d+]|..\d+[\d+]*$/g, '');
-		//alert(naslov);
+
         $("#watched_button").removeClass("pressedB");
         $("#ocena_filma").hide();
         $("#ocena_filma_p").hide();
         
-		getDetails(id, "");
+	getDetails(id, "");
+		
+	$.ajax({
+                type: "POST",
+                url: "connDatabase.php",
+                data: 
+                {
+                    film: id,
+                    method: "getKanal"
+                },
+                cache: false,
+                success: function (result) 
+				{
+                    $("#kanal").html(result);
+                },
+                error: function (result) 
+				{
+                    alert(result);
+                }
+            });
 			
-		$.ajax({
-	        type: "POST",
-	        url: "connDatabase.php",
-	        data: 
-	        {
-	            film: naslov,
-	            method: "getKanal"
-	        },
-	        cache: false,
-	        success: function (result) 
-			{
-	            $("#kanal").html(result);
-	        },
-	        error: function (result) 
-			{
-	            alert(result);
-	        }
-	    });
-				
-		$(document).on("click", "button.btn", function() {
-			var kanal = $(this).text();
-			//alert(kanal);
-				
-		    $.ajax({
-	                type: "POST",
-	                url: "connDatabase.php",
-	                data: 
-	                {
-						spored: kanal,
-	                    film: naslov,
-	                    method: "getSpored"
-	                },
-	                cache: false,
-	                success: function (result) 
-					{
-	                    $("#spored_prikaz").html(result);
-	                },
-	                error: function (result) 
-					{
-	                    alert(result);
-	                }
-	            });
-				
-			$(' #spored_prikaz').show();
-	        });
+	$(document).on("click", "button.btn", function() {
+		var kanal = $(this).text();
+		//alert(kanal);
 			
-		$(' #kanal').show();
+	    $.ajax({
+                type: "POST",
+                url: "connDatabase.php",
+                data: 
+                {
+		    spored: kanal,
+                    film: id,
+                    method: "getSpored"
+                },
+                cache: false,
+                success: function (result) 
+				{
+                    $("#spored_prikaz").html(result);
+                },
+                error: function (result) 
+				{
+                    alert(result);
+                }
+            });
+			
+		$(' #spored_prikaz').show();
+        });
+		
+	$(' #kanal').show();
     });
     
     $("#back_to_genre_button").click(function () {
@@ -284,9 +283,9 @@ $(document).ready(function () {
 		$('input').prop('checked', false);
     });
 	
-	$(document).on("click", "input.categories", function() {
-		var kategorija = $(this).next('label').text().substring(0, 4);
-		//alert(kategorija);
+	$(document).on("click", "td.categories", function() {
+		var kategorija = $(this).text().substring(0, 4);
+		alert(kategorija);
 		$.ajax({
                 type: "POST",
                 url: "connDatabase.php",
@@ -652,20 +651,18 @@ function getDetails (id, naslov){
                     $('#zvezdice').append(htmlZvezdice);
                 });
                 
-                $('#sporedKino').html("<h4>PREDVAJANO V KINU</h4>");
                 var velikost=data[13];
                 if(velikost > 13){
-                    $('#sporedKino').append("<table id='kinoSpored'>");
-                    $('#sporedKino').append("<tr><th class='centerK'>Čas</th><th class='centerK'>Dvorana</th><th class='centerK'>Datum</th><th class='centerK'>Kraj</th></tr>");
+                    $('#kinoSpored').append("<tr><th>Čas</th><th>Dvorana</th><th>Kraj</th><th>Datum</th></tr>");
                     var s=14;
                     while (s <= velikost){
-                        $('#sporedKino').append("<tr><td class='centerK'>" + data[s] + "</td><td class='centerK'>" + data[s+1] + "</td><td class='centerK'>" + data[s+2] + "</td><td class='centerK'>" + data[s+3] + "</td></tr>");
+                        $('#kinoSpored').append("<tr><td>" + data[s] + "</td><td>" + data[s+1] + "</td><td>" + data[s+3] + "</td><td>" + data[s+2] + "</td></tr>");
                         s=s+4;
                     }
-                    $('#sporedKino').append("</table>");
                 }
-                else{
-                     $('#sporedKino').append("<h5>Film se ne predvaja v kinu!</h5>");
+				
+				else{
+                     $('#kinoSpored').append("<div style='font-size:18px;'><strong>Film se ne predvaja v kinu!</strong></div>");
                 }
             }
         },
