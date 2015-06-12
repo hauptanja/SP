@@ -195,6 +195,7 @@ $(document).ready(function () {
         $("#ocena_filma").hide();
         $("#ocena_filma_p").hide();
         $('input').prop('checked', false);
+         $('#facebookShare').empty();
     });
     
      $(document).on("click", ".starIMG", function(e) {
@@ -597,8 +598,10 @@ function getDetails (id, naslov){
                     $('#duration').text("");
                 
                 $('#summary').text(data[6]);
-                $('#facebookShare').append("<script>(function(d, s, id){var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) return;js = d.createElement(s); js.id = id;js.src ='//connect.facebook.net/sl_SI/sdk.js#xfbml=1&version=v2.3';fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));</script><div class='fb-share-button' data-href='http://164.8.252.141/SP/mainPage.php?id_film="+data[9]+"' data-layout='button_count'></div>");
 
+               $('#facebookShare').empty();
+                $('#facebookShare').append("<div class='fb-share-button' data-href='http://164.8.252.141/SP/mainPage.php?id_film="+data[9]+"' data-layout='button_count'></div>");
+                FB.XFBML.parse();
                 $('#ocenaRT').html("<span class = 'oc_span1'>" + data[7] + "</span>");
                 $('#ocenaAU').html("<span class = 'oc_span2'>" + data[8] + "</span>");
                 if (data[10] != "-"){
@@ -712,7 +715,6 @@ function pokaziFilm (id, ime) {
                 }
                 ocenaFilma=data[4];
                 $("#watched_button_z").click(function() {
-
                     $('#zvezdice').empty();
                      var htmlZvezdice = "<table id='ocenjeno'><tr>";
                     if(ocenaFilma < 0){
