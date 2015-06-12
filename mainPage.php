@@ -126,7 +126,7 @@ session_start();
 				                <div id="moj_profil">
 					                
 									<h2 id="p_name"></h2>
-									Oglejte si...
+									<strong>Oglejte si...</strong>
 					                <div id="p_nakljucni_filmi">
 					                   	<table id="nakljucni_film_table"></table>
 					                </div>
