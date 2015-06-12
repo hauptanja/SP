@@ -164,7 +164,7 @@ $(document).ready(function () {
         }
     });
     
-    $(document).on("click", ".search-result-opt li", function() {
+    $(document).on("click", ".search-result-opt td", function() {
 	    var id = $(this).attr("id"); 
         pokaziFilm (id, "");
     });
@@ -661,7 +661,7 @@ function getDetails (id, naslov){
                 }
 				
 				else{
-                     $('#kinoSpored').html("<div style='font-size:18px;'><strong>Film se ne predvaja v kinu!</strong></div>");
+                     $('#kinoSpored').html("<div style='font-size:18px;'><strong>Film se ne predvaja v kinu</strong></div>");
                 }
             }
         },
