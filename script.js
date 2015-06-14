@@ -554,6 +554,21 @@ $(document).ready(function () {
 	    getDetails (id, "");
     });
     
+    $(document).on("click", "#watched_button_z", function () {
+        $('#zvezdice').empty();
+         var htmlZvezdice = "<table id='ocenjeno'><tr>";
+        if(ocenaFilma < 0){
+            htmlZvezdice += "<td id='star1'><img src='star.png' class='starIMG'/></td><td id='star2'><img src='star.png' class='starIMG'/></td><td id='star3'><img src='star.png' class='starIMG'/></td><td id='star4'><img src='star.png' class='starIMG'/></td><td id='star5'><img src='star.png' class='starIMG'/></td>";
+        }else{
+            for(ii = 0;ii < ocenaFilma; ii++)
+                htmlZvezdice += "<td id='star"+(ii+1)+"'><img src='color-star.png' class='starIMG'/></td>";
+            for(ii;ii < 5; ii++)
+                 htmlZvezdice += "<td id='star"+(ii+1)+"'><img src='star.png' class='starIMG'/></td>";
+        }
+        htmlZvezdice += "</tr></table>";
+        $('#zvezdice').append(htmlZvezdice);
+    });
+    
 });
 
 function getUserData (){
@@ -616,11 +631,12 @@ function getDetails (id, naslov){
                 
                 $('#summary').text(data[6]);
 
-               $('#facebookShare').empty();
+				$('#facebookShare').empty();
                 $('#facebookShare').append("<div class='fb-share-button' data-href='http://164.8.252.141/SP/mainPage.php?id_film="+data[9]+"' data-layout='button_count'></div>");
                 FB.XFBML.parse();
                 $('#ocenaRT').html("<span class = 'oc_span1'>" + data[7] + "</span>");
                 $('#ocenaAU').html("<span class = 'oc_span2'>" + data[8] + "</span>");
+                
                 if (data[10] != "-"){
                 	$('#poster').attr("src", data[10]);
                 	$('#poster').show();
@@ -628,27 +644,13 @@ function getDetails (id, naslov){
                 else 
                 	$('#poster').hide();
                 $('#button_gledano').empty();
-                $('#button_gledano').append("<table><tr id='ocena_f'><tr><td><input type='button' value='Nazaj' id='back_to_list_button'/></td><td id='zvezdice' style='text-align: left;'></td><td id='watched'></td></tr></table>");
-                 if(data[12] == 1){
+                $('#button_gledano').append("<table id='detailTable'><tr id='ocena_f'><td><input type='button' value='Nazaj' id='back_to_list_button'/></td><td id='zvezdice' style='text-align: left;'></td><td id='watched'></td></tr></table>");
+                
+                if(data[12] == 1){
                     $('#watched').empty();
                     $('#watched').append("<input type='button' value='Gledano' id='watched_button_z'/>");
                 }
                 ocenaFilma=data[11];
-                $("#watched_button_z").click(function() {
-
-                    $('#zvezdice').empty();
-                     var htmlZvezdice = "<table id='ocenjeno'><tr>";
-                    if(ocenaFilma < 0){
-                        htmlZvezdice += "<td id='star1'><img src='star.png' class='starIMG'/></td><td id='star2'><img src='star.png' class='starIMG'/></td><td id='star3'><img src='star.png' class='starIMG'/></td><td id='star4'><img src='star.png' class='starIMG'/></td><td id='star5'><img src='star.png' class='starIMG'/></td>";
-                    }else{
-                        for(ii = 0;ii < ocenaFilma; ii++)
-                            htmlZvezdice += "<td id='star"+(ii+1)+"'><img src='color-star.png' class='starIMG'/></td>";
-                        for(ii;ii < 5; ii++)
-                             htmlZvezdice += "<td id='star"+(ii+1)+"'><img src='star.png' class='starIMG'/></td>";
-                    }
-                    htmlZvezdice += "</tr></table>";
-                    $('#zvezdice').append(htmlZvezdice);
-                });
                 
                 var velikost=data[13];
                 if(velikost > 13){
@@ -659,7 +661,6 @@ function getDetails (id, naslov){
                         s=s+4;
                     }
                 }
-				
 				else{
                      $('#kinoSpored').html("<div style='font-size:18px;'><strong>Film se ne predvaja v kinu</strong></div>");
                 }
@@ -724,26 +725,13 @@ function pokaziFilm (id, ime) {
                     $("#film_list_table tr.stran2").hide();
                 }
                 $('#button_gledano_n').empty();
-                $('#button_gledano_n').append("<table><tr id='ocena_f'><tr><td><input type='button' value='Nazaj' id='back_to_start_button'/></td><td id='zvezdice' style='text-align: left;'></td><td id='watched'></td></tr></table>");
+                $('#button_gledano_n').append("<table><tr id='ocena_f'><td><input type='button' value='Nazaj' id='back_to_start_button'/></td><td id='zvezdice' style='text-align: left;'></td><td id='watched'></td></tr></table>");
                 if(data[3] == 1){
                     $('#watched').empty();
                     $('#watched').append("<input type='button' value='Gledano' id='watched_button_z'/>");
                 }
                 ocenaFilma=data[4];
-                $("#watched_button_z").click(function() {
-                    $('#zvezdice').empty();
-                     var htmlZvezdice = "<table id='ocenjeno'><tr>";
-                    if(ocenaFilma < 0){
-                        htmlZvezdice += "<td id='star1'><img src='star.png' class='starIMG'/></td><td id='star2'><img src='star.png' class='starIMG'/></td><td id='star3'><img src='star.png' class='starIMG'/></td><td id='star4'><img src='star.png' class='starIMG'/></td><td id='star5'><img src='star.png' class='starIMG'/></td>";
-                    }else{
-                        for(ii = 0;ii < ocenaFilma; ii++)
-                            htmlZvezdice += "<td id='star"+(ii+1)+"'><img src='color-star.png' class='starIMG'/></td>";
-                        for(ii;ii < 5; ii++)
-                             htmlZvezdice += "<td id='star"+(ii+1)+"'><img src='star.png' class='starIMG'/></td>";
-                    }
-                    htmlZvezdice += "</tr></table>";
-                    $('#zvezdice').append(htmlZvezdice);
-                });
+                
                 
                 id = data[2];
                 //alert(data[3]);

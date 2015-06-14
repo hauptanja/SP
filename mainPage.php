@@ -154,18 +154,22 @@ session_start();
 		                        <div id="button_gledano"></div>
 		                        <input type="hidden" id="id_filma"/>
 		                        <img id="poster"/>
-		                        <div id="naslov_div">
-		                        <h2 id="slo_naslov"></h2>
-		                        <h3 id="ang_naslov"></h3>
+		                        <div id="movie_data">
+			                        <div id="naslov_div">
+				                        <h2 id="slo_naslov"></h2>
+				                        <h3 id="ang_naslov"></h3>
+			                    	</div>
+		                    	
+			                        <div id="genre"></div>
+			                        <div id="duration"></div>
+			                        <div id="year"></div>
+			                        <div id="country"></div>
+			                        <table><tr>
+			                        <td id="ocenaRT"></td>
+									<td id="ocenaAU"></td>
+			                        </tr></table>
 		                    	</div>
-		                        <div id="genre"></div>
-		                        <div id="duration"></div>
-		                        <div id="year"></div>
-		                        <div id="country"></div>
-		                        <div id="ocenaRT"></div>
-								<div id="ocenaAU"></div>
-		                        <br>
-		                        <br>
+		                       
 		                        <div id="summary"></div>
                                 <div id="facebookShare"></div>
 		                        <!--<table class="film_list_table"></table>-->

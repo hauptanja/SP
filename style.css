@@ -187,9 +187,17 @@ body {
 }
 
 #ocenjeno{
-        float: right;
+    float: right;
+    border: #F2F2F2 1px solid;
+    border-radius: 5px 0px 0 5px;
+    margin-right: 0;
+    padding: 0;
 }
-
+#ocenjeno td, #ocenjeno tr{
+	
+	margin: 0;
+	padding: 0;
+}
 #tabelaR{
     margin: 0 auto;
     font-size: 18px;
@@ -325,7 +333,7 @@ body
 #summary
 {
 	font-size: 16;
-	margin-top: 50px;
+	margin-top: 20px;
 }
 
 #best_film_table
@@ -718,7 +726,6 @@ body
 	border-color: #F2F2F2;
 	border-radius: 30px;
 	border-style: solid;
-	width: 500px;
 }
 
 .thumbs {
@@ -846,13 +853,14 @@ div#okvir_list
 }
 
 #ocenaRT{
-	background-image: url('tomato.png');
+	background-image: url('tomato.jpg');
 	background-repeat: no-repeat;
-	width: 60px;
-	height: 62px;
+	width: 80px;
+	height: 60px;
+	font-size: 22px;
 	text-align: center;
 	font-weight: bold;
-	float: left;
+	vertical-align: middle;
 }
 
 #ocenaAU{
@@ -864,17 +872,14 @@ div#okvir_list
 	font-weight: bold;
 	color: white;
 	font-size: 25px;
-	float: right;
-	margin-right: 10px;
+	vertical-align: middle;
 }
 
 .oc_span1{
-	position: relative;
-	top: 22;
+	
 }
 .oc_span2{
-	position: relative;
-	top: 14;
+
 }
 
 .naprej_nazaj_b, #spr_shrani{
@@ -996,4 +1001,22 @@ div#okvir_list
 
 .filmi{
 	padding: 5px;
+}
+
+#detailTable{
+	width: 100%;
+	border-collapse: collapse;
+}
+td#watched {
+	
+	width: 100px;
+} 
+
+#movie_data{
+	height: 250px;
+	width: 400px;
+}
+
+#movie_data table{
+	margin-top: 20px;
 }
