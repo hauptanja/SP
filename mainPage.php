@@ -83,13 +83,13 @@ session_start();
 									</table>
 		                            </div>
 		                        </li>
-		                        <!--
+		                        
 		                        <li><a href="#advancedsearch">Iskanje po ključnih besedah</a>
 		                            <div class="opt" id="advancedsearch">
 		                                <input type="text" id="wordSearchBox" placeholder="Vpišite ključne besede ločene s presledki" class="inputField"/>
 		                            </div> 
 		                        </li>
-		                        -->
+		                        
 		                    </ul>
 		                    
 		                </div>

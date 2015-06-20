@@ -374,7 +374,7 @@
     else if ($_POST['method'] == "beseda->naslov")
     {
 		$text = $_POST['beseda'];
-		$q = "call isci(4997)";
+		$q = "call isci2('$text')";
 		$result = mysqli_query($mysqli, $q);
 		
         if (mysqli_num_rows($result) > 0) {
