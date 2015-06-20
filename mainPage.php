@@ -10,9 +10,13 @@ session_start();
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script src="script.js"></script>
         <meta charset="utf-8"/>
+        <style type="text/css">
+			body {background-color: #d7d7d7}
+		</style> 
     </head>
     <body>
         <script>(function(d, s, id){var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) return;js = d.createElement(s); js.id = id;js.src ='//connect.facebook.net/sl_SI/sdk.js#xfbml=1&version=v2.3';fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));</script>
+        
 	    <div id ="website">
 		    <div id="banner"></div>
 		    <div id="fb-root"></div>
@@ -172,7 +176,7 @@ session_start();
 		                       
 		                        <div id="summary"></div>
                                 <div id="facebookShare"></div>
-		                        <!--<table class="film_list_table"></table>-->
+		                        
 		                        <br>
 								<div class='sporedKino'><strong>KINO SPORED</strong><img width="35" height="27" src='cinema.jpg'/></div>
 		                        <table id="kinoSpored"></table>
@@ -183,7 +187,7 @@ session_start();
 		                    </div>
 		                </div>
 		                
-		                <!--- za prikaz seznama ---->
+		                
 		                <div id="film_list" class="tab">
                             <div id="button_gledano_n"></div>
 		                    <div id="vpisan_film"></div>
@@ -227,10 +231,7 @@ session_start();
 		            <table id="most_watched_table"></table>
 		        </div>
 	        </div>
-	        <!----
-			<div id="footer"></div>
-	        ----> 
-	        <!--</div>-->
+	        
 	    </div>
     </body>
 </html>

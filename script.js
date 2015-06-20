@@ -441,6 +441,7 @@ $(document).ready(function () {
 			$("#best_control").css("background-image", "url('arrow_left.png')");
 			$("#second_c").hide();
 			$("#najvec_gledani_filmi").css("background-color", "white");
+			$("#website").css("height", "100%");
 	    }
 	    else {
 		    $("#best_film_table").show();
@@ -450,6 +451,7 @@ $(document).ready(function () {
 			$("#second_c").css("background-image", "url('arrow_down.png')");
 			$("#second_c").show();
 			$("#najvec_gledani_filmi").css("background-color", $("#najboljse_ocenjeni_filmi").css("background-color"));
+			$("#website").css("height", "925px");
 	    }
     });
     
@@ -664,6 +666,7 @@ function getDetails (id, naslov){
 				else{
                      $('#kinoSpored').html("<div style='font-size:18px;'><strong>Film se ne predvaja v kinu</strong></div>");
                 }
+				
             }
         },
         error: function (result) {
