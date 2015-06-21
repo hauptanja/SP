@@ -63,30 +63,6 @@
             }
             else
                 $output[12]=0;
-            $i=13;
-
-            $q2 = "SELECT * FROM Spored_kino WHERE Naslov_slo='".$row['slo_naslov']."'";
-            $result2 = mysqli_query($mysqli, $q2);
-            while($row2 = mysqli_fetch_assoc($result2)){
-                $i++;
-                $output[$i]=$row2['Cas'];
-                $i++;
-                $output[$i]=$row2['Dvorana'];
-                $qDatum = "SELECT * FROM Datum_TV WHERE ID_Datum='".$row2['DatumID']."'";
-                $resultDatum = mysqli_query($mysqli, $qDatum);
-                while($rowD = mysqli_fetch_assoc($resultDatum)){
-                    $i++;
-                    $output[$i] = $rowD['Datum'];
-                }
-                $qL = "SELECT * FROM Lokacija WHERE ID_lokacije='".$row2['LokacijaID']."'";
-                $resultL = mysqli_query($mysqli, $qL);
-                while($rowL = mysqli_fetch_assoc($resultL)){
-                    $i++;
-                    $output[$i] = $rowL['Kraj'];
-                }
-            }
-            $output[13]=$i;
-
         } else {
             echo "0 results";
         }
@@ -379,20 +355,30 @@
 		
         if (mysqli_num_rows($result) > 0) {
             $val = 0;
+			$output2 = "<tr>";
             while(($row = mysqli_fetch_assoc($result)) && $val < 12) {
 	            if ($val < 6)
 	            	$st = "stran1";
 	            else
 	            	$st = "stran2";
 	            
-                	$output2 .= "<li class='priporoceni_filmi' data-movie-ID='" . $row["ID"] . "'><img src='". $row['poster_src'] . "' class='poster_thumbnail_small'/>" . $row["slo_naslov"] . "</li>";
+                	$output2 .= "<tr class='vrsta'>
+							<td class='poster_zanr'><img width='90' height='130' src='". $row['poster_src'] . "'/></td>
+							<td data-movie-ID='" . $row["ID"] . "'><span class='ime_filma' style='font-size:20px;'>" . $row["slo_naslov"] . "  (".$row["ang_naslov"].")</span><br>
+							<span class='ocena_zanr' style='font-size:14px;'>".$row["tomatometer"]."</span><br><br>
+							<span class='vsebina_zanr'>".$row["summary"]."</span><br><br>
+							<span class='zanr' style='font-size:14px;'>".$row["genre"]."</span><span class='duration_zanr' style='font-size:14px;'>".$row["duration"]."</span>
+							</td>
+							</tr>";
                 
 					$val++;
                 
             }
+			
+			$output2 .= "</tr>";
 		}
 		else {
-            $output2 = "Ni priporočil.";
+            $output2 .= "<div style='text-align:center;'>Ni priporočil.</div>";
         }
         
         echo $output2;		
