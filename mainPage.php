@@ -216,6 +216,7 @@ session_start();
 		                </div>
 		                
 		                <div id="opcije_table" class="tab">
+			                <div id='vpisane_besede'></div>
 							<table id="opcije_list" cellspacing="5"></table>
 		                </div>
 		                

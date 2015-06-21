@@ -1060,7 +1060,7 @@ td#watched {
 	color: purple;
 }
 
-#naslov_zanra{
+#naslov_zanra, #vpisane_besede{
 	margin: 10px;
 	color: #660a82;
 	font-weight: bold;

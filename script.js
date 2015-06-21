@@ -184,7 +184,7 @@ $(document).ready(function () {
                 cache: false,
                 success: function (result) {
 	                $("#opcije_list").empty();
-	                    	
+	                $("#vpisane_besede").html("Ključne besede: " + text);	
 					$("#opcije_list").append(result);
                 	
                 },
