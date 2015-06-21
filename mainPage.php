@@ -179,6 +179,8 @@ session_start();
 		                        
 		                        <br>
 								<div class='sporedKino'><strong>KINO SPORED</strong><img width="35" height="27" src='cinema.jpg'/></div>
+								<table id="lokacija"></table>
+								<table id="datum"></table>
 		                        <table id="kinoSpored"></table>
 		                        <br>
 								<div class="sporedTV"><strong>TV SPORED</strong><img width="35" height="27" src='tv.png'/></div>
@@ -213,11 +215,8 @@ session_start();
 		                    <table id="filmi" cellspacing="5"></table>
 		                </div>
 		                
-		                <div id="opcije_list" class="tab">
-		                    <!<input type="button" value="Nazaj" id="back_to_genre_button"/>
-		                    <div id="opcije_div">
-			                    <ul class="opcije_ul"></ul>
-		                    </div>
+		                <div id="opcije_table" class="tab">
+							<table id="opcije_list" cellspacing="5"></table>
 		                </div>
 		                
 		            </div>
