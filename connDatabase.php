@@ -9,6 +9,130 @@ if (!$mysqli)
 
 //echo "Connected successfully";
 
+if ($_POST['method'] == "getLokacija")
+{
+		$film = $_POST['film'];
+		
+		$q = "SELECT DISTINCT Kraj
+			  FROM Spored_kino
+			  INNER JOIN Lokacija
+			  ON LokacijaID=ID_Lokacije
+			  WHERE Naslov_slo = (SELECT slo_naslov FROM Film WHERE ID=$film)";
+        
+		$result = mysqli_query($mysqli, $q);
+		
+		if (mysqli_num_rows($result) == 1) 
+		{
+			$q1 = "SELECT Naslov_slo, Cas, Dvorana, Datum, Kraj
+				   FROM Spored_kino
+				   INNER JOIN Lokacija
+				   ON LokacijaID=ID_Lokacije
+				   INNER JOIN Datum_TV
+				   ON DatumID=ID_Datum
+				   WHERE Naslov_slo = (SELECT slo_naslov FROM Film WHERE ID=$film)";
+        
+			$result1 = mysqli_query($mysqli, $q1);
+			
+			echo "<tr>";
+			echo "<th><strong>Naslov</strong></th><th><strong>Čas</strong></th><th><strong>Dvorana</strong></th><th><strong>Datum</strong></th><th><strong>Kraj</strong></th>";
+			echo "</tr>";
+			
+			while ($row = mysqli_fetch_assoc($result1))
+			{
+				echo "<tr>";
+				
+				echo "<td class='film'>" .$row['Naslov_slo']. "</td><td class='film'>" .$row['Cas']. "</td><td class='film'>" .$row['Dvorana']. "</td><td class='film'>" .$row['Datum']. "</td><td class='film'>" .$row['Kraj']. "</td>";
+				$i = json_encode($film);
+				//echo $i;
+				
+				echo "</tr>";
+            }
+		}
+
+		else if (mysqli_num_rows($result) > 0) 
+		{
+			while ($row = mysqli_fetch_assoc($result))
+			{
+				foreach ($row as $film)
+				{
+					echo "<button class='btn'>" .$film. "</button>";
+					$i = json_encode($film);
+					//echo $i;
+				}
+            }
+        }
+		
+		else
+		{
+			echo "<div style='font-size:18px;'><strong>Film se ne predvaja v kinu</strong></div>";
+		}
+}
+
+if ($_POST['method'] == "getDatumSpored")
+{
+		$film = $_POST['film'];
+		$lokacija = $_POST['spored'];
+		
+		$q = "	SELECT DISTINCT Datum
+				FROM Spored_kino
+				INNER JOIN Lokacija
+				ON LokacijaID=ID_Lokacije
+				INNER JOIN Datum_TV
+				ON DatumID=ID_Datum
+				WHERE Kraj = '$lokacija' AND Naslov_slo = (SELECT slo_naslov FROM Film WHERE ID=$film)";
+        
+		$result = mysqli_query($mysqli, $q);
+		
+		if (mysqli_num_rows($result) > 0) 
+		{	
+			while ($row = mysqli_fetch_assoc($result))
+			{
+				foreach ($row as $film)
+				{
+					echo "<button class='datum'>" .$film. "</button>";
+					$i = json_encode($film);
+					//echo $i;
+				}
+            }
+        }
+}
+
+if ($_POST['method'] == "getKinoSpored")
+{
+		$film = $_POST['film'];
+		$datum = $_POST['spored'];
+		$l = $_POST['l'];
+		
+		$q = "	SELECT Naslov_slo, Cas, Dvorana, Datum, Kraj
+				FROM Spored_kino
+				INNER JOIN Lokacija
+				ON LokacijaID=ID_Lokacije
+				INNER JOIN Datum_TV
+				ON DatumID=ID_Datum
+				WHERE Kraj = '$l' AND Datum = '$datum' AND Naslov_slo = (SELECT slo_naslov FROM Film WHERE ID=$film)";
+        
+		$result = mysqli_query($mysqli, $q);
+		
+		if (mysqli_num_rows($result) > 0) 
+		{
+			echo "<tr></tr>";
+			echo "<tr>";
+			echo "<th><strong>Naslov</strong></th><th><strong>Čas</strong></th><th><strong>Dvorana</strong></th><th><strong>Datum</strong></th><th><strong>Kraj</strong></th>";
+			echo "</tr>";
+			
+			while ($row = mysqli_fetch_assoc($result))
+			{
+				echo "<tr>";
+			
+				echo "<td class='film'>" .$row['Naslov_slo']. "</td><td class='film'>" .$row['Cas']. "</td><td class='film'>" .$row['Dvorana']. "</td><td class='film'>" .$row['Datum']. "</td><td class='film'>" .$row['Kraj']. "</td>";
+				$i = json_encode($film);
+				//echo $i;
+
+				echo "</tr>";
+            }
+        }
+}
+
 if ($_POST['method'] == "getKanal")
 {
 		$film = $_POST['film'];
