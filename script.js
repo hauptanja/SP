@@ -375,6 +375,7 @@ $(document).ready(function () {
     });
 	
 	$(document).on("click", "td.categories", function() {
+		var text = "Žanr: " + $(this).text();
 		var kategorija = $(this).text().substring(0, 4);
 		$.ajax({
                 type: "POST",
@@ -388,6 +389,7 @@ $(document).ready(function () {
                 success: function (result) 
 				{
 					var data = JSON.parse(result);
+					$("#naslov_zanra").text(text);
                     $("#filmi").html(data[0]);
                 },
                 error: function (result) 
