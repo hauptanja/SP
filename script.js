@@ -562,7 +562,7 @@ $(document).ready(function () {
         if(ocenaFilma < 0){
             htmlZvezdice += "<td id='star1'><img src='star.png' class='starIMG'/></td><td id='star2'><img src='star.png' class='starIMG'/></td><td id='star3'><img src='star.png' class='starIMG'/></td><td id='star4'><img src='star.png' class='starIMG'/></td><td id='star5'><img src='star.png' class='starIMG'/></td>";
         }else{
-            for(ii = 0;ii < ocenaFilma; ii++)
+            for(var ii = 0;ii < ocenaFilma; ii++)
                 htmlZvezdice += "<td id='star"+(ii+1)+"'><img src='color-star.png' class='starIMG'/></td>";
             for(ii;ii < 5; ii++)
                  htmlZvezdice += "<td id='star"+(ii+1)+"'><img src='star.png' class='starIMG'/></td>";
