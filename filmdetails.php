@@ -462,7 +462,7 @@
 		
         if (mysqli_num_rows($result) > 0) {
            	while ($row = mysqli_fetch_assoc($result)){
-	           	$output2 .= "<tr class='seznam_gledani' data-movie-ID='".$row['ID']."'><td><img class = 'poster_thumbnail_mini' src='" . $row["poster_src"]."'/></td><td>" . $row["slo_naslov"] . " <span style='font-style:italic;'>(". $row["ang_naslov"].")</span></td><td>" . $row["Ocena"]."/5</td></tr>";
+	           	$output2 .= "<tr class='seznam_gledani' data-movie-ID='".$row['ID']."'><td><img class = 'poster_thumbnail_mini' src='" . $row["poster_src"]."'/></td><td style='font-weight:bold;'>" . $row["slo_naslov"] . " <br><span style='font-style:italic; font-weight:normal; font-size:16px;'>(". $row["ang_naslov"].")</span></td><td>" . $row["Ocena"]."/5</td></tr>";
            	}
 		}
 		else {

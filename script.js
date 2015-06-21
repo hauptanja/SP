@@ -284,6 +284,7 @@ $(document).ready(function () {
     });
 	
 	$(document).on("click", "td.categories", function() {
+		var ime = "Kategorija: " + $(this).text().toUpperCase();
 		var kategorija = $(this).text().substring(0, 4);
 		$.ajax({
                 type: "POST",
@@ -298,6 +299,7 @@ $(document).ready(function () {
 				{
 					var data = JSON.parse(result);
                     $("#filmi").html(data[0]);
+                    $("#naslov_zanra").html(ime);
                 },
                 error: function (result) 
 				{
@@ -728,12 +730,14 @@ function pokaziFilm (id, ime) {
                     $("#film_list_table tr.stran2").hide();
                 }
                 $('#button_gledano_n').empty();
-                $('#button_gledano_n').append("<table><tr id='ocena_f'><td><input type='button' value='Nazaj' id='back_to_start_button'/></td><td id='zvezdice' style='text-align: left;'></td><td id='watched'></td></tr></table>");
+                $('#button_gledano_n').append("<table id='detailTable2'><tr id='ocena_f'><td><input type='button' value='Nazaj' id='back_to_start_button'/></td><td id='zvezdice' style='text-align: left;'></td><td id='watched'></td></tr></table>");
                 if(data[3] == 1){
                     $('#watched').empty();
                     $('#watched').append("<input type='button' value='Gledano' id='watched_button_z'/>");
                 }
                 ocenaFilma=data[4];
+                
+                
                 
                 
                 id = data[2];

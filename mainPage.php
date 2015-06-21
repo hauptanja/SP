@@ -209,6 +209,7 @@ session_start();
 		                </div>
 		                <div id="filmi_list" class="tab">
 		                    <input type="button" value="Nazaj" id="back_to_genre_button"/>
+		                    <div id='naslov_zanra'></div>
 		                    <table id="filmi" cellspacing="5"></table>
 		                </div>
 		                

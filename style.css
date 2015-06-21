@@ -585,6 +585,7 @@ body
 	width:100%;
 	text-align:center;
 	border-spacing:10;
+	border-collapse: collapse;
 }
 
 .sporedTV, .sporedKino
@@ -933,8 +934,10 @@ div#okvir_list
 	margin-left: auto;
 	margin-right: auto;
 	border-collapse: collapse;
-	
+	width: 640px;
+	font-size: 18px;
 }
+
 
 #seznam_gledanih td{
 	
@@ -1004,6 +1007,7 @@ div#okvir_list
 	width: 100%;
 	border-collapse: collapse;
 }
+
 td#watched {
 	
 	width: 100px;
@@ -1016,4 +1020,36 @@ td#watched {
 
 #movie_data table{
 	margin-top: 20px;
+}
+
+#zanri td {
+	height: 50px;
+	width: 140px;
+}
+
+#zanri tr:nth-child(even) td:nth-child(even), #zanri tr:nth-child(odd) td:nth-child(odd){
+	background-color: white;
+	text-decoration: none;
+}
+
+#zanri td {
+	text-decoration: none;
+}
+
+#zanri td:hover {
+	font-weight: bold;
+	color: purple;
+}
+
+#naslov_zanra{
+	margin: 10px;
+	color: #660a82;
+	font-weight: bold;
+	text-align: left;
+	font-size: 25px;
+	background-color: #ccc;
+	border-radius: 5px;
+	text-indent: 20px;
+	padding: 5px;
+	
 }
