@@ -218,14 +218,14 @@
     var cameraXAngle = 0;
     var cameraYAngle = 0;
     var cameraZAngle = 0;
-	
+
 	var moonXAngle = 0;
     var moonYAngle = 0;
     var moonXPosition = -5;
     var moonYPosition = 0;
     var moonZPosition = 0;
     var moonScale = 1;
-    
+
     var cubeXAngle = 0;
     var cubeYAngle = 0;
     var cubeXPosition = 5;
@@ -256,7 +256,7 @@
 		    //2
 		    chosenObject = 1;
 	    }
-	    
+
 	    //move camera
         if (currentlyPressedKeys[87]) {
             // W naprej
@@ -265,7 +265,7 @@
         if (currentlyPressedKeys[83]) {
             // S nazaj
             cameraZPosition -= 0.05;
-        }        
+        }
         if (currentlyPressedKeys[65]) {
             // A levo
             cameraXPosition += 0.05;
@@ -282,7 +282,7 @@
             // F dol
             cameraYPosition += 0.05;
         }
-        
+
         //rotate camera
         if (currentlyPressedKeys[88]) {
             // X
@@ -296,7 +296,7 @@
             // Z
             cameraZAngle += 1;
         }
- 
+
         //rotation of objects
         if (currentlyPressedKeys[37]) {
             // Left cursor key
@@ -326,7 +326,7 @@
             else
             	cubeXAngle += 1;
         }
-        
+
         //moving objects
         if (currentlyPressedKeys[80]) {
 	        //P naprej
@@ -370,7 +370,7 @@
             else
             	cubeYPosition -= 0.1;
         }
-        
+
         //scale objects
         if (currentlyPressedKeys[187]) {
 	        //+
@@ -404,40 +404,40 @@
         gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexPositionBuffer);
         vertices = [
             // Front face
-            -1.0, -1.0,  1.0,
-             1.0, -1.0,  1.0,
-             1.0,  1.0,  1.0,
-            -1.0,  1.0,  1.0,
+            -2.0, -2.75,  1.0,
+             2.0, -2.75,  1.0,
+             2.0,  2.75,  1.0,
+            -2.0,  2.75,  1.0,
 
             // Back face
-            -1.0, -1.0, -1.0,
-            -1.0,  1.0, -1.0,
-             1.0,  1.0, -1.0,
-             1.0, -1.0, -1.0,
+            -2.0, -2.75, -0.1,
+            -2.0,  2.75, -0.1,
+             2.0,  2.75, -0.1,
+             2.0, -2.75, -0.1,
 
             // Top face
-            -1.0,  1.0, -1.0,
-            -1.0,  1.0,  1.0,
-             1.0,  1.0,  1.0,
-             1.0,  1.0, -1.0,
+            -2.0,  2.75, -0.1,
+            -2.0,  2.75,  1.0,
+             2.0,  2.75,  1.0,
+             2.0,  2.75, -0.1,
 
             // Bottom face
-            -1.0, -1.0, -1.0,
-             1.0, -1.0, -1.0,
-             1.0, -1.0,  1.0,
-            -1.0, -1.0,  1.0,
+            -2.0, -2.75, -0.1,
+             2.0, -2.75, -0.1,
+             2.0, -2.75,  1.0,
+            -2.0, -2.75,  1.0,
 
             // Right face
-             1.0, -1.0, -1.0,
-             1.0,  1.0, -1.0,
-             1.0,  1.0,  1.0,
-             1.0, -1.0,  1.0,
+             2.0, -2.75, -0.1,
+             2.0,  2.75, -0.1,
+             2.0,  2.75,  1.0,
+             2.0, -2.75,  1.0,
 
             // Left face
-            -1.0, -1.0, -1.0,
-            -1.0, -1.0,  1.0,
-            -1.0,  1.0,  1.0,
-            -1.0,  1.0, -1.0
+            -2.0, -2.75, -0.1,
+            -2.0, -2.75,  1.0,
+            -2.0,  2.75,  1.0,
+            -2.0,  2.75, -0.1
         ];
         gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
         cubeVertexPositionBuffer.itemSize = 3;
@@ -655,9 +655,9 @@
 		mat4.rotate(mvMatrix, degToRad(cameraXAngle), [1, 0, 0]);
 		mat4.rotate(mvMatrix, degToRad(cameraYAngle), [0, 1, 0]);
 		mat4.rotate(mvMatrix, degToRad(cameraZAngle), [0, 0, 1]);
-		
-        mvPushMatrix();
-        
+
+        /*mvPushMatrix();
+
         mat4.scale(mvMatrix,[moonScale, moonScale, moonScale]);
         mat4.rotate(mvMatrix, degToRad(moonYAngle), [0, 1, 0]);
         mat4.rotate(mvMatrix, degToRad(moonXAngle), [1, 0, 0]);
@@ -678,14 +678,38 @@
         gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, moonVertexIndexBuffer);
         setMatrixUniforms();
         gl.drawElements(gl.TRIANGLES, moonVertexIndexBuffer.numItems, gl.UNSIGNED_SHORT, 0);
+        mvPopMatrix();*/
+
+        mvPushMatrix();
+        mat4.scale(mvMatrix,[cubeScale, cubeScale, cubeScale]);
+        mat4.rotate(mvMatrix, degToRad(90), [0, 1, 0]);
+        mat4.rotate(mvMatrix, degToRad(cubeXAngle), [1, 0, 0]);
+
+        mat4.translate(mvMatrix, [cubeXPosition, cubeYPosition, cubeZPosition + 10]);
+        gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexPositionBuffer);
+        gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute, cubeVertexPositionBuffer.itemSize, gl.FLOAT, false, 0, 0);
+
+        gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexNormalBuffer);
+        gl.vertexAttribPointer(shaderProgram.vertexNormalAttribute, cubeVertexNormalBuffer.itemSize, gl.FLOAT, false, 0, 0);
+
+        gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexTextureCoordBuffer);
+        gl.vertexAttribPointer(shaderProgram.textureCoordAttribute, cubeVertexTextureCoordBuffer.itemSize, gl.FLOAT, false, 0, 0);
+
+        gl.activeTexture(gl.TEXTURE0);
+        gl.bindTexture(gl.TEXTURE_2D, crateTexture);
+        gl.uniform1i(shaderProgram.samplerUniform, 0);
+
+        gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, cubeVertexIndexBuffer);
+        setMatrixUniforms();
+        gl.drawElements(gl.TRIANGLES, cubeVertexIndexBuffer.numItems, gl.UNSIGNED_SHORT, 0);
         mvPopMatrix();
 
         mvPushMatrix();
         mat4.scale(mvMatrix,[cubeScale, cubeScale, cubeScale]);
         mat4.rotate(mvMatrix, degToRad(cubeYAngle), [0, 1, 0]);
         mat4.rotate(mvMatrix, degToRad(cubeXAngle), [1, 0, 0]);
-        
-        mat4.translate(mvMatrix, [cubeXPosition, cubeYPosition, cubeZPosition]);
+
+        mat4.translate(mvMatrix, [cubeXPosition -10, cubeYPosition, cubeZPosition]);
         gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexPositionBuffer);
         gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute, cubeVertexPositionBuffer.itemSize, gl.FLOAT, false, 0, 0);
 
@@ -722,7 +746,7 @@
 
         gl.clearColor(0.0, 0.0, 0.0, 1.0);
         gl.enable(gl.DEPTH_TEST);
-        
+
         document.onkeydown = handleKeyDown;
         document.onkeyup = handleKeyUp;
 
