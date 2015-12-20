@@ -629,23 +629,23 @@
         if (lighting) {
             gl.uniform3f(
                 shaderProgram.ambientColorUniform,
-                parseFloat(0.2),
-                parseFloat(0.2),
-                parseFloat(0.2)
+                parseFloat(0.6),
+                parseFloat(0.6),
+                parseFloat(0.6)
             );
 
             gl.uniform3f(
                 shaderProgram.pointLightingLocationUniform,
-                parseFloat(document.getElementById("lightPositionX").value),
-                parseFloat(document.getElementById("lightPositionY").value),
-                parseFloat(document.getElementById("lightPositionZ").value)
+                parseFloat(0.0),
+                parseFloat(0.0),
+                parseFloat(20.0)
             );
 
             gl.uniform3f(
                 shaderProgram.pointLightingColorUniform,
-                parseFloat(document.getElementById("pointR").value),
-                parseFloat(document.getElementById("pointG").value),
-                parseFloat(document.getElementById("pointB").value)
+                parseFloat(0.8),
+                parseFloat(0.8),
+                parseFloat(0.8)
             );
         }
 
@@ -760,29 +760,7 @@
 
 
 <body onload="webGLStart();">
-    <canvas id="lesson12-canvas" style="border: none;" width="500" height="500"></canvas>
-    <br />
-
-    <h2>Point light:</h2>
-
-    <table style="border: 0; padding: 10px;">
-        <tr>
-            <td><b>Location:</b>
-            <td>X: <input type="text" id="lightPositionX" value="0.0" />
-            <td>Y: <input type="text" id="lightPositionY" value="0.0" />
-            <td>Z: <input type="text" id="lightPositionZ" value="-20.0" />
-        </tr>
-        <tr>
-            <td><b>Colour:</b>
-            <td>R: <input type="text" id="pointR" value="0.8" />
-            <td>G: <input type="text" id="pointG" value="0.8" />
-            <td>B: <input type="text" id="pointB" value="0.8" />
-        </tr>
-    </table>
-
-    Moon texture courtesy of <a href="http://maps.jpl.nasa.gov/">the Jet Propulsion Laboratory</a>.
-    <br/>
-    <br/>
+    <canvas id="lesson12-canvas" style="border: none;" width="1000" height="500"></canvas>
 </body>
 
 </html>
