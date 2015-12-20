@@ -62,7 +62,9 @@
 
 				//define scene
 				camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 1, 100000 );
-				camera.position.z = 500;
+				camera.position.z = 0;
+				camera.position.y = 0;
+				camera.position.x = 0;
 
 				cameraCube = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 1, 100000 );
 
@@ -144,17 +146,17 @@
 				cube5 = new THREE.Mesh( geometry1, material1 );
 				cube6 = new THREE.Mesh( geometry1, material1 );
 				
-				cube1.position.set(-150,-130,0.65);
+				cube1.position.set(-150,0,0.65);
 				cube1.rotation.y = 1.55;
-				cube2.position.set(150,-130,0.65);
+				cube2.position.set(150,0,0.65);
 				cube2.rotation.y = -1.55;
-				cube3.position.set(-70,-130,-100);
+				cube3.position.set(-70,0,-100);
 				cube3.rotation.y = 0.5;
-				cube4.position.set(70,-130,-100);
+				cube4.position.set(70,0,-100);
 				cube4.rotation.y = -0.5;
-				cube5.position.set(70,-130,110);
+				cube5.position.set(70,0,110);
 				cube5.rotation.y = 0.5;
-				cube6.position.set(-70,-130,110);
+				cube6.position.set(-70,0,110);
 				cube6.rotation.y = -0.5;
 				
 				scene.add( cube1 );
@@ -204,45 +206,41 @@
 			function keyAnimation()
 			{
 				keyboard.update();
-
+			
 				if ( keyboard.down("left") ) 
-					cube1.translateY( -50 );
+					camera.translateX(0.01);
 					
 				if ( keyboard.down("right") )
 				{
-					cube1.translateX( -50 );
-					//cube1.rotation.y = -2.2;
+					camera.translateX(-0.01);
 				}
 					
-				if ( keyboard.down("up") ) 
-					cube1.translateZ(  50 );
-
-				if ( keyboard.pressed("A") )
-					cube2.translateZ( -5 );
-					
-				if ( keyboard.pressed("D") )
-					cube2.translateY(  5 );
-					
-				if ( keyboard.pressed("E") )
-					camera.translateZ(-5);
-					
 				if ( keyboard.pressed("W") )
-					camera.translateZ(5);
+					camera.translateZ(-2);
 					
 				if ( keyboard.pressed("S") )
-					{
+					camera.translateZ(2);
+					
+				if ( keyboard.pressed("A") )
+				{
+					/*
 						cube3.scale.x += 0.1;
 						cube3.scale.y += 0.1;
 						cube3.scale.z += 0.1;
-					}
+					*/
+					camera.translateX(0.01);
+				}
+				if (keyboard.pressed("D")) 
+					camera.translateX(-0.01);
+				
 			}
 
 			//move event on mouse
 			function onDocumentMouseMove( event ) {
-
+				/*
 				mouseX = ( event.clientX - windowHalfX ) * 5;
 				mouseY = ( event.clientY - windowHalfY ) * 5;
-
+				*/
 			}
 
 			//animate
@@ -259,8 +257,8 @@
 
 				var timer = 0.0001 * Date.now();
 
-				camera.position.x += ( mouseX - camera.position.x ) * .05;
-				camera.position.y += ( - mouseY - camera.position.y ) * .05;
+				//camera.position.x += ( mouseX - camera.position.x ) * .05;
+				//camera.position.y += ( - mouseY - camera.position.y ) * .05;
 
 				camera.lookAt( scene.position );
 
