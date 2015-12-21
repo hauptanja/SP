@@ -436,7 +436,7 @@
         gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, cubeVertexIndexBuffer1);
 		
         var cubeVertexIndices1 = [
-            //0, 1, 2,      0, 2, 3,    // Front face
+            0, 1, 2,      0, 2, 3,    // Front face
             4, 5, 6,      4, 6, 7,    // Back face
             8, 9, 10,     8, 10, 11,  // Top face
             12, 13, 14,   12, 14, 15, // Bottom face
@@ -446,7 +446,7 @@
 		
 		gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(cubeVertexIndices1), gl.STATIC_DRAW);
         cubeVertexIndexBuffer1.itemSize = 1;
-        cubeVertexIndexBuffer1.numItems = 30;
+        cubeVertexIndexBuffer1.numItems = 36;
        
 		var latitudeBands = 30;
         var longitudeBands = 30;
