@@ -179,8 +179,8 @@
     }
     var cameraXPosition = 0;
     var cameraYPosition = 0;
-    var cameraZPosition = -10;
-    var cameraXAngle = 10;
+    var cameraZPosition = -33;
+    var cameraXAngle = 0;
     var cameraYAngle = 0;
     var cameraZAngle = 0;
 	var moonXAngle = 0;
@@ -207,17 +207,17 @@
 	    //move camera
         if (currentlyPressedKeys[87]) {
             // W naprej
-            if (cameraZPosition < 20)
+            //if (cameraZPosition < 20)
             	cameraZPosition += 0.1;
         }
         if (currentlyPressedKeys[83]) {
             // S nazaj
-            if (cameraZPosition > -20)
+            //if (cameraZPosition > -20)
             	cameraZPosition -= 0.1;
         }
         if (currentlyPressedKeys[65]) {
             // A levo
-            if (cameraXPosition < 10)
+            //if (cameraXPosition < 10)
             	cameraXPosition += 0.1;
         }
         if (currentlyPressedKeys[68]) {
@@ -227,12 +227,12 @@
         }
         if (currentlyPressedKeys[82]) {
             // R gor
-            if (cameraYPosition > -10)
+            //if (cameraYPosition > -10)
             	cameraYPosition -= 0.1;
         }
         if (currentlyPressedKeys[70]) {
             // F dol
-            if (cameraYPosition < 10)
+            //if (cameraYPosition < 10)
             	cameraYPosition += 0.1;
         }
         //rotate camera
@@ -541,47 +541,152 @@
 		mat4.rotate(mvMatrix, degToRad(cameraYAngle), [0, 1, 0]);
 		mat4.rotate(mvMatrix, degToRad(cameraZAngle), [0, 0, 1]);
 		
-        mvPushMatrix();
-        mat4.scale(mvMatrix,[cubeScale, cubeScale, cubeScale]);
-        mat4.rotate(mvMatrix, degToRad(cubeYAngle), [0, 1, 0]);
-        mat4.rotate(mvMatrix, degToRad(cubeXAngle), [1, 0, 0]);
-        mat4.translate(mvMatrix, [cubeXPosition, cubeYPosition-3, cubeZPosition+11]);
-        gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexPositionBuffer);
-        gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute, cubeVertexPositionBuffer.itemSize, gl.FLOAT, false, 0, 0);
-        gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexNormalBuffer);
-        gl.vertexAttribPointer(shaderProgram.vertexNormalAttribute, cubeVertexNormalBuffer.itemSize, gl.FLOAT, false, 0, 0);
-        gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexTextureCoordBuffer);
-        gl.vertexAttribPointer(shaderProgram.textureCoordAttribute, cubeVertexTextureCoordBuffer.itemSize, gl.FLOAT, false, 0, 0);
-        gl.activeTexture(gl.TEXTURE0);
-        gl.bindTexture(gl.TEXTURE_2D, crateTexture);
-        gl.uniform1i(shaderProgram.samplerUniform, 0);
-        gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, cubeVertexIndexBuffer);
-        setMatrixUniforms();
-        gl.drawElements(gl.TRIANGLES, cubeVertexIndexBuffer.numItems, gl.UNSIGNED_SHORT, 0);
-        mvPopMatrix();
+        for(i=0;i<2;i++){
+            mvPushMatrix();
+            mat4.scale(mvMatrix,[cubeScale, cubeScale, cubeScale]);
+            mat4.rotate(mvMatrix, degToRad(cameraYAngle +120), [0, 1, 0]);
+            mat4.rotate(mvMatrix, degToRad(cameraXAngle), [1, 0, 0]);
+            if(i%2==0)
+                mat4.translate(mvMatrix, [cubeXPosition -8, cubeYPosition-5, cubeZPosition+12]);
+            if(i%2==1)
+                mat4.translate(mvMatrix, [cubeXPosition -8, cubeYPosition+5, cubeZPosition+12]);
+            gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexPositionBuffer);
+            gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute, cubeVertexPositionBuffer.itemSize, gl.FLOAT, false, 0, 0);
+            gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexNormalBuffer);
+            gl.vertexAttribPointer(shaderProgram.vertexNormalAttribute, cubeVertexNormalBuffer.itemSize, gl.FLOAT, false, 0, 0);
+            gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexTextureCoordBuffer);
+            gl.vertexAttribPointer(shaderProgram.textureCoordAttribute, cubeVertexTextureCoordBuffer.itemSize, gl.FLOAT, false, 0, 0);
+            gl.activeTexture(gl.TEXTURE0);
+            gl.bindTexture(gl.TEXTURE_2D, crateTexture);
+            gl.uniform1i(shaderProgram.samplerUniform, 0);
+            gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, cubeVertexIndexBuffer);
+            setMatrixUniforms();
+            gl.drawElements(gl.TRIANGLES, cubeVertexIndexBuffer.numItems, gl.UNSIGNED_SHORT, 0);
+            mvPopMatrix();
+        }
         
-		mvPushMatrix();
-        mat4.scale(mvMatrix,[cubeScale, cubeScale, cubeScale]);
-        mat4.rotate(mvMatrix, degToRad(cubeYAngle), [0, 1, 0]);
-        mat4.rotate(mvMatrix, degToRad(cubeXAngle), [1, 0, 0]);
-        mat4.translate(mvMatrix, [cubeXPosition, cubeYPosition-3, cubeZPosition]);
-        gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexPositionBuffer);
-        gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute, cubeVertexPositionBuffer.itemSize, gl.FLOAT, false, 0, 0);
-        gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexNormalBuffer);
-        gl.vertexAttribPointer(shaderProgram.vertexNormalAttribute, cubeVertexNormalBuffer.itemSize, gl.FLOAT, false, 0, 0);
-        gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexTextureCoordBuffer);
-        gl.vertexAttribPointer(shaderProgram.textureCoordAttribute, cubeVertexTextureCoordBuffer.itemSize, gl.FLOAT, false, 0, 0);
-        gl.activeTexture(gl.TEXTURE0);
-        gl.bindTexture(gl.TEXTURE_2D, crateTexture);
-        gl.uniform1i(shaderProgram.samplerUniform, 0);
-        gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, cubeVertexIndexBuffer);
-        setMatrixUniforms();
-        gl.drawElements(gl.TRIANGLES, cubeVertexIndexBuffer.numItems, gl.UNSIGNED_SHORT, 0);
-        mvPopMatrix();
+        for(i=0;i<2;i++){
+            mvPushMatrix();
+            mat4.scale(mvMatrix,[cubeScale, cubeScale, cubeScale]);
+            mat4.rotate(mvMatrix, degToRad(cameraYAngle), [0, 1, 0]);
+            mat4.rotate(mvMatrix, degToRad(cameraXAngle), [1, 0, 0]);
+            if(i%2==0)
+                mat4.translate(mvMatrix, [cubeXPosition -5, cubeYPosition -5, cubeZPosition -12]);
+            if(i%2==1)
+                mat4.translate(mvMatrix, [cubeXPosition -5, cubeYPosition +5, cubeZPosition -12]);
+            gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexPositionBuffer);
+            gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute, cubeVertexPositionBuffer.itemSize, gl.FLOAT, false, 0, 0);
+            gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexNormalBuffer);
+            gl.vertexAttribPointer(shaderProgram.vertexNormalAttribute, cubeVertexNormalBuffer.itemSize, gl.FLOAT, false, 0, 0);
+            gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexTextureCoordBuffer);
+            gl.vertexAttribPointer(shaderProgram.textureCoordAttribute, cubeVertexTextureCoordBuffer.itemSize, gl.FLOAT, false, 0, 0);
+            gl.activeTexture(gl.TEXTURE0);
+            gl.bindTexture(gl.TEXTURE_2D, crateTexture);
+            gl.uniform1i(shaderProgram.samplerUniform, 0);
+            gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, cubeVertexIndexBuffer);
+            setMatrixUniforms();
+            gl.drawElements(gl.TRIANGLES, cubeVertexIndexBuffer.numItems, gl.UNSIGNED_SHORT, 0);
+            mvPopMatrix();
+        }
+
+        for(i=0;i<2;i++){
+            mvPushMatrix();
+            mat4.scale(mvMatrix,[cubeScale, cubeScale, cubeScale]);
+            mat4.rotate(mvMatrix, degToRad(cameraYAngle +60), [0, 1, 0]);
+            mat4.rotate(mvMatrix, degToRad(cameraXAngle), [1, 0, 0]);
+            if(i%2==0)
+                mat4.translate(mvMatrix, [cubeXPosition -8, cubeYPosition -5, cubeZPosition -12]);
+            if(i%2==1)
+                mat4.translate(mvMatrix, [cubeXPosition -8, cubeYPosition +5, cubeZPosition -12]);
+            gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexPositionBuffer);
+            gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute, cubeVertexPositionBuffer.itemSize, gl.FLOAT, false, 0, 0);
+            gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexNormalBuffer);
+            gl.vertexAttribPointer(shaderProgram.vertexNormalAttribute, cubeVertexNormalBuffer.itemSize, gl.FLOAT, false, 0, 0);
+            gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexTextureCoordBuffer);
+            gl.vertexAttribPointer(shaderProgram.textureCoordAttribute, cubeVertexTextureCoordBuffer.itemSize, gl.FLOAT, false, 0, 0);
+            gl.activeTexture(gl.TEXTURE0);
+            gl.bindTexture(gl.TEXTURE_2D, crateTexture);
+            gl.uniform1i(shaderProgram.samplerUniform, 0);
+            gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, cubeVertexIndexBuffer);
+            setMatrixUniforms();
+            gl.drawElements(gl.TRIANGLES, cubeVertexIndexBuffer.numItems, gl.UNSIGNED_SHORT, 0);
+            mvPopMatrix();
+        }
+
+        for(i=0;i<2;i++){
+            mvPushMatrix();
+            mat4.scale(mvMatrix,[cubeScale, cubeScale, cubeScale]);
+            mat4.rotate(mvMatrix, degToRad(cameraYAngle +180), [0, 1, 0]);
+            mat4.rotate(mvMatrix, degToRad(cameraXAngle), [1, 0, 0]);
+            if(i%2==0)
+                mat4.translate(mvMatrix, [cubeXPosition -5, cubeYPosition -5, cubeZPosition -12]);
+            if(i%2==1)
+                mat4.translate(mvMatrix, [cubeXPosition -5, cubeYPosition +5, cubeZPosition -12]);
+            gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexPositionBuffer);
+            gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute, cubeVertexPositionBuffer.itemSize, gl.FLOAT, false, 0, 0);
+            gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexNormalBuffer);
+            gl.vertexAttribPointer(shaderProgram.vertexNormalAttribute, cubeVertexNormalBuffer.itemSize, gl.FLOAT, false, 0, 0);
+            gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexTextureCoordBuffer);
+            gl.vertexAttribPointer(shaderProgram.textureCoordAttribute, cubeVertexTextureCoordBuffer.itemSize, gl.FLOAT, false, 0, 0);
+            gl.activeTexture(gl.TEXTURE0);
+            gl.bindTexture(gl.TEXTURE_2D, crateTexture);
+            gl.uniform1i(shaderProgram.samplerUniform, 0);
+            gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, cubeVertexIndexBuffer);
+            setMatrixUniforms();
+            gl.drawElements(gl.TRIANGLES, cubeVertexIndexBuffer.numItems, gl.UNSIGNED_SHORT, 0);
+            mvPopMatrix();
+        }
+
+        for(i=0;i<2;i++){
+             mvPushMatrix();
+            mat4.scale(mvMatrix,[cubeScale, cubeScale, cubeScale]);
+            mat4.rotate(mvMatrix, degToRad(cameraYAngle + 240), [0, 1, 0]);
+            mat4.rotate(mvMatrix, degToRad(cameraXAngle), [1, 0, 0]);
+            if(i%2==0)
+                mat4.translate(mvMatrix, [cubeXPosition -5, cubeYPosition -5, cubeZPosition-13]);
+            if(i%2==1)
+                mat4.translate(mvMatrix, [cubeXPosition -5, cubeYPosition +5, cubeZPosition-13]);
+            gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexPositionBuffer);
+            gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute, cubeVertexPositionBuffer.itemSize, gl.FLOAT, false, 0, 0);
+            gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexNormalBuffer);
+            gl.vertexAttribPointer(shaderProgram.vertexNormalAttribute, cubeVertexNormalBuffer.itemSize, gl.FLOAT, false, 0, 0);
+            gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexTextureCoordBuffer);
+            gl.vertexAttribPointer(shaderProgram.textureCoordAttribute, cubeVertexTextureCoordBuffer.itemSize, gl.FLOAT, false, 0, 0);
+            gl.activeTexture(gl.TEXTURE0);
+            gl.bindTexture(gl.TEXTURE_2D, crateTexture);
+            gl.uniform1i(shaderProgram.samplerUniform, 0);
+            gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, cubeVertexIndexBuffer);
+            setMatrixUniforms();
+            gl.drawElements(gl.TRIANGLES, cubeVertexIndexBuffer.numItems, gl.UNSIGNED_SHORT, 0);
+            mvPopMatrix();
+        }
+        for(i=0;i<2;i++){
+             mvPushMatrix();
+            mat4.scale(mvMatrix,[cubeScale, cubeScale, cubeScale]);
+            mat4.rotate(mvMatrix, degToRad(cameraYAngle + 120), [0, 1, 0]);
+            mat4.rotate(mvMatrix, degToRad(cameraXAngle), [1, 0, 0]);
+            if(i%2==0)
+                mat4.translate(mvMatrix, [cubeXPosition-5, cubeYPosition -5, cubeZPosition-14]);
+            if(i%2==1)
+                mat4.translate(mvMatrix, [cubeXPosition-5, cubeYPosition +5, cubeZPosition-14]);
+            gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexPositionBuffer);
+            gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute, cubeVertexPositionBuffer.itemSize, gl.FLOAT, false, 0, 0);
+            gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexNormalBuffer);
+            gl.vertexAttribPointer(shaderProgram.vertexNormalAttribute, cubeVertexNormalBuffer.itemSize, gl.FLOAT, false, 0, 0);
+            gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexTextureCoordBuffer);
+            gl.vertexAttribPointer(shaderProgram.textureCoordAttribute, cubeVertexTextureCoordBuffer.itemSize, gl.FLOAT, false, 0, 0);
+            gl.activeTexture(gl.TEXTURE0);
+            gl.bindTexture(gl.TEXTURE_2D, crateTexture);
+            gl.uniform1i(shaderProgram.samplerUniform, 0);
+            gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, cubeVertexIndexBuffer);
+            setMatrixUniforms();
+            gl.drawElements(gl.TRIANGLES, cubeVertexIndexBuffer.numItems, gl.UNSIGNED_SHORT, 0);
+            mvPopMatrix();
+        }
 		
 		//prostor - izris
 		mvPushMatrix();
-        mat4.scale(mvMatrix,[cubeScale+20, cubeScale+20, cubeScale+20]);
+        mat4.scale(mvMatrix,[cubeScale+12, cubeScale+12, cubeScale+12]);
         mat4.rotate(mvMatrix, degToRad(cameraYAngle), [0, 1, 0]);
         mat4.rotate(mvMatrix, degToRad(cameraXAngle), [1, 0, 0]);
         mat4.translate(mvMatrix, [0, 0, 0]);
