@@ -179,7 +179,7 @@
     }
     var cameraXPosition = 0;
     var cameraYPosition = 0;
-    var cameraZPosition = -33;
+    var cameraZPosition = -10;
     var cameraXAngle = 0;
     var cameraYAngle = 0;
     var cameraZAngle = 0;
@@ -197,6 +197,8 @@
     var cubeScale = 1;
     var currentlyPressedKeys = {};
     var chosenObject = 0;
+    
+    var meja = 5;
     function handleKeyDown(event) {
         currentlyPressedKeys[event.keyCode] = true;
     }
@@ -207,42 +209,42 @@
 	    //move camera
         if (currentlyPressedKeys[87]) {
             // W naprej
-            //if (cameraZPosition < 20)
+            if (cameraZPosition < meja)
             	cameraZPosition += 0.1;
         }
         if (currentlyPressedKeys[83]) {
             // S nazaj
-            //if (cameraZPosition > -20)
+            if (cameraZPosition > -meja)
             	cameraZPosition -= 0.1;
         }
         if (currentlyPressedKeys[65]) {
             // A levo
-            //if (cameraXPosition < 10)
+            if (cameraXPosition < meja)
             	cameraXPosition += 0.1;
         }
         if (currentlyPressedKeys[68]) {
             // D desno
-            if (cameraXPosition > -10)
+            if (cameraXPosition > -meja)
             	cameraXPosition -= 0.1;
         }
         if (currentlyPressedKeys[82]) {
             // R gor
-            //if (cameraYPosition > -10)
+            if (cameraYPosition > -meja)
             	cameraYPosition -= 0.1;
         }
         if (currentlyPressedKeys[70]) {
             // F dol
-            //if (cameraYPosition < 10)
+            if (cameraYPosition < meja)
             	cameraYPosition += 0.1;
         }
         //rotate camera
         if (currentlyPressedKeys[37]) {
             // left arrow
-            cameraYAngle += 1;
+            cameraYAngle -= 1;
         }
         if (currentlyPressedKeys[39]) {
 	        //right arrow
-	        cameraYAngle -= 1;
+	        cameraYAngle += 1;
         }
     }
     var cubeVertexPositionBuffer;
