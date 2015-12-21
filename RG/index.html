@@ -553,9 +553,9 @@
         mvPopMatrix();*/
         mvPushMatrix();
         mat4.scale(mvMatrix,[cubeScale, cubeScale, cubeScale]);
-        mat4.rotate(mvMatrix, degToRad(65), [0, 1, 0]);
+        mat4.rotate(mvMatrix, degToRad(120), [0, 1, 0]);
         mat4.rotate(mvMatrix, degToRad(cubeXAngle), [1, 0, 0]);
-        mat4.translate(mvMatrix, [cubeXPosition+3, cubeYPosition, cubeZPosition-1]);
+        mat4.translate(mvMatrix, [cubeXPosition, cubeYPosition-3, cubeZPosition+11]);
         gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexPositionBuffer);
         gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute, cubeVertexPositionBuffer.itemSize, gl.FLOAT, false, 0, 0);
         gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexNormalBuffer);
@@ -574,7 +574,7 @@
         mat4.scale(mvMatrix,[cubeScale, cubeScale, cubeScale]);
         mat4.rotate(mvMatrix, degToRad(cubeYAngle), [0, 1, 0]);
         mat4.rotate(mvMatrix, degToRad(cubeXAngle), [1, 0, 0]);
-        mat4.translate(mvMatrix, [cubeXPosition-6, cubeYPosition, cubeZPosition-1]);
+        mat4.translate(mvMatrix, [cubeXPosition-5, cubeYPosition-3, cubeZPosition-15]);
         gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexPositionBuffer);
         gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute, cubeVertexPositionBuffer.itemSize, gl.FLOAT, false, 0, 0);
         gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexNormalBuffer);
