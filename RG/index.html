@@ -177,12 +177,12 @@
     function degToRad(degrees) {
         return degrees * Math.PI / 180;
     }
-    var cameraXPosition = -7;
+    var cameraXPosition = -20;
     var cameraYPosition = 0;
     var cameraZPosition = -33;
     var cameraXAngle = 0;
-    var cameraYAngle = 0;
-    var cameraZAngle = -15;
+    var cameraYAngle = 45;
+    var cameraZAngle = 0;
 	var moonXAngle = 0;
     var moonYAngle = 0;
     var moonXPosition = -5;
@@ -371,7 +371,7 @@
         cubeVertexIndexBuffer = gl.createBuffer();
         gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, cubeVertexIndexBuffer);
         var cubeVertexIndices = [
-            0, 1, 2,      0, 2, 3,    // Front face
+            //0, 1, 2,      0, 2, 3,    // Front face
             4, 5, 6,      4, 6, 7,    // Back face
             8, 9, 10,     8, 10, 11,  // Top face
             12, 13, 14,   12, 14, 15, // Bottom face
@@ -381,7 +381,7 @@
 		
 		gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(cubeVertexIndices), gl.STATIC_DRAW);
         cubeVertexIndexBuffer.itemSize = 1;
-        cubeVertexIndexBuffer.numItems = 36;
+        cubeVertexIndexBuffer.numItems = 30;
 		
 		//kocka - prostor
 		cubeVertexPositionBuffer1 = gl.createBuffer();
@@ -599,8 +599,8 @@
 		//prostor - izris
 		mvPushMatrix();
         mat4.scale(mvMatrix,[cubeScale+20, cubeScale+20, cubeScale+20]);
-        mat4.rotate(mvMatrix, degToRad(cameraYAngle), [0, 1, 0]);
-        mat4.rotate(mvMatrix, degToRad(cameraXAngle), [1, 0, 0]);
+        mat4.rotate(mvMatrix, degToRad(cubeYAngle), [0, 1, 0]);
+        mat4.rotate(mvMatrix, degToRad(cubeXAngle), [1, 0, 0]);
         mat4.translate(mvMatrix, [0, 0, -0.9]);
         gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexPositionBuffer1);
         gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute, cubeVertexPositionBuffer1.itemSize, gl.FLOAT, false, 0, 0);
