@@ -1,0 +1,1415 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<filmi>
+	<!--<datum date="21.5.2015">-->
+    <film>
+        <ime>Pravi detektiv</ime>
+        <cas>00.00</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Hišna zabava 5</ime>
+        <cas>01.00</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Pred polnočjo</ime>
+        <cas>02.35</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Speči morilec</ime>
+        <cas>04.25</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Nebraska</ime>
+        <cas>06.00</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Hollywood: Na snemanju</ime>
+        <cas>07.55</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Maščevanje v visokih petah</ime>
+        <cas>08.30</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Veronica Mars</ime>
+        <cas>10.20</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Vesel božič</ime>
+        <cas>12.10</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Jezus me ljubi</ime>
+        <cas>13.35</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Nori na Mary</ime>
+        <cas>15.20</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Filmi in zvezde</ime>
+        <cas>17.20</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Možje X: Dnevi prihodnje preteklosti</ime>
+        <cas>17.50</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Hiša laži</ime>
+        <cas>20.05</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Sodobna družina</ime>
+        <cas>20.35</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Nadomestne volitve</ime>
+        <cas>21.05</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Igra prestolov</ime>
+        <cas>22.10</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Smrtonosno prijateljstvo</ime>
+        <cas>23.10</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Najin dogovor</ime>
+        <cas>01.20</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Nikar tako živahno</ime>
+        <cas>02.50</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Nikar tako živahno</ime>
+        <cas>03.20</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Konec programa</ime>
+        <cas>03.49</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Sodobna družina</ime>
+        <cas>10.00</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Spletna terapija</ime>
+        <cas>10.25</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Hudičevka v Pradi</ime>
+        <cas>10.50</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Bette Midler: Diva se ne preda</ime>
+        <cas>12.40</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Skupnost</ime>
+        <cas>13.50</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Podpredsednica</ime>
+        <cas>14.20</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Spletna terapija</ime>
+        <cas>14.50</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Goreča ljubezen 3</ime>
+        <cas>15.15</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Psički superjunaki</ime>
+        <cas>16.50</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Sodobna družina</ime>
+        <cas>18.10</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Opazovalci s klopi</ime>
+        <cas>18.35</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Zadnja runda</ime>
+        <cas>20.00</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Najin dogovor</ime>
+        <cas>21.25</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Goreča ljubezen 3</ime>
+        <cas>22.55</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>V rožicah</ime>
+        <cas>00.15</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Dotik greha</ime>
+        <cas>01.40</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Najboljši režiserji</ime>
+        <cas>03.50</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Zarota</ime>
+        <cas>04.20</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Večna ljubezen</ime>
+        <cas>06.00</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Vse ima svojo ceno</ime>
+        <cas>07.20</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Cinema verite</ime>
+        <cas>08.50</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Gospod Hire</ime>
+        <cas>10.20</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Kjer cvetijo lilije</ime>
+        <cas>11.45</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Nevarni mladostniki</ime>
+        <cas>13.20</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Težave v oglaševanju</ime>
+        <cas>15.05</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Cinema verite</ime>
+        <cas>16.45</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Maryjina zgodba</ime>
+        <cas>18.15</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Veščina zapeljevanja</ime>
+        <cas>20.00</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Pet krst v hiši</ime>
+        <cas>21.30</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Generacija X</ime>
+        <cas>22.55</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Umori v Snowtownu</ime>
+        <cas>00.35</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Zmenek</ime>
+        <cas>02.35</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Charlotte Gray</ime>
+        <cas>04.00</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Oblika stvari</ime>
+        <cas>06.00</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Mladoletnici na begu</ime>
+        <cas>07.35</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Otočje v Zalivskem toku</ime>
+        <cas>09.05</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Ljubezen s tujcem</ime>
+        <cas>10.50</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Nomadi neba</ime>
+        <cas>12.30</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Gospod nevidni</ime>
+        <cas>14.00</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Vse ima svojo ceno</ime>
+        <cas>14.15</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Večna ljubezen</ime>
+        <cas>15.45</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Mladoletnici na begu</ime>
+        <cas>17.05</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Gospod Hire</ime>
+        <cas>18.35</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Kaj je vedela Maisie</ime>
+        <cas>20.00</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Hemingway in Gellhornova</ime>
+        <cas>21.40</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Pariški forenziki</ime>
+        <cas>00.16</cas>
+        <kanal>FOX Movies</kanal>
+    </film>
+    <film>
+        <ime>Pariški forenziki</ime>
+        <cas>01.18</cas>
+        <kanal>FOX Movies</kanal>
+    </film>
+    <film>
+        <ime>Obujeni prvak</ime>
+        <cas>02.19</cas>
+        <kanal>FOX Movies</kanal>
+    </film>
+    <film>
+        <ime>Pozejdonova pustolovščina</ime>
+        <cas>04.11</cas>
+        <kanal>FOX Movies</kanal>
+    </film>
+    <film>
+        <ime>Nežna duša</ime>
+        <cas>06.00</cas>
+        <kanal>FOX Movies</kanal>
+    </film>
+    <film>
+        <ime>Dogovorjena nosečnost</ime>
+        <cas>07.45</cas>
+        <kanal>FOX Movies</kanal>
+    </film>
+    <film>
+        <ime>Zaslepljen z Grace</ime>
+        <cas>09.30</cas>
+        <kanal>FOX Movies</kanal>
+    </film>
+    <film>
+        <ime>Pariški forenziki</ime>
+        <cas>11.35</cas>
+        <kanal>FOX Movies</kanal>
+    </film>
+    <film>
+        <ime>Pariški forenziki</ime>
+        <cas>12.35</cas>
+        <kanal>FOX Movies</kanal>
+    </film>
+    <film>
+        <ime>Svetloba</ime>
+        <cas>13.30</cas>
+        <kanal>FOX Movies</kanal>
+    </film>
+    <film>
+        <ime>Seksi komedija kresne noči</ime>
+        <cas>15.45</cas>
+        <kanal>FOX Movies</kanal>
+    </film>
+    <film>
+        <ime>Moja mala navihanka</ime>
+        <cas>18.00</cas>
+        <kanal>FOX Movies</kanal>
+    </film>
+    <film>
+        <ime>Pariški forenziki</ime>
+        <cas>20.00</cas>
+        <kanal>FOX Movies</kanal>
+    </film>
+    <film>
+        <ime>Pariški forenziki</ime>
+        <cas>21.00</cas>
+        <kanal>FOX Movies</kanal>
+    </film>
+    <film>
+        <ime>Zaplešiva</ime>
+        <cas>22.00</cas>
+        <kanal>FOX Movies</kanal>
+    </film>
+    <film>
+        <ime>Pariški forenziki</ime>
+        <cas>23.55</cas>
+        <kanal>FOX Movies</kanal>
+    </film>
+    <film>
+        <ime>Ledeni potres</ime>
+        <cas>01.15</cas>
+        <kanal>KINO</kanal>
+    </film>
+    <film>
+        <ime>Boter 2</ime>
+        <cas>02.45</cas>
+        <kanal>KINO</kanal>
+    </film>
+    <film>
+        <ime>Nočni program Kino</ime>
+        <cas>05.50</cas>
+        <kanal>KINO</kanal>
+    </film>
+    <film>
+        <ime>Boy Town</ime>
+        <cas>06.05</cas>
+        <kanal>KINO</kanal>
+    </film>
+    <film>
+        <ime>Medvedek</ime>
+        <cas>07.40</cas>
+        <kanal>KINO</kanal>
+    </film>
+    <film>
+        <ime>Fame: Sanje o slavi</ime>
+        <cas>09.20</cas>
+        <kanal>KINO</kanal>
+    </film>
+    <film>
+        <ime>Bruno</ime>
+        <cas>11.25</cas>
+        <kanal>KINO</kanal>
+    </film>
+    <film>
+        <ime>Pelji me na žur</ime>
+        <cas>13.15</cas>
+        <kanal>KINO</kanal>
+    </film>
+    <film>
+        <ime>Popoln moški</ime>
+        <cas>14.50</cas>
+        <kanal>KINO</kanal>
+    </film>
+    <film>
+        <ime>Ledeni potres</ime>
+        <cas>16.35</cas>
+        <kanal>KINO</kanal>
+    </film>
+    <film>
+        <ime>Policaj z Beverly Hillsa</ime>
+        <cas>18.05</cas>
+        <kanal>KINO</kanal>
+    </film>
+    <film>
+        <ime>Njuna družina</ime>
+        <cas>20.00</cas>
+        <kanal>KINO</kanal>
+    </film>
+    <film>
+        <ime>Barry Munday</ime>
+        <cas>21.40</cas>
+        <kanal>KINO</kanal>
+    </film>
+    <film>
+        <ime>Forrest Gump</ime>
+        <cas>23.15</cas>
+        <kanal>KINO</kanal>
+    </film>
+	<!--</datum>
+	<datum date="22.5.2015">-->
+    <film>
+        <ime>Anna Nicole</ime>
+        <cas>00.40</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Lizzie Borden</ime>
+        <cas>02.10</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Ameriška pita 2</ime>
+        <cas>03.40</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Filmi in zvezde</ime>
+        <cas>05.25</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Moulin Rouge</ime>
+        <cas>06.00</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Beli mariači</ime>
+        <cas>08.05</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Cinderella Man: legenda o boksarju</ime>
+        <cas>09.55</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Sodobna družina</ime>
+        <cas>12.20</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Molly Maxwell</ime>
+        <cas>12.45</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Sveže iztisnjeno</ime>
+        <cas>14.15</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Sprehod z dinozavri 3D</ime>
+        <cas>15.55</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Nadomestne volitve</ime>
+        <cas>17.25</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Philomena</ime>
+        <cas>18.25</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Hladnokrvno</ime>
+        <cas>20.05</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Herkules</ime>
+        <cas>21.30</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Težavam naproti</ime>
+        <cas>23.10</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Naša mala miss</ime>
+        <cas>00.30</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Opazovalci s klopi</ime>
+        <cas>02.15</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Program ne oddaja</ime>
+        <cas>03.37</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Skupnost</ime>
+        <cas>09.00</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Skupnost</ime>
+        <cas>09.30</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Skupnost</ime>
+        <cas>09.55</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Prtljaga</ime>
+        <cas>10.25</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Scooby Doo na rokoborbi</ime>
+        <cas>12.00</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Turščina za začetnike</ime>
+        <cas>13.25</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>John Tucker, mrtev si</ime>
+        <cas>15.15</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Prtljaga</ime>
+        <cas>16.40</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Scooby Doo na rokoborbi</ime>
+        <cas>18.15</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Turščina za začetnike</ime>
+        <cas>19.40</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Prejšnji teden: Nocoj z Johnom Oliverjem</ime>
+        <cas>21.30</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Hiša laži</ime>
+        <cas>22.00</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Sodobna družina</ime>
+        <cas>22.25</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Naša mala miss</ime>
+        <cas>22.50</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Sveže meso</ime>
+        <cas>00.20</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Lutka</ime>
+        <cas>01.50</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Sto dni v Palermu</ime>
+        <cas>02.10</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Bogata nevesta</ime>
+        <cas>03.50</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Najboljši režiserji</ime>
+        <cas>05.30</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Pekel je za junake</ime>
+        <cas>06.00</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Bafta: Filmsko življenje: Anthony Hopkins</ime>
+        <cas>07.30</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Maryjina zgodba</ime>
+        <cas>08.00</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Veliki upi</ime>
+        <cas>09.45</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Najboljši režiserji</ime>
+        <cas>11.35</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Najboljše stvari na svetu</ime>
+        <cas>12.00</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Veščina zapeljevanja</ime>
+        <cas>13.45</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Ljubezen in smeti</ime>
+        <cas>15.15</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Pekel je za junake</ime>
+        <cas>16.55</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Pozlačena kletka</ime>
+        <cas>18.25</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Oko nevihte</ime>
+        <cas>20.00</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Begunci</ime>
+        <cas>22.00</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Pozor, pripravljeni, om</ime>
+        <cas>23.00</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>V rožicah</ime>
+        <cas>00.15</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Dotik greha</ime>
+        <cas>01.40</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Najboljši režiserji</ime>
+        <cas>03.50</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Zarota</ime>
+        <cas>04.20</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Večna ljubezen</ime>
+        <cas>06.00</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Vse ima svojo ceno</ime>
+        <cas>07.20</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Cinema verite</ime>
+        <cas>08.50</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Gospod Hire</ime>
+        <cas>10.20</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Kjer cvetijo lilije</ime>
+        <cas>11.45</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Nevarni mladostniki</ime>
+        <cas>13.20</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Težave v oglaševanju</ime>
+        <cas>15.05</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Cinema verite</ime>
+        <cas>16.45</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Maryjina zgodba</ime>
+        <cas>18.15</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Veščina zapeljevanja</ime>
+        <cas>20.00</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Pet krst v hiši</ime>
+        <cas>21.30</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Generacija X</ime>
+        <cas>22.55</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Pariški forenziki</ime>
+        <cas>00.55</cas>
+        <kanal>FOX Movies</kanal>
+    </film>
+    <film>
+        <ime>Morje ljubezni</ime>
+        <cas>01.50</cas>
+        <kanal>FOX Movies</kanal>
+    </film>
+    <film>
+        <ime>Pozejdonova pustolovščina</ime>
+        <cas>04.00</cas>
+        <kanal>FOX Movies</kanal>
+    </film>
+    <film>
+        <ime>Na krilih ljubezni</ime>
+        <cas>06.00</cas>
+        <kanal>FOX Movies</kanal>
+    </film>
+    <film>
+        <ime>Bi ali ne bi?</ime>
+        <cas>07.45</cas>
+        <kanal>FOX Movies</kanal>
+    </film>
+    <film>
+        <ime>Dogovorjena nosečnost</ime>
+        <cas>09.30</cas>
+        <kanal>FOX Movies</kanal>
+    </film>
+    <film>
+        <ime>Morje ljubezni</ime>
+        <cas>11.10</cas>
+        <kanal>FOX Movies</kanal>
+    </film>
+    <film>
+        <ime>Štiri peresa</ime>
+        <cas>13.20</cas>
+        <kanal>FOX Movies</kanal>
+    </film>
+    <film>
+        <ime>Zaplešiva</ime>
+        <cas>16.00</cas>
+        <kanal>FOX Movies</kanal>
+    </film>
+    <film>
+        <ime>Trčeni profesor</ime>
+        <cas>18.10</cas>
+        <kanal>FOX Movies</kanal>
+    </film>
+    <film>
+        <ime>Moj bivši se poroči</ime>
+        <cas>20.00</cas>
+        <kanal>FOX Movies</kanal>
+    </film>
+    <film>
+        <ime>Filadelfija</ime>
+        <cas>22.00</cas>
+        <kanal>FOX Movies</kanal>
+    </film>
+    <film>
+        <ime>Džanki</ime>
+        <cas>01.40</cas>
+        <kanal>KINO</kanal>
+    </film>
+    <film>
+        <ime>Boter 3</ime>
+        <cas>03.15</cas>
+        <kanal>KINO</kanal>
+    </film>
+    <film>
+        <ime>Nočni program Kino</ime>
+        <cas>05.55</cas>
+        <kanal>KINO</kanal>
+    </film>
+    <film>
+        <ime>Billy Owens in začarani talisman</ime>
+        <cas>07.15</cas>
+        <kanal>KINO</kanal>
+    </film>
+    <film>
+        <ime>Popoln moški</ime>
+        <cas>08.45</cas>
+        <kanal>KINO</kanal>
+    </film>
+    <film>
+        <ime>Boy Town</ime>
+        <cas>10.30</cas>
+        <kanal>KINO</kanal>
+    </film>
+    <film>
+        <ime>Policaj z Beverly Hillsa</ime>
+        <cas>12.00</cas>
+        <kanal>KINO</kanal>
+    </film>
+    <film>
+        <ime>Popolna igra</ime>
+        <cas>13.45</cas>
+        <kanal>KINO</kanal>
+    </film>
+    <film>
+        <ime>Forrest Gump</ime>
+        <cas>15.45</cas>
+        <kanal>KINO</kanal>
+    </film>
+    <film>
+        <ime>Policaj z Beverly Hillsa 2</ime>
+        <cas>18.10</cas>
+        <kanal>KINO</kanal>
+    </film>
+    <film>
+        <ime>Batman in Robin</ime>
+        <cas>20.00</cas>
+        <kanal>KINO</kanal>
+    </film>
+    <film>
+        <ime>Njuna družina</ime>
+        <cas>22.05</cas>
+        <kanal>KINO</kanal>
+    </film>
+    <film>
+        <ime>Pištola</ime>
+        <cas>23.45</cas>
+        <kanal>KINO</kanal>
+    </film>
+	<!--</datum>
+	<datum date="23.5.2015">-->
+    <film>
+        <ime>Pariški forenziki</ime>
+        <cas>00.55</cas>
+        <kanal>FOX Movies</kanal>
+    </film>
+    <film>
+        <ime>Morje ljubezni</ime>
+        <cas>01.50</cas>
+        <kanal>FOX Movies</kanal>
+    </film>
+    <film>
+        <ime>Pozejdonova pustolovščina</ime>
+        <cas>04.00</cas>
+        <kanal>FOX Movies</kanal>
+    </film>
+    <film>
+        <ime>Na krilih ljubezni</ime>
+        <cas>06.00</cas>
+        <kanal>FOX Movies</kanal>
+    </film>
+    <film>
+        <ime>Bi ali ne bi?</ime>
+        <cas>07.45</cas>
+        <kanal>FOX Movies</kanal>
+    </film>
+    <film>
+        <ime>Dogovorjena nosečnost</ime>
+        <cas>09.30</cas>
+        <kanal>FOX Movies</kanal>
+    </film>
+    <film>
+        <ime>Morje ljubezni</ime>
+        <cas>11.10</cas>
+        <kanal>FOX Movies</kanal>
+    </film>
+    <film>
+        <ime>Štiri peresa</ime>
+        <cas>13.20</cas>
+        <kanal>FOX Movies</kanal>
+    </film>
+    <film>
+        <ime>Zaplešiva</ime>
+        <cas>16.00</cas>
+        <kanal>FOX Movies</kanal>
+    </film>
+    <film>
+        <ime>Trčeni profesor</ime>
+        <cas>18.10</cas>
+        <kanal>FOX Movies</kanal>
+    </film>
+    <film>
+        <ime>Moj bivši se poroči</ime>
+        <cas>20.00</cas>
+        <kanal>FOX Movies</kanal>
+    </film>
+    <film>
+        <ime>Filadelfija</ime>
+        <cas>22.00</cas>
+        <kanal>FOX Movies</kanal>
+    </film>
+    <film>
+        <ime>V rožicah</ime>
+        <cas>00.15</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Dotik greha</ime>
+        <cas>01.40</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Najboljši režiserji</ime>
+        <cas>03.50</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Zarota</ime>
+        <cas>04.20</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Večna ljubezen</ime>
+        <cas>06.00</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Vse ima svojo ceno</ime>
+        <cas>07.20</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Cinema verite</ime>
+        <cas>08.50</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Gospod Hire</ime>
+        <cas>10.20</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Kjer cvetijo lilije</ime>
+        <cas>11.45</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Nevarni mladostniki</ime>
+        <cas>13.20</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Težave v oglaševanju</ime>
+        <cas>15.05</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Cinema verite</ime>
+        <cas>16.45</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Maryjina zgodba</ime>
+        <cas>18.15</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Veščina zapeljevanja</ime>
+        <cas>20.00</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Pet krst v hiši</ime>
+        <cas>21.30</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Generacija X</ime>
+        <cas>22.55</cas>
+        <kanal>Cinemax 2</kanal>
+    </film>
+    <film>
+        <ime>Sveže meso</ime>
+        <cas>00.20</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Lutka</ime>
+        <cas>01.50</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Sto dni v Palermu</ime>
+        <cas>02.10</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Bogata nevesta</ime>
+        <cas>03.50</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Najboljši režiserji</ime>
+        <cas>05.30</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Pekel je za junake</ime>
+        <cas>06.00</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Bafta: Filmsko življenje: Anthony Hopkins</ime>
+        <cas>07.30</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Maryjina zgodba</ime>
+        <cas>08.00</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Veliki upi</ime>
+        <cas>09.45</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Najboljši režiserji</ime>
+        <cas>11.35</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Najboljše stvari na svetu</ime>
+        <cas>12.00</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Veščina zapeljevanja</ime>
+        <cas>13.45</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Ljubezen in smeti</ime>
+        <cas>15.15</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Pekel je za junake</ime>
+        <cas>16.55</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Pozlačena kletka</ime>
+        <cas>18.25</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Oko nevihte</ime>
+        <cas>20.00</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Begunci</ime>
+        <cas>22.00</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Pozor, pripravljeni, om</ime>
+        <cas>23.00</cas>
+        <kanal>Cinemax</kanal>
+    </film>
+    <film>
+        <ime>Džanki</ime>
+        <cas>01.40</cas>
+        <kanal>KINO</kanal>
+    </film>
+    <film>
+        <ime>Boter 3</ime>
+        <cas>03.15</cas>
+        <kanal>KINO</kanal>
+    </film>
+    <film>
+        <ime>Nočni program Kino</ime>
+        <cas>05.55</cas>
+        <kanal>KINO</kanal>
+    </film>
+    <film>
+        <ime>Billy Owens in začarani talisman</ime>
+        <cas>07.15</cas>
+        <kanal>KINO</kanal>
+    </film>
+    <film>
+        <ime>Popoln moški</ime>
+        <cas>08.45</cas>
+        <kanal>KINO</kanal>
+    </film>
+    <film>
+        <ime>Boy Town</ime>
+        <cas>10.30</cas>
+        <kanal>KINO</kanal>
+    </film>
+    <film>
+        <ime>Policaj z Beverly Hillsa</ime>
+        <cas>12.00</cas>
+        <kanal>KINO</kanal>
+    </film>
+    <film>
+        <ime>Popolna igra</ime>
+        <cas>13.45</cas>
+        <kanal>KINO</kanal>
+    </film>
+    <film>
+        <ime>Forrest Gump</ime>
+        <cas>15.45</cas>
+        <kanal>KINO</kanal>
+    </film>
+    <film>
+        <ime>Policaj z Beverly Hillsa 2</ime>
+        <cas>18.10</cas>
+        <kanal>KINO</kanal>
+    </film>
+    <film>
+        <ime>Batman in Robin</ime>
+        <cas>20.00</cas>
+        <kanal>KINO</kanal>
+    </film>
+    <film>
+        <ime>Njuna družina</ime>
+        <cas>22.05</cas>
+        <kanal>KINO</kanal>
+    </film>
+    <film>
+        <ime>Pištola</ime>
+        <cas>23.45</cas>
+        <kanal>KINO</kanal>
+    </film>
+    <film>
+        <ime>Anna Nicole</ime>
+        <cas>00.40</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Lizzie Borden</ime>
+        <cas>02.10</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Ameriška pita 2</ime>
+        <cas>03.40</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Filmi in zvezde</ime>
+        <cas>05.25</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Moulin Rouge</ime>
+        <cas>06.00</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Beli mariači</ime>
+        <cas>08.05</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Cinderella Man: legenda o boksarju</ime>
+        <cas>09.55</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Sodobna družina</ime>
+        <cas>12.20</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Molly Maxwell</ime>
+        <cas>12.45</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Sveže iztisnjeno</ime>
+        <cas>14.15</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Sprehod z dinozavri 3D</ime>
+        <cas>15.55</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Nadomestne volitve</ime>
+        <cas>17.25</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Philomena</ime>
+        <cas>18.25</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Hladnokrvno</ime>
+        <cas>20.05</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Herkules</ime>
+        <cas>21.30</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Težavam naproti</ime>
+        <cas>23.10</cas>
+        <kanal>HBO</kanal>
+    </film>
+    <film>
+        <ime>Naša mala miss</ime>
+        <cas>00.30</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Opazovalci s klopi</ime>
+        <cas>02.15</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Program ne oddaja</ime>
+        <cas>03.37</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Skupnost</ime>
+        <cas>09.00</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Skupnost</ime>
+        <cas>09.30</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Skupnost</ime>
+        <cas>09.55</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Prtljaga</ime>
+        <cas>10.25</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Scooby Doo na rokoborbi</ime>
+        <cas>12.00</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Turščina za začetnike</ime>
+        <cas>13.25</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>John Tucker, mrtev si</ime>
+        <cas>15.15</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Prtljaga</ime>
+        <cas>16.40</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Scooby Doo na rokoborbi</ime>
+        <cas>18.15</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Turščina za začetnike</ime>
+        <cas>19.40</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Prejšnji teden: Nocoj z Johnom Oliverjem</ime>
+        <cas>21.30</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Hiša laži</ime>
+        <cas>22.00</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Sodobna družina</ime>
+        <cas>22.25</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+    <film>
+        <ime>Naša mala miss</ime>
+        <cas>22.50</cas>
+        <kanal>HBO Comedy</kanal>
+    </film>
+	<!--</datum>-->
+</filmi>
