@@ -198,7 +198,7 @@
     var currentlyPressedKeys = {};
     var chosenObject = 0;
     
-    var meja = 5;
+    var meja = 7;
     function handleKeyDown(event) {
         currentlyPressedKeys[event.keyCode] = true;
     }
@@ -214,7 +214,7 @@
         }
         if (currentlyPressedKeys[83]) {
             // S nazaj
-            if (cameraZPosition > -meja)
+            if (cameraZPosition > -10)
             	cameraZPosition -= 0.1;
         }
         if (currentlyPressedKeys[65]) {
@@ -229,12 +229,12 @@
         }
         if (currentlyPressedKeys[82]) {
             // R gor
-            if (cameraYPosition > -meja)
+            if (cameraYPosition > -meja+2)
             	cameraYPosition -= 0.1;
         }
         if (currentlyPressedKeys[70]) {
             // F dol
-            if (cameraYPosition < meja)
+            if (cameraYPosition < meja-2)
             	cameraYPosition += 0.1;
         }
         //rotate camera
