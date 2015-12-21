@@ -180,7 +180,7 @@
     var cameraXPosition = 0;
     var cameraYPosition = 0;
     var cameraZPosition = -10;
-    var cameraXAngle = 15;
+    var cameraXAngle = 10;
     var cameraYAngle = 0;
     var cameraZAngle = 0;
 	var moonXAngle = 0;
@@ -207,32 +207,32 @@
 	    //move camera
         if (currentlyPressedKeys[87]) {
             // W naprej
-            if (cameraZPosition < 10)
+            if (cameraZPosition < 20)
             	cameraZPosition += 0.1;
         }
         if (currentlyPressedKeys[83]) {
             // S nazaj
-            if (cameraZPosition > -15)
+            if (cameraZPosition > -20)
             	cameraZPosition -= 0.1;
         }
         if (currentlyPressedKeys[65]) {
             // A levo
-            if (cameraXPosition < 5)
+            if (cameraXPosition < 10)
             	cameraXPosition += 0.1;
         }
         if (currentlyPressedKeys[68]) {
             // D desno
-            if (cameraXPosition > -5)
+            if (cameraXPosition > -10)
             	cameraXPosition -= 0.1;
         }
         if (currentlyPressedKeys[82]) {
             // R gor
-            if (cameraYPosition > -5)
+            if (cameraYPosition > -10)
             	cameraYPosition -= 0.1;
         }
         if (currentlyPressedKeys[70]) {
             // F dol
-            if (cameraYPosition < 5)
+            if (cameraYPosition < 10)
             	cameraYPosition += 0.1;
         }
         //rotate camera
@@ -538,31 +538,14 @@
         mat4.identity(mvMatrix);
         mat4.translate(mvMatrix, [cameraXPosition, cameraYPosition, cameraZPosition]);
 		mat4.rotate(mvMatrix, degToRad(cameraXAngle), [1, 0, 0]);
-		mat4.rotate(mvMatrix, degToRad(cameraYAngle-129), [0, 1, 0]);
+		mat4.rotate(mvMatrix, degToRad(cameraYAngle), [0, 1, 0]);
 		mat4.rotate(mvMatrix, degToRad(cameraZAngle), [0, 0, 1]);
-        /*mvPushMatrix();
-        mat4.scale(mvMatrix,[moonScale, moonScale, moonScale]);
-        mat4.rotate(mvMatrix, degToRad(moonYAngle), [0, 1, 0]);
-        mat4.rotate(mvMatrix, degToRad(moonXAngle), [1, 0, 0]);
-        mat4.translate(mvMatrix, [moonXPosition, moonYPosition, moonZPosition]);
-        gl.activeTexture(gl.TEXTURE0);
-        gl.bindTexture(gl.TEXTURE_2D, moonTexture);
-        gl.uniform1i(shaderProgram.samplerUniform, 0);
-        gl.bindBuffer(gl.ARRAY_BUFFER, moonVertexPositionBuffer);
-        gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute, moonVertexPositionBuffer.itemSize, gl.FLOAT, false, 0, 0);
-        gl.bindBuffer(gl.ARRAY_BUFFER, moonVertexTextureCoordBuffer);
-        gl.vertexAttribPointer(shaderProgram.textureCoordAttribute, moonVertexTextureCoordBuffer.itemSize, gl.FLOAT, false, 0, 0);
-        gl.bindBuffer(gl.ARRAY_BUFFER, moonVertexNormalBuffer);
-        gl.vertexAttribPointer(shaderProgram.vertexNormalAttribute, moonVertexNormalBuffer.itemSize, gl.FLOAT, false, 0, 0);
-        gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, moonVertexIndexBuffer);
-        setMatrixUniforms();
-        gl.drawElements(gl.TRIANGLES, moonVertexIndexBuffer.numItems, gl.UNSIGNED_SHORT, 0);
-        mvPopMatrix();*/
+		
         mvPushMatrix();
         mat4.scale(mvMatrix,[cubeScale, cubeScale, cubeScale]);
-        mat4.rotate(mvMatrix, degToRad(65), [0, 1, 0]);
+        mat4.rotate(mvMatrix, degToRad(cubeYAngle), [0, 1, 0]);
         mat4.rotate(mvMatrix, degToRad(cubeXAngle), [1, 0, 0]);
-        mat4.translate(mvMatrix, [cubeXPosition+3, cubeYPosition, cubeZPosition-1]);
+        mat4.translate(mvMatrix, [cubeXPosition, cubeYPosition-3, cubeZPosition+11]);
         gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexPositionBuffer);
         gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute, cubeVertexPositionBuffer.itemSize, gl.FLOAT, false, 0, 0);
         gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexNormalBuffer);
@@ -581,7 +564,7 @@
         mat4.scale(mvMatrix,[cubeScale, cubeScale, cubeScale]);
         mat4.rotate(mvMatrix, degToRad(cubeYAngle), [0, 1, 0]);
         mat4.rotate(mvMatrix, degToRad(cubeXAngle), [1, 0, 0]);
-        mat4.translate(mvMatrix, [cubeXPosition-6, cubeYPosition, cubeZPosition-1]);
+        mat4.translate(mvMatrix, [cubeXPosition, cubeYPosition-3, cubeZPosition]);
         gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexPositionBuffer);
         gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute, cubeVertexPositionBuffer.itemSize, gl.FLOAT, false, 0, 0);
         gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexNormalBuffer);
@@ -598,10 +581,10 @@
 		
 		//prostor - izris
 		mvPushMatrix();
-        mat4.scale(mvMatrix,[cubeScale+10, cubeScale+10, cubeScale+10]);
-        mat4.rotate(mvMatrix, degToRad(cubeYAngle), [0, 1, 0]);
-        mat4.rotate(mvMatrix, degToRad(cubeXAngle), [1, 0, 0]);
-        mat4.translate(mvMatrix, [0, 0, -0.9]);
+        mat4.scale(mvMatrix,[cubeScale+20, cubeScale+20, cubeScale+20]);
+        mat4.rotate(mvMatrix, degToRad(cameraYAngle), [0, 1, 0]);
+        mat4.rotate(mvMatrix, degToRad(cameraXAngle), [1, 0, 0]);
+        mat4.translate(mvMatrix, [0, 0, 0]);
         gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexPositionBuffer1);
         gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute, cubeVertexPositionBuffer1.itemSize, gl.FLOAT, false, 0, 0);
 		gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexNormalBuffer);
