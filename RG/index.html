@@ -7,6 +7,7 @@
 <script type="text/javascript" src="glMatrix-0.9.5.min.js"></script>
 <script type="text/javascript" src="webgl-utils.js"></script>
 <script type="text/javascript" src="webgl-obj-loader.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
 <script id="shader-fs" type="x-shader/x-fragment">
     precision mediump float;
@@ -191,7 +192,7 @@
     
     var cameraXPosition = 0;
     var cameraYPosition = 0;
-    var cameraZPosition = -10;
+    var cameraZPosition = -20;
     var cameraXAngle = 0;
     var cameraYAngle = 0;
     var cameraZAngle = 0;
@@ -268,25 +269,16 @@
     
     function initBuffers() {
 	    //load objects
-	    /*
-		var objStr = document.getElementById('my_cube.obj').innerHTML;
+	    
+	    var objStr = "";
+	    
+	    jQuery.get('dvd.obj', function(data) {
+			objStr = data;
+			//alert(objStr);
+		});
+		
 		mesh = new OBJ.Mesh(objStr);
 		OBJ.initMeshBuffers(gl, mesh);
-		*/
-		
-		//za branje iz datoteke
-		/*
-		var fs = require('fs');
-		var OBJ = require('webgl-obj-loader');
-		
-		var meshPath = './development/models/sphere.obj';
-		var opt = { encoding: 'utf8' };
-		
-		fs.readFile(meshPath, opt, function (err, data){
-		  if (err) return console.error(err);
-		  mesh = new OBJ.Mesh(data);
-		});
-		*/
 		
 	    //cube 
         cubeVertexPositionBuffer = gl.createBuffer();
@@ -544,6 +536,7 @@
     }
     
     function drawScene() {
+	 
         gl.viewport(0, 0, gl.viewportWidth, gl.viewportHeight);
         gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
         mat4.perspective(45, gl.viewportWidth / gl.viewportHeight, 0.1, 1000.0, pMatrix);
@@ -574,7 +567,7 @@
 		mat4.rotate(mvMatrix, degToRad(cameraXAngle), [1, 0, 0]);
 		mat4.rotate(mvMatrix, degToRad(cameraYAngle), [0, 1, 0]);
 		mat4.rotate(mvMatrix, degToRad(cameraZAngle), [0, 0, 1]);
-		
+		/*
 		//DVDji
         for(i=0;i<2;i++){
             mvPushMatrix();
@@ -739,33 +732,40 @@
         gl.drawElements(gl.TRIANGLES, cubeVertexIndexBuffer1.numItems, gl.UNSIGNED_SHORT, 0);
         mvPopMatrix();
         
-        /*
+        */
 		//loaded object
 		mvPushMatrix();
-		mat4.scale(mvMatrix,[cubeScale+12, cubeScale+12, cubeScale+12]);
-        mat4.rotate(mvMatrix, degToRad(cameraYAngle), [0, 1, 0]);
-        mat4.rotate(mvMatrix, degToRad(cameraXAngle), [1, 0, 0]);
-        mat4.translate(mvMatrix, [0, 0, 0]);
+		//mat4.scale(mvMatrix,[cubeScale+12, cubeScale+12, cubeScale+12]);
+        //mat4.rotate(mvMatrix, degToRad(cameraYAngle), [0, 1, 0]);
+        //mat4.rotate(mvMatrix, degToRad(cameraXAngle), [1, 0, 0]);
+        //mat4.translate(mvMatrix, [0, 0, 0]);
 		gl.bindBuffer(gl.ARRAY_BUFFER, mesh.vertexBuffer);
         gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute, mesh.vertexBuffer.itemSize, gl.FLOAT, false, 0, 0);
         // it's possible that the mesh doesn't contain
-        // any texture coordinates (e.g. suzanne.obj in the development branch).
-        // in this case, the texture vertexAttribArray will need to be disabled
-        // before the call to drawElements
+		// any texture coordinates (e.g. suzanne.obj in the development branch).
+		// in this case, the texture vertexAttribArray will need to be disabled
+		// before the call to drawElements
+		if(!mesh.textures.length){
+		  gl.disableVertexAttribArray(shaderProgram.textureCoordAttribute);
+		}
+		else{
+		  // if the texture vertexAttribArray has been previously
+		  // disabled, then it needs to be re-enabled
+		  gl.enableVertexAttribArray(shaderProgram.textureCoordAttribute);
+		  gl.bindBuffer(gl.ARRAY_BUFFER, mesh.textureBuffer);
+		  gl.vertexAttribPointer(shaderProgram.textureCoordAttribute, mesh.textureBuffer.itemSize, gl.FLOAT, false, 0, 0);
+		}
         gl.bindBuffer(gl.ARRAY_BUFFER, mesh.normalBuffer);
         gl.vertexAttribPointer(shaderProgram.vertexNormalAttribute, mesh.normalBuffer.itemSize, gl.FLOAT, false, 0, 0);
 
-	    gl.bindBuffer(gl.ARRAY_BUFFER, mesh.textureBuffer);
-	    gl.vertexAttribPointer(shaderProgram.textureCoordAttribute, mesh.textureBuffer.itemSize, gl.FLOAT, false, 0, 0);
-   
-		gl.activeTexture(gl.TEXTURE0);
-        gl.bindTexture(gl.TEXTURE_2D, cubeTexture);
-        gl.uniform1i(shaderProgram.samplerUniform, 0);
+		//gl.activeTexture(gl.TEXTURE0);
+        //gl.bindTexture(gl.TEXTURE_2D, cubeTexture);
+        //gl.uniform1i(shaderProgram.samplerUniform, 0);
         gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, model.mesh.indexBuffer);
         setMatrixUniforms();
         gl.drawElements(gl.TRIANGLES, model.mesh.indexBuffer.numItems, gl.UNSIGNED_SHORT, 0);
 		mvPopMatrix();
-		*/
+		
     }
 	
     function tick() {
