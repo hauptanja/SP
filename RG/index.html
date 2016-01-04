@@ -1717,18 +1717,42 @@ f 43//162 1//162 9//162 47//162
         gl.bindTexture(gl.TEXTURE_2D, null);
     }
     
-    var bricksTexture;
+    var groundTexture;
+	var roofTexture;
+	var cinemaTexture;
+	var wallTexture;
     var crateTexture;
-	var cubeTexture;
+	var dvdTexture;
 	var cylinderTexture;
 	
     function initTextures() {
-        bricksTexture = gl.createTexture();
-        bricksTexture.image = new Image();
-        bricksTexture.image.onload = function () {
-            handleLoadedTexture(bricksTexture)
+        groundTexture = gl.createTexture();
+        groundTexture.image = new Image();
+        groundTexture.image.onload = function () {
+            handleLoadedTexture(groundTexture)
         }
-        bricksTexture.image.src = "bricks.jpg";
+        groundTexture.image.src = "ground.png";
+		
+		roofTexture = gl.createTexture();
+        roofTexture.image = new Image();
+        roofTexture.image.onload = function () {
+            handleLoadedTexture(roofTexture)
+        }
+        roofTexture.image.src = "grey.gif";
+		
+		cinemaTexture = gl.createTexture();
+        cinemaTexture.image = new Image();
+        cinemaTexture.image.onload = function () {
+            handleLoadedTexture(cinemaTexture)
+        }
+        cinemaTexture.image.src = "film.gif";
+		
+		wallTexture = gl.createTexture();
+        wallTexture.image = new Image();
+        wallTexture.image.onload = function () {
+            handleLoadedTexture(wallTexture)
+        }
+        wallTexture.image.src = "wall.gif";
 		
         crateTexture = gl.createTexture();
         crateTexture.image = new Image();
@@ -1737,19 +1761,19 @@ f 43//162 1//162 9//162 47//162
         }
         crateTexture.image.src = "crate.gif";
 		
-		cubeTexture = gl.createTexture();
-        cubeTexture.image = new Image();
-        cubeTexture.image.onload = function () {
-            handleLoadedTexture(cubeTexture)
+		dvdTexture = gl.createTexture();
+        dvdTexture.image = new Image();
+        dvdTexture.image.onload = function () {
+            handleLoadedTexture(dvdTexture)
         }
-        cubeTexture.image.src = "cube.gif";
+        dvdTexture.image.src = "frozen.gif";
 		
 		cylinderTexture = gl.createTexture();
         cylinderTexture.image = new Image();
         cylinderTexture.image.onload = function () {
             handleLoadedTexture(cylinderTexture)
         }
-        cylinderTexture.image.src = "grey.gif";
+        cylinderTexture.image.src = "cilinder.gif";
     }
     
     var mvMatrix = mat4.create();
@@ -2378,10 +2402,10 @@ f 43//162 1//162 9//162 47//162
             gl.drawElements(gl.TRIANGLES, cubeVertexIndexBuffer.numItems, gl.UNSIGNED_SHORT, 0);
             mvPopMatrix();
         }
-		/*
+		
 		//prostor - izris 
-		mvPushMatrix();
-        mat4.scale(mvMatrix,[cubeScale+12, cubeScale+12, cubeScale+12]);
+		/*mvPushMatrix();
+        mat4.scale(mvMatrix,[cubeScale+20, cubeScale+20, cubeScale+20]);
         mat4.rotate(mvMatrix, degToRad(cameraYAngle), [0, 1, 0]);
         mat4.rotate(mvMatrix, degToRad(cameraXAngle), [1, 0, 0]);
         mat4.translate(mvMatrix, [0, 0, 0]);
@@ -2389,34 +2413,54 @@ f 43//162 1//162 9//162 47//162
         gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute, cubeVertexPositionBuffer1.itemSize, gl.FLOAT, false, 0, 0);
 		gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexNormalBuffer);
         gl.vertexAttribPointer(shaderProgram.vertexNormalAttribute, cubeVertexNormalBuffer.itemSize, gl.FLOAT, false, 0, 0);
-        gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexTextureCoordBuffer);
-        gl.vertexAttribPointer(shaderProgram.textureCoordAttribute, cubeVertexTextureCoordBuffer.itemSize, gl.FLOAT, false, 0, 0);
-        gl.activeTexture(gl.TEXTURE0);
-        gl.bindTexture(gl.TEXTURE_2D, cubeTexture);
-        gl.uniform1i(shaderProgram.samplerUniform, 0);
-        gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, cubeVertexIndexBuffer1);
-        setMatrixUniforms();
-        gl.drawElements(gl.TRIANGLES, cubeVertexIndexBuffer1.numItems, gl.UNSIGNED_SHORT, 0);
-        mvPopMatrix();
-        */
+		if(cubeVertexTextureCoordBuffer.length)
+		{
+			 gl.disableVertexAttribArray(shaderProgram.textureCoordAttribute);
+		}
+		else
+		{
+			gl.enableVertexAttribArray(shaderProgram.textureCoordAttribute);
+			gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexTextureCoordBuffer);
+			gl.vertexAttribPointer(shaderProgram.textureCoordAttribute, cubeVertexTextureCoordBuffer.itemSize, gl.FLOAT, false, 0, 0);
+			gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, cubeVertexIndexBuffer1);
+			setMatrixUniforms();
+			for(i=0; i<24; i+=12)
+			{
+				gl.activeTexture(gl.TEXTURE0);
+				gl.bindTexture(gl.TEXTURE_2D, cinemaTexture);
+				gl.uniform1i(shaderProgram.samplerUniform, 0);
+				gl.drawElements(gl.TRIANGLES, cubeVertexIndexBuffer1.numItems/6, gl.UNSIGNED_SHORT, i);
+			}
+			gl.activeTexture(gl.TEXTURE0);
+			gl.bindTexture(gl.TEXTURE_2D, roofTexture);
+			gl.uniform1i(shaderProgram.samplerUniform, 0);
+			gl.drawElements(gl.TRIANGLES, cubeVertexIndexBuffer1.numItems/6, gl.UNSIGNED_SHORT, 24);
+			gl.activeTexture(gl.TEXTURE0);
+			gl.bindTexture(gl.TEXTURE_2D, groundTexture);
+			gl.uniform1i(shaderProgram.samplerUniform, 0);
+			gl.drawElements(gl.TRIANGLES, cubeVertexIndexBuffer1.numItems/6, gl.UNSIGNED_SHORT, 36);
+			gl.bindTexture(gl.TEXTURE_2D, wallTexture);
+			gl.uniform1i(shaderProgram.samplerUniform, 0);
+			gl.drawElements(gl.TRIANGLES, cubeVertexIndexBuffer1.numItems/6, gl.UNSIGNED_SHORT, 48);
+			gl.activeTexture(gl.TEXTURE0);
+			gl.bindTexture(gl.TEXTURE_2D, wallTexture);
+			gl.uniform1i(shaderProgram.samplerUniform, 0);
+			gl.drawElements(gl.TRIANGLES, cubeVertexIndexBuffer1.numItems/6, gl.UNSIGNED_SHORT, 60);
+		}
+        mvPopMatrix();*/
+        
 		
 		//loaded cylinder
 		mvPushMatrix();
 		mat4.translate(mvMatrix, [0, cameraYPosition-5, 0]);
+		mat4.scale(mvMatrix,[cubeScale+0.3, cubeScale+0.3, cubeScale+0.3]);
 		gl.bindBuffer(gl.ARRAY_BUFFER, mesh_cilinder.vertexBuffer);
         gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute, mesh_cilinder.vertexBuffer.itemSize, gl.FLOAT, false, 0, 0);
-        // it's possible that the mesh doesn't contain
-		// any texture coordinates (e.g. suzanne.obj in the development branch).
-		// in this case, the texture vertexAttribArray will need to be disabled
-		// before the call to drawElements
 		
-		//BREZ PRIKAZA TEKSTURE
 		if(!mesh_cilinder.textures.length){
 		  gl.disableVertexAttribArray(shaderProgram.textureCoordAttribute);
 		}
 		else{
-		  // if the texture vertexAttribArray has been previously
-		  // disabled, then it needs to be re-enabled
 		  gl.enableVertexAttribArray(shaderProgram.textureCoordAttribute);
 		  gl.bindBuffer(gl.ARRAY_BUFFER, mesh_cilinder.textureBuffer);
 		  gl.vertexAttribPointer(shaderProgram.textureCoordAttribute, mesh_cilinder.textureBuffer.itemSize, gl.FLOAT, false, 0, 0);
@@ -2452,7 +2496,7 @@ f 43//162 1//162 9//162 47//162
 		  gl.bindBuffer(gl.ARRAY_BUFFER, mesh_dvd.textureBuffer);
 		  gl.vertexAttribPointer(shaderProgram.textureCoordAttribute, mesh_dvd.textureBuffer.itemSize, gl.FLOAT, false, 0, 0);
 		  gl.activeTexture(gl.TEXTURE0);
-		  gl.bindTexture(gl.TEXTURE_2D, cubeTexture); //dodaj teksturo
+		  gl.bindTexture(gl.TEXTURE_2D, dvdTexture); //dodaj teksturo
 		  gl.uniform1i(shaderProgram.samplerUniform, 0);
 		}
 		
