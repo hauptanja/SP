@@ -2655,7 +2655,7 @@ f 43/4/263 1/1/263 47/3/263
         }
         if (currentlyPressedKeys[82]) {
             // R gor
-            if (cameraYPosition > -meja+2)
+            if (cameraYPosition > -meja-5)
             	cameraYPosition -= 0.1;
         }
         if (currentlyPressedKeys[70]) {
@@ -3230,7 +3230,7 @@ f 43/4/263 1/1/263 47/3/263
             for(var i=0;i<4;i++){
                 mvPushMatrix();
                 mat4.rotate(mvMatrix, degToRad(cubeYAngle+(i*+60)), [0, 1, 0]);
-                mat4.translate(mvMatrix, [cubeXPosition-5.77, (cubeYPosition -1)+(j*10), cubeZPosition -6]);
+                mat4.translate(mvMatrix, [cubeXPosition-5.77, (cubeYPosition -1)+(j*10.5), cubeZPosition -6]);
                 gl.bindBuffer(gl.ARRAY_BUFFER, mesh_dvd.vertexBuffer);
                 gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute, mesh_dvd.vertexBuffer.itemSize, gl.FLOAT, false, 0, 0);
                 // it's possible that the mesh doesn't contain
@@ -3263,7 +3263,7 @@ f 43/4/263 1/1/263 47/3/263
                 //loaded object podstavek2
                 mvPushMatrix();
                 mat4.rotate(mvMatrix, degToRad(cubeYAngle+(i*+60)), [0, 1, 0]);
-                mat4.translate(mvMatrix, [cubeXPosition - 4.5,(cubeYPosition -1)+(j*10), cubeZPosition-6]);
+                mat4.translate(mvMatrix, [cubeXPosition - 4.5,(cubeYPosition -1)+(j*10.5), cubeZPosition-6]);
                 gl.bindBuffer(gl.ARRAY_BUFFER, mesh_podstavek.vertexBuffer);
                 gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute, mesh_podstavek.vertexBuffer.itemSize, gl.FLOAT, false, 0, 0);
                 // it's possible that the mesh doesn't contain
@@ -3296,7 +3296,7 @@ f 43/4/263 1/1/263 47/3/263
             for(var i=0;i<2;i++){
                 mvPushMatrix();
                 mat4.rotate(mvMatrix, degToRad(cubeYAngle +(-60*(i+1))), [0, 1, 0]);
-                mat4.translate(mvMatrix, [cubeXPosition-5.77, (cubeYPosition -1)+(j*10), cubeZPosition -6]);
+                mat4.translate(mvMatrix, [cubeXPosition-5.77, (cubeYPosition -1)+(j*10.5), cubeZPosition -6]);
                 gl.bindBuffer(gl.ARRAY_BUFFER, mesh_dvd.vertexBuffer);
                 gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute, mesh_dvd.vertexBuffer.itemSize, gl.FLOAT, false, 0, 0);
                 // it's possible that the mesh doesn't contain
@@ -3329,7 +3329,7 @@ f 43/4/263 1/1/263 47/3/263
                 //loaded object podstavek2
                 mvPushMatrix();
                 mat4.rotate(mvMatrix, degToRad(cubeYAngle+(-60*(i+1))), [0, 1, 0]);
-                mat4.translate(mvMatrix, [cubeXPosition - 4.5,(cubeYPosition -1)+(j*10), cubeZPosition-6]);
+                mat4.translate(mvMatrix, [cubeXPosition - 4.5,(cubeYPosition -1)+(j*10.5), cubeZPosition-6]);
                 gl.bindBuffer(gl.ARRAY_BUFFER, mesh_podstavek.vertexBuffer);
                 gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute, mesh_podstavek.vertexBuffer.itemSize, gl.FLOAT, false, 0, 0);
                 // it's possible that the mesh doesn't contain
