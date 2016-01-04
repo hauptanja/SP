@@ -3204,7 +3204,7 @@ f 43/4/263 1/1/263 47/3/263
 		
 		//loaded cylinder
 		mvPushMatrix();
-		mat4.translate(mvMatrix, [0, -5, 0]);
+		mat4.translate(mvMatrix, [0, -4.7, 0]);
 		mat4.scale(mvMatrix,[cubeScale+0.3, cubeScale+0.3, cubeScale+0.3]);
 		gl.bindBuffer(gl.ARRAY_BUFFER, mesh_cilinder.vertexBuffer);
         gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute, mesh_cilinder.vertexBuffer.itemSize, gl.FLOAT, false, 0, 0);
