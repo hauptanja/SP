@@ -2558,7 +2558,7 @@ f 43/4/263 1/1/263 47/3/263
     
     var cameraXPosition = 0;
     var cameraYPosition = 0;
-    var cameraZPosition = -20;
+    var cameraZPosition = -10;
     var cameraXAngle = 0;
     var cameraYAngle = 0;
     var cameraZAngle = 0;
@@ -2599,13 +2599,13 @@ f 43/4/263 1/1/263 47/3/263
 		
 		if (lastMouseY < newY) {
             // gor
-            if (cameraYPosition > -meja-5)
-            	cameraYPosition -= 0.2;
+            if (cameraYPosition > -10)
+            	cameraYPosition -= 10;
         }
         if (lastMouseY > newY) {
             // dol
-            if (cameraYPosition < meja-2)
-            	cameraYPosition += 0.2;
+            if (cameraYPosition < 0)
+            	cameraYPosition += 10;
         }
         
         //rotate camera
@@ -2633,6 +2633,7 @@ f 43/4/263 1/1/263 47/3/263
     }
     function handleKeys() {
 	    //move camera
+        /*
         if (currentlyPressedKeys[87]) {
             // W naprej
             if (cameraZPosition < meja)
@@ -2653,24 +2654,25 @@ f 43/4/263 1/1/263 47/3/263
             if (cameraXPosition > -meja)
             	cameraXPosition -= 0.1;
         }
+        */
         if (currentlyPressedKeys[82]) {
             // R gor
-            if (cameraYPosition > -meja-5)
-            	cameraYPosition -= 0.1;
+            if (cameraYPosition > -10)
+            	cameraYPosition -= 10;
         }
         if (currentlyPressedKeys[70]) {
             // F dol
-            if (cameraYPosition < meja-2)
-            	cameraYPosition += 0.1;
+            if (cameraYPosition < 0)
+            	cameraYPosition += 10;
         }
         //rotate camera
         if (currentlyPressedKeys[37]) {
             // left arrow
-            cameraYAngle -= 1;
+            cameraYAngle += 1;
         }
         if (currentlyPressedKeys[39]) {
 	        //right arrow
-	        cameraYAngle += 1;
+	        cameraYAngle -= 1;
         }
     }
     
