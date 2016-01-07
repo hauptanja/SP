@@ -3481,6 +3481,8 @@ f 256/256/256 257/257/257 258/258/258
     var mouseDown = false;
 	var lastMouseX = null;
 	var lastMouseY = null;
+	var newX = null;
+	var newY = null;
 	
 	var moonRotationMatrix = mat4.create();
 	mat4.identity(moonRotationMatrix);
@@ -3493,6 +3495,33 @@ f 256/256/256 257/257/257 258/258/258
 	
 	function handleMouseUp(event) {
 		mouseDown = false;
+		
+		var diffX = lastMouseX - newX;
+		var diffY = lastMouseY - newY;
+		
+		if (Math.abs(diffY) > Math.abs(diffX)) {
+			if (lastMouseY < newY) {
+	            // gor
+	            if (cameraYPosition > -10.5)
+	            	cameraYPosition -= 10.5;
+	        }
+	        if (lastMouseY > newY) {
+	            // dol
+	            if (cameraYPosition < 0)
+	            	cameraYPosition += 10.5;
+	        }
+	    }
+	    else {
+	        //rotate camera
+	        if (lastMouseX < newX) {
+	            // left arrow
+	            cameraYAngle -= 60;
+	        }
+	        if (lastMouseX > newX) {
+		        //right arrow
+		        cameraYAngle += 60;
+	        }
+		}
 	}
 	
 	function handleMouseMove(event) {
@@ -3500,32 +3529,12 @@ f 256/256/256 257/257/257 258/258/258
 		  return;
 		}
 		
-		var newX = event.clientX;
-		var newY = event.clientY;
+		newX = event.clientX;
+		newY = event.clientY;
 		
-		if (lastMouseY < newY) {
-            // gor
-            if (cameraYPosition > -10)
-            	cameraYPosition -= 10;
-        }
-        if (lastMouseY > newY) {
-            // dol
-            if (cameraYPosition < 0)
-            	cameraYPosition += 10;
-        }
-        
-        //rotate camera
-        if (lastMouseX < newX) {
-            // left arrow
-            cameraYAngle -= 2;
-        }
-        if (lastMouseX > newX) {
-	        //right arrow
-	        cameraYAngle += 2;
-        }
-
-		lastMouseX = newX
-		lastMouseY = newY;
+		
+// 		lastMouseX = newX
+// 		lastMouseY = newY;
 	}
     
     function handleKeyDown(event) {
@@ -3536,28 +3545,6 @@ f 256/256/256 257/257/257 258/258/258
     }
     function handleKeys() {
 	    //move camera
-        /*
-        if (currentlyPressedKeys[87]) {
-            // W naprej
-            if (cameraZPosition < meja)
-            	cameraZPosition += 0.1;
-        }
-        if (currentlyPressedKeys[83]) {
-            // S nazaj
-            if (cameraZPosition > -10)
-            	cameraZPosition -= 0.1;
-        }
-        if (currentlyPressedKeys[65]) {
-            // A levo
-            if (cameraXPosition < meja)
-            	cameraXPosition += 0.1;
-        }
-        if (currentlyPressedKeys[68]) {
-            // D desno
-            if (cameraXPosition > -meja)
-            	cameraXPosition -= 0.1;
-        }
-        */
         if (currentlyPressedKeys[82]) {
             // R gor
             if (cameraYPosition > -10.5)
@@ -3684,21 +3671,21 @@ f 256/256/256 257/257/257 258/258/258
         if (lighting) {
             gl.uniform3f(
                 shaderProgram.ambientColorUniform,
-                parseFloat(0.6),
-                parseFloat(0.6),
-                parseFloat(0.6)
+                parseFloat(0.1),
+                parseFloat(0.1),
+                parseFloat(0.1)
             );
             gl.uniform3f(
                 shaderProgram.pointLightingLocationUniform,
-                parseFloat(0.0),
-                parseFloat(0.0),
-                parseFloat(-10.0)
+                parseFloat(0),
+                parseFloat(1),
+                parseFloat(-1)
             );
             gl.uniform3f(
                 shaderProgram.pointLightingColorUniform,
-                parseFloat(0.8),
-                parseFloat(0.8),
-                parseFloat(0.8)
+                parseFloat(0.5),
+                parseFloat(0.5),
+                parseFloat(0.5)
             );
         }
         mat4.identity(mvMatrix);
@@ -3722,7 +3709,7 @@ f 256/256/256 257/257/257 258/258/258
 		  gl.bindBuffer(gl.ARRAY_BUFFER, mesh_cilinder.textureBuffer);
 		  gl.vertexAttribPointer(shaderProgram.textureCoordAttribute, mesh_cilinder.textureBuffer.itemSize, gl.FLOAT, false, 0, 0);
 		  gl.activeTexture(gl.TEXTURE0);
-		  gl.bindTexture(gl.TEXTURE_2D, cylinderTexture); //dodaj teksturo
+		  gl.bindTexture(gl.TEXTURE_2D, roofTexture); //dodaj teksturo
 		  gl.uniform1i(shaderProgram.samplerUniform, 0);
 		}
 		
@@ -3855,6 +3842,8 @@ f 256/256/256 257/257/257 258/258/258
                 mvPopMatrix();
             }
         }
+        
+        //zvezdice
         for (i = 0; i < 5; i++) {
 	        mvPushMatrix();
 			mat4.translate(mvMatrix, [0.3*i-0.7, -1.2, -4.7]);
