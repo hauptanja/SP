@@ -3733,7 +3733,7 @@ f 256/256/256 257/257/257 258/258/258
         gl.drawElements(gl.TRIANGLES, mesh_cilinder.indexBuffer.numItems, gl.UNSIGNED_SHORT, 0);
 		mvPopMatrix();
         
-        //loaded dvdji
+        //loaded dvdji in police
         for(var j=0;j<2;j++){
             for(var i=0;i<4;i++){
                 mvPushMatrix();
@@ -3761,7 +3761,6 @@ f 256/256/256 257/257/257 258/258/258
                 gl.drawElements(gl.TRIANGLES, mesh_dvd.indexBuffer.numItems, gl.UNSIGNED_SHORT, 0);
                 mvPopMatrix();
 
-                //loaded object podstavek2
                 mvPushMatrix();
                 mat4.rotate(mvMatrix, degToRad(cubeYAngle+(i*+60)), [0, 1, 0]);
                 mat4.translate(mvMatrix, [cubeXPosition - 4.5,(cubeYPosition -1)+(j*10.5), cubeZPosition-6]);
@@ -3776,7 +3775,7 @@ f 256/256/256 257/257/257 258/258/258
                   gl.bindBuffer(gl.ARRAY_BUFFER, mesh_podstavek.textureBuffer);
                   gl.vertexAttribPointer(shaderProgram.textureCoordAttribute, mesh_podstavek.textureBuffer.itemSize, gl.FLOAT, false, 0, 0);
                   gl.activeTexture(gl.TEXTURE0);
-                  gl.bindTexture(gl.TEXTURE_2D, shelfTexture); //dodaj teksturo
+                  gl.bindTexture(gl.TEXTURE_2D, shelfTexture);
                   gl.uniform1i(shaderProgram.samplerUniform, 0);
                 }
                 gl.bindBuffer(gl.ARRAY_BUFFER, mesh_podstavek.normalBuffer);
@@ -3818,7 +3817,7 @@ f 256/256/256 257/257/257 258/258/258
                   gl.bindBuffer(gl.ARRAY_BUFFER, mesh_dvd.textureBuffer);
                   gl.vertexAttribPointer(shaderProgram.textureCoordAttribute, mesh_dvd.textureBuffer.itemSize, gl.FLOAT, false, 0, 0);
                   gl.activeTexture(gl.TEXTURE0);
-                  gl.bindTexture(gl.TEXTURE_2D, dvdTexture); //dodaj teksturo
+                  gl.bindTexture(gl.TEXTURE_2D, dvdTexture);
                   gl.uniform1i(shaderProgram.samplerUniform, 0);
                 }
 
@@ -3829,7 +3828,6 @@ f 256/256/256 257/257/257 258/258/258
                 gl.drawElements(gl.TRIANGLES, mesh_dvd.indexBuffer.numItems, gl.UNSIGNED_SHORT, 0);
                 mvPopMatrix();
 
-                //loaded object podstavek2
                 mvPushMatrix();
                 mat4.rotate(mvMatrix, degToRad(cubeYAngle+(-60*(i+1))), [0, 1, 0]);
                 mat4.translate(mvMatrix, [cubeXPosition - 4.5,(cubeYPosition -1)+(j*10.5), cubeZPosition-6]);
@@ -3844,7 +3842,7 @@ f 256/256/256 257/257/257 258/258/258
                   gl.bindBuffer(gl.ARRAY_BUFFER, mesh_podstavek.textureBuffer);
                   gl.vertexAttribPointer(shaderProgram.textureCoordAttribute, mesh_podstavek.textureBuffer.itemSize, gl.FLOAT, false, 0, 0);
                   gl.activeTexture(gl.TEXTURE0);
-                  gl.bindTexture(gl.TEXTURE_2D, shelfTexture); //dodaj teksturo
+                  gl.bindTexture(gl.TEXTURE_2D, shelfTexture);
                   gl.uniform1i(shaderProgram.samplerUniform, 0);
                 }
                 gl.bindBuffer(gl.ARRAY_BUFFER, mesh_podstavek.normalBuffer);
@@ -3870,7 +3868,7 @@ f 256/256/256 257/257/257 258/258/258
 			  gl.bindBuffer(gl.ARRAY_BUFFER, mesh_star.textureBuffer);
 			  gl.vertexAttribPointer(shaderProgram.textureCoordAttribute, mesh_star.textureBuffer.itemSize, gl.FLOAT, false, 0, 0);
 			  gl.activeTexture(gl.TEXTURE0);
-			  gl.bindTexture(gl.TEXTURE_2D, roofTexture); //dodaj teksturo
+			  gl.bindTexture(gl.TEXTURE_2D, roofTexture);
 			  gl.uniform1i(shaderProgram.samplerUniform, 0);
 			}
 			
