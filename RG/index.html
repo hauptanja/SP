@@ -3305,17 +3305,16 @@ f 256/256/256 257/257/257 258/258/258
         shaderProgram.ambientColorUniform = gl.getUniformLocation(shaderProgram, "uAmbientColor");
         shaderProgram.pointLightingLocationUniform = gl.getUniformLocation(shaderProgram, "uPointLightingLocation");
         shaderProgram.pointLightingColorUniform = gl.getUniformLocation(shaderProgram, "uPointLightingColor");
-		//shaderProgram.alphaUniform = gl.getUniformLocation(shaderProgram, "uAlpha");
     }
 	
 	function createTextTexture(text) {
-					
+								
 		// create a hidden canvas to draw the texture 
 		var canvas = document.createElement('canvas');
 		canvas.id     = "hiddenCanvas";
 		canvas.width  = 512;
 		canvas.height = 512;
-		canvas.style.display   = "none";
+		canvas.style.display = "none";
 		var body = document.getElementsByTagName("body")[0];
 		body.appendChild(canvas);        
 
@@ -3324,12 +3323,16 @@ f 256/256/256 257/257/257 258/258/258
 		var ctx = textImage.getContext('2d');
 		ctx.beginPath();
 		ctx.rect(0, 0, ctx.canvas.width, ctx.canvas.height);       
-		ctx.fillStyle="DodgerBlue";
+		ctx.fillStyle="#EDFFFC";
 		ctx.fill();
 		ctx.fillStyle = 'black';
-		ctx.font = "bold 185px Arial";
-		ctx.textAlign = 'center';            
-		ctx.fillText(text, ctx.canvas.width / 2, ctx.canvas.height / 2);
+		ctx.font = "bold 215px Segoe UI";
+		//ctx.font = "normal 215px Segoe UI";
+		ctx.textAlign = 'center';
+		ctx.shadowColor = "#76a3a3";
+		ctx.shadowOffsetX = 20;
+		ctx.shadowOffsetY = 20;
+		ctx.fillText(text, ctx.canvas.width / 2, ctx.canvas.height/1.7);
 		ctx.restore();
 
 		// create new texture
@@ -3679,7 +3682,8 @@ f 256/256/256 257/257/257 258/258/258
                 shaderProgram.pointLightingLocationUniform,
                 parseFloat(0),
                 parseFloat(1),
-                parseFloat(-1)
+				parseFloat(-1)
+                //parseFloat(-5)
             );
             gl.uniform3f(
                 shaderProgram.pointLightingColorUniform,
@@ -3772,7 +3776,7 @@ f 256/256/256 257/257/257 258/258/258
                 setMatrixUniforms();
                 gl.drawElements(gl.TRIANGLES, mesh_podstavek.indexBuffer.numItems, gl.UNSIGNED_SHORT, 0);
 				//letnica
-				mat4.scale(mvMatrix,[0.11, 0.05, 0.1]);
+				mat4.scale(mvMatrix,[0.10, 0.05, 0.1]);
 				mat4.translate(mvMatrix, [-0.8, -3, 14.2]);
 				mat4.rotate(mvMatrix, degToRad(180), [0, 1, 0]);
 				gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexPositionBuffer);
@@ -3839,6 +3843,22 @@ f 256/256/256 257/257/257 258/258/258
                 gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, mesh_podstavek.indexBuffer);
                 setMatrixUniforms();
                 gl.drawElements(gl.TRIANGLES, mesh_podstavek.indexBuffer.numItems, gl.UNSIGNED_SHORT, 0);
+				//letnica
+				mat4.scale(mvMatrix,[0.10, 0.05, 0.1]);
+				mat4.translate(mvMatrix, [-0.8, -3, 14.2]);
+				mat4.rotate(mvMatrix, degToRad(180), [0, 1, 0]);
+				gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexPositionBuffer);
+				gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute, cubeVertexPositionBuffer.itemSize, gl.FLOAT, false, 0, 0);
+				gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexNormalBuffer);
+				gl.vertexAttribPointer(shaderProgram.vertexNormalAttribute, cubeVertexNormalBuffer.itemSize, gl.FLOAT, false, 0, 0);
+				gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexTextureCoordBuffer);
+				gl.vertexAttribPointer(shaderProgram.textureCoordAttribute, cubeVertexTextureCoordBuffer.itemSize, gl.FLOAT, false, 0, 0);
+				gl.activeTexture(gl.TEXTURE0);
+				gl.bindTexture(gl.TEXTURE_2D, textTexture);
+				gl.uniform1i(shaderProgram.samplerUniform, 0);
+				gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, cubeVertexIndexBuffer);
+				setMatrixUniforms();
+				gl.drawElements(gl.TRIANGLES, cubeVertexIndexBuffer.numItems, gl.UNSIGNED_SHORT, 0);
                 mvPopMatrix();
             }
         }
