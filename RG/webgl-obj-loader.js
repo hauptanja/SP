@@ -20,6 +20,7 @@
    *
    * @param {String} objectData a string representation of an OBJ file with newlines preserved.
    */
+    var ColourMapHitCounter = 1;
   OBJ.Mesh = function (objectData) {
     /*
      The OBJ file format does a sort of compression when saving a model in a
@@ -209,6 +210,14 @@
     this.vertexNormals = unpacked.norms;
     this.textures = unpacked.textures;
     this.indices = unpacked.indices;
+    this.colourMapIndex = ColourMapHitCounter++;
+     // Calculate colour map colour
+    this.colourMapColour = [0,0,0,1];
+    this.colourMapColour[0] = Math.floor(this.colourMapIndex / 65536) / 256;
+    var convertRemainder = this.colourMapIndex % 65536;
+    this.colourMapColour[1] = Math.floor(convertRemainder / 256) / 256;
+    convertRemainder = this.colourMapIndex % 256;
+    this.colourMapColour[2] = convertRemainder / 256;
   }
 
   var Ajax = function(){
