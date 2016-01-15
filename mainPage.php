@@ -8,7 +8,8 @@ session_start();
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Arimo:700' rel='stylesheet' type='text/css'>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-        <script src="script.js"></script>
+        <script src="blanket.js"></script>
+        <script src="script.js" data-cover></script>
         <meta charset="utf-8"/>
         <style type="text/css">
 			body {background-color: #d7d7d7}
