@@ -3490,7 +3490,7 @@ f 256/256/256 257/257/257 258/258/258
 	var newX = null;
 	var newY = null;
     var clicked = false;
-    var mouseClickPosition;
+    //var mouseClickPosition;
 	
 	var moonRotationMatrix = mat4.create();
 	mat4.identity(moonRotationMatrix);
@@ -3499,8 +3499,8 @@ f 256/256/256 257/257/257 258/258/258
 		mouseDown = true;
 		lastMouseX = event.clientX;
 		lastMouseY = event.clientY;
-        clicked = true;
-        drawScene();
+        //clicked = true;
+        //drawScene();
 	}
 	
 	function handleMouseUp(event) {
@@ -3714,8 +3714,8 @@ f 256/256/256 257/257/257 258/258/258
     function drawScene() {
 
         //gl.bindFramebuffer(gl.FRAMEBUFFER, null);
-        if(clicked == true)
-            gl.bindFramebuffer(gl.FRAMEBUFFER, rttFramebuffer);
+        /*if(clicked == true)
+            gl.bindFramebuffer(gl.FRAMEBUFFER, rttFramebuffer);*/
 
         gl.viewport(0, 0, gl.viewportWidth, gl.viewportHeight);
         gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
@@ -3944,7 +3944,7 @@ f 256/256/256 257/257/257 258/258/258
 			mvPopMatrix();
 		}
 
-        if(clicked == true){
+        /*if(clicked == true){
 
             gl.readPixels(lastMouseX, gl.viewportHeight -lastMouseY,1 ,1, gl.RGBA, gl.UNSIGNED_BYTE, lastCapturedColourMap);
             //var colour = GetColourMapColour(lastMouseX,lastMouseY);
@@ -3954,7 +3954,7 @@ f 256/256/256 257/257/257 258/258/258
             console.log(lastCapturedColourMap);
             //console.log(vertexBufferIndex);
         }
-        clicked = false;
+        clicked = false;*/
     }
 
 	
