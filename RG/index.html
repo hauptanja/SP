@@ -3305,10 +3305,13 @@ f 256/256/256 257/257/257 258/258/258
         shaderProgram.ambientColorUniform = gl.getUniformLocation(shaderProgram, "uAmbientColor");
         shaderProgram.pointLightingLocationUniform = gl.getUniformLocation(shaderProgram, "uPointLightingLocation");
         shaderProgram.pointLightingColorUniform = gl.getUniformLocation(shaderProgram, "uPointLightingColor");
+        shaderProgram.drawColourMap = gl.getUniformLocation(shaderProgram, "uDrawColourMap");
+        shaderProgram.colourMapColour = gl.getUniformLocation(shaderProgram, "uColourMapColour");
+		//shaderProgram.alphaUniform = gl.getUniformLocation(shaderProgram, "uAlpha");
     }
 	
 	function createTextTexture(text) {
-								
+
 		// create a hidden canvas to draw the texture 
 		var canvas = document.createElement('canvas');
 		canvas.id     = "hiddenCanvas";
@@ -3486,6 +3489,8 @@ f 256/256/256 257/257/257 258/258/258
 	var lastMouseY = null;
 	var newX = null;
 	var newY = null;
+    var clicked = false;
+    //var mouseClickPosition;
 	
 	var moonRotationMatrix = mat4.create();
 	mat4.identity(moonRotationMatrix);
@@ -3494,6 +3499,8 @@ f 256/256/256 257/257/257 258/258/258
 		mouseDown = true;
 		lastMouseX = event.clientX;
 		lastMouseY = event.clientY;
+        //clicked = true;
+        //drawScene();
 	}
 	
 	function handleMouseUp(event) {
@@ -3590,6 +3597,7 @@ f 256/256/256 257/257/257 258/258/258
 		OBJ.initMeshBuffers(gl, mesh_dvd);
 		
 	    objStr = document.getElementById('podstavek').innerHTML; //SAMO ZA TESTIRANJE
+
 	    /*
 	    jQuery.get('dvd.obj', function(data) { //TU SE DA LINK DO OBJEKTA
 			objStr = data;
@@ -3663,9 +3671,52 @@ f 256/256/256 257/257/257 258/258/258
         cubeVertexIndexBuffer.itemSize = 1;
         cubeVertexIndexBuffer.numItems = 6;
     }
+    var rttFramebuffer;
+    var rttTexture;
+    var renderColorMap;
+    var lastCapturedColourMap;
+
+    function initTextureFramebuffer() {
+        rttFramebuffer = gl.createFramebuffer();
+        lastCapturedColourMap = new Uint8Array(1 * 1 * 4);
+        gl.bindFramebuffer(gl.FRAMEBUFFER, rttFramebuffer);
+        rttFramebuffer.width = gl.viewportWidth;
+        rttFramebuffer.height = gl.viewportHeight;
+        rttTexture = gl.createTexture();
+        gl.bindTexture(gl.TEXTURE_2D, rttTexture);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR_MIPMAP_NEAREST);
+        gl.generateMipmap(gl.TEXTURE_2D);
+        gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, rttFramebuffer.width, rttFramebuffer.height, 0, gl.RGBA, gl.UNSIGNED_BYTE, null);
+        var renderbuffer = gl.createRenderbuffer();
+        gl.bindRenderbuffer(gl.RENDERBUFFER, renderbuffer);
+        gl.renderbufferStorage(gl.RENDERBUFFER, gl.DEPTH_COMPONENT16, rttFramebuffer.width, rttFramebuffer.height);
+        gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, rttTexture, 0);
+        gl.framebufferRenderbuffer(gl.FRAMEBUFFER, gl.DEPTH_ATTACHMENT, gl.RENDERBUFFER, renderbuffer);
+        gl.bindTexture(gl.TEXTURE_2D, null);
+        gl.bindRenderbuffer(gl.RENDERBUFFER, null);
+        gl.bindFramebuffer(gl.FRAMEBUFFER, null);
+    }
+
+    var GetColourMapColour = function (x, y) {
+      if (x >= gl.viewportWidth || y >= gl.viewportHeight
+        || x < 0 || y < 0) throw "Invalid colour map pixel address";
+      if (!lastCapturedColourMap) throw "Colour map not captured.";
+      // 4 components per colour, and y is inverted
+      var firstAddress = (gl.viewportHeight - 1 - y) * gl.viewportWidth * 4 + x * 4;
+      return [lastCapturedColourMap[firstAddress],
+              lastCapturedColourMap[firstAddress + 1],
+              lastCapturedColourMap[firstAddress + 2]];
+    }
+
+
     
     function drawScene() {
-	 
+
+        //gl.bindFramebuffer(gl.FRAMEBUFFER, null);
+        /*if(clicked == true)
+            gl.bindFramebuffer(gl.FRAMEBUFFER, rttFramebuffer);*/
+
         gl.viewport(0, 0, gl.viewportWidth, gl.viewportHeight);
         gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
         mat4.perspective(45, gl.viewportWidth / gl.viewportHeight, 0.1, 1000.0, pMatrix);
@@ -3724,15 +3775,17 @@ f 256/256/256 257/257/257 258/258/258
         gl.drawElements(gl.TRIANGLES, mesh_cilinder.indexBuffer.numItems, gl.UNSIGNED_SHORT, 0);
 		mvPopMatrix();
         
-        //loaded dvdji
+        //loaded dvdji in police
         for(var j=0;j<2;j++){
             for(var i=0;i<4;i++){
                 mvPushMatrix();
                 mat4.rotate(mvMatrix, degToRad(cubeYAngle+(i*+60)), [0, 1, 0]);
+                mat4.scale(mvMatrix,[cubeScale, cubeScale, cubeScale]);
                 mat4.translate(mvMatrix, [cubeXPosition-5.77, (cubeYPosition -1)+(j*10.5), cubeZPosition -6]);
                 gl.bindBuffer(gl.ARRAY_BUFFER, mesh_dvd.vertexBuffer);
                 gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute, mesh_dvd.vertexBuffer.itemSize, gl.FLOAT, false, 0, 0);
-                
+                gl.uniform1i(shaderProgram.drawColourMap,1);
+                gl.uniform4fv(shaderProgram.colourMapColour, new Float32Array(mesh_dvd.colourMapColour));
                 if(!mesh_dvd.textures.length){
                   gl.disableVertexAttribArray(shaderProgram.textureCoordAttribute);
                 }
@@ -3750,9 +3803,9 @@ f 256/256/256 257/257/257 258/258/258
                 gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, mesh_dvd.indexBuffer);
                 setMatrixUniforms();
                 gl.drawElements(gl.TRIANGLES, mesh_dvd.indexBuffer.numItems, gl.UNSIGNED_SHORT, 0);
+
                 mvPopMatrix();
 
-                //loaded object podstavek2
                 mvPushMatrix();
                 mat4.rotate(mvMatrix, degToRad(cubeYAngle+(i*+60)), [0, 1, 0]);
                 mat4.translate(mvMatrix, [cubeXPosition - 4.5,(cubeYPosition -1)+(j*10.5), cubeZPosition-6]);
@@ -3767,7 +3820,7 @@ f 256/256/256 257/257/257 258/258/258
                   gl.bindBuffer(gl.ARRAY_BUFFER, mesh_podstavek.textureBuffer);
                   gl.vertexAttribPointer(shaderProgram.textureCoordAttribute, mesh_podstavek.textureBuffer.itemSize, gl.FLOAT, false, 0, 0);
                   gl.activeTexture(gl.TEXTURE0);
-                  gl.bindTexture(gl.TEXTURE_2D, shelfTexture); //dodaj teksturo
+                  gl.bindTexture(gl.TEXTURE_2D, shelfTexture);
                   gl.uniform1i(shaderProgram.samplerUniform, 0);
                 }
                 gl.bindBuffer(gl.ARRAY_BUFFER, mesh_podstavek.normalBuffer);
@@ -3800,7 +3853,8 @@ f 256/256/256 257/257/257 258/258/258
                 mat4.translate(mvMatrix, [cubeXPosition-5.77, (cubeYPosition -1)+(j*10.5), cubeZPosition -6]);
                 gl.bindBuffer(gl.ARRAY_BUFFER, mesh_dvd.vertexBuffer);
                 gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute, mesh_dvd.vertexBuffer.itemSize, gl.FLOAT, false, 0, 0);
-               
+                gl.uniform1i(shaderProgram.drawColourMap,1);
+                gl.uniform4fv(shaderProgram.colourMapColour, new Float32Array(mesh_dvd.colourMapColour));
                 if(!mesh_dvd.textures.length){
                   gl.disableVertexAttribArray(shaderProgram.textureCoordAttribute);
                 }
@@ -3809,7 +3863,7 @@ f 256/256/256 257/257/257 258/258/258
                   gl.bindBuffer(gl.ARRAY_BUFFER, mesh_dvd.textureBuffer);
                   gl.vertexAttribPointer(shaderProgram.textureCoordAttribute, mesh_dvd.textureBuffer.itemSize, gl.FLOAT, false, 0, 0);
                   gl.activeTexture(gl.TEXTURE0);
-                  gl.bindTexture(gl.TEXTURE_2D, dvdTexture); //dodaj teksturo
+                  gl.bindTexture(gl.TEXTURE_2D, dvdTexture);
                   gl.uniform1i(shaderProgram.samplerUniform, 0);
                 }
 
@@ -3820,7 +3874,6 @@ f 256/256/256 257/257/257 258/258/258
                 gl.drawElements(gl.TRIANGLES, mesh_dvd.indexBuffer.numItems, gl.UNSIGNED_SHORT, 0);
                 mvPopMatrix();
 
-                //loaded object podstavek2
                 mvPushMatrix();
                 mat4.rotate(mvMatrix, degToRad(cubeYAngle+(-60*(i+1))), [0, 1, 0]);
                 mat4.translate(mvMatrix, [cubeXPosition - 4.5,(cubeYPosition -1)+(j*10.5), cubeZPosition-6]);
@@ -3835,7 +3888,7 @@ f 256/256/256 257/257/257 258/258/258
                   gl.bindBuffer(gl.ARRAY_BUFFER, mesh_podstavek.textureBuffer);
                   gl.vertexAttribPointer(shaderProgram.textureCoordAttribute, mesh_podstavek.textureBuffer.itemSize, gl.FLOAT, false, 0, 0);
                   gl.activeTexture(gl.TEXTURE0);
-                  gl.bindTexture(gl.TEXTURE_2D, shelfTexture); //dodaj teksturo
+                  gl.bindTexture(gl.TEXTURE_2D, shelfTexture);
                   gl.uniform1i(shaderProgram.samplerUniform, 0);
                 }
                 gl.bindBuffer(gl.ARRAY_BUFFER, mesh_podstavek.normalBuffer);
@@ -3879,7 +3932,7 @@ f 256/256/256 257/257/257 258/258/258
 			  gl.bindBuffer(gl.ARRAY_BUFFER, mesh_star.textureBuffer);
 			  gl.vertexAttribPointer(shaderProgram.textureCoordAttribute, mesh_star.textureBuffer.itemSize, gl.FLOAT, false, 0, 0);
 			  gl.activeTexture(gl.TEXTURE0);
-			  gl.bindTexture(gl.TEXTURE_2D, roofTexture); //dodaj teksturo
+			  gl.bindTexture(gl.TEXTURE_2D, roofTexture);
 			  gl.uniform1i(shaderProgram.samplerUniform, 0);
 			}
 			
@@ -3890,7 +3943,20 @@ f 256/256/256 257/257/257 258/258/258
 	        gl.drawElements(gl.TRIANGLES, mesh_star.indexBuffer.numItems, gl.UNSIGNED_SHORT, 0);
 			mvPopMatrix();
 		}
+
+        /*if(clicked == true){
+
+            gl.readPixels(lastMouseX, gl.viewportHeight -lastMouseY,1 ,1, gl.RGBA, gl.UNSIGNED_BYTE, lastCapturedColourMap);
+            //var colour = GetColourMapColour(lastMouseX,lastMouseY);
+            //var vertexBufferIndex = colour[0] * 65536 + colour[1] * 256 + colour[2];
+
+            console.log(lastMouseX + "," + lastMouseY);
+            console.log(lastCapturedColourMap);
+            //console.log(vertexBufferIndex);
+        }
+        clicked = false;*/
     }
+
 	
     function tick() {
         requestAnimFrame(tick);
@@ -3901,6 +3967,7 @@ f 256/256/256 257/257/257 258/258/258
         var canvas = document.getElementById("lesson12-canvas");
         initGL(canvas);
         initShaders();
+        initTextureFramebuffer();
         initBuffers();
         initTextures();
 		textTexture = createTextTexture("2013");
