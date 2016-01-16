@@ -163,10 +163,10 @@ $(document).ready(function () {
 	            }); 
         }
     });
-    
+    var id_prikazanega_filma;
     $(document).on("click", ".search-result-opt td", function() {
-	    var id = $(this).attr("id"); 
-        pokaziFilm (id, "");
+	    id_prikazanega_filma = $(this).attr("id"); 
+        pokaziFilm (id_prikazanega_filma, "");
     });
     
     $("#wordSearchBox").keypress(function (e) {
@@ -458,7 +458,8 @@ $(document).ready(function () {
     });
     
     //UPORABI ZA GRAFIKO OB KLIKU NA SLIKO
-    var ocenaVzvezdicah, letoNastanka;
+    var ocenaVzvezdicah = 0;
+    var letoNastanka;
     $(document).on("mouseover", "#film_list_table td", function() {
         var id = $(this).attr("data-movie-ID");
         
@@ -534,6 +535,10 @@ $(document).ready(function () {
 	    $("#next6_button").show();
     });
     
+    var film_linki;
+    var film_ocene;
+    var film_leta;
+    
     $(document).on("click", "#show_canvas_button", function() {
         $('#canvas_div').show();
         $("#film_list_data").hide();
@@ -546,6 +551,38 @@ $(document).ready(function () {
 		$('#film_list').width(1000);
 		$('#canvas_div').width(1000);
 		$('body').scrollTo('#canvas_div');
+		
+		$.ajax({
+            type: "POST",
+            url: "filmdetails.php",
+            data: 
+            {
+                movie_name: "",
+                movie_id: id_prikazanega_filma,
+                method: "getGrafikaList"
+            },
+            cache: false,
+            success: function (result) { 
+	            
+                var data = JSON.parse(result);
+                
+                if(data[1] !== "Film ni v bazi.") {
+	                var str = data[1];
+	                film_linki = [];
+					film_linki = str.split("#");
+					
+					str = data[2];
+					film_leta = str.split("#");
+					
+					str = data[3];
+					film_ocene = str.split("#");
+                }
+//                 alert(film_linki);
+            },
+            error: function (result) {
+                alert(result);
+            }
+        });
         webGLStart();
     });
     
@@ -679,6 +716,18 @@ $(document).ready(function () {
         gl.bindTexture(gl.TEXTURE_2D, null);
     }
     
+    var film_textures = [];
+    var texture_index = -1;
+    function handleLoadedTextureWithIndex(index) {
+        gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
+        gl.bindTexture(gl.TEXTURE_2D, film_textures[index]);
+        gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, film_textures[index].image);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR_MIPMAP_NEAREST);
+        gl.generateMipmap(gl.TEXTURE_2D);
+        gl.bindTexture(gl.TEXTURE_2D, null);
+    }
+    
 	var textImage;
 	var textTexture;
 	var roofTexture;
@@ -687,8 +736,25 @@ $(document).ready(function () {
 	var dvdTexture;
 	var cylinderTexture;
     var shelfTexture;
+    
+    
+    var tmptexture;
 	
     function initTextures() {
+		
+		for (var link in film_linki) {
+			tmptexture = gl.createTexture();
+	        tmptexture.image = new Image();
+	        tmptexture.image.crossOrigin = "Anonymous";
+			
+	        tmptexture.image.onload = function () {
+	            handleLoadedTextureWithIndex(texture_index) //??????
+	        }
+			tmptexture.image.src = film_linki[link];
+			
+			film_textures.push(tmptexture);
+			texture_index++;
+		}
 		
 		roofTexture = gl.createTexture();
         roofTexture.image = new Image();
@@ -963,6 +1029,7 @@ $(document).ready(function () {
         cubeVertexIndexBuffer.numItems = 6;
     }
     
+    var count = 0;
     function drawScene() {
 	 
         gl.viewport(0, 0, gl.viewportWidth, gl.viewportHeight);
@@ -1024,6 +1091,7 @@ $(document).ready(function () {
 		mvPopMatrix();
         
         //loaded dvdji
+        
         for(var j=0;j<2;j++){
             for(var i=0;i<4;i++){
                 mvPushMatrix();
@@ -1040,7 +1108,10 @@ $(document).ready(function () {
                   gl.bindBuffer(gl.ARRAY_BUFFER, mesh_dvd.textureBuffer);
                   gl.vertexAttribPointer(shaderProgram.textureCoordAttribute, mesh_dvd.textureBuffer.itemSize, gl.FLOAT, false, 0, 0);
                   gl.activeTexture(gl.TEXTURE0);
-                  gl.bindTexture(gl.TEXTURE_2D, dvdTexture); //dodaj teksturo
+                  gl.bindTexture(gl.TEXTURE_2D, film_textures[count]); //dodaj teksturo
+                  count++;
+                  if (count == 12)
+                  	count = 0;
                   gl.uniform1i(shaderProgram.samplerUniform, 0);
                 }
 
@@ -1074,6 +1145,7 @@ $(document).ready(function () {
                 gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, mesh_podstavek.indexBuffer);
                 setMatrixUniforms();
                 gl.drawElements(gl.TRIANGLES, mesh_podstavek.indexBuffer.numItems, gl.UNSIGNED_SHORT, 0);
+                
 				//letnica
 				mat4.scale(mvMatrix,[0.10, 0.05, 0.1]);
 				mat4.translate(mvMatrix, [-0.8, -3, 14.2]);
@@ -1108,7 +1180,10 @@ $(document).ready(function () {
                   gl.bindBuffer(gl.ARRAY_BUFFER, mesh_dvd.textureBuffer);
                   gl.vertexAttribPointer(shaderProgram.textureCoordAttribute, mesh_dvd.textureBuffer.itemSize, gl.FLOAT, false, 0, 0);
                   gl.activeTexture(gl.TEXTURE0);
-                  gl.bindTexture(gl.TEXTURE_2D, dvdTexture); //dodaj teksturo
+                  gl.bindTexture(gl.TEXTURE_2D, film_textures[count]); //dodaj teksturo
+                  count++;
+                  if (count == 12)
+                  	count = 0;
                   gl.uniform1i(shaderProgram.samplerUniform, 0);
                 }
 
@@ -1163,7 +1238,7 @@ $(document).ready(function () {
         }
         
         //zvezdice
-        if (ocenaVzvezdicah != nil) {
+        if (ocenaVzvezdicah != 0) {
 	        for (i = 0; i < ocenaVzvezdicah; i++) { //ocenaVzvezdicah
 		        mvPushMatrix();
 				mat4.translate(mvMatrix, [0.3*i-0.7, -1.2, -4.7]);

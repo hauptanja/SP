@@ -164,6 +164,42 @@
         $o = json_encode($o);
         echo $o;
     }
+    else if ($_POST['method'] == "getGrafikaList")
+    {
+        $naslov = $_POST['movie_name'];
+        $id = $_POST['movie_id'];
+        
+        /* TF-IDF */
+		
+		$q = "call isci($id)";
+		$result = mysqli_query($mysqli, $q);
+		
+        if (mysqli_num_rows($result) > 0) {
+            $val = 0;
+            $output2 = "";
+            $output3 = "";
+            $output4 = "";
+            while(($row = mysqli_fetch_assoc($result)) && $val < 12) {
+	           
+	           	if ($row["ID"] != $id){
+                	$output2 .= $row['poster_src'] . "#";
+                	$output3 .= $row['year'] . "#";
+                	$output4 .= $row['tomatometer'] . "#";
+                
+					$val++;
+                }
+            }
+
+            $o[1] = $output2;
+            $o[2] = $output3;
+            $o[3] = $output4;
+		}
+		else {
+            $o[1] = "Ni priporočil.";
+        }
+        $o = json_encode($o);
+        echo $o;
+    }
     else if ($_POST['method'] == "getMiniData")
     {
 	    $id = $_POST['movie_id'];
@@ -194,7 +230,7 @@
             }else {
                 $o1[5] .= "<div class='smallTxt'><img class='thumbs' src='no-camera.png'/> Filma ni na sporedu</div></td>";
             }
-            
+            $o1[6] = $row["year"];
             
         } else {
             $o1[0] = "no";
