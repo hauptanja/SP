@@ -568,7 +568,6 @@ $(document).ready(function () {
                 
                 if(data[1] !== "Film ni v bazi.") {
 	                var str = data[1];
-	                film_linki = [];
 					film_linki = str.split("#");
 					
 					str = data[2];
@@ -576,6 +575,8 @@ $(document).ready(function () {
 					
 					str = data[3];
 					film_ocene = str.split("#");
+					
+					webGLStart();
                 }
 //                 alert(film_linki);
             },
@@ -583,7 +584,7 @@ $(document).ready(function () {
                 alert(result);
             }
         });
-        webGLStart();
+        
     });
     
     var gl;
@@ -722,8 +723,11 @@ $(document).ready(function () {
         gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
         gl.bindTexture(gl.TEXTURE_2D, film_textures[index]);
         gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, film_textures[index].image);
-        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
-        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR_MIPMAP_NEAREST);
+//         gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+//         gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR_MIPMAP_NEAREST);
+		gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
+		gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+		gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
         gl.generateMipmap(gl.TEXTURE_2D);
         gl.bindTexture(gl.TEXTURE_2D, null);
     }
@@ -737,24 +741,27 @@ $(document).ready(function () {
 	var cylinderTexture;
     var shelfTexture;
     
-    
     var tmptexture;
 	
     function initTextures() {
-		
+		texture_index = -1;
 		for (var link in film_linki) {
 			tmptexture = gl.createTexture();
 	        tmptexture.image = new Image();
 	        tmptexture.image.crossOrigin = "Anonymous";
 			
 	        tmptexture.image.onload = function () {
+		        if (texture_index == 12)
+		        	texture_index = -1;
+		        texture_index++;
 	            handleLoadedTextureWithIndex(texture_index) //??????
 	        }
-			tmptexture.image.src = film_linki[link];
+			tmptexture.image.src = "grafika/cinema.jpg";//film_linki[link];
 			
 			film_textures.push(tmptexture);
-			texture_index++;
+			
 		}
+		
 		
 		roofTexture = gl.createTexture();
         roofTexture.image = new Image();
