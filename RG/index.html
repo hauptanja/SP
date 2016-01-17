@@ -3549,6 +3549,7 @@ f 256/256/256 257/257/257 258/258/258
 	var newY = null;
     var clicked = false;
     var nadstropje = 0;
+    var rect;
 	
 	var moonRotationMatrix = mat4.create();
 	mat4.identity(moonRotationMatrix);
@@ -3558,6 +3559,7 @@ f 256/256/256 257/257/257 258/258/258
 		mouseDown = true;
 		lastMouseX = event.clientX;
 		lastMouseY = event.clientY;
+		rect = event.target.getBoundingClientRect();
         clicked = true;
         drawScene();
 	}
@@ -3620,6 +3622,7 @@ f 256/256/256 257/257/257 258/258/258
             // R gor
             if (cameraYPosition > -10.5)
             	cameraYPosition -= 10.5;
+
         }
         if (currentlyPressedKeys[70]) {
             // F dol
@@ -4068,8 +4071,14 @@ f 256/256/256 257/257/257 258/258/258
                     }
                 }
             }
-            gl.readPixels(lastMouseX, gl.viewportHeight -lastMouseY,1 ,1, gl.RGBA, gl.UNSIGNED_BYTE, lastCapturedColourMap);
+            var x_in_canvas=0, y_in_canvas=0;
+            if (rect.left <= lastMouseX && lastMouseX < rect.right && rect.top <= lastMouseY && lastMouseY < rect.bottom) {
+                // If pressed position is inside <canvas>, check if it is above object
+                x_in_canvas = lastMouseX - rect.left, y_in_canvas = rect.bottom - lastMouseY;
+                }
+            gl.readPixels(x_in_canvas, y_in_canvas,1 ,1, gl.RGBA, gl.UNSIGNED_BYTE, lastCapturedColourMap);
             var id = getPickingID(lastCapturedColourMap[0], lastCapturedColourMap[1], lastCapturedColourMap[2], 0);
+            console.log(lastMouseX + "  " + lastMouseY);
             if(id != -1)
                 alert("Kliknjen je film z ID-jem: " + id);
             console.log(lastCapturedColourMap[0] + "," + lastCapturedColourMap[1] + "," + lastCapturedColourMap[2]);
@@ -4115,6 +4124,7 @@ f 256/256/256 257/257/257 258/258/258
 </head>
 
 <body onload="webGLStart();">
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     <canvas id="lesson12-canvas" style="border: none;" width="1000" height="600"></canvas>
     <br />
 </body>

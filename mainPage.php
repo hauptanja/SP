@@ -8,7 +8,7 @@ session_start();
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Arimo:700' rel='stylesheet' type='text/css'>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-        <script src="script.js"></script>
+
         <script type="text/javascript" src="glMatrix-0.9.5.min.js"></script>
 		<script type="text/javascript" src="webgl-utils.js"></script>
 		<script type="text/javascript" src="webgl-obj-loader.js"></script>
@@ -3234,7 +3234,7 @@ f 256/256/256 257/257/257 258/258/258
         }
     }
 </script>
-		
+<script src="script.js"></script>
     </head>
     <body >
         <script>(function(d, s, id){var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) return;js = d.createElement(s); js.id = id;js.src ='//connect.facebook.net/sl_SI/sdk.js#xfbml=1&version=v2.3';fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));</script>

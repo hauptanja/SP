@@ -740,7 +740,7 @@ $(document).ready(function () {
 	var dvdTexture;
 	var cylinderTexture;
     var shelfTexture;
-    
+    var modra, zelena, rumena, rdeca, vijolicna, turkizna;
     var tmptexture;
 	
     function initTextures() {
@@ -805,6 +805,48 @@ $(document).ready(function () {
         }
         shelfTexture.image.src = "grafika/crate.gif";
 
+        modra = gl.createTexture();
+        modra.image = new Image();
+        modra.image.onload = function () {
+            handleLoadedTexture(modra)
+        }
+        modra.image.src = "grafika/modra.gif";
+
+        rdeca = gl.createTexture();
+        rdeca.image = new Image();
+        rdeca.image.onload = function () {
+            handleLoadedTexture(rdeca)
+        }
+        rdeca.image.src = "grafika/rdeca.gif";
+
+         rumena = gl.createTexture();
+        rumena.image = new Image();
+        rumena.image.onload = function () {
+            handleLoadedTexture(rumena)
+        }
+        rumena.image.src = "grafika/rumena.gif";
+
+         zelena = gl.createTexture();
+        zelena.image = new Image();
+        zelena.image.onload = function () {
+            handleLoadedTexture(zelena)
+        }
+        zelena.image.src = "grafika/zelena.gif";
+
+         turkizna = gl.createTexture();
+        turkizna.image = new Image();
+        turkizna.image.onload = function () {
+            handleLoadedTexture(turkizna)
+        }
+        turkizna.image.src = "grafika/turkizna.gif";
+
+
+         vijolicna = gl.createTexture();
+        vijolicna.image = new Image();
+        vijolicna.image.onload = function () {
+            handleLoadedTexture(vijolicna)
+        }
+        vijolicna.image.src = "grafika/vijolicna.gif";
     }
     
     var mvMatrix = mat4.create();
@@ -858,6 +900,9 @@ $(document).ready(function () {
 	var lastMouseY = null;
 	var newX = null;
 	var newY = null;
+    var clicked = false;
+    var nadstropje = 0;
+    var rect;
 	
 	var moonRotationMatrix = mat4.create();
 	mat4.identity(moonRotationMatrix);
@@ -866,6 +911,9 @@ $(document).ready(function () {
 		mouseDown = true;
 		lastMouseX = event.clientX;
 		lastMouseY = event.clientY;
+        rect = event.target.getBoundingClientRect();
+        clicked = true;
+        drawScene();
 	}
 	
 	function handleMouseUp(event) {
@@ -879,11 +927,13 @@ $(document).ready(function () {
 	            // gor
 	            if (cameraYPosition > -10.5)
 	            	cameraYPosition -= 10.5;
+                nadstropje = 1;
 	        }
 	        if (lastMouseY > newY) {
 	            // dol
 	            if (cameraYPosition < 0)
 	            	cameraYPosition += 10.5;
+                nadstropje = 0;
 	        }
 	    }
 	    else {
@@ -924,11 +974,13 @@ $(document).ready(function () {
             // R gor
             if (cameraYPosition > -10.5)
             	cameraYPosition -= 10.5;
+            nadstropje = 1;
         }
         if (currentlyPressedKeys[70]) {
             // F dol
             if (cameraYPosition < 0)
             	cameraYPosition += 10.5;
+            nadstropje = 0;
         }
         //rotate camera
         if (currentlyPressedKeys[37]) {
@@ -938,6 +990,31 @@ $(document).ready(function () {
         if (currentlyPressedKeys[39]) {
 	        //right arrow
 	        cameraYAngle -= 1;
+        }
+    }
+
+    function getTexture4Picking(x){
+        switch(x) {
+            case 0:
+                return modra;
+                break;
+            case 1:
+                return zelena;
+                break;
+            case 2:
+                return rdeca;
+                break;
+            case 3:
+                return rumena;
+                break;
+            case 4:
+                return vijolicna;
+                break;
+            case 5:
+                return turkizna;
+                break;
+            default:
+                return modra;
         }
     }
         
@@ -1036,9 +1113,47 @@ $(document).ready(function () {
         cubeVertexIndexBuffer.numItems = 6;
     }
     
+    var rttFramebuffer;
+    var rttTexture;
+    var lastCapturedColourMap;
+
+    function initTextureFramebuffer() {
+        rttFramebuffer = gl.createFramebuffer();
+        lastCapturedColourMap = new Uint8Array(1 * 1 * 4);
+        gl.bindFramebuffer(gl.FRAMEBUFFER, rttFramebuffer);
+        rttFramebuffer.width = gl.viewportWidth;
+        rttFramebuffer.height = gl.viewportHeight;
+        rttTexture = gl.createTexture();
+        gl.bindTexture(gl.TEXTURE_2D, rttTexture);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR_MIPMAP_NEAREST);
+        gl.generateMipmap(gl.TEXTURE_2D);
+        gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, rttFramebuffer.width, rttFramebuffer.height, 0, gl.RGBA, gl.UNSIGNED_BYTE, null);
+        var renderbuffer = gl.createRenderbuffer();
+        gl.bindRenderbuffer(gl.RENDERBUFFER, renderbuffer);
+        gl.renderbufferStorage(gl.RENDERBUFFER, gl.DEPTH_COMPONENT16, rttFramebuffer.width, rttFramebuffer.height);
+        gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, rttTexture, 0);
+        gl.framebufferRenderbuffer(gl.FRAMEBUFFER, gl.DEPTH_ATTACHMENT, gl.RENDERBUFFER, renderbuffer);
+        gl.bindTexture(gl.TEXTURE_2D, null);
+        gl.bindRenderbuffer(gl.RENDERBUFFER, null);
+        gl.bindFramebuffer(gl.FRAMEBUFFER, null);
+    }
+
+    function getPickingID(r, g, b){
+        (r==204)?r=1:r=0;
+        (g==204)?g=2:g=0;
+        (b==204)?b=4:b=0;
+        if((r+g+b) == 0)
+            return -1;
+        else
+            return (r + g + b - 1) + (nadstropje * 6);
+    }
+
     var count = 0;
     function drawScene() {
-	 
+         gl.bindFramebuffer(gl.FRAMEBUFFER, null);
+            if(clicked == true)
+                gl.bindFramebuffer(gl.FRAMEBUFFER, rttFramebuffer);
         gl.viewport(0, 0, gl.viewportWidth, gl.viewportHeight);
         gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
         mat4.perspective(45, gl.viewportWidth / gl.viewportHeight, 0.1, 1000.0, pMatrix);
@@ -1047,15 +1162,15 @@ $(document).ready(function () {
         if (lighting) {
             gl.uniform3f(
                 shaderProgram.ambientColorUniform,
-                parseFloat(0.1),
-                parseFloat(0.1),
-                parseFloat(0.1)
+                parseFloat(0.8),
+                parseFloat(0.8),
+                parseFloat(0.8)
             );
             gl.uniform3f(
                 shaderProgram.pointLightingLocationUniform,
-                parseFloat(0),
-                parseFloat(1),
-				parseFloat(-1)
+                parseFloat(5),
+                parseFloat(6),
+				parseFloat(8)
                 //parseFloat(-5)
             );
             gl.uniform3f(
@@ -1273,6 +1388,61 @@ $(document).ready(function () {
 				mvPopMatrix();
 			}
 		}
+
+        if(clicked == true){
+            for(var j=0;j<2;j++){
+                for(var i=0;i<4;i++){
+                    mvPushMatrix();
+                    mat4.rotate(mvMatrix, degToRad(cubeYAngle+(i*+60)), [0, 1, 0]);
+                    mat4.scale(mvMatrix,[cubeScale-1.3, cubeScale-0.7, cubeScale-0.5]);
+                    mat4.translate(mvMatrix, [cubeXPosition-4.7, (cubeYPosition -0.3)+(j*35), cubeZPosition -9.8]);
+                    gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexPositionBuffer);
+                    gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute, cubeVertexPositionBuffer.itemSize, gl.FLOAT, false, 0, 0);
+                    gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexNormalBuffer);
+                    gl.vertexAttribPointer(shaderProgram.vertexNormalAttribute, cubeVertexNormalBuffer.itemSize, gl.FLOAT, false, 0, 0);
+                    gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexTextureCoordBuffer);
+                    gl.vertexAttribPointer(shaderProgram.textureCoordAttribute, cubeVertexTextureCoordBuffer.itemSize, gl.FLOAT, false, 0, 0);
+                    gl.activeTexture(gl.TEXTURE0);
+                    gl.bindTexture(gl.TEXTURE_2D, getTexture4Picking(i));
+                    gl.uniform1i(shaderProgram.samplerUniform, 0);
+                    gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, cubeVertexIndexBuffer);
+                    setMatrixUniforms();
+                    gl.drawElements(gl.TRIANGLES, cubeVertexIndexBuffer.numItems, gl.UNSIGNED_SHORT, 0);
+                    mvPopMatrix();
+                    if(i<2){
+                        mvPushMatrix();
+                        mat4.rotate(mvMatrix, degToRad(cubeYAngle+(-60*(i+1))), [0, 1, 0]);
+                        mat4.scale(mvMatrix,[cubeScale-1.3, cubeScale-0.7, cubeScale-0.5]);
+                        mat4.translate(mvMatrix, [cubeXPosition-4.7, (cubeYPosition -0.3)+(j*35), cubeZPosition -9.8]);
+                        gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexPositionBuffer);
+                        gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute, cubeVertexPositionBuffer.itemSize, gl.FLOAT, false, 0, 0);
+                        gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexNormalBuffer);
+                        gl.vertexAttribPointer(shaderProgram.vertexNormalAttribute, cubeVertexNormalBuffer.itemSize, gl.FLOAT, false, 0, 0);
+                        gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexTextureCoordBuffer);
+                        gl.vertexAttribPointer(shaderProgram.textureCoordAttribute, cubeVertexTextureCoordBuffer.itemSize, gl.FLOAT, false, 0, 0);
+                        gl.activeTexture(gl.TEXTURE0);
+                        gl.bindTexture(gl.TEXTURE_2D, getTexture4Picking(5-i));
+                        gl.uniform1i(shaderProgram.samplerUniform, 0);
+                        gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, cubeVertexIndexBuffer);
+                        setMatrixUniforms();
+                        gl.drawElements(gl.TRIANGLES, cubeVertexIndexBuffer.numItems, gl.UNSIGNED_SHORT, 0);
+                        mvPopMatrix();
+                    }
+                }
+            }
+            var x_in_canvas=0, y_in_canvas=0;
+            if (rect.left <= lastMouseX && lastMouseX < rect.right && rect.top <= lastMouseY && lastMouseY < rect.bottom) {
+                // If pressed position is inside <canvas>, check if it is above object
+                x_in_canvas = lastMouseX - rect.left, y_in_canvas = rect.bottom - lastMouseY;
+                }
+            gl.readPixels(x_in_canvas, y_in_canvas,1 ,1, gl.RGBA, gl.UNSIGNED_BYTE, lastCapturedColourMap);
+            var id = getPickingID(lastCapturedColourMap[0], lastCapturedColourMap[1], lastCapturedColourMap[2], 0);
+            console.log(lastMouseX + "  " + lastMouseY);
+            if(id != -1)
+                alert("Kliknjen je film z ID-jem: " + id);
+            console.log(lastCapturedColourMap[0] + "," + lastCapturedColourMap[1] + "," + lastCapturedColourMap[2]);
+        }
+        clicked = false;
     }
 	
     function tick() {
@@ -1284,6 +1454,7 @@ $(document).ready(function () {
         var canvas = document.getElementById("canvas");
         initGL(canvas);
         initShaders();
+        initTextureFramebuffer();
         initBuffers();
         initTextures();
 		textTexture = createTextTexture("2013"); //letoNastanka
