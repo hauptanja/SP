@@ -748,15 +748,15 @@ $(document).ready(function () {
 		for (var link in film_linki) {
 			tmptexture = gl.createTexture();
 	        tmptexture.image = new Image();
-	        tmptexture.image.crossOrigin = "Anonymous";
-			
+// 	        tmptexture.image.crossOrigin = "Anonymous";
+			tmptexture.image.crossOrigin = '';			
 	        tmptexture.image.onload = function () {
 		        if (texture_index == 12)
 		        	texture_index = -1;
 		        texture_index++;
 	            handleLoadedTextureWithIndex(texture_index) //??????
 	        }
-			tmptexture.image.src = "grafika/cinema.jpg";//film_linki[link];
+			tmptexture.image.src = film_linki[link];
 			
 			film_textures.push(tmptexture);
 			

@@ -183,7 +183,7 @@
 	           
 	           	if ($row["ID"] != $id){
                 	$output2 .= $row['poster_src'] . "#";
-                	$output3 .= $row['year'] . "#";
+                	$output3 .= $row["slo_naslov"] . " (" .  $row['year'] . ")" . "#";
                 	$output4 .= $row['tomatometer'] . "#";
                 
 					$val++;
