@@ -3209,18 +3209,23 @@ f 256/256/256 257/257/257 258/258/258
     attribute vec3 aVertexPosition;
     attribute vec3 aVertexNormal;
     attribute vec2 aTextureCoord;
+    attribute vec4 a_Color;
     uniform mat4 uMVMatrix;
     uniform mat4 uPMatrix;
     uniform mat3 uNMatrix;
     uniform vec3 uAmbientColor;
     uniform vec3 uPointLightingLocation;
     uniform vec3 uPointLightingColor;
+    uniform bool u_Clicked; // Mouse is pressed
     uniform bool uUseLighting;
     varying vec2 vTextureCoord;
     varying vec3 vLightWeighting;
+    varying vec4 v_Color;
+
     void main(void) {
         vec4 mvPosition = uMVMatrix * vec4(aVertexPosition, 1.0);
         gl_Position = uPMatrix * mvPosition;
+
         vTextureCoord = aTextureCoord;
         if (!uUseLighting) {
             vLightWeighting = vec3(1.0, 1.0, 1.0);
@@ -3229,6 +3234,11 @@ f 256/256/256 257/257/257 258/258/258
             vec3 transformedNormal = uNMatrix * aVertexNormal;
             float directionalLightWeighting = max(dot(transformedNormal, lightDirection), 0.0);
             vLightWeighting = uAmbientColor + uPointLightingColor * directionalLightWeighting;
+        }
+        if (u_Clicked) { //  Draw in red if mouse is pressed
+          v_Color = vec4(1.0, 0.0, 0.0, 1.0);
+        } else {
+          v_Color = a_Color;
         }
     }
 </script>
@@ -3348,6 +3358,7 @@ f 256/256/256 257/257/257 258/258/258
 		
 		return texture;
 	}
+
 	 
 	function handleTextureLoaded1(image, texture) {
 	  gl.bindTexture(gl.TEXTURE_2D, texture);
@@ -3378,6 +3389,8 @@ f 256/256/256 257/257/257 258/258/258
 	var dvdTexture;
 	var cylinderTexture;
     var shelfTexture;
+    var modra, zelena, rumena, rdeca, vijolicna, turkizna;
+
 	
     function initTextures() {
         groundTexture = gl.createTexture();
@@ -3436,6 +3449,50 @@ f 256/256/256 257/257/257 258/258/258
         }
         shelfTexture.image.src = "crate.gif";
 
+
+        modra = gl.createTexture();
+        modra.image = new Image();
+        modra.image.onload = function () {
+            handleLoadedTexture(modra)
+        }
+        modra.image.src = "modra.gif";
+
+        rdeca = gl.createTexture();
+        rdeca.image = new Image();
+        rdeca.image.onload = function () {
+            handleLoadedTexture(rdeca)
+        }
+        rdeca.image.src = "rdeca.gif";
+
+         rumena = gl.createTexture();
+        rumena.image = new Image();
+        rumena.image.onload = function () {
+            handleLoadedTexture(rumena)
+        }
+        rumena.image.src = "rumena.gif";
+
+         zelena = gl.createTexture();
+        zelena.image = new Image();
+        zelena.image.onload = function () {
+            handleLoadedTexture(zelena)
+        }
+        zelena.image.src = "zelena.gif";
+
+         turkizna = gl.createTexture();
+        turkizna.image = new Image();
+        turkizna.image.onload = function () {
+            handleLoadedTexture(turkizna)
+        }
+        turkizna.image.src = "turkizna.gif";
+
+
+         vijolicna = gl.createTexture();
+        vijolicna.image = new Image();
+        vijolicna.image.onload = function () {
+            handleLoadedTexture(vijolicna)
+        }
+        vijolicna.image.src = "vijolicna.gif";
+
     }
     
     var mvMatrix = mat4.create();
@@ -3467,6 +3524,7 @@ f 256/256/256 257/257/257 258/258/258
     function degToRad(degrees) {
         return degrees * Math.PI / 180;
     }
+    var hidden;
     
     var cameraXPosition = 0;
     var cameraYPosition = 0;
@@ -3490,17 +3548,18 @@ f 256/256/256 257/257/257 258/258/258
 	var newX = null;
 	var newY = null;
     var clicked = false;
-    //var mouseClickPosition;
+    var nadstropje = 0;
 	
 	var moonRotationMatrix = mat4.create();
 	mat4.identity(moonRotationMatrix);
+
 	
 	function handleMouseDown(event) {
 		mouseDown = true;
 		lastMouseX = event.clientX;
 		lastMouseY = event.clientY;
-        //clicked = true;
-        //drawScene();
+        clicked = true;
+        drawScene();
 	}
 	
 	function handleMouseUp(event) {
@@ -3514,11 +3573,13 @@ f 256/256/256 257/257/257 258/258/258
 	            // gor
 	            if (cameraYPosition > -10.5)
 	            	cameraYPosition -= 10.5;
+                nadstropje = 1;
 	        }
 	        if (lastMouseY > newY) {
 	            // dol
 	            if (cameraYPosition < 0)
 	            	cameraYPosition += 10.5;
+                nadstropje = 0;
 	        }
 	    }
 	    else {
@@ -3575,7 +3636,32 @@ f 256/256/256 257/257/257 258/258/258
 	        cameraYAngle -= 1;
         }
     }
-        
+
+    function getTexture4Picking(x){
+        switch(x) {
+            case 0:
+                return modra;
+                break;
+            case 1:
+                return zelena;
+                break;
+            case 2:
+                return rdeca;
+                break;
+            case 3:
+                return rumena;
+                break;
+            case 4:
+                return vijolicna;
+                break;
+            case 5:
+                return turkizna;
+                break;
+            default:
+                return modra;
+        }
+    }
+
     var mesh_dvd, mesh_podstavek, mesh_cilinder, mesh_star;
 	var cubeVertexPositionBuffer;
     var cubeVertexNormalBuffer;
@@ -3698,24 +3784,21 @@ f 256/256/256 257/257/257 258/258/258
         gl.bindFramebuffer(gl.FRAMEBUFFER, null);
     }
 
-    var GetColourMapColour = function (x, y) {
-      if (x >= gl.viewportWidth || y >= gl.viewportHeight
-        || x < 0 || y < 0) throw "Invalid colour map pixel address";
-      if (!lastCapturedColourMap) throw "Colour map not captured.";
-      // 4 components per colour, and y is inverted
-      var firstAddress = (gl.viewportHeight - 1 - y) * gl.viewportWidth * 4 + x * 4;
-      return [lastCapturedColourMap[firstAddress],
-              lastCapturedColourMap[firstAddress + 1],
-              lastCapturedColourMap[firstAddress + 2]];
+    function getPickingID(r, g, b){
+        (r==204)?r=1:r=0;
+        (g==204)?g=2:g=0;
+        (b==204)?b=4:b=0;
+        if((r+g+b) == 0)
+            return -1;
+        else
+            return (r + g + b - 1) + (nadstropje * 6);
     }
-
-
     
     function drawScene() {
 
-        //gl.bindFramebuffer(gl.FRAMEBUFFER, null);
-        /*if(clicked == true)
-            gl.bindFramebuffer(gl.FRAMEBUFFER, rttFramebuffer);*/
+        gl.bindFramebuffer(gl.FRAMEBUFFER, null);
+        if(clicked == true)
+            gl.bindFramebuffer(gl.FRAMEBUFFER, rttFramebuffer);
 
         gl.viewport(0, 0, gl.viewportWidth, gl.viewportHeight);
         gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
@@ -3725,15 +3808,15 @@ f 256/256/256 257/257/257 258/258/258
         if (lighting) {
             gl.uniform3f(
                 shaderProgram.ambientColorUniform,
-                parseFloat(0.1),
-                parseFloat(0.1),
-                parseFloat(0.1)
+                parseFloat(0.8),
+                parseFloat(0.8),
+                parseFloat(0.8)
             );
             gl.uniform3f(
                 shaderProgram.pointLightingLocationUniform,
-                parseFloat(0),
-                parseFloat(1),
-				parseFloat(-1)
+                parseFloat(5),
+                parseFloat(6),
+				parseFloat(8)
                 //parseFloat(-5)
             );
             gl.uniform3f(
@@ -3774,6 +3857,7 @@ f 256/256/256 257/257/257 258/258/258
         setMatrixUniforms();
         gl.drawElements(gl.TRIANGLES, mesh_cilinder.indexBuffer.numItems, gl.UNSIGNED_SHORT, 0);
 		mvPopMatrix();
+
         
         //loaded dvdji in police
         for(var j=0;j<2;j++){
@@ -3915,7 +3999,6 @@ f 256/256/256 257/257/257 258/258/258
                 mvPopMatrix();
             }
         }
-        
         //zvezdice
         for (i = 0; i < 5; i++) {
 	        mvPushMatrix();
@@ -3944,19 +4027,57 @@ f 256/256/256 257/257/257 258/258/258
 			mvPopMatrix();
 		}
 
-        /*if(clicked == true){
-
+        if(clicked == true){
+            for(var j=0;j<2;j++){
+                for(var i=0;i<4;i++){
+                    mvPushMatrix();
+                    mat4.rotate(mvMatrix, degToRad(cubeYAngle+(i*+60)), [0, 1, 0]);
+                    mat4.scale(mvMatrix,[cubeScale-1.3, cubeScale-0.7, cubeScale-0.5]);
+                    mat4.translate(mvMatrix, [cubeXPosition-4.7, (cubeYPosition -0.3)+(j*35), cubeZPosition -9.8]);
+                    gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexPositionBuffer);
+                    gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute, cubeVertexPositionBuffer.itemSize, gl.FLOAT, false, 0, 0);
+                    gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexNormalBuffer);
+                    gl.vertexAttribPointer(shaderProgram.vertexNormalAttribute, cubeVertexNormalBuffer.itemSize, gl.FLOAT, false, 0, 0);
+                    gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexTextureCoordBuffer);
+                    gl.vertexAttribPointer(shaderProgram.textureCoordAttribute, cubeVertexTextureCoordBuffer.itemSize, gl.FLOAT, false, 0, 0);
+                    gl.activeTexture(gl.TEXTURE0);
+                    gl.bindTexture(gl.TEXTURE_2D, getTexture4Picking(i));
+                    gl.uniform1i(shaderProgram.samplerUniform, 0);
+                    gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, cubeVertexIndexBuffer);
+                    setMatrixUniforms();
+                    gl.drawElements(gl.TRIANGLES, cubeVertexIndexBuffer.numItems, gl.UNSIGNED_SHORT, 0);
+                    mvPopMatrix();
+                    if(i<2){
+                        mvPushMatrix();
+                        mat4.rotate(mvMatrix, degToRad(cubeYAngle+(-60*(i+1))), [0, 1, 0]);
+                        mat4.scale(mvMatrix,[cubeScale-1.3, cubeScale-0.7, cubeScale-0.5]);
+                        mat4.translate(mvMatrix, [cubeXPosition-4.7, (cubeYPosition -0.3)+(j*35), cubeZPosition -9.8]);
+                        gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexPositionBuffer);
+                        gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute, cubeVertexPositionBuffer.itemSize, gl.FLOAT, false, 0, 0);
+                        gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexNormalBuffer);
+                        gl.vertexAttribPointer(shaderProgram.vertexNormalAttribute, cubeVertexNormalBuffer.itemSize, gl.FLOAT, false, 0, 0);
+                        gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexTextureCoordBuffer);
+                        gl.vertexAttribPointer(shaderProgram.textureCoordAttribute, cubeVertexTextureCoordBuffer.itemSize, gl.FLOAT, false, 0, 0);
+                        gl.activeTexture(gl.TEXTURE0);
+                        gl.bindTexture(gl.TEXTURE_2D, getTexture4Picking(5-i));
+                        gl.uniform1i(shaderProgram.samplerUniform, 0);
+                        gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, cubeVertexIndexBuffer);
+                        setMatrixUniforms();
+                        gl.drawElements(gl.TRIANGLES, cubeVertexIndexBuffer.numItems, gl.UNSIGNED_SHORT, 0);
+                        mvPopMatrix();
+                    }
+                }
+            }
             gl.readPixels(lastMouseX, gl.viewportHeight -lastMouseY,1 ,1, gl.RGBA, gl.UNSIGNED_BYTE, lastCapturedColourMap);
-            //var colour = GetColourMapColour(lastMouseX,lastMouseY);
-            //var vertexBufferIndex = colour[0] * 65536 + colour[1] * 256 + colour[2];
-
-            console.log(lastMouseX + "," + lastMouseY);
-            console.log(lastCapturedColourMap);
-            //console.log(vertexBufferIndex);
+            var id = getPickingID(lastCapturedColourMap[0], lastCapturedColourMap[1], lastCapturedColourMap[2], 0);
+            if(id != -1)
+                alert("Kliknjen je film z ID-jem: " + id);
+            console.log(lastCapturedColourMap[0] + "," + lastCapturedColourMap[1] + "," + lastCapturedColourMap[2]);
         }
-        clicked = false;*/
+        clicked = false;
     }
-
+    var u_MvpMatrix;
+    var u_Clicked;
 	
     function tick() {
         requestAnimFrame(tick);
@@ -3966,10 +4087,18 @@ f 256/256/256 257/257/257 258/258/258
     function webGLStart() {
         var canvas = document.getElementById("lesson12-canvas");
         initGL(canvas);
-        initShaders();
+        initShaders()
         initTextureFramebuffer();
         initBuffers();
         initTextures();
+        u_MvpMatrix = gl.getUniformLocation(shaderProgram, 'uPMatrix');
+        u_Clicked = gl.getUniformLocation(shaderProgram, 'u_Clicked');
+          if (!u_MvpMatrix || !u_Clicked) {
+            console.log('Failed to get the storage location of uniform variable');
+            return;
+          }
+        gl.uniform1i(u_Clicked, 0); // Pass false to u_Clicked
+
 		textTexture = createTextTexture("2013");
         gl.clearColor(0.0, 0.0, 0.0, 1.0);
         gl.enable(gl.DEPTH_TEST);
