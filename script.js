@@ -922,7 +922,7 @@ $(document).ready(function () {
 		var diffX = lastMouseX - newX;
 		var diffY = lastMouseY - newY;
 		
-		if (Math.abs(diffY) > Math.abs(diffX)) {
+		if (Math.abs(diffY) > Math.abs(diffX) && Math.abs(diffY) > 20) {
 			if (lastMouseY < newY) {
 	            // gor
 	            if (cameraYPosition > -10.5)
@@ -936,7 +936,7 @@ $(document).ready(function () {
                 nadstropje = 0;
 	        }
 	    }
-	    else {
+	    else if (Math.abs(diffX) > 20){
 	        //rotate camera
 	        if (lastMouseX < newX) {
 	            // left arrow
@@ -1339,6 +1339,7 @@ $(document).ready(function () {
                 gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, mesh_podstavek.indexBuffer);
                 setMatrixUniforms();
                 gl.drawElements(gl.TRIANGLES, mesh_podstavek.indexBuffer.numItems, gl.UNSIGNED_SHORT, 0);
+				
 				//letnica
 				mat4.scale(mvMatrix,[0.10, 0.05, 0.1]);
 				mat4.translate(mvMatrix, [-0.8, -3, 14.2]);
