@@ -179,13 +179,23 @@
             $output2 = "";
             $output3 = "";
             $output4 = "";
+            $outpu5 = "";
+            $output6 = "";
+            $output7 = "";
+            $output8 = "";
+            $output9 = "";
+            $output10 = "";
             while(($row = mysqli_fetch_assoc($result)) && $val < 12) {
 	           
 	           	if ($row["ID"] != $id){
                 	$output2 .= $row['poster_src'] . "#";
                 	$output3 .= $row["slo_naslov"] . " (" .  $row['year'] . ")" . "#";
                 	$output4 .= $row['tomatometer'] . "#";
-                
+                    $output6 .= $row['ang_naslov'] . "#";
+                    $output7 .= $row['genre'] . "#";
+                    $output8 .= $row['duration'] . "#";
+                    $output9 .= $row['country'] . "#";
+                    $output10 .= $row['summary'] . "#";
 					$val++;
                 }
             }
@@ -193,6 +203,12 @@
             $o[1] = $output2;
             $o[2] = $output3;
             $o[3] = $output4;
+            $o[4] = "";
+            $o[5] = $output6;
+            $o[6] = $output7;
+            $o[7] = $output8;
+            $o[8] = $output9;
+            $o[9] = $output10;
 		}
 		else {
             $o[1] = "Ni priporočil.";

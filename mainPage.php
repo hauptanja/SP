@@ -7,7 +7,10 @@ session_start();
         <link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Arimo:700' rel='stylesheet' type='text/css'>
+        <link href="jquery-ui.css" rel="stylesheet" type="text/css">
+        <link href="jquery-ui.theme.css" rel="stylesheet" type="text/css">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
         <script type="text/javascript" src="glMatrix-0.9.5.min.js"></script>
 		<script type="text/javascript" src="webgl-utils.js"></script>
@@ -17,6 +20,37 @@ session_start();
         <style type="text/css">
 			body {background-color: #d7d7d7}
 			#canvas_div {background-color: white}
+            #dialog-link {
+            padding: .4em 1em .4em 20px;
+            text-decoration: none;
+            position: relative;
+        }
+        #dialog-link span.ui-icon {
+            margin: 0 5px 0 0;
+            position: absolute;
+            left: .2em;
+            top: 50%;
+            margin-top: -8px;
+        }
+        #icons {
+            margin: 0;
+            padding: 0;
+        }
+        #icons li {
+            margin: 2px;
+            position: relative;
+            padding: 4px 0;
+            cursor: pointer;
+            float: left;
+            list-style: none;
+        }
+        #icons span.ui-icon {
+            float: left;
+            margin: 0 4px;
+        }
+        .fakewindowcontain .ui-widget-overlay {
+            position: absolute;
+        }
 		</style> 
 		
 		<script id="cilinder">
@@ -3238,7 +3272,30 @@ f 256/256/256 257/257/257 258/258/258
     </head>
     <body >
         <script>(function(d, s, id){var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) return;js = d.createElement(s); js.id = id;js.src ='//connect.facebook.net/sl_SI/sdk.js#xfbml=1&version=v2.3';fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));</script>
+        <script>
+          $(function() {
+            $( "#dialog" ).dialog({
+              autoOpen: false,
+              resizable: true,
+              width:400,
+              height:500,
+              show: {
+                effect: "blind",
+                duration: 1000
+              },
+              hide: {
+                effect: "explode",
+                duration: 1000
+              }
+            });
+
+            $( "#opener" ).click(function() {
+              $( "#dialog" ).dialog( "open" );
+            });
+          });
+          </script>
         
+
 	    <div id ="website">
 		    <div id="banner"></div>
 		    <div id="fb-root"></div>
@@ -3260,6 +3317,7 @@ f 256/256/256 257/257/257 258/258/258
 		        <div class="tabs">
 		            
 		            <div class="tab-content">
+                        <div id="dialog" title="Podatki o filmu"></div>
 		                <div id="main" class="tab active">
 			                <h1>Oglejte si...</h1>
 		                    <ul class="search-opt">

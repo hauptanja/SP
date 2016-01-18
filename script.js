@@ -538,6 +538,12 @@ $(document).ready(function () {
     var film_linki;
     var film_ocene;
     var film_leta;
+    var film_id;
+    var film_angNaslov;
+    var film_genre;
+    var film_duration;
+    var film_country;
+    var film_summary;
     
     $(document).on("click", "#show_canvas_button", function() {
         $('#canvas_div').show();
@@ -575,6 +581,20 @@ $(document).ready(function () {
 					
 					str = data[3];
 					film_ocene = str.split("#");
+
+                    str = data[4];
+                    //film_ID = str.split("#");
+                    str = data[5];
+                    film_angNaslov = str.split("#");
+                    str = data[6];
+                    film_genre = str.split("#");
+                    str = data[7];
+                    film_duration = str.split("#");
+                    str = data[8];
+                    film_country = str.split("#");
+                    str = data[9];
+                    film_summary = str.split("#");
+
 					
 					webGLStart();
                 }
@@ -996,22 +1016,22 @@ $(document).ready(function () {
     function getTexture4Picking(x){
         switch(x) {
             case 0:
-                return modra;
+                return rdeca;
                 break;
             case 1:
                 return zelena;
                 break;
             case 2:
-                return rdeca;
-                break;
-            case 3:
                 return rumena;
                 break;
+            case 3:
+                return modra;
+                break;
             case 4:
-                return vijolicna;
+                return turkizna;
                 break;
             case 5:
-                return turkizna;
+                return vijolicna;
                 break;
             default:
                 return modra;
@@ -1438,8 +1458,11 @@ $(document).ready(function () {
             gl.readPixels(x_in_canvas, y_in_canvas,1 ,1, gl.RGBA, gl.UNSIGNED_BYTE, lastCapturedColourMap);
             var id = getPickingID(lastCapturedColourMap[0], lastCapturedColourMap[1], lastCapturedColourMap[2], 0);
             console.log(lastMouseX + "  " + lastMouseY);
-            if(id != -1)
-                alert("Kliknjen je film z ID-jem: " + id);
+            if(id != -1){
+                //alert("Kliknjen je film z ID-jem: " + id + "<br>");
+                $("#dialog").html(film_leta[id] + "<br>" + film_angNaslov[id] + "<br>" + film_genre[id] + "<br>" + film_duration[id] + "<br>" + film_country[id] + "<br>" + film_summary[id]);
+                $( "#dialog" ).dialog( "open" );
+            }
             console.log(lastCapturedColourMap[0] + "," + lastCapturedColourMap[1] + "," + lastCapturedColourMap[2]);
         }
         clicked = false;

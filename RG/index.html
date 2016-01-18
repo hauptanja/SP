@@ -3622,12 +3622,14 @@ f 256/256/256 257/257/257 258/258/258
             // R gor
             if (cameraYPosition > -10.5)
             	cameraYPosition -= 10.5;
+            	nadstropje = 1;
 
         }
         if (currentlyPressedKeys[70]) {
             // F dol
             if (cameraYPosition < 0)
             	cameraYPosition += 10.5;
+            	nadstropje = 0;
         }
         //rotate camera
         if (currentlyPressedKeys[37]) {
