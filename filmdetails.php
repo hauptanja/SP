@@ -190,7 +190,7 @@
 	           	if ($row["ID"] != $id){
                 	$output2 .= $row['poster_src'] . "#";
                 	$output3 .= $row["slo_naslov"] . " (" .  $row['year'] . ")" . "#";
-                	$output4 .= $row['tomatometer'] . "#";
+                	$output4 .= $row['tomatometer'];
                     $output6 .= $row['ang_naslov'] . "#";
                     $output7 .= $row['genre'] . "#";
                     $output8 .= $row['duration'] . "#";

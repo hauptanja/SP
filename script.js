@@ -580,7 +580,7 @@ $(document).ready(function () {
 					film_leta = str.split("#");
 					
 					str = data[3];
-					film_ocene = str.split("#");
+					film_ocene = str.split("/10");
 
                     str = data[4];
                     //film_ID = str.split("#");
@@ -598,7 +598,6 @@ $(document).ready(function () {
 					
 					webGLStart();
                 }
-//                 alert(film_linki);
             },
             error: function (result) {
                 alert(result);
@@ -788,21 +787,21 @@ $(document).ready(function () {
         roofTexture.image.onload = function () {
             handleLoadedTexture(roofTexture)
         }
-        roofTexture.image.src = "grafika/grey.gif";
+        roofTexture.image.src = "grafika/gold.gif";
 		
 		cinemaTexture = gl.createTexture();
         cinemaTexture.image = new Image();
         cinemaTexture.image.onload = function () {
             handleLoadedTexture(cinemaTexture)
         }
-        cinemaTexture.image.src = "grafika/film.gif";
+        cinemaTexture.image.src = "grafika/kamera.png";
 		
 		wallTexture = gl.createTexture();
         wallTexture.image = new Image();
         wallTexture.image.onload = function () {
             handleLoadedTexture(wallTexture)
         }
-        wallTexture.image.src = "grafika/wall.gif";
+        wallTexture.image.src = "grafika/soba.png";
 		
 		dvdTexture = gl.createTexture();
         dvdTexture.image = new Image();
@@ -1039,6 +1038,7 @@ $(document).ready(function () {
     }
         
     var mesh_dvd, mesh_podstavek, mesh_cilinder, mesh_star;
+	var mesh_kamera, mesh_skybox;
 	var cubeVertexPositionBuffer;
     var cubeVertexNormalBuffer;
     var cubeVertexTextureCoordBuffer;
@@ -1087,6 +1087,26 @@ $(document).ready(function () {
 		*/
 		mesh_star = new OBJ.Mesh(objStr);
 		OBJ.initMeshBuffers(gl, mesh_star);
+		
+		objStr = document.getElementById('skybox').innerHTML; //SAMO ZA TESTIRANJE
+	    /*
+	    jQuery.get('dvd.obj', function(data) { //TU SE DA LINK DO OBJEKTA
+			objStr = data;
+			//alert(objStr);
+		});
+		*/
+		mesh_skybox = new OBJ.Mesh(objStr);
+		OBJ.initMeshBuffers(gl, mesh_skybox);
+		
+		objStr = document.getElementById('kamera').innerHTML; //SAMO ZA TESTIRANJE
+	    /*
+	    jQuery.get('dvd.obj', function(data) { //TU SE DA LINK DO OBJEKTA
+			objStr = data;
+			//alert(objStr);
+		});
+		*/
+		mesh_kamera = new OBJ.Mesh(objStr);
+		OBJ.initMeshBuffers(gl, mesh_kamera);
 		
 		cubeVertexPositionBuffer = gl.createBuffer();
         gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexPositionBuffer);
@@ -1206,6 +1226,32 @@ $(document).ready(function () {
 		mat4.rotate(mvMatrix, degToRad(cameraYAngle), [0, 1, 0]);
 		mat4.rotate(mvMatrix, degToRad(cameraZAngle), [0, 0, 1]);
 		
+		//loaded skybox
+		mvPushMatrix();
+		mat4.translate(mvMatrix, [0, -5.5, 5]);
+		mat4.scale(mvMatrix,[cubeScale+4, cubeScale+4, cubeScale+4]);
+		gl.bindBuffer(gl.ARRAY_BUFFER, mesh_skybox.vertexBuffer);
+        gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute, mesh_skybox.vertexBuffer.itemSize, gl.FLOAT, false, 0, 0);
+		
+		if(!mesh_skybox.textures.length){
+		  gl.disableVertexAttribArray(shaderProgram.textureCoordAttribute);
+		}
+		else{
+		  gl.enableVertexAttribArray(shaderProgram.textureCoordAttribute);
+		  gl.bindBuffer(gl.ARRAY_BUFFER, mesh_skybox.textureBuffer);
+		  gl.vertexAttribPointer(shaderProgram.textureCoordAttribute, mesh_skybox.textureBuffer.itemSize, gl.FLOAT, false, 0, 0);
+		  gl.activeTexture(gl.TEXTURE0);
+		  gl.bindTexture(gl.TEXTURE_2D, wallTexture); //dodaj teksturo
+		  gl.uniform1i(shaderProgram.samplerUniform, 0);
+		}
+		
+        gl.bindBuffer(gl.ARRAY_BUFFER, mesh_skybox.normalBuffer);
+        gl.vertexAttribPointer(shaderProgram.vertexNormalAttribute, mesh_skybox.normalBuffer.itemSize, gl.FLOAT, false, 0, 0);
+        gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, mesh_skybox.indexBuffer);
+        setMatrixUniforms();
+        gl.drawElements(gl.TRIANGLES, mesh_skybox.indexBuffer.numItems, gl.UNSIGNED_SHORT, 0);
+		mvPopMatrix();
+		
 		//loaded cylinder
 		mvPushMatrix();
 		mat4.translate(mvMatrix, [0, -4.7, 0]);
@@ -1221,7 +1267,7 @@ $(document).ready(function () {
 		  gl.bindBuffer(gl.ARRAY_BUFFER, mesh_cilinder.textureBuffer);
 		  gl.vertexAttribPointer(shaderProgram.textureCoordAttribute, mesh_cilinder.textureBuffer.itemSize, gl.FLOAT, false, 0, 0);
 		  gl.activeTexture(gl.TEXTURE0);
-		  gl.bindTexture(gl.TEXTURE_2D, wallTexture); //dodaj teksturo
+		  gl.bindTexture(gl.TEXTURE_2D, cylinderTexture); //dodaj teksturo
 		  gl.uniform1i(shaderProgram.samplerUniform, 0);
 		}
 		
@@ -1231,9 +1277,38 @@ $(document).ready(function () {
         setMatrixUniforms();
         gl.drawElements(gl.TRIANGLES, mesh_cilinder.indexBuffer.numItems, gl.UNSIGNED_SHORT, 0);
 		mvPopMatrix();
+		
+		//loaded kamera
+		for(var x=0; x<2; x++)
+		{
+			mvPushMatrix();
+			mat4.translate(mvMatrix, [0, (0+10.6)*x, 0]);
+			mat4.rotate(mvMatrix, degToRad(cameraXAngle+30), [0, 1, 0]);
+			mat4.scale(mvMatrix,[cubeScale-0.5, cubeScale-0.5, cubeScale-0.5]);
+			gl.bindBuffer(gl.ARRAY_BUFFER, mesh_kamera.vertexBuffer);
+			gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute, mesh_kamera.vertexBuffer.itemSize, gl.FLOAT, false, 0, 0);
+			
+			if(!mesh_cilinder.textures.length){
+			  gl.disableVertexAttribArray(shaderProgram.textureCoordAttribute);
+			}
+			else{
+			  gl.enableVertexAttribArray(shaderProgram.textureCoordAttribute);
+			  gl.bindBuffer(gl.ARRAY_BUFFER, mesh_kamera.textureBuffer);
+			  gl.vertexAttribPointer(shaderProgram.textureCoordAttribute, mesh_kamera.textureBuffer.itemSize, gl.FLOAT, false, 0, 0);
+			  gl.activeTexture(gl.TEXTURE0);
+			  gl.bindTexture(gl.TEXTURE_2D, cinemaTexture); //dodaj teksturo
+			  gl.uniform1i(shaderProgram.samplerUniform, 0);
+			}
+			
+			gl.bindBuffer(gl.ARRAY_BUFFER, mesh_kamera.normalBuffer);
+			gl.vertexAttribPointer(shaderProgram.vertexNormalAttribute, mesh_kamera.normalBuffer.itemSize, gl.FLOAT, false, 0, 0);
+			gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, mesh_kamera.indexBuffer);
+			setMatrixUniforms();
+			gl.drawElements(gl.TRIANGLES, mesh_kamera.indexBuffer.numItems, gl.UNSIGNED_SHORT, 0);
+			mvPopMatrix();
+		}
         
         //loaded dvdji
-        
         for(var j=0;j<2;j++){
             for(var i=0;i<4;i++){
                 mvPushMatrix();
@@ -1289,7 +1364,7 @@ $(document).ready(function () {
                 gl.drawElements(gl.TRIANGLES, mesh_podstavek.indexBuffer.numItems, gl.UNSIGNED_SHORT, 0);
                 
 				//letnica
-				mat4.scale(mvMatrix,[0.10, 0.05, 0.1]);
+				/*mat4.scale(mvMatrix,[0.10, 0.05, 0.1]);
 				mat4.translate(mvMatrix, [-0.8, -3, 14.2]);
 				mat4.rotate(mvMatrix, degToRad(180), [0, 1, 0]);
 				gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexPositionBuffer);
@@ -1303,7 +1378,7 @@ $(document).ready(function () {
 				gl.uniform1i(shaderProgram.samplerUniform, 0);
 				gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, cubeVertexIndexBuffer);
 				setMatrixUniforms();
-				gl.drawElements(gl.TRIANGLES, cubeVertexIndexBuffer.numItems, gl.UNSIGNED_SHORT, 0);
+				gl.drawElements(gl.TRIANGLES, cubeVertexIndexBuffer.numItems, gl.UNSIGNED_SHORT, 0);*/
                 mvPopMatrix();
             }
 
@@ -1361,7 +1436,7 @@ $(document).ready(function () {
                 gl.drawElements(gl.TRIANGLES, mesh_podstavek.indexBuffer.numItems, gl.UNSIGNED_SHORT, 0);
 				
 				//letnica
-				mat4.scale(mvMatrix,[0.10, 0.05, 0.1]);
+				/*mat4.scale(mvMatrix,[0.10, 0.05, 0.1]);
 				mat4.translate(mvMatrix, [-0.8, -3, 14.2]);
 				mat4.rotate(mvMatrix, degToRad(180), [0, 1, 0]);
 				gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexPositionBuffer);
@@ -1375,16 +1450,17 @@ $(document).ready(function () {
 				gl.uniform1i(shaderProgram.samplerUniform, 0);
 				gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, cubeVertexIndexBuffer);
 				setMatrixUniforms();
-				gl.drawElements(gl.TRIANGLES, cubeVertexIndexBuffer.numItems, gl.UNSIGNED_SHORT, 0);
+				gl.drawElements(gl.TRIANGLES, cubeVertexIndexBuffer.numItems, gl.UNSIGNED_SHORT, 0);*/
                 mvPopMatrix();
             }
         }
-        
-        //zvezdice
-        if (ocenaVzvezdicah != 0) {
-	        for (i = 0; i < ocenaVzvezdicah; i++) { //ocenaVzvezdicah
-		        mvPushMatrix();
-				mat4.translate(mvMatrix, [0.3*i-0.7, -1.2, -4.7]);
+		
+		/*if(ocenaVzvezdicah != 0)
+		{
+			for(var j=0; j<ocenaVzvezdicah; j++)
+			{
+				mvPushMatrix();
+				mat4.translate(mvMatrix, [-0.7, -1.2, -4.7]);
 				mat4.scale(mvMatrix,[0.02, 0.02, 0.02]);
 				gl.bindBuffer(gl.ARRAY_BUFFER, mesh_star.vertexBuffer);
 		        gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute, mesh_star.vertexBuffer.itemSize, gl.FLOAT, false, 0, 0);
@@ -1408,7 +1484,99 @@ $(document).ready(function () {
 		        gl.drawElements(gl.TRIANGLES, mesh_star.indexBuffer.numItems, gl.UNSIGNED_SHORT, 0);
 				mvPopMatrix();
 			}
+		}*/
+			
+		//zvezdice kamera
+		for(var j=0; j<2; j++)
+		{
+			for(i=0; i<5; i++){
+				mvPushMatrix();
+				mat4.rotate(mvMatrix, degToRad(cameraXAngle+30), [0, 1, 0]);
+				mat4.translate(mvMatrix, [0.35*i-0.7, -0.2+j*10.6, -0.2]);
+				mat4.scale(mvMatrix,[0.02, 0.02, 0.02]);
+				gl.bindBuffer(gl.ARRAY_BUFFER, mesh_star.vertexBuffer);
+				gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute, mesh_star.vertexBuffer.itemSize, gl.FLOAT, false, 0, 0);
+				
+				if(!mesh_cilinder.textures.length){
+				  gl.disableVertexAttribArray(shaderProgram.textureCoordAttribute);
+				}
+				else{
+				  gl.enableVertexAttribArray(shaderProgram.textureCoordAttribute);
+				  gl.bindBuffer(gl.ARRAY_BUFFER, mesh_star.textureBuffer);
+				  gl.vertexAttribPointer(shaderProgram.textureCoordAttribute, mesh_star.textureBuffer.itemSize, gl.FLOAT, false, 0, 0);
+				  gl.activeTexture(gl.TEXTURE0);
+				  gl.bindTexture(gl.TEXTURE_2D, roofTexture); //dodaj teksturo
+				  gl.uniform1i(shaderProgram.samplerUniform, 0);
+				}
+				
+				gl.bindBuffer(gl.ARRAY_BUFFER, mesh_star.normalBuffer);
+				gl.vertexAttribPointer(shaderProgram.vertexNormalAttribute, mesh_star.normalBuffer.itemSize, gl.FLOAT, false, 0, 0);
+				gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, mesh_star.indexBuffer);
+				setMatrixUniforms();
+				gl.drawElements(gl.TRIANGLES, mesh_star.indexBuffer.numItems, gl.UNSIGNED_SHORT, 0);
+				mvPopMatrix();
+			}
 		}
+		
+		for(var j=0; j<2; j++)
+		{
+			for(i=0; i<5; i++){
+				mvPushMatrix();
+				mat4.rotate(mvMatrix, degToRad(cameraXAngle+30), [0, 1, 0]);
+				mat4.translate(mvMatrix, [0.35*i-0.7, -0.2+j*10.6, -0.2+j*0.7]);
+				mat4.scale(mvMatrix,[0.02, 0.02, 0.02]);
+				gl.bindBuffer(gl.ARRAY_BUFFER, mesh_star.vertexBuffer);
+				gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute, mesh_star.vertexBuffer.itemSize, gl.FLOAT, false, 0, 0);
+				
+				if(!mesh_cilinder.textures.length){
+				  gl.disableVertexAttribArray(shaderProgram.textureCoordAttribute);
+				}
+				else{
+				  gl.enableVertexAttribArray(shaderProgram.textureCoordAttribute);
+				  gl.bindBuffer(gl.ARRAY_BUFFER, mesh_star.textureBuffer);
+				  gl.vertexAttribPointer(shaderProgram.textureCoordAttribute, mesh_star.textureBuffer.itemSize, gl.FLOAT, false, 0, 0);
+				  gl.activeTexture(gl.TEXTURE0);
+				  gl.bindTexture(gl.TEXTURE_2D, roofTexture); //dodaj teksturo
+				  gl.uniform1i(shaderProgram.samplerUniform, 0);
+				}
+				
+				gl.bindBuffer(gl.ARRAY_BUFFER, mesh_star.normalBuffer);
+				gl.vertexAttribPointer(shaderProgram.vertexNormalAttribute, mesh_star.normalBuffer.itemSize, gl.FLOAT, false, 0, 0);
+				gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, mesh_star.indexBuffer);
+				setMatrixUniforms();
+				gl.drawElements(gl.TRIANGLES, mesh_star.indexBuffer.numItems, gl.UNSIGNED_SHORT, 0);
+				mvPopMatrix();
+			}
+		}
+		
+		for(i=0; i<5; i++)
+		{
+			mvPushMatrix();
+			mat4.rotate(mvMatrix, degToRad(cameraXAngle+30), [0, 1, 0]);
+			mat4.translate(mvMatrix, [0.35*i-0.7, -0.2, -0.2+0.7]);
+			mat4.scale(mvMatrix,[0.02, 0.02, 0.02]);
+			gl.bindBuffer(gl.ARRAY_BUFFER, mesh_star.vertexBuffer);
+			gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute, mesh_star.vertexBuffer.itemSize, gl.FLOAT, false, 0, 0);
+			
+			if(!mesh_cilinder.textures.length){
+			  gl.disableVertexAttribArray(shaderProgram.textureCoordAttribute);
+			}
+			else{
+			  gl.enableVertexAttribArray(shaderProgram.textureCoordAttribute);
+			  gl.bindBuffer(gl.ARRAY_BUFFER, mesh_star.textureBuffer);
+			  gl.vertexAttribPointer(shaderProgram.textureCoordAttribute, mesh_star.textureBuffer.itemSize, gl.FLOAT, false, 0, 0);
+			  gl.activeTexture(gl.TEXTURE0);
+			  gl.bindTexture(gl.TEXTURE_2D, roofTexture); //dodaj teksturo
+			  gl.uniform1i(shaderProgram.samplerUniform, 0);
+			}
+			
+			gl.bindBuffer(gl.ARRAY_BUFFER, mesh_star.normalBuffer);
+			gl.vertexAttribPointer(shaderProgram.vertexNormalAttribute, mesh_star.normalBuffer.itemSize, gl.FLOAT, false, 0, 0);
+			gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, mesh_star.indexBuffer);
+			setMatrixUniforms();
+			gl.drawElements(gl.TRIANGLES, mesh_star.indexBuffer.numItems, gl.UNSIGNED_SHORT, 0);
+			mvPopMatrix();
+			}
 
         if(clicked == true){
             for(var j=0;j<2;j++){
@@ -1481,7 +1649,7 @@ $(document).ready(function () {
         initTextureFramebuffer();
         initBuffers();
         initTextures();
-		textTexture = createTextTexture("2013"); //letoNastanka
+		//textTexture = createTextTexture("2013"); //letoNastanka
         gl.clearColor(0.0, 0.0, 0.0, 1.0);
         gl.enable(gl.DEPTH_TEST);
         document.onkeydown = handleKeyDown;
